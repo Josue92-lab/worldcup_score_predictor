@@ -79,7 +79,7 @@
     },
     {
       "match_id": "GS_002",
-      "date": "2026-06-12",
+      "date": "2026-06-11",
       "phase": "Group A",
       "group": "Group A",
       "team_a": "Korea Republic",
@@ -209,11 +209,9 @@
         }
       ],
       "data_quality": {
-        "squad_match_status": "missing",
-        "player_kaggle_match_rate": 0.0,
-        "warnings": [
-          "Bosnia and Herzegovina: squad data is missing"
-        ]
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
       },
       "explanation": {
         "team_a_attack_strength": 0.8798,
@@ -221,15 +219,15 @@
         "team_a_defense_strength": 0.8856,
         "team_b_defense_strength": 0.9287,
         "team_a_squad_strength": 21275000.0,
-        "team_b_squad_strength": 0.0,
+        "team_b_squad_strength": 55025000.0,
         "main_factors": [
-          "Baseline Poisson model with default strengths"
+          "Bosnia and Herzegovina squad value is 2.6x Canada"
         ]
       }
     },
     {
       "match_id": "GS_004",
-      "date": "2026-06-13",
+      "date": "2026-06-12",
       "phase": "Group D",
       "group": "Group D",
       "team_a": "United States",
@@ -445,7 +443,7 @@
     },
     {
       "match_id": "GS_005",
-      "date": "2026-06-14",
+      "date": "2026-06-13",
       "phase": "Group C",
       "group": "Group C",
       "team_a": "Haiti",
@@ -517,7 +515,7 @@
     },
     {
       "match_id": "GS_006",
-      "date": "2026-06-14",
+      "date": "2026-06-13",
       "phase": "Group D",
       "group": "Group D",
       "team_a": "Australia",
@@ -807,7 +805,7 @@
     },
     {
       "match_id": "GS_012",
-      "date": "2026-06-15",
+      "date": "2026-06-14",
       "phase": "Group F",
       "group": "Group F",
       "team_a": "Sweden",
@@ -1097,7 +1095,7 @@
     },
     {
       "match_id": "GS_015",
-      "date": "2026-06-16",
+      "date": "2026-06-15",
       "phase": "Group G",
       "group": "Group G",
       "team_a": "IR Iran",
@@ -1315,7 +1313,7 @@
     },
     {
       "match_id": "GS_019",
-      "date": "2026-06-17",
+      "date": "2026-06-16",
       "phase": "Group J",
       "group": "Group J",
       "team_a": "Argentina",
@@ -1387,7 +1385,7 @@
     },
     {
       "match_id": "GS_020",
-      "date": "2026-06-17",
+      "date": "2026-06-16",
       "phase": "Group J",
       "group": "Group J",
       "team_a": "Austria",
@@ -1677,7 +1675,7 @@
     },
     {
       "match_id": "GS_024",
-      "date": "2026-06-18",
+      "date": "2026-06-17",
       "phase": "Group K",
       "group": "Group K",
       "team_a": "Uzbekistan",
@@ -1876,11 +1874,9 @@
         }
       ],
       "data_quality": {
-        "squad_match_status": "missing",
-        "player_kaggle_match_rate": 0.0,
-        "warnings": [
-          "Bosnia and Herzegovina: squad data is missing"
-        ]
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
       },
       "explanation": {
         "team_a_attack_strength": 1.0145,
@@ -1888,7 +1884,7 @@
         "team_a_defense_strength": 1.1105,
         "team_b_defense_strength": 0.9287,
         "team_a_squad_strength": 51150000.0,
-        "team_b_squad_strength": 0.0,
+        "team_b_squad_strength": 55025000.0,
         "main_factors": [
           "Baseline Poisson model with default strengths"
         ]
@@ -1968,7 +1964,7 @@
     },
     {
       "match_id": "GS_028",
-      "date": "2026-06-19",
+      "date": "2026-06-18",
       "phase": "Group A",
       "group": "Group A",
       "team_a": "Mexico",
@@ -2188,7 +2184,7 @@
     },
     {
       "match_id": "GS_029",
-      "date": "2026-06-20",
+      "date": "2026-06-19",
       "phase": "Group C",
       "group": "Group C",
       "team_a": "Brazil",
@@ -2260,7 +2256,7 @@
     },
     {
       "match_id": "GS_031",
-      "date": "2026-06-20",
+      "date": "2026-06-19",
       "phase": "Group D",
       "group": "Group D",
       "team_a": "T\u00fcrkiye",
@@ -2479,7 +2475,7 @@
     },
     {
       "match_id": "GS_034",
-      "date": "2026-06-21",
+      "date": "2026-06-20",
       "phase": "Group E",
       "group": "Group E",
       "team_a": "Ecuador",
@@ -2551,7 +2547,7 @@
     },
     {
       "match_id": "GS_036",
-      "date": "2026-06-21",
+      "date": "2026-06-20",
       "phase": "Group F",
       "group": "Group F",
       "team_a": "Tunisia",
@@ -2843,7 +2839,7 @@
     },
     {
       "match_id": "GS_040",
-      "date": "2026-06-22",
+      "date": "2026-06-21",
       "phase": "Group G",
       "group": "Group G",
       "team_a": "New Zealand",
@@ -3062,7 +3058,7 @@
     },
     {
       "match_id": "GS_041",
-      "date": "2026-06-23",
+      "date": "2026-06-22",
       "phase": "Group I",
       "group": "Group I",
       "team_a": "Norway",
@@ -3134,7 +3130,7 @@
     },
     {
       "match_id": "GS_044",
-      "date": "2026-06-23",
+      "date": "2026-06-22",
       "phase": "Group J",
       "group": "Group J",
       "team_a": "Jordan",
@@ -3423,7 +3419,7 @@
     },
     {
       "match_id": "GS_048",
-      "date": "2026-06-24",
+      "date": "2026-06-23",
       "phase": "Group K",
       "group": "Group K",
       "team_a": "Colombia",
@@ -3621,21 +3617,19 @@
         }
       ],
       "data_quality": {
-        "squad_match_status": "missing",
-        "player_kaggle_match_rate": 0.0,
-        "warnings": [
-          "Bosnia and Herzegovina: squad data is missing"
-        ]
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
       },
       "explanation": {
         "team_a_attack_strength": 0.9287,
         "team_b_attack_strength": 0.9571,
         "team_a_defense_strength": 0.9287,
         "team_b_defense_strength": 0.8204,
-        "team_a_squad_strength": 0.0,
+        "team_a_squad_strength": 55025000.0,
         "team_b_squad_strength": 4425000.0,
         "main_factors": [
-          "Baseline Poisson model with default strengths"
+          "Bosnia and Herzegovina squad value is 12.4x Qatar"
         ]
       }
     },
@@ -3786,7 +3780,7 @@
     },
     {
       "match_id": "GS_053",
-      "date": "2026-06-25",
+      "date": "2026-06-24",
       "phase": "Group A",
       "group": "Group A",
       "team_a": "Czech Republic",
@@ -3858,7 +3852,7 @@
     },
     {
       "match_id": "GS_054",
-      "date": "2026-06-25",
+      "date": "2026-06-24",
       "phase": "Group A",
       "group": "Group A",
       "team_a": "South Africa",
@@ -4224,7 +4218,7 @@
     },
     {
       "match_id": "GS_059",
-      "date": "2026-06-26",
+      "date": "2026-06-25",
       "phase": "Group D",
       "group": "Group D",
       "team_a": "T\u00fcrkiye",
@@ -4296,7 +4290,7 @@
     },
     {
       "match_id": "GS_060",
-      "date": "2026-06-26",
+      "date": "2026-06-25",
       "phase": "Group D",
       "group": "Group D",
       "team_a": "Paraguay",
@@ -4513,7 +4507,7 @@
     },
     {
       "match_id": "GS_065",
-      "date": "2026-06-27",
+      "date": "2026-06-26",
       "phase": "Group H",
       "group": "Group H",
       "team_a": "Cabo Verde",
@@ -4586,7 +4580,7 @@
     },
     {
       "match_id": "GS_066",
-      "date": "2026-06-27",
+      "date": "2026-06-26",
       "phase": "Group H",
       "group": "Group H",
       "team_a": "Uruguay",
@@ -4659,7 +4653,7 @@
     },
     {
       "match_id": "GS_063",
-      "date": "2026-06-27",
+      "date": "2026-06-26",
       "phase": "Group G",
       "group": "Group G",
       "team_a": "Egypt",
@@ -4732,7 +4726,7 @@
     },
     {
       "match_id": "GS_064",
-      "date": "2026-06-27",
+      "date": "2026-06-26",
       "phase": "Group G",
       "group": "Group G",
       "team_a": "New Zealand",
@@ -5094,7 +5088,7 @@
     },
     {
       "match_id": "GS_069",
-      "date": "2026-06-28",
+      "date": "2026-06-27",
       "phase": "Group J",
       "group": "Group J",
       "team_a": "Algeria",
@@ -5167,7 +5161,7 @@
     },
     {
       "match_id": "GS_070",
-      "date": "2026-06-28",
+      "date": "2026-06-27",
       "phase": "Group J",
       "group": "Group J",
       "team_a": "Jordan",
