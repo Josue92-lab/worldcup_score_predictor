@@ -4,6 +4,7 @@ import json
 import altair as alt
 from pathlib import Path
 import sys
+from datetime import date, timedelta
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
@@ -35,8 +36,48 @@ def normalize_prediction(row: dict) -> dict:
     normalized["away_win_probability"] = get_first(row, "away_win_probability", "team_b_win_probability")
     return normalized
 
+def load_evaluation_report():
+    eval_path = OUTPUTS_DIR / "evaluation_report.json"
+    if eval_path.exists():
+        with open(eval_path, "r", encoding="utf-8") as f:
+            eval_data = json.load(f)
+        matches = eval_data.get("matches", [])
+        return {str(m.get("match_id")): m for m in matches if m.get("match_id")}
+    return {}
+
 def main():
     st.set_page_config(page_title="World Cup Score Predictor", layout="wide")
+
+    st.markdown("""
+    <style>
+    .block-container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        max-width: 1500px;
+    }
+    h1 {
+        font-size: 2.2rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    h2 {
+        font-size: 1.45rem !important;
+        margin-top: 1.2rem !important;
+        margin-bottom: 0.6rem !important;
+    }
+    h3 {
+        font-size: 1.15rem !important;
+    }
+    div[data-testid="stMetricValue"] {
+        font-size: 1.55rem !important;
+    }
+    div[data-testid="stMetricLabel"] {
+        font-size: 0.85rem !important;
+    }
+    .stDataFrame {
+        font-size: 0.85rem !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
     st.title("🏆 World Cup Score Predictor")
 
@@ -49,7 +90,13 @@ def main():
         available_reports = [f for f in available_reports if f.name not in ["model_params.json", "evaluation_report.json"]]
         
         if available_reports:
-            selected_file = st.selectbox("Select Prediction Report", [f.name for f in available_reports])
+            # Filters block
+            col_rep, col_view = st.columns([2, 2])
+            with col_rep:
+                selected_file = st.selectbox("Select Prediction Report", [f.name for f in available_reports])
+            with col_view:
+                view_mode = st.radio("View Mode", ["Compact", "Detailed"], horizontal=True)
+
             file_path = OUTPUTS_DIR / selected_file
             
             with open(file_path, "r", encoding="utf-8") as f:
@@ -84,90 +131,209 @@ def main():
             if skipped > 0:
                 st.warning(f"Skipped {skipped} prediction rows due to missing team fields.")
                 
-            predictions = valid_predictions
+            # Load evaluation data to match
+            eval_map = load_evaluation_report()
 
-            if not predictions:
-                st.warning("No valid predictions available.")
-            else:
-                # Let user filter by team
-                all_teams = set()
-                for p in predictions:
-                    all_teams.add(p['team_a'])
-                    all_teams.add(p['team_b'])
+            # Assign Status & Dates
+            available_dates = set()
+            all_teams = set()
+            all_phases = set()
+
+            for p in valid_predictions:
+                match_id = str(p.get("match_id"))
+                eval_match = eval_map.get(match_id)
+                p_date_str = str(p.get("date")) if p.get("date") else None
                 
+                # Assign actuals from eval_match if available
+                p["_actual_score"] = eval_match.get("actual_scoreline") if eval_match else None
+                p["_top_5_hit"] = eval_match.get("top_5_correct") if eval_match else None
+                p["_1x2_hit"] = eval_match.get("outcome_1x2_correct") if eval_match else None
+
+                # Infer status
+                if p["_actual_score"] is not None:
+                    p["_status"] = "Played"
+                else:
+                    if p_date_str and p_date_str == str(date.today()):
+                        p["_status"] = "Today"
+                    else:
+                        p["_status"] = "Upcoming"
+
+                if p_date_str:
+                    available_dates.add(p_date_str)
+                all_teams.add(p['team_a'])
+                all_teams.add(p['team_b'])
+                if p.get('phase'):
+                    all_phases.add(p['phase'])
+
+            # Add more filters
+            col_date, col_team, col_phase, col_status = st.columns(4)
+            with col_date:
+                preset_dates = st.selectbox("Date Range", ["All dates", "Today", "Next 3 days", "Played only", "Upcoming only", "Custom range"])
+            with col_team:
                 selected_team = st.selectbox("Filter by Team", ["All"] + sorted(list(all_teams)))
+            with col_phase:
+                selected_phase = st.selectbox("Phase / Group", ["All"] + sorted(list(all_phases)))
+            with col_status:
+                selected_status = st.selectbox("Match Status", ["All", "Played", "Upcoming", "Today"])
+
+            # Filter Logic
+            filtered_predictions = []
+            today_str = str(date.today())
+            next_3_str = str(date.today() + timedelta(days=3))
+
+            custom_dates = None
+            if preset_dates == "Custom range":
+                custom_dates = st.date_input("Select Dates", [])
+
+            for p in valid_predictions:
+                # Team
+                if selected_team != "All" and selected_team not in (p['team_a'], p['team_b']):
+                    continue
+                # Phase
+                if selected_phase != "All" and str(p.get('phase')) != selected_phase:
+                    continue
+                # Status
+                if selected_status != "All" and p.get("_status") != selected_status:
+                    continue
+                # Dates
+                p_date = str(p.get('date')) if p.get('date') else ""
                 
-                for p in predictions:
-                    if selected_team != "All" and selected_team not in (p['team_a'], p['team_b']):
-                        continue
-                        
-                    st.subheader(f"Match: {p['team_a']} vs {p['team_b']}")
-                    st.write(f"**{p['team_a_label']}:** {p['team_a']}  \n"
-                             f"**{p['team_b_label']}:** {p['team_b']}  \n"
-                             f"**Venue:** {p['venue']}  \n"
-                             f"**Neutral:** {p['neutral']}")
-                    st.write(f"**Match ID:** {p.get('match_id', 'N/A')} | **Phase:** {p.get('phase', 'N/A')} | **Date:** {p.get('date', 'N/A')}")
-                    
-                    col1, col2, col3 = st.columns(3)
-                    col1.metric(f"{p['team_a']} Win Prob", f"{p['home_win_probability']:.1%}")
-                    col2.metric("Draw Prob", f"{p['draw_probability']:.1%}")
-                    col3.metric(f"{p['team_b']} Win Prob", f"{p['away_win_probability']:.1%}")
-                    
-                    st.write(f"**Scoreline probability: {p['team_a']} vs {p['team_b']}**")
-                    scoreline_data = pd.DataFrame(p['top_5_scorelines'])
-                    if not scoreline_data.empty:
-                        if 'display_scoreline' not in scoreline_data.columns:
-                            # Backward compatibility for bare scoreline format
-                            scoreline_data['display_scoreline'] = scoreline_data.apply(
-                                lambda r: f"{p['team_a']} {r.get('scoreline', '?-?').split('-')[0]} - {r.get('scoreline', '?-?').split('-')[-1]} {p['team_b']}", axis=1
-                            )
-                        
-                        scoreline_data["probability_pct"] = scoreline_data["probability"].astype(float) * 100
-                        
-                        # Dataframe presentation
-                        display_df = scoreline_data[["display_scoreline", "probability_pct"]].rename(columns={
-                            "display_scoreline": "Scoreline",
-                            "probability_pct": "Probability"
+                if preset_dates == "Today" and p_date != today_str:
+                    continue
+                elif preset_dates == "Next 3 days" and not (today_str <= p_date <= next_3_str):
+                    continue
+                elif preset_dates == "Played only" and p.get("_status") != "Played":
+                    continue
+                elif preset_dates == "Upcoming only" and p.get("_status") != "Upcoming":
+                    continue
+                elif preset_dates == "Custom range" and custom_dates:
+                    if len(custom_dates) == 1:
+                        if p_date != str(custom_dates[0]):
+                            continue
+                    elif len(custom_dates) == 2:
+                        if not (str(custom_dates[0]) <= p_date <= str(custom_dates[1])):
+                            continue
+
+                filtered_predictions.append(p)
+
+            st.write(f"**Showing {len(filtered_predictions)} matches**")
+
+            if not filtered_predictions:
+                st.info("No matches match the selected filters.")
+            else:
+                # Summary Table
+                if view_mode == "Compact":
+                    summary_rows = []
+                    for p in filtered_predictions:
+                        top_pred = ""
+                        top_prob = ""
+                        if p.get("top_5_scorelines"):
+                            top = p["top_5_scorelines"][0]
+                            top_pred = f"{p['team_a']} {top.get('scoreline', '?-?').split('-')[0]} - {top.get('scoreline', '?-?').split('-')[-1]} {p['team_b']}"
+                            top_prob = f"{float(top.get('probability', 0)) * 100:.2f}%"
+
+                        summary_rows.append({
+                            "Date": p.get("date", ""),
+                            "Phase / Group": p.get("phase", ""),
+                            "Match": f"{p['team_a']} vs {p['team_b']}",
+                            "Team A Win %": f"{float(p.get('home_win_probability', 0)):.1%}",
+                            "Draw %": f"{float(p.get('draw_probability', 0)):.1%}",
+                            "Team B Win %": f"{float(p.get('away_win_probability', 0)):.1%}",
+                            "Top Prediction": top_pred,
+                            "Top Prediction %": top_prob,
+                            "Actual Score": p.get("_actual_score", ""),
+                            "Top 5 Hit": "✅" if p.get("_top_5_hit") else ("❌" if p.get("_top_5_hit") is False else ""),
+                            "1X2 Hit": "✅" if p.get("_1x2_hit") else ("❌" if p.get("_1x2_hit") is False else "")
                         })
-                        st.dataframe(
-                            display_df,
-                            use_container_width=True,
-                            hide_index=True,
-                            column_config={
-                                "Probability": st.column_config.NumberColumn(
-                                    "Probability",
-                                    format="%.2f%%"
-                                )
-                            }
-                        )
+
+                    st.dataframe(pd.DataFrame(summary_rows), use_container_width=True, hide_index=True)
+
+                # Expanders (or detailed blocks)
+                for idx, p in enumerate(filtered_predictions):
+                    expand_by_default = (idx == 0 and len(filtered_predictions) <= 5)
+                    top_pred = ""
+                    if p.get("top_5_scorelines"):
+                        top = p["top_5_scorelines"][0]
+                        top_pred = f"{p['team_a']} {top.get('scoreline', '?-?').split('-')[0]} - {top.get('scoreline', '?-?').split('-')[-1]} {p['team_b']}"
+
+                    expander_title = f"{p.get('date', '')} | {p['team_a']} vs {p['team_b']} | Top: {top_pred}"
+                    if p.get("_actual_score"):
+                        expander_title += f" | Actual: {p['_actual_score']}"
+
+                    if view_mode == "Compact":
+                        container = st.expander(expander_title, expanded=expand_by_default)
+                    else:
+                        st.subheader(f"Match: {p['team_a']} vs {p['team_b']}")
+                        container = st.container()
+
+                    with container:
+                        st.write(f"**{p['team_a_label']}:** {p['team_a']}  \n"
+                                 f"**{p['team_b_label']}:** {p['team_b']}  \n"
+                                 f"**Venue:** {p['venue']}  \n"
+                                 f"**Neutral:** {p['neutral']}")
+                        st.write(f"**Match ID:** {p.get('match_id', 'N/A')} | **Phase:** {p.get('phase', 'N/A')} | **Date:** {p.get('date', 'N/A')}")
                         
-                        # Plot displaying probabilities vs scorelines
-                        chart_df = scoreline_data.copy()
-                        chart_df["Probability (%)"] = chart_df["probability_pct"]
-                        chart_df["Scoreline"] = chart_df["display_scoreline"]
-
-                        chart = (
-                            alt.Chart(chart_df)
-                            .mark_bar()
-                            .encode(
-                                x=alt.X("Probability (%):Q", title="Probability (%)"),
-                                y=alt.Y("Scoreline:N", sort="-x", title="Scoreline"),
-                                tooltip=[
-                                    alt.Tooltip("Scoreline:N", title="Scoreline"),
-                                    alt.Tooltip("Probability (%):Q", title="Probability", format=".2f")
-                                ],
+                        col1, col2, col3 = st.columns(3)
+                        col1.metric(f"{p['team_a']} Win Prob", f"{float(p.get('home_win_probability', 0)):.1%}")
+                        col2.metric("Draw Prob", f"{float(p.get('draw_probability', 0)):.1%}")
+                        col3.metric(f"{p['team_b']} Win Prob", f"{float(p.get('away_win_probability', 0)):.1%}")
+                        
+                        st.write(f"**Scoreline probability: {p['team_a']} vs {p['team_b']}**")
+                        scoreline_data = pd.DataFrame(p['top_5_scorelines'])
+                        if not scoreline_data.empty:
+                            if 'display_scoreline' not in scoreline_data.columns:
+                                # Backward compatibility for bare scoreline format
+                                scoreline_data['display_scoreline'] = scoreline_data.apply(
+                                    lambda r: f"{p['team_a']} {r.get('scoreline', '?-?').split('-')[0]} - {r.get('scoreline', '?-?').split('-')[-1]} {p['team_b']}", axis=1
+                                )
+                            
+                            scoreline_data["probability_pct"] = scoreline_data["probability"].astype(float) * 100
+                            
+                            # Dataframe presentation
+                            display_df = scoreline_data[["display_scoreline", "probability_pct"]].rename(columns={
+                                "display_scoreline": "Scoreline",
+                                "probability_pct": "Probability"
+                            })
+                            st.dataframe(
+                                display_df,
+                                use_container_width=True,
+                                hide_index=True,
+                                column_config={
+                                    "Probability": st.column_config.NumberColumn(
+                                        "Probability",
+                                        format="%.2f%%"
+                                    )
+                                }
                             )
-                            .properties(height=260)
-                        )
+                            
+                            # Plot displaying probabilities vs scorelines
+                            chart_df = scoreline_data.copy()
+                            chart_df["Probability (%)"] = chart_df["probability_pct"]
+                            chart_df["Scoreline"] = chart_df["display_scoreline"]
 
-                        st.altair_chart(chart, use_container_width=True)
-                    
-                    with st.expander("Explanation & Data Quality"):
-                        st.json(p['explanation'])
-                        if p['data_quality']['warnings']:
-                            for w in p['data_quality']['warnings']:
-                                st.warning(w)
-                    st.divider()
+                            chart = (
+                                alt.Chart(chart_df)
+                                .mark_bar()
+                                .encode(
+                                    x=alt.X("Probability (%):Q", title="Probability (%)"),
+                                    y=alt.Y("Scoreline:N", sort="-x", title="Scoreline"),
+                                    tooltip=[
+                                        alt.Tooltip("Scoreline:N", title="Scoreline"),
+                                        alt.Tooltip("Probability (%):Q", title="Probability", format=".2f")
+                                    ],
+                                )
+                                .properties(height=190)
+                            )
+
+                            st.altair_chart(chart, use_container_width=True)
+                        
+                        with st.expander("Explanation & Data Quality", expanded=False):
+                            st.json(p.get('explanation', {}))
+                            if p.get('data_quality', {}).get('warnings'):
+                                for w in p.get('data_quality', {}).get('warnings', []):
+                                    st.warning(w)
+                        if view_mode == "Detailed":
+                            st.divider()
         else:
             st.info("Run `python -m src.cli backtest` to generate predictions.")
 
