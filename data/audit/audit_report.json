@@ -1,0 +1,67 @@
+{
+  "fixture_rows": 104,
+  "venues_rows": 16,
+  "squad_teams": 48,
+  "squad_players": 1248,
+  "duplicate_match_ids": [],
+  "missing_fixture_values": {},
+  "missing_venue_codes": [],
+  "invalid_dates": [],
+  "unmatched_fixture_teams_to_squads": [
+    "Bosnia and Herzegovina"
+  ],
+  "unmatched_squad_teams_to_fixture": [
+    "Bosnia And Herzegovina"
+  ],
+  "unmatched_squad_players_to_kaggle": [],
+  "team_aliases_required": [],
+  "knockout_placeholders_detected": true,
+  "kaggle_player_scores": {
+    "download_method": "direct_http_zip",
+    "zip_path": "data\\raw\\player_scores\\player-scores.zip",
+    "extract_path": "data\\raw\\player_scores",
+    "expected_files": [
+      "appearances.csv",
+      "club_games.csv",
+      "clubs.csv",
+      "competitions.csv",
+      "countries.csv",
+      "game_events.csv",
+      "game_lineups.csv",
+      "games.csv",
+      "national_teams.csv",
+      "player_valuations.csv",
+      "players.csv",
+      "transfers.csv"
+    ],
+    "missing_files": [],
+    "file_row_counts": {
+      "appearances.csv": 1885697,
+      "club_games.csv": 177616,
+      "clubs.csv": 796,
+      "competitions.csv": 67,
+      "countries.csv": 118,
+      "game_events.csv": 1272163,
+      "game_lineups.csv": 3172509,
+      "games.csv": 88808,
+      "national_teams.csv": 118,
+      "player_valuations.csv": 507815,
+      "players.csv": 47716,
+      "transfers.csv": 40208
+    },
+    "status": "pass"
+  },
+  "warnings": [
+    "Knockout placeholders found: 64 unique placeholders."
+  ],
+  "status": "needs_review",
+  "fixture_date_validation": {
+    "world_cup_start": "2026-06-11",
+    "world_cup_end": "2026-07-19",
+    "matches_before_start": [],
+    "matches_after_end": [],
+    "group_stage_after_knockout_started": [],
+    "suspicious_local_kickoffs": [],
+    "status": "pass"
+  }
+}

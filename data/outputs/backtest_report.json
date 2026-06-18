@@ -1,0 +1,5242 @@
+{
+  "metadata": {
+    "mode": "backtest",
+    "as_of_date": null,
+    "train_cutoff": "2026-06-10"
+  },
+  "predictions": [
+    {
+      "match_id": "GS_001",
+      "date": "2026-06-11",
+      "phase": "Group A",
+      "group": "Group A",
+      "team_a": "Mexico",
+      "team_b": "South Africa",
+      "home_team": "Mexico",
+      "away_team": "South Africa",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "MEX_CDMX",
+      "neutral": true,
+      "expected_goals_team_a": 1.134,
+      "expected_goals_team_b": 0.968,
+      "team_a_win_probability": 0.376,
+      "draw_probability": 0.3329,
+      "team_b_win_probability": 0.2912,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Mexico 1 - 1 South Africa",
+          "probability": 0.1516
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Mexico 0 - 0 South Africa",
+          "probability": 0.1396
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Mexico 1 - 0 South Africa",
+          "probability": 0.1211
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Mexico 0 - 1 South Africa",
+          "probability": 0.1009
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 0,
+          "scoreline": "2-0",
+          "display_scoreline": "Mexico 2 - 0 South Africa",
+          "probability": 0.0785
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.1988,
+        "team_b_attack_strength": 0.9215,
+        "team_a_defense_strength": 0.7151,
+        "team_b_defense_strength": 0.6436,
+        "team_a_squad_strength": 17385000.0,
+        "team_b_squad_strength": 5675000.0,
+        "main_factors": [
+          "Mexico squad value is 3.1x South Africa"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_002",
+      "date": "2026-06-12",
+      "phase": "Group A",
+      "group": "Group A",
+      "team_a": "Korea Republic",
+      "team_b": "Czech Republic",
+      "home_team": "Korea Republic",
+      "away_team": "Czech Republic",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "MEX_GDL",
+      "neutral": true,
+      "expected_goals_team_a": 1.238,
+      "expected_goals_team_b": 1.103,
+      "team_a_win_probability": 0.3759,
+      "draw_probability": 0.3141,
+      "team_b_win_probability": 0.31,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Korea Republic 1 - 1 Czech Republic",
+          "probability": 0.1485
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Korea Republic 0 - 0 Czech Republic",
+          "probability": 0.1133
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Korea Republic 1 - 0 Czech Republic",
+          "probability": 0.102
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Korea Republic 0 - 1 Czech Republic",
+          "probability": 0.0891
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Korea Republic 2 - 1 Czech Republic",
+          "probability": 0.0813
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "partial",
+        "player_kaggle_match_rate": 0.423,
+        "warnings": [
+          "Korea Republic: squad data is partial"
+        ]
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.2109,
+        "team_b_attack_strength": 1.2154,
+        "team_a_defense_strength": 0.6176,
+        "team_b_defense_strength": 0.6956,
+        "team_a_squad_strength": 2250000.0,
+        "team_b_squad_strength": 12400000.0,
+        "main_factors": [
+          "Korea Republic has strong historical attack (1.21x avg)",
+          "Czech Republic has strong historical attack (1.22x avg)",
+          "Czech Republic squad value is 5.5x Korea Republic"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_003",
+      "date": "2026-06-12",
+      "phase": "Group B",
+      "group": "Group B",
+      "team_a": "Canada",
+      "team_b": "Bosnia and Herzegovina",
+      "home_team": "Canada",
+      "away_team": "Bosnia and Herzegovina",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "CAN_TOR",
+      "neutral": true,
+      "expected_goals_team_a": 1.209,
+      "expected_goals_team_b": 1.217,
+      "team_a_win_probability": 0.3438,
+      "draw_probability": 0.3086,
+      "team_b_win_probability": 0.3476,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Canada 1 - 1 Bosnia and Herzegovina",
+          "probability": 0.1469
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Canada 0 - 0 Bosnia and Herzegovina",
+          "probability": 0.1052
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Canada 0 - 1 Bosnia and Herzegovina",
+          "probability": 0.0906
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Canada 1 - 0 Bosnia and Herzegovina",
+          "probability": 0.0899
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Canada 1 - 2 Bosnia and Herzegovina",
+          "probability": 0.0792
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "missing",
+        "player_kaggle_match_rate": 0.0,
+        "warnings": [
+          "Bosnia and Herzegovina: squad data is missing"
+        ]
+      },
+      "explanation": {
+        "team_a_attack_strength": 0.8821,
+        "team_b_attack_strength": 0.9329,
+        "team_a_defense_strength": 0.8879,
+        "team_b_defense_strength": 0.9329,
+        "team_a_squad_strength": 21275000.0,
+        "team_b_squad_strength": 0.0,
+        "main_factors": [
+          "Baseline Poisson model with default strengths"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_004",
+      "date": "2026-06-13",
+      "phase": "Group D",
+      "group": "Group D",
+      "team_a": "United States",
+      "team_b": "Paraguay",
+      "home_team": "United States",
+      "away_team": "Paraguay",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_LA",
+      "neutral": true,
+      "expected_goals_team_a": 1.469,
+      "expected_goals_team_b": 1.156,
+      "team_a_win_probability": 0.4273,
+      "draw_probability": 0.2907,
+      "team_b_win_probability": 0.282,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "United States 1 - 1 Paraguay",
+          "probability": 0.139
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "United States 1 - 0 Paraguay",
+          "probability": 0.0904
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "United States 2 - 1 Paraguay",
+          "probability": 0.0904
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "United States 0 - 0 Paraguay",
+          "probability": 0.0884
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 0,
+          "scoreline": "2-0",
+          "display_scoreline": "United States 2 - 0 Paraguay",
+          "probability": 0.0782
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.0336,
+        "team_b_attack_strength": 0.8717,
+        "team_a_defense_strength": 0.9027,
+        "team_b_defense_strength": 0.9672,
+        "team_a_squad_strength": 41975000.0,
+        "team_b_squad_strength": 6000000.0,
+        "main_factors": [
+          "United States squad value is 7.0x Paraguay"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_008",
+      "date": "2026-06-13",
+      "phase": "Group B",
+      "group": "Group B",
+      "team_a": "Qatar",
+      "team_b": "Switzerland",
+      "home_team": "Qatar",
+      "away_team": "Switzerland",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_SF",
+      "neutral": true,
+      "expected_goals_team_a": 1.568,
+      "expected_goals_team_b": 1.227,
+      "team_a_win_probability": 0.437,
+      "draw_probability": 0.2796,
+      "team_b_win_probability": 0.2834,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Qatar 1 - 1 Switzerland",
+          "probability": 0.1329
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Qatar 2 - 1 Switzerland",
+          "probability": 0.0922
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Qatar 1 - 0 Switzerland",
+          "probability": 0.0805
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Qatar 0 - 0 Switzerland",
+          "probability": 0.0764
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 0,
+          "scoreline": "2-0",
+          "display_scoreline": "Qatar 2 - 0 Switzerland",
+          "probability": 0.0751
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 0.9591,
+        "team_b_attack_strength": 1.0161,
+        "team_a_defense_strength": 0.8219,
+        "team_b_defense_strength": 1.1123,
+        "team_a_squad_strength": 4425000.0,
+        "team_b_squad_strength": 51150000.0,
+        "main_factors": [
+          "Switzerland squad value is 11.6x Qatar"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_007",
+      "date": "2026-06-13",
+      "phase": "Group C",
+      "group": "Group C",
+      "team_a": "Brazil",
+      "team_b": "Morocco",
+      "home_team": "Brazil",
+      "away_team": "Morocco",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_NY",
+      "neutral": true,
+      "expected_goals_team_a": 1.186,
+      "expected_goals_team_b": 0.913,
+      "team_a_win_probability": 0.4046,
+      "draw_probability": 0.3304,
+      "team_b_win_probability": 0.265,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Brazil 1 - 1 Morocco",
+          "probability": 0.15
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Brazil 0 - 0 Morocco",
+          "probability": 0.1399
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Brazil 1 - 0 Morocco",
+          "probability": 0.1281
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Brazil 0 - 1 Morocco",
+          "probability": 0.0947
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 0,
+          "scoreline": "2-0",
+          "display_scoreline": "Brazil 2 - 0 Morocco",
+          "probability": 0.0862
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.4811,
+        "team_b_attack_strength": 1.0102,
+        "team_a_defense_strength": 0.6149,
+        "team_b_defense_strength": 0.5448,
+        "team_a_squad_strength": 78325000.0,
+        "team_b_squad_strength": 83925000.0,
+        "main_factors": [
+          "Brazil has strong historical attack (1.48x avg)"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_005",
+      "date": "2026-06-14",
+      "phase": "Group C",
+      "group": "Group C",
+      "team_a": "Haiti",
+      "team_b": "Scotland",
+      "home_team": "Haiti",
+      "away_team": "Scotland",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_BOS",
+      "neutral": true,
+      "expected_goals_team_a": 1.38,
+      "expected_goals_team_b": 1.564,
+      "team_a_win_probability": 0.3222,
+      "draw_probability": 0.2742,
+      "team_b_win_probability": 0.4037,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Haiti 1 - 1 Scotland",
+          "probability": 0.1285
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Haiti 1 - 2 Scotland",
+          "probability": 0.0889
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Haiti 2 - 1 Scotland",
+          "probability": 0.0784
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Haiti 0 - 1 Scotland",
+          "probability": 0.0676
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Haiti 0 - 0 Scotland",
+          "probability": 0.0675
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.923,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.1181,
+        "team_b_attack_strength": 1.1626,
+        "team_a_defense_strength": 0.9153,
+        "team_b_defense_strength": 0.8396,
+        "team_a_squad_strength": 52075000.0,
+        "team_b_squad_strength": 21050000.0,
+        "main_factors": [
+          "Haiti squad value is 2.5x Scotland"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_006",
+      "date": "2026-06-14",
+      "phase": "Group D",
+      "group": "Group D",
+      "team_a": "Australia",
+      "team_b": "T\u00fcrkiye",
+      "home_team": "Australia",
+      "away_team": "T\u00fcrkiye",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "CAN_VAN",
+      "neutral": true,
+      "expected_goals_team_a": 1.925,
+      "expected_goals_team_b": 1.015,
+      "team_a_win_probability": 0.572,
+      "draw_probability": 0.2461,
+      "team_b_win_probability": 0.1818,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Australia 1 - 1 T\u00fcrkiye",
+          "probability": 0.1168
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Australia 2 - 1 T\u00fcrkiye",
+          "probability": 0.0995
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 0,
+          "scoreline": "2-0",
+          "display_scoreline": "Australia 2 - 0 T\u00fcrkiye",
+          "probability": 0.098
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Australia 1 - 0 T\u00fcrkiye",
+          "probability": 0.0884
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Australia 0 - 0 T\u00fcrkiye",
+          "probability": 0.0664
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.3668,
+        "team_b_attack_strength": 0.9529,
+        "team_a_defense_strength": 0.725,
+        "team_b_defense_strength": 0.9582,
+        "team_a_squad_strength": 14650000.0,
+        "team_b_squad_strength": 77750000.0,
+        "main_factors": [
+          "Australia has strong historical attack (1.37x avg)",
+          "T\u00fcrkiye squad value is 5.3x Australia"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_010",
+      "date": "2026-06-14",
+      "phase": "Group E",
+      "group": "Group E",
+      "team_a": "Germany",
+      "team_b": "Cura\u00e7ao",
+      "home_team": "Germany",
+      "away_team": "Cura\u00e7ao",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_HOU",
+      "neutral": true,
+      "expected_goals_team_a": 2.418,
+      "expected_goals_team_b": 1.304,
+      "team_a_win_probability": 0.6087,
+      "draw_probability": 0.2069,
+      "team_b_win_probability": 0.1844,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Germany 2 - 1 Cura\u00e7ao",
+          "probability": 0.0925
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Germany 1 - 1 Cura\u00e7ao",
+          "probability": 0.0865
+        },
+        {
+          "team_a_goals": 3,
+          "team_b_goals": 1,
+          "scoreline": "3-1",
+          "display_scoreline": "Germany 3 - 1 Cura\u00e7ao",
+          "probability": 0.0746
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 0,
+          "scoreline": "2-0",
+          "display_scoreline": "Germany 2 - 0 Cura\u00e7ao",
+          "probability": 0.0709
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 2,
+          "scoreline": "2-2",
+          "display_scoreline": "Germany 2 - 2 Cura\u00e7ao",
+          "probability": 0.0603
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.5312,
+        "team_b_attack_strength": 1.1223,
+        "team_a_defense_strength": 0.7907,
+        "team_b_defense_strength": 1.0746,
+        "team_a_squad_strength": 25600000.0,
+        "team_b_squad_strength": 47600000.0,
+        "main_factors": [
+          "Germany has strong historical attack (1.53x avg)"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_011",
+      "date": "2026-06-14",
+      "phase": "Group F",
+      "group": "Group F",
+      "team_a": "Netherlands",
+      "team_b": "Japan",
+      "home_team": "Netherlands",
+      "away_team": "Japan",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_DAL",
+      "neutral": true,
+      "expected_goals_team_a": 1.642,
+      "expected_goals_team_b": 1.521,
+      "team_a_win_probability": 0.3943,
+      "draw_probability": 0.263,
+      "team_b_win_probability": 0.3428,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Netherlands 1 - 1 Japan",
+          "probability": 0.1194
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Netherlands 2 - 1 Japan",
+          "probability": 0.0868
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Netherlands 1 - 2 Japan",
+          "probability": 0.0804
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 2,
+          "scoreline": "2-2",
+          "display_scoreline": "Netherlands 2 - 2 Japan",
+          "probability": 0.066
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 0,
+          "scoreline": "2-0",
+          "display_scoreline": "Netherlands 2 - 0 Japan",
+          "probability": 0.057
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.4252,
+        "team_b_attack_strength": 1.2429,
+        "team_a_defense_strength": 0.833,
+        "team_b_defense_strength": 0.7838,
+        "team_a_squad_strength": 243585000.0,
+        "team_b_squad_strength": 166225000.0,
+        "main_factors": [
+          "Netherlands has strong historical attack (1.43x avg)",
+          "Japan has strong historical attack (1.24x avg)"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_009",
+      "date": "2026-06-14",
+      "phase": "Group E",
+      "group": "Group E",
+      "team_a": "C\u00f4te D'Ivoire",
+      "team_b": "Ecuador",
+      "home_team": "C\u00f4te D'Ivoire",
+      "away_team": "Ecuador",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_PHI",
+      "neutral": true,
+      "expected_goals_team_a": 1.703,
+      "expected_goals_team_b": 0.823,
+      "team_a_win_probability": 0.5683,
+      "draw_probability": 0.2672,
+      "team_b_win_probability": 0.1645,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "C\u00f4te D'Ivoire 1 - 1 Ecuador",
+          "probability": 0.1267
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "C\u00f4te D'Ivoire 1 - 0 Ecuador",
+          "probability": 0.1217
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 0,
+          "scoreline": "2-0",
+          "display_scoreline": "C\u00f4te D'Ivoire 2 - 0 Ecuador",
+          "probability": 0.116
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "C\u00f4te D'Ivoire 2 - 1 Ecuador",
+          "probability": 0.0955
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "C\u00f4te D'Ivoire 0 - 0 Ecuador",
+          "probability": 0.0946
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.1148,
+        "team_b_attack_strength": 0.8255,
+        "team_a_defense_strength": 0.6783,
+        "team_b_defense_strength": 1.0397,
+        "team_a_squad_strength": 81575000.0,
+        "team_b_squad_strength": 25100000.0,
+        "main_factors": [
+          "C\u00f4te D'Ivoire squad value is 3.2x Ecuador"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_012",
+      "date": "2026-06-15",
+      "phase": "Group F",
+      "group": "Group F",
+      "team_a": "Sweden",
+      "team_b": "Tunisia",
+      "home_team": "Sweden",
+      "away_team": "Tunisia",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "MEX_MTY",
+      "neutral": true,
+      "expected_goals_team_a": 1.366,
+      "expected_goals_team_b": 1.262,
+      "team_a_win_probability": 0.377,
+      "draw_probability": 0.2943,
+      "team_b_win_probability": 0.3286,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Sweden 1 - 1 Tunisia",
+          "probability": 0.1407
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Sweden 0 - 0 Tunisia",
+          "probability": 0.0885
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Sweden 2 - 1 Tunisia",
+          "probability": 0.085
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Sweden 1 - 0 Tunisia",
+          "probability": 0.0825
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Sweden 1 - 2 Tunisia",
+          "probability": 0.0786
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.3418,
+        "team_b_attack_strength": 0.9775,
+        "team_a_defense_strength": 0.8782,
+        "team_b_defense_strength": 0.6925,
+        "team_a_squad_strength": 15425000.0,
+        "team_b_squad_strength": 18400000.0,
+        "main_factors": [
+          "Sweden has strong historical attack (1.34x avg)"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_014",
+      "date": "2026-06-15",
+      "phase": "Group H",
+      "group": "Group H",
+      "team_a": "Spain",
+      "team_b": "Cabo Verde",
+      "home_team": "Spain",
+      "away_team": "Cabo Verde",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_ATL",
+      "neutral": true,
+      "expected_goals_team_a": 1.57,
+      "expected_goals_team_b": 0.671,
+      "team_a_win_probability": 0.5759,
+      "draw_probability": 0.2808,
+      "team_b_win_probability": 0.1433,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Spain 1 - 0 Cabo Verde",
+          "probability": 0.1525
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 0,
+          "scoreline": "2-0",
+          "display_scoreline": "Spain 2 - 0 Cabo Verde",
+          "probability": 0.1311
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Spain 1 - 1 Cabo Verde",
+          "probability": 0.1266
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Spain 0 - 0 Cabo Verde",
+          "probability": 0.121
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Spain 2 - 1 Cabo Verde",
+          "probability": 0.088
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.3922,
+        "team_b_attack_strength": 0.7471,
+        "team_a_defense_strength": 0.6109,
+        "team_b_defense_strength": 0.7673,
+        "team_a_squad_strength": 241850000.0,
+        "team_b_squad_strength": 15675000.0,
+        "main_factors": [
+          "Spain has strong historical attack (1.39x avg)",
+          "Cabo Verde has weak historical attack (0.75x avg)",
+          "Spain squad value is 15.4x Cabo Verde"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_016",
+      "date": "2026-06-15",
+      "phase": "Group G",
+      "group": "Group G",
+      "team_a": "Belgium",
+      "team_b": "Egypt",
+      "home_team": "Belgium",
+      "away_team": "Egypt",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_SEA",
+      "neutral": true,
+      "expected_goals_team_a": 1.253,
+      "expected_goals_team_b": 1.667,
+      "team_a_win_probability": 0.2733,
+      "draw_probability": 0.2704,
+      "team_b_win_probability": 0.4564,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Belgium 1 - 1 Egypt",
+          "probability": 0.1273
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Belgium 1 - 2 Egypt",
+          "probability": 0.0939
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Belgium 0 - 1 Egypt",
+          "probability": 0.0753
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 2,
+          "scoreline": "0-2",
+          "display_scoreline": "Belgium 0 - 2 Egypt",
+          "probability": 0.075
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Belgium 2 - 1 Egypt",
+          "probability": 0.0706
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.2365,
+        "team_b_attack_strength": 1.1026,
+        "team_a_defense_strength": 1.0291,
+        "team_b_defense_strength": 0.6895,
+        "team_a_squad_strength": 54825000.0,
+        "team_b_squad_strength": 45400000.0,
+        "main_factors": [
+          "Belgium has strong historical attack (1.24x avg)"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_013",
+      "date": "2026-06-15",
+      "phase": "Group H",
+      "group": "Group H",
+      "team_a": "Saudi Arabia",
+      "team_b": "Uruguay",
+      "home_team": "Saudi Arabia",
+      "away_team": "Uruguay",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_MIA",
+      "neutral": true,
+      "expected_goals_team_a": 1.269,
+      "expected_goals_team_b": 1.128,
+      "team_a_win_probability": 0.3792,
+      "draw_probability": 0.3098,
+      "team_b_win_probability": 0.311,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Saudi Arabia 1 - 1 Uruguay",
+          "probability": 0.1472
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Saudi Arabia 0 - 0 Uruguay",
+          "probability": 0.1079
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Saudi Arabia 1 - 0 Uruguay",
+          "probability": 0.0985
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Saudi Arabia 0 - 1 Uruguay",
+          "probability": 0.0857
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Saudi Arabia 2 - 1 Uruguay",
+          "probability": 0.0826
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.045,
+        "team_b_attack_strength": 1.0761,
+        "team_a_defense_strength": 0.7135,
+        "team_b_defense_strength": 0.8264,
+        "team_a_squad_strength": 5325000.0,
+        "team_b_squad_strength": 20550000.0,
+        "main_factors": [
+          "Uruguay squad value is 3.9x Saudi Arabia"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_015",
+      "date": "2026-06-16",
+      "phase": "Group G",
+      "group": "Group G",
+      "team_a": "IR Iran",
+      "team_b": "New Zealand",
+      "home_team": "IR Iran",
+      "away_team": "New Zealand",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_LA",
+      "neutral": true,
+      "expected_goals_team_a": 1.926,
+      "expected_goals_team_b": 0.941,
+      "team_a_win_probability": 0.5904,
+      "draw_probability": 0.2442,
+      "team_b_win_probability": 0.1655,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "IR Iran 1 - 1 New Zealand",
+          "probability": 0.1166
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 0,
+          "scoreline": "2-0",
+          "display_scoreline": "IR Iran 2 - 0 New Zealand",
+          "probability": 0.1056
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "IR Iran 2 - 1 New Zealand",
+          "probability": 0.0993
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "IR Iran 1 - 0 New Zealand",
+          "probability": 0.0962
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "IR Iran 0 - 0 New Zealand",
+          "probability": 0.0703
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.769,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.2842,
+        "team_b_attack_strength": 1.1924,
+        "team_a_defense_strength": 0.537,
+        "team_b_defense_strength": 1.0207,
+        "team_a_squad_strength": 7600000.0,
+        "team_b_squad_strength": 17775000.0,
+        "main_factors": [
+          "IR Iran has strong historical attack (1.28x avg)",
+          "New Zealand squad value is 2.3x IR Iran"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_017",
+      "date": "2026-06-16",
+      "phase": "Group I",
+      "group": "Group I",
+      "team_a": "France",
+      "team_b": "Senegal",
+      "home_team": "France",
+      "away_team": "Senegal",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_NY",
+      "neutral": true,
+      "expected_goals_team_a": 1.172,
+      "expected_goals_team_b": 1.216,
+      "team_a_win_probability": 0.3335,
+      "draw_probability": 0.3114,
+      "team_b_win_probability": 0.3551,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "France 1 - 1 Senegal",
+          "probability": 0.1479
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "France 0 - 0 Senegal",
+          "probability": 0.1088
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "France 0 - 1 Senegal",
+          "probability": 0.0947
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "France 1 - 0 Senegal",
+          "probability": 0.0906
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "France 1 - 2 Senegal",
+          "probability": 0.0796
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.2481,
+        "team_b_attack_strength": 0.9407,
+        "team_a_defense_strength": 0.8799,
+        "team_b_defense_strength": 0.6389,
+        "team_a_squad_strength": 222625000.0,
+        "team_b_squad_strength": 28050000.0,
+        "main_factors": [
+          "France has strong historical attack (1.25x avg)",
+          "France squad value is 7.9x Senegal"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_018",
+      "date": "2026-06-16",
+      "phase": "Group I",
+      "group": "Group I",
+      "team_a": "Iraq",
+      "team_b": "Norway",
+      "home_team": "Iraq",
+      "away_team": "Norway",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_BOS",
+      "neutral": true,
+      "expected_goals_team_a": 1.695,
+      "expected_goals_team_b": 0.98,
+      "team_a_win_probability": 0.5266,
+      "draw_probability": 0.2705,
+      "team_b_win_probability": 0.2029,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Iraq 1 - 1 Norway",
+          "probability": 0.1294
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Iraq 1 - 0 Norway",
+          "probability": 0.1019
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 0,
+          "scoreline": "2-0",
+          "display_scoreline": "Iraq 2 - 0 Norway",
+          "probability": 0.099
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Iraq 2 - 1 Norway",
+          "probability": 0.0971
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Iraq 0 - 0 Norway",
+          "probability": 0.0838
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.0441,
+        "team_b_attack_strength": 1.0542,
+        "team_a_defense_strength": 0.6327,
+        "team_b_defense_strength": 1.105,
+        "team_a_squad_strength": 8125000.0,
+        "team_b_squad_strength": 212400000.0,
+        "main_factors": [
+          "Norway squad value is 26.1x Iraq"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_019",
+      "date": "2026-06-17",
+      "phase": "Group J",
+      "group": "Group J",
+      "team_a": "Argentina",
+      "team_b": "Algeria",
+      "home_team": "Argentina",
+      "away_team": "Algeria",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_KC",
+      "neutral": true,
+      "expected_goals_team_a": 1.283,
+      "expected_goals_team_b": 1.057,
+      "team_a_win_probability": 0.3989,
+      "draw_probability": 0.3126,
+      "team_b_win_probability": 0.2885,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Argentina 1 - 1 Algeria",
+          "probability": 0.1476
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Argentina 0 - 0 Algeria",
+          "probability": 0.1134
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Argentina 1 - 0 Algeria",
+          "probability": 0.1066
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Argentina 0 - 1 Algeria",
+          "probability": 0.0849
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Argentina 2 - 1 Algeria",
+          "probability": 0.0838
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.923,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.2909,
+        "team_b_attack_strength": 1.051,
+        "team_a_defense_strength": 0.6843,
+        "team_b_defense_strength": 0.6761,
+        "team_a_squad_strength": 32525000.0,
+        "team_b_squad_strength": 21600000.0,
+        "main_factors": [
+          "Argentina has strong historical attack (1.29x avg)"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_020",
+      "date": "2026-06-17",
+      "phase": "Group J",
+      "group": "Group J",
+      "team_a": "Austria",
+      "team_b": "Jordan",
+      "home_team": "Austria",
+      "away_team": "Jordan",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_SF",
+      "neutral": true,
+      "expected_goals_team_a": 1.36,
+      "expected_goals_team_b": 1.328,
+      "team_a_win_probability": 0.362,
+      "draw_probability": 0.2908,
+      "team_b_win_probability": 0.3472,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Austria 1 - 1 Jordan",
+          "probability": 0.1388
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Austria 0 - 0 Jordan",
+          "probability": 0.084
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Austria 2 - 1 Jordan",
+          "probability": 0.0836
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Austria 1 - 2 Jordan",
+          "probability": 0.0816
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Austria 1 - 0 Jordan",
+          "probability": 0.0765
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.2193,
+        "team_b_attack_strength": 0.8685,
+        "team_a_defense_strength": 1.0405,
+        "team_b_defense_strength": 0.759,
+        "team_a_squad_strength": 91625000.0,
+        "team_b_squad_strength": 8110000.0,
+        "main_factors": [
+          "Austria has strong historical attack (1.22x avg)",
+          "Austria squad value is 11.3x Jordan"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_023",
+      "date": "2026-06-17",
+      "phase": "Group K",
+      "group": "Group K",
+      "team_a": "Portugal",
+      "team_b": "Congo DR",
+      "home_team": "Portugal",
+      "away_team": "Congo DR",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_HOU",
+      "neutral": true,
+      "expected_goals_team_a": 1.437,
+      "expected_goals_team_b": 1.132,
+      "team_a_win_probability": 0.4243,
+      "draw_probability": 0.2945,
+      "team_b_win_probability": 0.2813,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Portugal 1 - 1 Congo DR",
+          "probability": 0.1408
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Portugal 1 - 0 Congo DR",
+          "probability": 0.0938
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Portugal 0 - 0 Congo DR",
+          "probability": 0.0928
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Portugal 2 - 1 Congo DR",
+          "probability": 0.0896
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 0,
+          "scoreline": "2-0",
+          "display_scoreline": "Portugal 2 - 0 Congo DR",
+          "probability": 0.0791
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.2013,
+        "team_b_attack_strength": 1.0116,
+        "team_a_defense_strength": 0.7617,
+        "team_b_defense_strength": 0.8142,
+        "team_a_squad_strength": 35550000.0,
+        "team_b_squad_strength": 46810000.0,
+        "main_factors": [
+          "Portugal has strong historical attack (1.20x avg)"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_022",
+      "date": "2026-06-17",
+      "phase": "Group L",
+      "group": "Group L",
+      "team_a": "England",
+      "team_b": "Croatia",
+      "home_team": "England",
+      "away_team": "Croatia",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_DAL",
+      "neutral": true,
+      "expected_goals_team_a": 1.501,
+      "expected_goals_team_b": 1.129,
+      "team_a_win_probability": 0.4419,
+      "draw_probability": 0.2886,
+      "team_b_win_probability": 0.2695,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "England 1 - 1 Croatia",
+          "probability": 0.138
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "England 1 - 0 Croatia",
+          "probability": 0.0923
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "England 2 - 1 Croatia",
+          "probability": 0.0917
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "England 0 - 0 Croatia",
+          "probability": 0.0879
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 0,
+          "scoreline": "2-0",
+          "display_scoreline": "England 2 - 0 Croatia",
+          "probability": 0.0812
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.4864,
+        "team_b_attack_strength": 1.1822,
+        "team_a_defense_strength": 0.6499,
+        "team_b_defense_strength": 0.6873,
+        "team_a_squad_strength": 278610000.0,
+        "team_b_squad_strength": 94470000.0,
+        "main_factors": [
+          "England has strong historical attack (1.49x avg)",
+          "England squad value is 2.9x Croatia"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_021",
+      "date": "2026-06-17",
+      "phase": "Group L",
+      "group": "Group L",
+      "team_a": "Ghana",
+      "team_b": "Panama",
+      "home_team": "Ghana",
+      "away_team": "Panama",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "CAN_TOR",
+      "neutral": true,
+      "expected_goals_team_a": 1.627,
+      "expected_goals_team_b": 0.894,
+      "team_a_win_probability": 0.531,
+      "draw_probability": 0.2778,
+      "team_b_win_probability": 0.1912,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Ghana 1 - 1 Panama",
+          "probability": 0.1322
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Ghana 1 - 0 Panama",
+          "probability": 0.1156
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 0,
+          "scoreline": "2-0",
+          "display_scoreline": "Ghana 2 - 0 Panama",
+          "probability": 0.1064
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Ghana 0 - 0 Panama",
+          "probability": 0.0956
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Ghana 2 - 1 Panama",
+          "probability": 0.0951
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.0668,
+        "team_b_attack_strength": 0.8572,
+        "team_a_defense_strength": 0.7099,
+        "team_b_defense_strength": 1.0377,
+        "team_a_squad_strength": 51700000.0,
+        "team_b_squad_strength": 15625000.0,
+        "main_factors": [
+          "Ghana squad value is 3.3x Panama"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_024",
+      "date": "2026-06-18",
+      "phase": "Group K",
+      "group": "Group K",
+      "team_a": "Uzbekistan",
+      "team_b": "Colombia",
+      "home_team": "Uzbekistan",
+      "away_team": "Colombia",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "MEX_CDMX",
+      "neutral": true,
+      "expected_goals_team_a": 1.359,
+      "expected_goals_team_b": 0.977,
+      "team_a_win_probability": 0.4392,
+      "draw_probability": 0.308,
+      "team_b_win_probability": 0.2528,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Uzbekistan 1 - 1 Colombia",
+          "probability": 0.1451
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Uzbekistan 1 - 0 Colombia",
+          "probability": 0.1147
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Uzbekistan 0 - 0 Colombia",
+          "probability": 0.1134
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 0,
+          "scoreline": "2-0",
+          "display_scoreline": "Uzbekistan 2 - 0 Colombia",
+          "probability": 0.0893
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Uzbekistan 2 - 1 Colombia",
+          "probability": 0.0873
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.808,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.1783,
+        "team_b_attack_strength": 0.8778,
+        "team_a_defense_strength": 0.7574,
+        "team_b_defense_strength": 0.785,
+        "team_a_squad_strength": 53625000.0,
+        "team_b_squad_strength": 28225000.0,
+        "main_factors": [
+          "Baseline Poisson model with default strengths"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_025",
+      "date": "2026-06-18",
+      "phase": "Group A",
+      "group": "Group A",
+      "team_a": "Czech Republic",
+      "team_b": "South Africa",
+      "home_team": "Czech Republic",
+      "away_team": "South Africa",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_ATL",
+      "neutral": true,
+      "expected_goals_team_a": 1.15,
+      "expected_goals_team_b": 0.942,
+      "team_a_win_probability": 0.3868,
+      "draw_probability": 0.3329,
+      "team_b_win_probability": 0.2803,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Czech Republic 1 - 1 South Africa",
+          "probability": 0.1511
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Czech Republic 0 - 0 South Africa",
+          "probability": 0.1409
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Czech Republic 1 - 0 South Africa",
+          "probability": 0.1246
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Czech Republic 0 - 1 South Africa",
+          "probability": 0.099
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 0,
+          "scoreline": "2-0",
+          "display_scoreline": "Czech Republic 2 - 0 South Africa",
+          "probability": 0.0816
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.2154,
+        "team_b_attack_strength": 0.9215,
+        "team_a_defense_strength": 0.6956,
+        "team_b_defense_strength": 0.6436,
+        "team_a_squad_strength": 12400000.0,
+        "team_b_squad_strength": 5675000.0,
+        "main_factors": [
+          "Czech Republic has strong historical attack (1.22x avg)",
+          "Czech Republic squad value is 2.2x South Africa"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_026",
+      "date": "2026-06-18",
+      "phase": "Group B",
+      "group": "Group B",
+      "team_a": "Switzerland",
+      "team_b": "Bosnia and Herzegovina",
+      "home_team": "Switzerland",
+      "away_team": "Bosnia and Herzegovina",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_LA",
+      "neutral": true,
+      "expected_goals_team_a": 1.393,
+      "expected_goals_team_b": 1.525,
+      "team_a_win_probability": 0.3326,
+      "draw_probability": 0.2762,
+      "team_b_win_probability": 0.3912,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Switzerland 1 - 1 Bosnia and Herzegovina",
+          "probability": 0.1298
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Switzerland 1 - 2 Bosnia and Herzegovina",
+          "probability": 0.0876
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Switzerland 2 - 1 Bosnia and Herzegovina",
+          "probability": 0.08
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Switzerland 0 - 0 Bosnia and Herzegovina",
+          "probability": 0.069
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Switzerland 0 - 1 Bosnia and Herzegovina",
+          "probability": 0.0675
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "missing",
+        "player_kaggle_match_rate": 0.0,
+        "warnings": [
+          "Bosnia and Herzegovina: squad data is missing"
+        ]
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.0161,
+        "team_b_attack_strength": 0.9329,
+        "team_a_defense_strength": 1.1123,
+        "team_b_defense_strength": 0.9329,
+        "team_a_squad_strength": 51150000.0,
+        "team_b_squad_strength": 0.0,
+        "main_factors": [
+          "Baseline Poisson model with default strengths"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_027",
+      "date": "2026-06-18",
+      "phase": "Group B",
+      "group": "Group B",
+      "team_a": "Canada",
+      "team_b": "Qatar",
+      "home_team": "Canada",
+      "away_team": "Qatar",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "CAN_VAN",
+      "neutral": true,
+      "expected_goals_team_a": 1.066,
+      "expected_goals_team_b": 1.252,
+      "team_a_win_probability": 0.2967,
+      "draw_probability": 0.3151,
+      "team_b_win_probability": 0.3882,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Canada 1 - 1 Qatar",
+          "probability": 0.1485
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Canada 0 - 0 Qatar",
+          "probability": 0.1157
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Canada 0 - 1 Qatar",
+          "probability": 0.1063
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Canada 1 - 0 Qatar",
+          "probability": 0.0879
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Canada 1 - 2 Qatar",
+          "probability": 0.0823
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 0.8821,
+        "team_b_attack_strength": 0.9591,
+        "team_a_defense_strength": 0.8879,
+        "team_b_defense_strength": 0.8219,
+        "team_a_squad_strength": 21275000.0,
+        "team_b_squad_strength": 4425000.0,
+        "main_factors": [
+          "Canada squad value is 4.8x Qatar"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_028",
+      "date": "2026-06-19",
+      "phase": "Group A",
+      "group": "Group A",
+      "team_a": "Mexico",
+      "team_b": "Korea Republic",
+      "home_team": "Mexico",
+      "away_team": "Korea Republic",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "MEX_GDL",
+      "neutral": true,
+      "expected_goals_team_a": 1.088,
+      "expected_goals_team_b": 1.272,
+      "team_a_win_probability": 0.2991,
+      "draw_probability": 0.3118,
+      "team_b_win_probability": 0.389,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Mexico 1 - 1 Korea Republic",
+          "probability": 0.1477
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Mexico 0 - 0 Korea Republic",
+          "probability": 0.1114
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Mexico 0 - 1 Korea Republic",
+          "probability": 0.1031
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Mexico 1 - 0 Korea Republic",
+          "probability": 0.0857
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Mexico 1 - 2 Korea Republic",
+          "probability": 0.0831
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "partial",
+        "player_kaggle_match_rate": 0.423,
+        "warnings": [
+          "Korea Republic: squad data is partial"
+        ]
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.1988,
+        "team_b_attack_strength": 1.2109,
+        "team_a_defense_strength": 0.7151,
+        "team_b_defense_strength": 0.6176,
+        "team_a_squad_strength": 17385000.0,
+        "team_b_squad_strength": 2250000.0,
+        "main_factors": [
+          "Korea Republic has strong historical attack (1.21x avg)",
+          "Mexico squad value is 7.7x Korea Republic"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_032",
+      "date": "2026-06-19",
+      "phase": "Group D",
+      "group": "Group D",
+      "team_a": "United States",
+      "team_b": "Australia",
+      "home_team": "United States",
+      "away_team": "Australia",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_SEA",
+      "neutral": true,
+      "expected_goals_team_a": 1.101,
+      "expected_goals_team_b": 1.813,
+      "team_a_win_probability": 0.2155,
+      "draw_probability": 0.2585,
+      "team_b_win_probability": 0.526,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "United States 1 - 1 Australia",
+          "probability": 0.1224
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "United States 1 - 2 Australia",
+          "probability": 0.0982
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 2,
+          "scoreline": "0-2",
+          "display_scoreline": "United States 0 - 2 Australia",
+          "probability": 0.0892
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "United States 0 - 1 Australia",
+          "probability": 0.0843
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "United States 0 - 0 Australia",
+          "probability": 0.0684
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.0336,
+        "team_b_attack_strength": 1.3668,
+        "team_a_defense_strength": 0.9027,
+        "team_b_defense_strength": 0.725,
+        "team_a_squad_strength": 41975000.0,
+        "team_b_squad_strength": 14650000.0,
+        "main_factors": [
+          "Australia has strong historical attack (1.37x avg)",
+          "United States squad value is 2.9x Australia"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_030",
+      "date": "2026-06-19",
+      "phase": "Group C",
+      "group": "Group C",
+      "team_a": "Scotland",
+      "team_b": "Morocco",
+      "home_team": "Scotland",
+      "away_team": "Morocco",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_BOS",
+      "neutral": true,
+      "expected_goals_team_a": 0.931,
+      "expected_goals_team_b": 1.246,
+      "team_a_win_probability": 0.2594,
+      "draw_probability": 0.3225,
+      "team_b_win_probability": 0.4181,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Scotland 1 - 1 Morocco",
+          "probability": 0.1486
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Scotland 0 - 0 Morocco",
+          "probability": 0.1305
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Scotland 0 - 1 Morocco",
+          "probability": 0.1242
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Scotland 1 - 0 Morocco",
+          "probability": 0.0884
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 2,
+          "scoreline": "0-2",
+          "display_scoreline": "Scotland 0 - 2 Morocco",
+          "probability": 0.0881
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.1626,
+        "team_b_attack_strength": 1.0102,
+        "team_a_defense_strength": 0.8396,
+        "team_b_defense_strength": 0.5448,
+        "team_a_squad_strength": 21050000.0,
+        "team_b_squad_strength": 83925000.0,
+        "main_factors": [
+          "Morocco squad value is 4.0x Scotland"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_029",
+      "date": "2026-06-20",
+      "phase": "Group C",
+      "group": "Group C",
+      "team_a": "Brazil",
+      "team_b": "Haiti",
+      "home_team": "Brazil",
+      "away_team": "Haiti",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_PHI",
+      "neutral": true,
+      "expected_goals_team_a": 1.992,
+      "expected_goals_team_b": 1.01,
+      "team_a_win_probability": 0.5881,
+      "draw_probability": 0.2389,
+      "team_b_win_probability": 0.1729,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Brazil 1 - 1 Haiti",
+          "probability": 0.1131
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Brazil 2 - 1 Haiti",
+          "probability": 0.0997
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 0,
+          "scoreline": "2-0",
+          "display_scoreline": "Brazil 2 - 0 Haiti",
+          "probability": 0.0986
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Brazil 1 - 0 Haiti",
+          "probability": 0.086
+        },
+        {
+          "team_a_goals": 3,
+          "team_b_goals": 1,
+          "scoreline": "3-1",
+          "display_scoreline": "Brazil 3 - 1 Haiti",
+          "probability": 0.0662
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.923,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.4811,
+        "team_b_attack_strength": 1.1181,
+        "team_a_defense_strength": 0.6149,
+        "team_b_defense_strength": 0.9153,
+        "team_a_squad_strength": 78325000.0,
+        "team_b_squad_strength": 52075000.0,
+        "main_factors": [
+          "Brazil has strong historical attack (1.48x avg)"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_031",
+      "date": "2026-06-20",
+      "phase": "Group D",
+      "group": "Group D",
+      "team_a": "T\u00fcrkiye",
+      "team_b": "Paraguay",
+      "home_team": "T\u00fcrkiye",
+      "away_team": "Paraguay",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_SF",
+      "neutral": true,
+      "expected_goals_team_a": 1.354,
+      "expected_goals_team_b": 1.227,
+      "team_a_win_probability": 0.3813,
+      "draw_probability": 0.2971,
+      "team_b_win_probability": 0.3216,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "T\u00fcrkiye 1 - 1 Paraguay",
+          "probability": 0.1421
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "T\u00fcrkiye 0 - 0 Paraguay",
+          "probability": 0.092
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "T\u00fcrkiye 1 - 0 Paraguay",
+          "probability": 0.0861
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "T\u00fcrkiye 2 - 1 Paraguay",
+          "probability": 0.0852
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "T\u00fcrkiye 1 - 2 Paraguay",
+          "probability": 0.0772
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 0.9529,
+        "team_b_attack_strength": 0.8717,
+        "team_a_defense_strength": 0.9582,
+        "team_b_defense_strength": 0.9672,
+        "team_a_squad_strength": 77750000.0,
+        "team_b_squad_strength": 6000000.0,
+        "main_factors": [
+          "T\u00fcrkiye squad value is 13.0x Paraguay"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_035",
+      "date": "2026-06-20",
+      "phase": "Group F",
+      "group": "Group F",
+      "team_a": "Netherlands",
+      "team_b": "Sweden",
+      "home_team": "Netherlands",
+      "away_team": "Sweden",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_HOU",
+      "neutral": true,
+      "expected_goals_team_a": 1.839,
+      "expected_goals_team_b": 1.642,
+      "team_a_win_probability": 0.4169,
+      "draw_probability": 0.2468,
+      "team_b_win_probability": 0.3363,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Netherlands 1 - 1 Sweden",
+          "probability": 0.1051
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Netherlands 2 - 1 Sweden",
+          "probability": 0.0855
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Netherlands 1 - 2 Sweden",
+          "probability": 0.0764
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 2,
+          "scoreline": "2-2",
+          "display_scoreline": "Netherlands 2 - 2 Sweden",
+          "probability": 0.0702
+        },
+        {
+          "team_a_goals": 3,
+          "team_b_goals": 1,
+          "scoreline": "3-1",
+          "display_scoreline": "Netherlands 3 - 1 Sweden",
+          "probability": 0.0524
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.4252,
+        "team_b_attack_strength": 1.3418,
+        "team_a_defense_strength": 0.833,
+        "team_b_defense_strength": 0.8782,
+        "team_a_squad_strength": 243585000.0,
+        "team_b_squad_strength": 15425000.0,
+        "main_factors": [
+          "Netherlands has strong historical attack (1.43x avg)",
+          "Sweden has strong historical attack (1.34x avg)",
+          "Netherlands squad value is 15.8x Sweden"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_033",
+      "date": "2026-06-20",
+      "phase": "Group E",
+      "group": "Group E",
+      "team_a": "Germany",
+      "team_b": "C\u00f4te D'Ivoire",
+      "home_team": "Germany",
+      "away_team": "C\u00f4te D'Ivoire",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "CAN_TOR",
+      "neutral": true,
+      "expected_goals_team_a": 1.526,
+      "expected_goals_team_b": 1.295,
+      "team_a_win_probability": 0.4118,
+      "draw_probability": 0.2804,
+      "team_b_win_probability": 0.3077,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Germany 1 - 1 C\u00f4te D'Ivoire",
+          "probability": 0.133
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Germany 2 - 1 C\u00f4te D'Ivoire",
+          "probability": 0.0898
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Germany 1 - 2 C\u00f4te D'Ivoire",
+          "probability": 0.0762
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Germany 1 - 0 C\u00f4te D'Ivoire",
+          "probability": 0.0755
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Germany 0 - 0 C\u00f4te D'Ivoire",
+          "probability": 0.0748
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.5312,
+        "team_b_attack_strength": 1.1148,
+        "team_a_defense_strength": 0.7907,
+        "team_b_defense_strength": 0.6783,
+        "team_a_squad_strength": 25600000.0,
+        "team_b_squad_strength": 81575000.0,
+        "main_factors": [
+          "Germany has strong historical attack (1.53x avg)",
+          "C\u00f4te D'Ivoire squad value is 3.2x Germany"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_034",
+      "date": "2026-06-21",
+      "phase": "Group E",
+      "group": "Group E",
+      "team_a": "Ecuador",
+      "team_b": "Cura\u00e7ao",
+      "home_team": "Ecuador",
+      "away_team": "Cura\u00e7ao",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_KC",
+      "neutral": true,
+      "expected_goals_team_a": 1.304,
+      "expected_goals_team_b": 1.715,
+      "team_a_win_probability": 0.2779,
+      "draw_probability": 0.2652,
+      "team_b_win_probability": 0.4568,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Ecuador 1 - 1 Cura\u00e7ao",
+          "probability": 0.1235
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Ecuador 1 - 2 Cura\u00e7ao",
+          "probability": 0.0937
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 2,
+          "scoreline": "0-2",
+          "display_scoreline": "Ecuador 0 - 2 Cura\u00e7ao",
+          "probability": 0.0719
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Ecuador 2 - 1 Cura\u00e7ao",
+          "probability": 0.0713
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Ecuador 0 - 1 Cura\u00e7ao",
+          "probability": 0.0696
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 0.8255,
+        "team_b_attack_strength": 1.1223,
+        "team_a_defense_strength": 1.0397,
+        "team_b_defense_strength": 1.0746,
+        "team_a_squad_strength": 25100000.0,
+        "team_b_squad_strength": 47600000.0,
+        "main_factors": [
+          "Baseline Poisson model with default strengths"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_036",
+      "date": "2026-06-21",
+      "phase": "Group F",
+      "group": "Group F",
+      "team_a": "Tunisia",
+      "team_b": "Japan",
+      "home_team": "Tunisia",
+      "away_team": "Japan",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "MEX_MTY",
+      "neutral": true,
+      "expected_goals_team_a": 1.126,
+      "expected_goals_team_b": 1.265,
+      "team_a_win_probability": 0.3111,
+      "draw_probability": 0.3103,
+      "team_b_win_probability": 0.3785,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Tunisia 1 - 1 Japan",
+          "probability": 0.1473
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Tunisia 0 - 0 Japan",
+          "probability": 0.1085
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Tunisia 0 - 1 Japan",
+          "probability": 0.0989
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Tunisia 1 - 0 Japan",
+          "probability": 0.0861
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Tunisia 1 - 2 Japan",
+          "probability": 0.0825
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 0.9775,
+        "team_b_attack_strength": 1.2429,
+        "team_a_defense_strength": 0.6925,
+        "team_b_defense_strength": 0.7838,
+        "team_a_squad_strength": 18400000.0,
+        "team_b_squad_strength": 166225000.0,
+        "main_factors": [
+          "Japan has strong historical attack (1.24x avg)",
+          "Japan squad value is 9.0x Tunisia"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_038",
+      "date": "2026-06-21",
+      "phase": "Group H",
+      "group": "Group H",
+      "team_a": "Spain",
+      "team_b": "Saudi Arabia",
+      "home_team": "Spain",
+      "away_team": "Saudi Arabia",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_ATL",
+      "neutral": true,
+      "expected_goals_team_a": 1.46,
+      "expected_goals_team_b": 0.938,
+      "team_a_win_probability": 0.4762,
+      "draw_probability": 0.2975,
+      "team_b_win_probability": 0.2263,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Spain 1 - 1 Saudi Arabia",
+          "probability": 0.1407
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Spain 1 - 0 Saudi Arabia",
+          "probability": 0.1165
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Spain 0 - 0 Saudi Arabia",
+          "probability": 0.1071
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 0,
+          "scoreline": "2-0",
+          "display_scoreline": "Spain 2 - 0 Saudi Arabia",
+          "probability": 0.0969
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Spain 2 - 1 Saudi Arabia",
+          "probability": 0.0909
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.3922,
+        "team_b_attack_strength": 1.045,
+        "team_a_defense_strength": 0.6109,
+        "team_b_defense_strength": 0.7135,
+        "team_a_squad_strength": 241850000.0,
+        "team_b_squad_strength": 5325000.0,
+        "main_factors": [
+          "Spain has strong historical attack (1.39x avg)",
+          "Spain squad value is 45.4x Saudi Arabia"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_039",
+      "date": "2026-06-21",
+      "phase": "Group G",
+      "group": "Group G",
+      "team_a": "Belgium",
+      "team_b": "IR Iran",
+      "home_team": "Belgium",
+      "away_team": "IR Iran",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_LA",
+      "neutral": true,
+      "expected_goals_team_a": 0.976,
+      "expected_goals_team_b": 1.942,
+      "team_a_win_probability": 0.1712,
+      "draw_probability": 0.2434,
+      "team_b_win_probability": 0.5854,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Belgium 1 - 1 IR Iran",
+          "probability": 0.1158
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 2,
+          "scoreline": "0-2",
+          "display_scoreline": "Belgium 0 - 2 IR Iran",
+          "probability": 0.102
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Belgium 1 - 2 IR Iran",
+          "probability": 0.0996
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Belgium 0 - 1 IR Iran",
+          "probability": 0.0917
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Belgium 0 - 0 IR Iran",
+          "probability": 0.0674
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.769,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.2365,
+        "team_b_attack_strength": 1.2842,
+        "team_a_defense_strength": 1.0291,
+        "team_b_defense_strength": 0.537,
+        "team_a_squad_strength": 54825000.0,
+        "team_b_squad_strength": 7600000.0,
+        "main_factors": [
+          "Belgium has strong historical attack (1.24x avg)",
+          "IR Iran has strong historical attack (1.28x avg)",
+          "Belgium squad value is 7.2x IR Iran"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_037",
+      "date": "2026-06-21",
+      "phase": "Group H",
+      "group": "Group H",
+      "team_a": "Uruguay",
+      "team_b": "Cabo Verde",
+      "home_team": "Uruguay",
+      "away_team": "Cabo Verde",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_MIA",
+      "neutral": true,
+      "expected_goals_team_a": 1.213,
+      "expected_goals_team_b": 0.907,
+      "team_a_win_probability": 0.4142,
+      "draw_probability": 0.3275,
+      "team_b_win_probability": 0.2584,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Uruguay 1 - 1 Cabo Verde",
+          "probability": 0.1492
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Uruguay 0 - 0 Cabo Verde",
+          "probability": 0.1371
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Uruguay 1 - 0 Cabo Verde",
+          "probability": 0.1284
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Uruguay 0 - 1 Cabo Verde",
+          "probability": 0.0917
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 0,
+          "scoreline": "2-0",
+          "display_scoreline": "Uruguay 2 - 0 Cabo Verde",
+          "probability": 0.0883
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.0761,
+        "team_b_attack_strength": 0.7471,
+        "team_a_defense_strength": 0.8264,
+        "team_b_defense_strength": 0.7673,
+        "team_a_squad_strength": 20550000.0,
+        "team_b_squad_strength": 15675000.0,
+        "main_factors": [
+          "Cabo Verde has weak historical attack (0.75x avg)"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_040",
+      "date": "2026-06-22",
+      "phase": "Group G",
+      "group": "Group G",
+      "team_a": "New Zealand",
+      "team_b": "Egypt",
+      "home_team": "New Zealand",
+      "away_team": "Egypt",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "CAN_VAN",
+      "neutral": true,
+      "expected_goals_team_a": 1.208,
+      "expected_goals_team_b": 1.654,
+      "team_a_win_probability": 0.2645,
+      "draw_probability": 0.2726,
+      "team_b_win_probability": 0.4629,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "New Zealand 1 - 1 Egypt",
+          "probability": 0.1291
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "New Zealand 1 - 2 Egypt",
+          "probability": 0.0945
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "New Zealand 0 - 1 Egypt",
+          "probability": 0.0797
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 2,
+          "scoreline": "0-2",
+          "display_scoreline": "New Zealand 0 - 2 Egypt",
+          "probability": 0.0782
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "New Zealand 0 - 0 Egypt",
+          "probability": 0.072
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.1924,
+        "team_b_attack_strength": 1.1026,
+        "team_a_defense_strength": 1.0207,
+        "team_b_defense_strength": 0.6895,
+        "team_a_squad_strength": 17775000.0,
+        "team_b_squad_strength": 45400000.0,
+        "main_factors": [
+          "Egypt squad value is 2.6x New Zealand"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_043",
+      "date": "2026-06-22",
+      "phase": "Group J",
+      "group": "Group J",
+      "team_a": "Argentina",
+      "team_b": "Austria",
+      "home_team": "Argentina",
+      "away_team": "Austria",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_DAL",
+      "neutral": true,
+      "expected_goals_team_a": 1.974,
+      "expected_goals_team_b": 1.226,
+      "team_a_win_probability": 0.5343,
+      "draw_probability": 0.2437,
+      "team_b_win_probability": 0.222,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Argentina 1 - 1 Austria",
+          "probability": 0.1116
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Argentina 2 - 1 Austria",
+          "probability": 0.0975
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 0,
+          "scoreline": "2-0",
+          "display_scoreline": "Argentina 2 - 0 Austria",
+          "probability": 0.0795
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Argentina 1 - 0 Austria",
+          "probability": 0.0677
+        },
+        {
+          "team_a_goals": 3,
+          "team_b_goals": 1,
+          "scoreline": "3-1",
+          "display_scoreline": "Argentina 3 - 1 Austria",
+          "probability": 0.0641
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.2909,
+        "team_b_attack_strength": 1.2193,
+        "team_a_defense_strength": 0.6843,
+        "team_b_defense_strength": 1.0405,
+        "team_a_squad_strength": 32525000.0,
+        "team_b_squad_strength": 91625000.0,
+        "main_factors": [
+          "Argentina has strong historical attack (1.29x avg)",
+          "Austria has strong historical attack (1.22x avg)",
+          "Austria squad value is 2.8x Argentina"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_042",
+      "date": "2026-06-22",
+      "phase": "Group I",
+      "group": "Group I",
+      "team_a": "France",
+      "team_b": "Iraq",
+      "home_team": "France",
+      "away_team": "Iraq",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_PHI",
+      "neutral": true,
+      "expected_goals_team_a": 1.16,
+      "expected_goals_team_b": 1.35,
+      "team_a_win_probability": 0.3045,
+      "draw_probability": 0.301,
+      "team_b_win_probability": 0.3945,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "France 1 - 1 Iraq",
+          "probability": 0.1438
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "France 0 - 0 Iraq",
+          "probability": 0.0978
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "France 0 - 1 Iraq",
+          "probability": 0.0931
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "France 1 - 2 Iraq",
+          "probability": 0.0859
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "France 1 - 0 Iraq",
+          "probability": 0.0777
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.2481,
+        "team_b_attack_strength": 1.0441,
+        "team_a_defense_strength": 0.8799,
+        "team_b_defense_strength": 0.6327,
+        "team_a_squad_strength": 222625000.0,
+        "team_b_squad_strength": 8125000.0,
+        "main_factors": [
+          "France has strong historical attack (1.25x avg)",
+          "France squad value is 27.4x Iraq"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_041",
+      "date": "2026-06-23",
+      "phase": "Group I",
+      "group": "Group I",
+      "team_a": "Norway",
+      "team_b": "Senegal",
+      "home_team": "Norway",
+      "away_team": "Senegal",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "CAN_TOR",
+      "neutral": true,
+      "expected_goals_team_a": 0.99,
+      "expected_goals_team_b": 1.528,
+      "team_a_win_probability": 0.2294,
+      "draw_probability": 0.289,
+      "team_b_win_probability": 0.4816,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Norway 1 - 1 Senegal",
+          "probability": 0.1379
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Norway 0 - 1 Senegal",
+          "probability": 0.1074
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Norway 0 - 0 Senegal",
+          "probability": 0.0965
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 2,
+          "scoreline": "0-2",
+          "display_scoreline": "Norway 0 - 2 Senegal",
+          "probability": 0.0941
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Norway 1 - 2 Senegal",
+          "probability": 0.0932
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.0542,
+        "team_b_attack_strength": 0.9407,
+        "team_a_defense_strength": 1.105,
+        "team_b_defense_strength": 0.6389,
+        "team_a_squad_strength": 212400000.0,
+        "team_b_squad_strength": 28050000.0,
+        "main_factors": [
+          "Norway squad value is 7.6x Senegal"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_044",
+      "date": "2026-06-23",
+      "phase": "Group J",
+      "group": "Group J",
+      "team_a": "Jordan",
+      "team_b": "Algeria",
+      "home_team": "Jordan",
+      "away_team": "Algeria",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_SF",
+      "neutral": true,
+      "expected_goals_team_a": 0.863,
+      "expected_goals_team_b": 1.172,
+      "team_a_win_probability": 0.2526,
+      "draw_probability": 0.3346,
+      "team_b_win_probability": 0.4128,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Jordan 1 - 1 Algeria",
+          "probability": 0.1494
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Jordan 0 - 0 Algeria",
+          "probability": 0.1478
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Jordan 0 - 1 Algeria",
+          "probability": 0.136
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Jordan 1 - 0 Algeria",
+          "probability": 0.0956
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 2,
+          "scoreline": "0-2",
+          "display_scoreline": "Jordan 0 - 2 Algeria",
+          "probability": 0.0898
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.923,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 0.8685,
+        "team_b_attack_strength": 1.051,
+        "team_a_defense_strength": 0.759,
+        "team_b_defense_strength": 0.6761,
+        "team_a_squad_strength": 8110000.0,
+        "team_b_squad_strength": 21600000.0,
+        "main_factors": [
+          "Algeria squad value is 2.7x Jordan"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_047",
+      "date": "2026-06-23",
+      "phase": "Group K",
+      "group": "Group K",
+      "team_a": "Portugal",
+      "team_b": "Uzbekistan",
+      "home_team": "Portugal",
+      "away_team": "Uzbekistan",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_HOU",
+      "neutral": true,
+      "expected_goals_team_a": 1.337,
+      "expected_goals_team_b": 1.319,
+      "team_a_win_probability": 0.3577,
+      "draw_probability": 0.2929,
+      "team_b_win_probability": 0.3494,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Portugal 1 - 1 Uzbekistan",
+          "probability": 0.14
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Portugal 0 - 0 Uzbekistan",
+          "probability": 0.0863
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Portugal 2 - 1 Uzbekistan",
+          "probability": 0.0828
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Portugal 1 - 2 Uzbekistan",
+          "probability": 0.0817
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Portugal 1 - 0 Uzbekistan",
+          "probability": 0.0778
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.808,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.2013,
+        "team_b_attack_strength": 1.1783,
+        "team_a_defense_strength": 0.7617,
+        "team_b_defense_strength": 0.7574,
+        "team_a_squad_strength": 35550000.0,
+        "team_b_squad_strength": 53625000.0,
+        "main_factors": [
+          "Portugal has strong historical attack (1.20x avg)"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_045",
+      "date": "2026-06-23",
+      "phase": "Group L",
+      "group": "Group L",
+      "team_a": "England",
+      "team_b": "Ghana",
+      "home_team": "England",
+      "away_team": "Ghana",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_BOS",
+      "neutral": true,
+      "expected_goals_team_a": 1.551,
+      "expected_goals_team_b": 1.019,
+      "team_a_win_probability": 0.4806,
+      "draw_probability": 0.2861,
+      "team_b_win_probability": 0.2333,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "England 1 - 1 Ghana",
+          "probability": 0.1367
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "England 1 - 0 Ghana",
+          "probability": 0.103
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "England 2 - 1 Ghana",
+          "probability": 0.0938
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "England 0 - 0 Ghana",
+          "probability": 0.0923
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 0,
+          "scoreline": "2-0",
+          "display_scoreline": "England 2 - 0 Ghana",
+          "probability": 0.0921
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.4864,
+        "team_b_attack_strength": 1.0668,
+        "team_a_defense_strength": 0.6499,
+        "team_b_defense_strength": 0.7099,
+        "team_a_squad_strength": 278610000.0,
+        "team_b_squad_strength": 51700000.0,
+        "main_factors": [
+          "England has strong historical attack (1.49x avg)",
+          "England squad value is 5.4x Ghana"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_046",
+      "date": "2026-06-23",
+      "phase": "Group L",
+      "group": "Group L",
+      "team_a": "Panama",
+      "team_b": "Croatia",
+      "home_team": "Panama",
+      "away_team": "Croatia",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_BOS",
+      "neutral": true,
+      "expected_goals_team_a": 0.866,
+      "expected_goals_team_b": 1.803,
+      "team_a_win_probability": 0.1628,
+      "draw_probability": 0.2562,
+      "team_b_win_probability": 0.581,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Panama 1 - 1 Croatia",
+          "probability": 0.1224
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 2,
+          "scoreline": "0-2",
+          "display_scoreline": "Panama 0 - 2 Croatia",
+          "probability": 0.1128
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Panama 0 - 1 Croatia",
+          "probability": 0.111
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Panama 1 - 2 Croatia",
+          "probability": 0.0976
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Panama 0 - 0 Croatia",
+          "probability": 0.0835
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 0.8572,
+        "team_b_attack_strength": 1.1822,
+        "team_a_defense_strength": 1.0377,
+        "team_b_defense_strength": 0.6873,
+        "team_a_squad_strength": 15625000.0,
+        "team_b_squad_strength": 94470000.0,
+        "main_factors": [
+          "Croatia squad value is 6.0x Panama"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_048",
+      "date": "2026-06-24",
+      "phase": "Group K",
+      "group": "Group K",
+      "team_a": "Colombia",
+      "team_b": "Congo DR",
+      "home_team": "Colombia",
+      "away_team": "Congo DR",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "MEX_GDL",
+      "neutral": true,
+      "expected_goals_team_a": 1.05,
+      "expected_goals_team_b": 1.167,
+      "team_a_win_probability": 0.3087,
+      "draw_probability": 0.324,
+      "team_b_win_probability": 0.3672,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Colombia 1 - 1 Congo DR",
+          "probability": 0.1508
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Colombia 0 - 0 Congo DR",
+          "probability": 0.1263
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Colombia 0 - 1 Congo DR",
+          "probability": 0.1097
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Colombia 1 - 0 Congo DR",
+          "probability": 0.097
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Colombia 1 - 2 Congo DR",
+          "probability": 0.0779
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 0.8778,
+        "team_b_attack_strength": 1.0116,
+        "team_a_defense_strength": 0.785,
+        "team_b_defense_strength": 0.8142,
+        "team_a_squad_strength": 28225000.0,
+        "team_b_squad_strength": 46810000.0,
+        "main_factors": [
+          "Baseline Poisson model with default strengths"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_051",
+      "date": "2026-06-24",
+      "phase": "Group B",
+      "group": "Group B",
+      "team_a": "Switzerland",
+      "team_b": "Canada",
+      "home_team": "Switzerland",
+      "away_team": "Canada",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "CAN_VAN",
+      "neutral": true,
+      "expected_goals_team_a": 1.326,
+      "expected_goals_team_b": 1.442,
+      "team_a_win_probability": 0.3309,
+      "draw_probability": 0.2853,
+      "team_b_win_probability": 0.3838,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Switzerland 1 - 1 Canada",
+          "probability": 0.1357
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Switzerland 1 - 2 Canada",
+          "probability": 0.0866
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Switzerland 2 - 1 Canada",
+          "probability": 0.0796
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Switzerland 0 - 0 Canada",
+          "probability": 0.0784
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Switzerland 0 - 1 Canada",
+          "probability": 0.075
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.0161,
+        "team_b_attack_strength": 0.8821,
+        "team_a_defense_strength": 1.1123,
+        "team_b_defense_strength": 0.8879,
+        "team_a_squad_strength": 51150000.0,
+        "team_b_squad_strength": 21275000.0,
+        "main_factors": [
+          "Switzerland squad value is 2.4x Canada"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_052",
+      "date": "2026-06-24",
+      "phase": "Group B",
+      "group": "Group B",
+      "team_a": "Bosnia and Herzegovina",
+      "team_b": "Qatar",
+      "home_team": "Bosnia and Herzegovina",
+      "away_team": "Qatar",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_SEA",
+      "neutral": true,
+      "expected_goals_team_a": 1.127,
+      "expected_goals_team_b": 1.315,
+      "team_a_win_probability": 0.3019,
+      "draw_probability": 0.3059,
+      "team_b_win_probability": 0.3923,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Bosnia and Herzegovina 1 - 1 Qatar",
+          "probability": 0.1457
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Bosnia and Herzegovina 0 - 0 Qatar",
+          "probability": 0.1038
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Bosnia and Herzegovina 0 - 1 Qatar",
+          "probability": 0.0977
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Bosnia and Herzegovina 1 - 2 Qatar",
+          "probability": 0.0848
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Bosnia and Herzegovina 1 - 0 Qatar",
+          "probability": 0.0813
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "missing",
+        "player_kaggle_match_rate": 0.0,
+        "warnings": [
+          "Bosnia and Herzegovina: squad data is missing"
+        ]
+      },
+      "explanation": {
+        "team_a_attack_strength": 0.9329,
+        "team_b_attack_strength": 0.9591,
+        "team_a_defense_strength": 0.9329,
+        "team_b_defense_strength": 0.8219,
+        "team_a_squad_strength": 0.0,
+        "team_b_squad_strength": 4425000.0,
+        "main_factors": [
+          "Baseline Poisson model with default strengths"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_049",
+      "date": "2026-06-24",
+      "phase": "Group C",
+      "group": "Group C",
+      "team_a": "Scotland",
+      "team_b": "Brazil",
+      "home_team": "Scotland",
+      "away_team": "Brazil",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_MIA",
+      "neutral": true,
+      "expected_goals_team_a": 1.051,
+      "expected_goals_team_b": 1.827,
+      "team_a_win_probability": 0.2019,
+      "draw_probability": 0.2568,
+      "team_b_win_probability": 0.5413,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Scotland 1 - 1 Brazil",
+          "probability": 0.1221
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Scotland 1 - 2 Brazil",
+          "probability": 0.0987
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 2,
+          "scoreline": "0-2",
+          "display_scoreline": "Scotland 0 - 2 Brazil",
+          "probability": 0.094
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Scotland 0 - 1 Brazil",
+          "probability": 0.0888
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Scotland 0 - 0 Brazil",
+          "probability": 0.0703
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.1626,
+        "team_b_attack_strength": 1.4811,
+        "team_a_defense_strength": 0.8396,
+        "team_b_defense_strength": 0.6149,
+        "team_a_squad_strength": 21050000.0,
+        "team_b_squad_strength": 78325000.0,
+        "main_factors": [
+          "Brazil has strong historical attack (1.48x avg)",
+          "Brazil squad value is 3.7x Scotland"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_050",
+      "date": "2026-06-24",
+      "phase": "Group C",
+      "group": "Group C",
+      "team_a": "Morocco",
+      "team_b": "Haiti",
+      "home_team": "Morocco",
+      "away_team": "Haiti",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_ATL",
+      "neutral": true,
+      "expected_goals_team_a": 1.359,
+      "expected_goals_team_b": 0.895,
+      "team_a_win_probability": 0.4591,
+      "draw_probability": 0.3104,
+      "team_b_win_probability": 0.2305,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Morocco 1 - 1 Haiti",
+          "probability": 0.1443
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Morocco 1 - 0 Haiti",
+          "probability": 0.1261
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Morocco 0 - 0 Haiti",
+          "probability": 0.1216
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 0,
+          "scoreline": "2-0",
+          "display_scoreline": "Morocco 2 - 0 Haiti",
+          "probability": 0.0969
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Morocco 2 - 1 Haiti",
+          "probability": 0.0868
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.923,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.0102,
+        "team_b_attack_strength": 1.1181,
+        "team_a_defense_strength": 0.5448,
+        "team_b_defense_strength": 0.9153,
+        "team_a_squad_strength": 83925000.0,
+        "team_b_squad_strength": 52075000.0,
+        "main_factors": [
+          "Baseline Poisson model with default strengths"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_053",
+      "date": "2026-06-25",
+      "phase": "Group A",
+      "group": "Group A",
+      "team_a": "Czech Republic",
+      "team_b": "Mexico",
+      "home_team": "Czech Republic",
+      "away_team": "Mexico",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "MEX_CDMX",
+      "neutral": true,
+      "expected_goals_team_a": 1.277,
+      "expected_goals_team_b": 1.225,
+      "team_a_win_probability": 0.3608,
+      "draw_probability": 0.3031,
+      "team_b_win_probability": 0.3361,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Czech Republic 1 - 1 Mexico",
+          "probability": 0.1448
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Czech Republic 0 - 0 Mexico",
+          "probability": 0.0985
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Czech Republic 1 - 0 Mexico",
+          "probability": 0.0879
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Czech Republic 0 - 1 Mexico",
+          "probability": 0.0837
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Czech Republic 2 - 1 Mexico",
+          "probability": 0.0818
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.2154,
+        "team_b_attack_strength": 1.1988,
+        "team_a_defense_strength": 0.6956,
+        "team_b_defense_strength": 0.7151,
+        "team_a_squad_strength": 12400000.0,
+        "team_b_squad_strength": 17385000.0,
+        "main_factors": [
+          "Czech Republic has strong historical attack (1.22x avg)"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_054",
+      "date": "2026-06-25",
+      "phase": "Group A",
+      "group": "Group A",
+      "team_a": "South Africa",
+      "team_b": "Korea Republic",
+      "home_team": "South Africa",
+      "away_team": "Korea Republic",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "MEX_MTY",
+      "neutral": true,
+      "expected_goals_team_a": 0.836,
+      "expected_goals_team_b": 1.145,
+      "team_a_win_probability": 0.2495,
+      "draw_probability": 0.3394,
+      "team_b_win_probability": 0.4111,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "South Africa 0 - 0 Korea Republic",
+          "probability": 0.155
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "South Africa 1 - 1 Korea Republic",
+          "probability": 0.1492
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "South Africa 0 - 1 Korea Republic",
+          "probability": 0.1407
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "South Africa 1 - 0 Korea Republic",
+          "probability": 0.0981
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 2,
+          "scoreline": "0-2",
+          "display_scoreline": "South Africa 0 - 2 Korea Republic",
+          "probability": 0.0904
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "partial",
+        "player_kaggle_match_rate": 0.423,
+        "warnings": [
+          "Korea Republic: squad data is partial"
+        ]
+      },
+      "explanation": {
+        "team_a_attack_strength": 0.9215,
+        "team_b_attack_strength": 1.2109,
+        "team_a_defense_strength": 0.6436,
+        "team_b_defense_strength": 0.6176,
+        "team_a_squad_strength": 5675000.0,
+        "team_b_squad_strength": 2250000.0,
+        "main_factors": [
+          "Korea Republic has strong historical attack (1.21x avg)",
+          "South Africa squad value is 2.5x Korea Republic"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_055",
+      "date": "2026-06-25",
+      "phase": "Group E",
+      "group": "Group E",
+      "team_a": "Cura\u00e7ao",
+      "team_b": "C\u00f4te D'Ivoire",
+      "home_team": "Cura\u00e7ao",
+      "away_team": "C\u00f4te D'Ivoire",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_PHI",
+      "neutral": true,
+      "expected_goals_team_a": 1.119,
+      "expected_goals_team_b": 1.761,
+      "team_a_win_probability": 0.2269,
+      "draw_probability": 0.2637,
+      "team_b_win_probability": 0.5094,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Cura\u00e7ao 1 - 1 C\u00f4te D'Ivoire",
+          "probability": 0.1251
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Cura\u00e7ao 1 - 2 C\u00f4te D'Ivoire",
+          "probability": 0.0974
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 2,
+          "scoreline": "0-2",
+          "display_scoreline": "Cura\u00e7ao 0 - 2 C\u00f4te D'Ivoire",
+          "probability": 0.0871
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Cura\u00e7ao 0 - 1 C\u00f4te D'Ivoire",
+          "probability": 0.0846
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Cura\u00e7ao 0 - 0 C\u00f4te D'Ivoire",
+          "probability": 0.0706
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.1223,
+        "team_b_attack_strength": 1.1148,
+        "team_a_defense_strength": 1.0746,
+        "team_b_defense_strength": 0.6783,
+        "team_a_squad_strength": 47600000.0,
+        "team_b_squad_strength": 81575000.0,
+        "main_factors": [
+          "Baseline Poisson model with default strengths"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_056",
+      "date": "2026-06-25",
+      "phase": "Group E",
+      "group": "Group E",
+      "team_a": "Ecuador",
+      "team_b": "Germany",
+      "home_team": "Ecuador",
+      "away_team": "Germany",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_NY",
+      "neutral": true,
+      "expected_goals_team_a": 0.959,
+      "expected_goals_team_b": 2.34,
+      "team_a_win_probability": 0.1283,
+      "draw_probability": 0.2018,
+      "team_b_win_probability": 0.6699,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 2,
+          "scoreline": "0-2",
+          "display_scoreline": "Ecuador 0 - 2 Germany",
+          "probability": 0.1014
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Ecuador 1 - 2 Germany",
+          "probability": 0.0972
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Ecuador 1 - 1 Germany",
+          "probability": 0.0939
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 3,
+          "scoreline": "0-3",
+          "display_scoreline": "Ecuador 0 - 3 Germany",
+          "probability": 0.079
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Ecuador 0 - 1 Germany",
+          "probability": 0.0758
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 0.8255,
+        "team_b_attack_strength": 1.5312,
+        "team_a_defense_strength": 1.0397,
+        "team_b_defense_strength": 0.7907,
+        "team_a_squad_strength": 25100000.0,
+        "team_b_squad_strength": 25600000.0,
+        "main_factors": [
+          "Germany has strong historical attack (1.53x avg)"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_057",
+      "date": "2026-06-25",
+      "phase": "Group F",
+      "group": "Group F",
+      "team_a": "Japan",
+      "team_b": "Sweden",
+      "home_team": "Japan",
+      "away_team": "Sweden",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_DAL",
+      "neutral": true,
+      "expected_goals_team_a": 1.604,
+      "expected_goals_team_b": 1.546,
+      "team_a_win_probability": 0.3806,
+      "draw_probability": 0.264,
+      "team_b_win_probability": 0.3554,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Japan 1 - 1 Sweden",
+          "probability": 0.1201
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Japan 2 - 1 Sweden",
+          "probability": 0.0853
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Japan 1 - 2 Sweden",
+          "probability": 0.0822
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 2,
+          "scoreline": "2-2",
+          "display_scoreline": "Japan 2 - 2 Sweden",
+          "probability": 0.0659
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Japan 0 - 0 Sweden",
+          "probability": 0.0567
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.2429,
+        "team_b_attack_strength": 1.3418,
+        "team_a_defense_strength": 0.7838,
+        "team_b_defense_strength": 0.8782,
+        "team_a_squad_strength": 166225000.0,
+        "team_b_squad_strength": 15425000.0,
+        "main_factors": [
+          "Japan has strong historical attack (1.24x avg)",
+          "Sweden has strong historical attack (1.34x avg)",
+          "Japan squad value is 10.8x Sweden"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_058",
+      "date": "2026-06-25",
+      "phase": "Group F",
+      "group": "Group F",
+      "team_a": "Tunisia",
+      "team_b": "Netherlands",
+      "home_team": "Tunisia",
+      "away_team": "Netherlands",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_KC",
+      "neutral": true,
+      "expected_goals_team_a": 1.197,
+      "expected_goals_team_b": 1.45,
+      "team_a_win_probability": 0.2958,
+      "draw_probability": 0.2907,
+      "team_b_win_probability": 0.4134,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Tunisia 1 - 1 Netherlands",
+          "probability": 0.139
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Tunisia 1 - 2 Netherlands",
+          "probability": 0.0892
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Tunisia 0 - 0 Netherlands",
+          "probability": 0.0869
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Tunisia 0 - 1 Netherlands",
+          "probability": 0.0868
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 2,
+          "scoreline": "0-2",
+          "display_scoreline": "Tunisia 0 - 2 Netherlands",
+          "probability": 0.0745
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 0.9775,
+        "team_b_attack_strength": 1.4252,
+        "team_a_defense_strength": 0.6925,
+        "team_b_defense_strength": 0.833,
+        "team_a_squad_strength": 18400000.0,
+        "team_b_squad_strength": 243585000.0,
+        "main_factors": [
+          "Netherlands has strong historical attack (1.43x avg)",
+          "Netherlands squad value is 13.2x Tunisia"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_059",
+      "date": "2026-06-26",
+      "phase": "Group D",
+      "group": "Group D",
+      "team_a": "T\u00fcrkiye",
+      "team_b": "United States",
+      "home_team": "T\u00fcrkiye",
+      "away_team": "United States",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_LA",
+      "neutral": true,
+      "expected_goals_team_a": 1.264,
+      "expected_goals_team_b": 1.455,
+      "team_a_win_probability": 0.3125,
+      "draw_probability": 0.2873,
+      "team_b_win_probability": 0.4002,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "T\u00fcrkiye 1 - 1 United States",
+          "probability": 0.137
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "T\u00fcrkiye 1 - 2 United States",
+          "probability": 0.0883
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "T\u00fcrkiye 0 - 0 United States",
+          "probability": 0.0817
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "T\u00fcrkiye 0 - 1 United States",
+          "probability": 0.0802
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "T\u00fcrkiye 2 - 1 United States",
+          "probability": 0.0767
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 0.9529,
+        "team_b_attack_strength": 1.0336,
+        "team_a_defense_strength": 0.9582,
+        "team_b_defense_strength": 0.9027,
+        "team_a_squad_strength": 77750000.0,
+        "team_b_squad_strength": 41975000.0,
+        "main_factors": [
+          "Baseline Poisson model with default strengths"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_060",
+      "date": "2026-06-26",
+      "phase": "Group D",
+      "group": "Group D",
+      "team_a": "Paraguay",
+      "team_b": "Australia",
+      "home_team": "Paraguay",
+      "away_team": "Australia",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_SF",
+      "neutral": true,
+      "expected_goals_team_a": 0.929,
+      "expected_goals_team_b": 1.943,
+      "team_a_win_probability": 0.161,
+      "draw_probability": 0.242,
+      "team_b_win_probability": 0.5971,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Paraguay 1 - 1 Australia",
+          "probability": 0.1155
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 2,
+          "scoreline": "0-2",
+          "display_scoreline": "Paraguay 0 - 2 Australia",
+          "probability": 0.1069
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Paraguay 1 - 2 Australia",
+          "probability": 0.0993
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Paraguay 0 - 1 Australia",
+          "probability": 0.0968
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Paraguay 0 - 0 Australia",
+          "probability": 0.07
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 0.8717,
+        "team_b_attack_strength": 1.3668,
+        "team_a_defense_strength": 0.9672,
+        "team_b_defense_strength": 0.725,
+        "team_a_squad_strength": 6000000.0,
+        "team_b_squad_strength": 14650000.0,
+        "main_factors": [
+          "Australia has strong historical attack (1.37x avg)",
+          "Australia squad value is 2.4x Paraguay"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_061",
+      "date": "2026-06-26",
+      "phase": "Group I",
+      "group": "Group I",
+      "team_a": "Norway",
+      "team_b": "France",
+      "home_team": "Norway",
+      "away_team": "France",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_BOS",
+      "neutral": true,
+      "expected_goals_team_a": 1.363,
+      "expected_goals_team_b": 2.027,
+      "team_a_win_probability": 0.2448,
+      "draw_probability": 0.2393,
+      "team_b_win_probability": 0.5159,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Norway 1 - 1 France",
+          "probability": 0.1054
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Norway 1 - 2 France",
+          "probability": 0.0945
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 2,
+          "scoreline": "0-2",
+          "display_scoreline": "Norway 0 - 2 France",
+          "probability": 0.0693
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 2,
+          "scoreline": "2-2",
+          "display_scoreline": "Norway 2 - 2 France",
+          "probability": 0.0644
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 3,
+          "scoreline": "1-3",
+          "display_scoreline": "Norway 1 - 3 France",
+          "probability": 0.0638
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.0542,
+        "team_b_attack_strength": 1.2481,
+        "team_a_defense_strength": 1.105,
+        "team_b_defense_strength": 0.8799,
+        "team_a_squad_strength": 212400000.0,
+        "team_b_squad_strength": 222625000.0,
+        "main_factors": [
+          "France has strong historical attack (1.25x avg)"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_062",
+      "date": "2026-06-26",
+      "phase": "Group I",
+      "group": "Group I",
+      "team_a": "Senegal",
+      "team_b": "Iraq",
+      "home_team": "Senegal",
+      "away_team": "Iraq",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "CAN_TOR",
+      "neutral": true,
+      "expected_goals_team_a": 0.875,
+      "expected_goals_team_b": 0.98,
+      "team_a_win_probability": 0.2929,
+      "draw_probability": 0.3572,
+      "team_b_win_probability": 0.3499,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Senegal 0 - 0 Iraq",
+          "probability": 0.1739
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Senegal 1 - 1 Iraq",
+          "probability": 0.1516
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Senegal 0 - 1 Iraq",
+          "probability": 0.1359
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Senegal 1 - 0 Iraq",
+          "probability": 0.1194
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 2,
+          "scoreline": "0-2",
+          "display_scoreline": "Senegal 0 - 2 Iraq",
+          "probability": 0.0752
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 0.9407,
+        "team_b_attack_strength": 1.0441,
+        "team_a_defense_strength": 0.6389,
+        "team_b_defense_strength": 0.6327,
+        "team_a_squad_strength": 28050000.0,
+        "team_b_squad_strength": 8125000.0,
+        "main_factors": [
+          "Senegal squad value is 3.5x Iraq"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_065",
+      "date": "2026-06-27",
+      "phase": "Group H",
+      "group": "Group H",
+      "team_a": "Cabo Verde",
+      "team_b": "Saudi Arabia",
+      "home_team": "Cabo Verde",
+      "away_team": "Saudi Arabia",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_HOU",
+      "neutral": true,
+      "expected_goals_team_a": 0.783,
+      "expected_goals_team_b": 1.178,
+      "team_a_win_probability": 0.2278,
+      "draw_probability": 0.3374,
+      "team_b_win_probability": 0.4348,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Cabo Verde 0 - 0 Saudi Arabia",
+          "probability": 0.1575
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Cabo Verde 0 - 1 Saudi Arabia",
+          "probability": 0.1488
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Cabo Verde 1 - 1 Saudi Arabia",
+          "probability": 0.1467
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 2,
+          "scoreline": "0-2",
+          "display_scoreline": "Cabo Verde 0 - 2 Saudi Arabia",
+          "probability": 0.0976
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Cabo Verde 1 - 0 Saudi Arabia",
+          "probability": 0.0933
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 0.7471,
+        "team_b_attack_strength": 1.045,
+        "team_a_defense_strength": 0.7673,
+        "team_b_defense_strength": 0.7135,
+        "team_a_squad_strength": 15675000.0,
+        "team_b_squad_strength": 5325000.0,
+        "main_factors": [
+          "Cabo Verde has weak historical attack (0.75x avg)",
+          "Cabo Verde squad value is 2.9x Saudi Arabia"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_066",
+      "date": "2026-06-27",
+      "phase": "Group H",
+      "group": "Group H",
+      "team_a": "Uruguay",
+      "team_b": "Spain",
+      "home_team": "Uruguay",
+      "away_team": "Spain",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "MEX_GDL",
+      "neutral": true,
+      "expected_goals_team_a": 0.966,
+      "expected_goals_team_b": 1.691,
+      "team_a_win_probability": 0.2002,
+      "draw_probability": 0.2709,
+      "team_b_win_probability": 0.5289,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Uruguay 1 - 1 Spain",
+          "probability": 0.1296
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Uruguay 0 - 1 Spain",
+          "probability": 0.1038
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 2,
+          "scoreline": "0-2",
+          "display_scoreline": "Uruguay 0 - 2 Spain",
+          "probability": 0.1003
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Uruguay 1 - 2 Spain",
+          "probability": 0.0969
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Uruguay 0 - 0 Spain",
+          "probability": 0.0851
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.0761,
+        "team_b_attack_strength": 1.3922,
+        "team_a_defense_strength": 0.8264,
+        "team_b_defense_strength": 0.6109,
+        "team_a_squad_strength": 20550000.0,
+        "team_b_squad_strength": 241850000.0,
+        "main_factors": [
+          "Spain has strong historical attack (1.39x avg)",
+          "Spain squad value is 11.8x Uruguay"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_063",
+      "date": "2026-06-27",
+      "phase": "Group G",
+      "group": "Group G",
+      "team_a": "Egypt",
+      "team_b": "IR Iran",
+      "home_team": "Egypt",
+      "away_team": "IR Iran",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_SEA",
+      "neutral": true,
+      "expected_goals_team_a": 0.87,
+      "expected_goals_team_b": 1.301,
+      "team_a_win_probability": 0.2328,
+      "draw_probability": 0.3182,
+      "team_b_win_probability": 0.449,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Egypt 1 - 1 IR Iran",
+          "probability": 0.1459
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Egypt 0 - 1 IR Iran",
+          "probability": 0.1316
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Egypt 0 - 0 IR Iran",
+          "probability": 0.1308
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 2,
+          "scoreline": "0-2",
+          "display_scoreline": "Egypt 0 - 2 IR Iran",
+          "probability": 0.0965
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Egypt 1 - 2 IR Iran",
+          "probability": 0.084
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.769,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.1026,
+        "team_b_attack_strength": 1.2842,
+        "team_a_defense_strength": 0.6895,
+        "team_b_defense_strength": 0.537,
+        "team_a_squad_strength": 45400000.0,
+        "team_b_squad_strength": 7600000.0,
+        "main_factors": [
+          "IR Iran has strong historical attack (1.28x avg)",
+          "Egypt squad value is 6.0x IR Iran"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_064",
+      "date": "2026-06-27",
+      "phase": "Group G",
+      "group": "Group G",
+      "team_a": "New Zealand",
+      "team_b": "Belgium",
+      "home_team": "New Zealand",
+      "away_team": "Belgium",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "CAN_VAN",
+      "neutral": true,
+      "expected_goals_team_a": 1.803,
+      "expected_goals_team_b": 1.855,
+      "team_a_win_probability": 0.3697,
+      "draw_probability": 0.2401,
+      "team_b_win_probability": 0.3902,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "New Zealand 1 - 1 Belgium",
+          "probability": 0.0976
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "New Zealand 1 - 2 Belgium",
+          "probability": 0.0801
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "New Zealand 2 - 1 Belgium",
+          "probability": 0.0779
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 2,
+          "scoreline": "2-2",
+          "display_scoreline": "New Zealand 2 - 2 Belgium",
+          "probability": 0.0722
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 3,
+          "scoreline": "1-3",
+          "display_scoreline": "New Zealand 1 - 3 Belgium",
+          "probability": 0.0495
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.1924,
+        "team_b_attack_strength": 1.2365,
+        "team_a_defense_strength": 1.0207,
+        "team_b_defense_strength": 1.0291,
+        "team_a_squad_strength": 17775000.0,
+        "team_b_squad_strength": 54825000.0,
+        "main_factors": [
+          "Belgium has strong historical attack (1.24x avg)",
+          "Belgium squad value is 3.1x New Zealand"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_067",
+      "date": "2026-06-27",
+      "phase": "Group L",
+      "group": "Group L",
+      "team_a": "Panama",
+      "team_b": "England",
+      "home_team": "Panama",
+      "away_team": "England",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_NY",
+      "neutral": true,
+      "expected_goals_team_a": 0.819,
+      "expected_goals_team_b": 2.267,
+      "team_a_win_probability": 0.1092,
+      "draw_probability": 0.2015,
+      "team_b_win_probability": 0.6893,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 2,
+          "scoreline": "0-2",
+          "display_scoreline": "Panama 0 - 2 England",
+          "probability": 0.1177
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Panama 1 - 2 England",
+          "probability": 0.0964
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Panama 1 - 1 England",
+          "probability": 0.0961
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Panama 0 - 1 England",
+          "probability": 0.0928
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 3,
+          "scoreline": "0-3",
+          "display_scoreline": "Panama 0 - 3 England",
+          "probability": 0.0889
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 0.8572,
+        "team_b_attack_strength": 1.4864,
+        "team_a_defense_strength": 1.0377,
+        "team_b_defense_strength": 0.6499,
+        "team_a_squad_strength": 15625000.0,
+        "team_b_squad_strength": 278610000.0,
+        "main_factors": [
+          "England has strong historical attack (1.49x avg)",
+          "England squad value is 17.8x Panama"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_068",
+      "date": "2026-06-27",
+      "phase": "Group L",
+      "group": "Group L",
+      "team_a": "Croatia",
+      "team_b": "Ghana",
+      "home_team": "Croatia",
+      "away_team": "Ghana",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_PHI",
+      "neutral": true,
+      "expected_goals_team_a": 1.233,
+      "expected_goals_team_b": 1.078,
+      "team_a_win_probability": 0.3803,
+      "draw_probability": 0.3161,
+      "team_b_win_probability": 0.3036,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Croatia 1 - 1 Ghana",
+          "probability": 0.1489
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Croatia 0 - 0 Ghana",
+          "probability": 0.1163
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Croatia 1 - 0 Ghana",
+          "probability": 0.1052
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Croatia 0 - 1 Ghana",
+          "probability": 0.0897
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Croatia 2 - 1 Ghana",
+          "probability": 0.0813
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.962,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.1822,
+        "team_b_attack_strength": 1.0668,
+        "team_a_defense_strength": 0.6873,
+        "team_b_defense_strength": 0.7099,
+        "team_a_squad_strength": 94470000.0,
+        "team_b_squad_strength": 51700000.0,
+        "main_factors": [
+          "Baseline Poisson model with default strengths"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_071",
+      "date": "2026-06-27",
+      "phase": "Group K",
+      "group": "Group K",
+      "team_a": "Colombia",
+      "team_b": "Portugal",
+      "home_team": "Colombia",
+      "away_team": "Portugal",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_MIA",
+      "neutral": true,
+      "expected_goals_team_a": 0.983,
+      "expected_goals_team_b": 1.386,
+      "team_a_win_probability": 0.25,
+      "draw_probability": 0.3049,
+      "team_b_win_probability": 0.4452,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Colombia 1 - 1 Portugal",
+          "probability": 0.1441
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Colombia 0 - 1 Portugal",
+          "probability": 0.1132
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Colombia 0 - 0 Portugal",
+          "probability": 0.1102
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 2,
+          "scoreline": "0-2",
+          "display_scoreline": "Colombia 0 - 2 Portugal",
+          "probability": 0.0899
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Colombia 1 - 2 Portugal",
+          "probability": 0.0884
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 0.8778,
+        "team_b_attack_strength": 1.2013,
+        "team_a_defense_strength": 0.785,
+        "team_b_defense_strength": 0.7617,
+        "team_a_squad_strength": 28225000.0,
+        "team_b_squad_strength": 35550000.0,
+        "main_factors": [
+          "Portugal has strong historical attack (1.20x avg)"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_072",
+      "date": "2026-06-27",
+      "phase": "Group K",
+      "group": "Group K",
+      "team_a": "Congo DR",
+      "team_b": "Uzbekistan",
+      "home_team": "Congo DR",
+      "away_team": "Uzbekistan",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_ATL",
+      "neutral": true,
+      "expected_goals_team_a": 1.126,
+      "expected_goals_team_b": 1.41,
+      "team_a_win_probability": 0.2844,
+      "draw_probability": 0.2973,
+      "team_b_win_probability": 0.4184,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Congo DR 1 - 1 Uzbekistan",
+          "probability": 0.1421
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Congo DR 0 - 0 Uzbekistan",
+          "probability": 0.0956
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Congo DR 0 - 1 Uzbekistan",
+          "probability": 0.0953
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Congo DR 1 - 2 Uzbekistan",
+          "probability": 0.0886
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 2,
+          "scoreline": "0-2",
+          "display_scoreline": "Congo DR 0 - 2 Uzbekistan",
+          "probability": 0.0787
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.808,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.0116,
+        "team_b_attack_strength": 1.1783,
+        "team_a_defense_strength": 0.8142,
+        "team_b_defense_strength": 0.7574,
+        "team_a_squad_strength": 46810000.0,
+        "team_b_squad_strength": 53625000.0,
+        "main_factors": [
+          "Baseline Poisson model with default strengths"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_069",
+      "date": "2026-06-28",
+      "phase": "Group J",
+      "group": "Group J",
+      "team_a": "Algeria",
+      "team_b": "Austria",
+      "home_team": "Algeria",
+      "away_team": "Austria",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_KC",
+      "neutral": true,
+      "expected_goals_team_a": 1.607,
+      "expected_goals_team_b": 1.211,
+      "team_a_win_probability": 0.4505,
+      "draw_probability": 0.2766,
+      "team_b_win_probability": 0.2729,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Algeria 1 - 1 Austria",
+          "probability": 0.1314
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Algeria 2 - 1 Austria",
+          "probability": 0.0934
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 0,
+          "scoreline": "1-0",
+          "display_scoreline": "Algeria 1 - 0 Austria",
+          "probability": 0.0809
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 0,
+          "scoreline": "2-0",
+          "display_scoreline": "Algeria 2 - 0 Austria",
+          "probability": 0.0771
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Algeria 0 - 0 Austria",
+          "probability": 0.0748
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.923,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 1.051,
+        "team_b_attack_strength": 1.2193,
+        "team_a_defense_strength": 0.6761,
+        "team_b_defense_strength": 1.0405,
+        "team_a_squad_strength": 21600000.0,
+        "team_b_squad_strength": 91625000.0,
+        "main_factors": [
+          "Austria has strong historical attack (1.22x avg)",
+          "Austria squad value is 4.2x Algeria"
+        ]
+      }
+    },
+    {
+      "match_id": "GS_070",
+      "date": "2026-06-28",
+      "phase": "Group J",
+      "group": "Group J",
+      "team_a": "Jordan",
+      "team_b": "Argentina",
+      "home_team": "Jordan",
+      "away_team": "Argentina",
+      "team_a_label": "Team A / Listed first",
+      "team_b_label": "Team B / Listed second",
+      "venue": "USA_DAL",
+      "neutral": true,
+      "expected_goals_team_a": 0.873,
+      "expected_goals_team_b": 1.44,
+      "team_a_win_probability": 0.2121,
+      "draw_probability": 0.3008,
+      "team_b_win_probability": 0.4872,
+      "top_5_scorelines": [
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 1,
+          "scoreline": "1-1",
+          "display_scoreline": "Jordan 1 - 1 Argentina",
+          "probability": 0.1406
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Jordan 0 - 1 Argentina",
+          "probability": 0.1263
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 0,
+          "scoreline": "0-0",
+          "display_scoreline": "Jordan 0 - 0 Argentina",
+          "probability": 0.1151
+        },
+        {
+          "team_a_goals": 0,
+          "team_b_goals": 2,
+          "scoreline": "0-2",
+          "display_scoreline": "Jordan 0 - 2 Argentina",
+          "probability": 0.1026
+        },
+        {
+          "team_a_goals": 1,
+          "team_b_goals": 2,
+          "scoreline": "1-2",
+          "display_scoreline": "Jordan 1 - 2 Argentina",
+          "probability": 0.0896
+        }
+      ],
+      "data_quality": {
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 1.0,
+        "warnings": []
+      },
+      "explanation": {
+        "team_a_attack_strength": 0.8685,
+        "team_b_attack_strength": 1.2909,
+        "team_a_defense_strength": 0.759,
+        "team_b_defense_strength": 0.6843,
+        "team_a_squad_strength": 8110000.0,
+        "team_b_squad_strength": 32525000.0,
+        "main_factors": [
+          "Argentina has strong historical attack (1.29x avg)",
+          "Argentina squad value is 4.0x Jordan"
+        ]
+      }
+    }
+  ]
+}

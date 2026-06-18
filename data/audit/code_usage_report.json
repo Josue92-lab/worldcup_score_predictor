@@ -1,0 +1,31 @@
+{
+  "used_entrypoints": [
+    "src/cli.py",
+    "src/app_streamlit.py",
+    "src/evaluate_predictions.py",
+    "src/predict_scorelines.py",
+    "src/audit_data.py",
+    "src/build_features.py",
+    "src/download_github_data.py",
+    "src/download_kaggle_data.py",
+    "src/normalize_teams.py",
+    "src/parse_squads_pdf.py"
+  ],
+  "unused_modules": [],
+  "mock_components_removed": [
+    "Kaggle fallback/mock loading",
+    "Old dummy MC returns"
+  ],
+  "mock_components_remaining": [],
+  "features_generated_not_used": [],
+  "features_used_by_model": [
+    "Historical Attack Factor",
+    "Historical Defense Factor",
+    "Squad Quality Match"
+  ],
+  "docs_corrected": [
+    "README.md",
+    "walkthrough.md"
+  ],
+  "status": "pass"
+}

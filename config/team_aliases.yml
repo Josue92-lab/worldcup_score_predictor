@@ -1,0 +1,23 @@
+# Team Name Aliases Mapping
+# Maps various source names to a normalized canonical name.
+# Canonical names should be ASCII-safe (no accents) and consistent
+# across fixture.csv, the squad PDF, and historical results.
+
+aliases:
+  Bosnia And Herzegovina: "Bosnia and Herzegovina"
+  Bosnia and Herzegovina: "Bosnia and Herzegovina"
+  Bosnia & Herzegovina: "Bosnia and Herzegovina"
+  Cape Verde: "Cabo Verde"
+  Curacao: "Curaçao"
+  Curaçao: "Curaçao"
+  DR Congo: "Congo DR"
+  Iran: "IR Iran"
+  Ivory Coast: "Côte D'Ivoire"
+  Côte D'Ivoire: "Côte D'Ivoire"
+  Cote D'Ivoire: "Côte D'Ivoire"
+  South Korea: "Korea Republic"
+  Turkey: "Türkiye"
+  Türkiye: "Türkiye"
+  Turkiye: "Türkiye"
+  Czechia: "Czech Republic"
+  USA: "United States"

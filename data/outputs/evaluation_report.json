@@ -1,0 +1,284 @@
+{
+  "martj42_results_max_date": "2026-06-27",
+  "world_cup_2026_rows_found": 28,
+  "actual_results_status": "available",
+  "matches_evaluated": 15,
+  "exact_score_top1_hits": 6,
+  "exact_score_top1_rate": 0.4,
+  "exact_score_top5_hits": 11,
+  "exact_score_top5_rate": 0.7333,
+  "outcome_1x2_hits": 8,
+  "outcome_1x2_rate": 0.5333,
+  "evaluated_matches": [
+    {
+      "match_id": "GS_001",
+      "date": "2026-06-11",
+      "team_a": "Mexico",
+      "team_b": "South Africa",
+      "actual_scoreline": "2-0",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "0-0",
+        "1-0",
+        "0-1",
+        "2-0"
+      ],
+      "top1_correct": false,
+      "top5_correct": true,
+      "outcome_1x2_correct": false
+    },
+    {
+      "match_id": "GS_003",
+      "date": "2026-06-12",
+      "team_a": "Canada",
+      "team_b": "Bosnia and Herzegovina",
+      "actual_scoreline": "1-1",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "0-0",
+        "0-1",
+        "1-0",
+        "1-2"
+      ],
+      "top1_correct": true,
+      "top5_correct": true,
+      "outcome_1x2_correct": true
+    },
+    {
+      "match_id": "GS_008",
+      "date": "2026-06-13",
+      "team_a": "Qatar",
+      "team_b": "Switzerland",
+      "actual_scoreline": "1-1",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "2-1",
+        "1-0",
+        "0-0",
+        "2-0"
+      ],
+      "top1_correct": true,
+      "top5_correct": true,
+      "outcome_1x2_correct": true
+    },
+    {
+      "match_id": "GS_007",
+      "date": "2026-06-13",
+      "team_a": "Brazil",
+      "team_b": "Morocco",
+      "actual_scoreline": "1-1",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "0-0",
+        "1-0",
+        "0-1",
+        "2-0"
+      ],
+      "top1_correct": true,
+      "top5_correct": true,
+      "outcome_1x2_correct": true
+    },
+    {
+      "match_id": "GS_010",
+      "date": "2026-06-14",
+      "team_a": "Germany",
+      "team_b": "Cura\u00e7ao",
+      "actual_scoreline": "7-1",
+      "predicted_top1": "2-1",
+      "predicted_top5": [
+        "2-1",
+        "1-1",
+        "3-1",
+        "2-0",
+        "2-2"
+      ],
+      "top1_correct": false,
+      "top5_correct": false,
+      "outcome_1x2_correct": true
+    },
+    {
+      "match_id": "GS_011",
+      "date": "2026-06-14",
+      "team_a": "Netherlands",
+      "team_b": "Japan",
+      "actual_scoreline": "2-2",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "2-1",
+        "1-2",
+        "2-2",
+        "2-0"
+      ],
+      "top1_correct": false,
+      "top5_correct": true,
+      "outcome_1x2_correct": true
+    },
+    {
+      "match_id": "GS_009",
+      "date": "2026-06-14",
+      "team_a": "C\u00f4te D'Ivoire",
+      "team_b": "Ecuador",
+      "actual_scoreline": "1-0",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "1-0",
+        "2-0",
+        "2-1",
+        "0-0"
+      ],
+      "top1_correct": false,
+      "top5_correct": true,
+      "outcome_1x2_correct": false
+    },
+    {
+      "match_id": "GS_014",
+      "date": "2026-06-15",
+      "team_a": "Spain",
+      "team_b": "Cabo Verde",
+      "actual_scoreline": "0-0",
+      "predicted_top1": "1-0",
+      "predicted_top5": [
+        "1-0",
+        "2-0",
+        "1-1",
+        "0-0",
+        "2-1"
+      ],
+      "top1_correct": false,
+      "top5_correct": true,
+      "outcome_1x2_correct": false
+    },
+    {
+      "match_id": "GS_016",
+      "date": "2026-06-15",
+      "team_a": "Belgium",
+      "team_b": "Egypt",
+      "actual_scoreline": "1-1",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "1-2",
+        "0-1",
+        "0-2",
+        "2-1"
+      ],
+      "top1_correct": true,
+      "top5_correct": true,
+      "outcome_1x2_correct": true
+    },
+    {
+      "match_id": "GS_013",
+      "date": "2026-06-15",
+      "team_a": "Saudi Arabia",
+      "team_b": "Uruguay",
+      "actual_scoreline": "1-1",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "0-0",
+        "1-0",
+        "0-1",
+        "2-1"
+      ],
+      "top1_correct": true,
+      "top5_correct": true,
+      "outcome_1x2_correct": true
+    },
+    {
+      "match_id": "GS_017",
+      "date": "2026-06-16",
+      "team_a": "France",
+      "team_b": "Senegal",
+      "actual_scoreline": "3-1",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "0-0",
+        "0-1",
+        "1-0",
+        "1-2"
+      ],
+      "top1_correct": false,
+      "top5_correct": false,
+      "outcome_1x2_correct": false
+    },
+    {
+      "match_id": "GS_018",
+      "date": "2026-06-16",
+      "team_a": "Iraq",
+      "team_b": "Norway",
+      "actual_scoreline": "1-4",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "1-0",
+        "2-0",
+        "2-1",
+        "0-0"
+      ],
+      "top1_correct": false,
+      "top5_correct": false,
+      "outcome_1x2_correct": false
+    },
+    {
+      "match_id": "GS_023",
+      "date": "2026-06-17",
+      "team_a": "Portugal",
+      "team_b": "Congo DR",
+      "actual_scoreline": "1-1",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "1-0",
+        "0-0",
+        "2-1",
+        "2-0"
+      ],
+      "top1_correct": true,
+      "top5_correct": true,
+      "outcome_1x2_correct": true
+    },
+    {
+      "match_id": "GS_022",
+      "date": "2026-06-17",
+      "team_a": "England",
+      "team_b": "Croatia",
+      "actual_scoreline": "4-2",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "1-0",
+        "2-1",
+        "0-0",
+        "2-0"
+      ],
+      "top1_correct": false,
+      "top5_correct": false,
+      "outcome_1x2_correct": false
+    },
+    {
+      "match_id": "GS_021",
+      "date": "2026-06-17",
+      "team_a": "Ghana",
+      "team_b": "Panama",
+      "actual_scoreline": "1-0",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "1-0",
+        "2-0",
+        "0-0",
+        "2-1"
+      ],
+      "top1_correct": false,
+      "top5_correct": true,
+      "outcome_1x2_correct": false
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+model:
+  baseline: "poisson"
+  use_dixon_coles: true
+  max_goals: 7
+  base_goal_rate: 1.2
+  recent_matches_weighting:
+    10_matches: 0.5
+    20_matches: 0.3
+    40_matches: 0.2
+
+simulation:
+  default_runs: 10000
+
+features:
+  fallback_to_pdf: true

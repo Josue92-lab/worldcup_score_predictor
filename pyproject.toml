@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "worldcup_score_predictor"
+version = "0.1.0"
+description = "A statistical football analytics project to predict World Cup scorelines"
+authors = [
+    { name = "Antigravity", email = "antigravity@example.com" }
+]
+requires-python = ">=3.9"
+dependencies = [
+    "pandas",
+    "numpy",
+    "scipy",
+    "scikit-learn",
+    "pydantic",
+    "pyyaml",
+    "streamlit",
+    "requests",
+    "pdfplumber",
+    "rapidfuzz",
+    "kaggle"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "flake8"
+]
