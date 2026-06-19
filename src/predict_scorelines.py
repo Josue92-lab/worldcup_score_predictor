@@ -169,9 +169,12 @@ def predict_scorelines(mode="live", as_of_date=None, train_cutoff=None):
     print(f"[predict] Saved model params -> {MODEL_PARAMS_PATH}")
 
     # ── Save JSON ────────────────────────────────────────────────────────
-    out_path = PREDICTIONS_JSON_PATH.parent / (
-        "backtest_report.json" if mode == "backtest" else "live_predictions.json"
-    )
+    if mode == "backtest":
+        out_path = PREDICTIONS_JSON_PATH.parent / "backtest_report.json"
+    elif mode == "live":
+        out_path = PREDICTIONS_JSON_PATH.parent / "live_predictions.json"
+    else:
+        out_path = PREDICTIONS_JSON_PATH
     
     output_obj = {
         "metadata": {
@@ -187,9 +190,12 @@ def predict_scorelines(mode="live", as_of_date=None, train_cutoff=None):
     print(f"[predict] Saved {len(predictions_json)} predictions -> {out_path}")
     
     # Update PREDICTIONS_CSV_PATH based on mode
-    out_csv_path = PREDICTIONS_CSV_PATH.parent / (
-        "backtest_report.csv" if mode == "backtest" else "live_predictions.csv"
-    )
+    if mode == "backtest":
+        out_csv_path = PREDICTIONS_CSV_PATH.parent / "backtest_report.csv"
+    elif mode == "live":
+        out_csv_path = PREDICTIONS_CSV_PATH.parent / "live_predictions.csv"
+    else:
+        out_csv_path = PREDICTIONS_CSV_PATH
 
     # ── Save CSV ─────────────────────────────────────────────────────────
     flat_data = []

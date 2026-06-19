@@ -241,7 +241,7 @@ def main():
                             "Team B Win %": f"{float(p.get('away_win_probability', 0)):.1%}",
                             "Top Prediction": top_pred,
                             "Top Prediction %": top_prob,
-                            "Actual Score": p.get("_actual_score", ""),
+                            "Actual Score": p.get("_actual_score") or "Pending",
                             "Top 5 Hit": "✅" if p.get("_top_5_hit") else ("❌" if p.get("_top_5_hit") is False else ""),
                             "1X2 Hit": "✅" if p.get("_1x2_hit") else ("❌" if p.get("_1x2_hit") is False else "")
                         })
@@ -281,6 +281,9 @@ def main():
                         st.write(f"**Scoreline probability: {p['team_a']} vs {p['team_b']}**")
                         scoreline_data = pd.DataFrame(p['top_5_scorelines'])
                         if not scoreline_data.empty:
+                            actual_score = p.get("_actual_score")
+                            actual_in_top5 = False
+                            
                             if 'display_scoreline' not in scoreline_data.columns:
                                 # Backward compatibility for bare scoreline format
                                 scoreline_data['display_scoreline'] = scoreline_data.apply(
@@ -289,8 +292,17 @@ def main():
                             
                             scoreline_data["probability_pct"] = scoreline_data["probability"].astype(float) * 100
                             
+                            if actual_score:
+                                scoreline_data["Result"] = scoreline_data["scoreline"].apply(
+                                    lambda x: "Actual result" if x == actual_score else ""
+                                )
+                                if "Actual result" in scoreline_data["Result"].values:
+                                    actual_in_top5 = True
+                            else:
+                                scoreline_data["Result"] = ""
+                                
                             # Dataframe presentation
-                            display_df = scoreline_data[["display_scoreline", "probability_pct"]].rename(columns={
+                            display_df = scoreline_data[["display_scoreline", "probability_pct", "Result"]].rename(columns={
                                 "display_scoreline": "Scoreline",
                                 "probability_pct": "Probability"
                             })
@@ -326,6 +338,10 @@ def main():
                             )
 
                             st.altair_chart(chart, use_container_width=True)
+                            
+                            if actual_score and not actual_in_top5:
+                                actual_score_display = f"{p['team_a']} {actual_score.split('-')[0]} - {actual_score.split('-')[1]} {p['team_b']}"
+                                st.info(f"Actual result: {actual_score_display} was not in the model's top 5 scorelines.")
                         
                         with st.expander("Explanation & Data Quality", expanded=False):
                             st.json(p.get('explanation', {}))

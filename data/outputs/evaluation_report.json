@@ -9,6 +9,19 @@
   "exact_score_top5_rate": 0.5714,
   "outcome_1x2_hits": 10,
   "outcome_1x2_rate": 0.3571,
+  "diagnostics": {
+    "top1_scoreline_distribution": {
+      "1-1": 65,
+      "0-0": 3,
+      "0-2": 2,
+      "2-1": 1,
+      "1-0": 1
+    },
+    "average_expected_goals_team_a": 1.299,
+    "average_expected_goals_team_b": 1.328,
+    "dixon_coles_enabled": true,
+    "rho": -0.13
+  },
   "evaluated_matches": [
     {
       "match_id": "GS_001",
@@ -56,9 +69,9 @@
       "predicted_top5": [
         "1-1",
         "0-0",
-        "1-0",
         "0-1",
-        "2-1"
+        "1-0",
+        "1-2"
       ],
       "top1_correct": true,
       "top5_correct": true,
@@ -93,8 +106,8 @@
         "1-1",
         "2-1",
         "1-0",
-        "2-0",
-        "0-0"
+        "0-0",
+        "2-0"
       ],
       "top1_correct": true,
       "top5_correct": true,
@@ -254,8 +267,8 @@
       "predicted_top5": [
         "1-1",
         "1-2",
-        "0-2",
         "0-1",
+        "0-2",
         "2-1"
       ],
       "top1_correct": true,
@@ -345,8 +358,8 @@
         "1-1",
         "0-0",
         "1-0",
-        "2-1",
-        "0-1"
+        "0-1",
+        "2-1"
       ],
       "top1_correct": false,
       "top5_correct": false,
@@ -417,8 +430,8 @@
         "1-1",
         "1-0",
         "2-0",
-        "2-1",
-        "0-0"
+        "0-0",
+        "2-1"
       ],
       "top1_correct": false,
       "top5_correct": true,

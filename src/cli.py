@@ -41,6 +41,9 @@ def main():
     parser_eval.add_argument("--as-of-date", default="auto", help="Evaluation date cutoff")
     parser_eval.add_argument("--actuals-source", default="martj42", help="Source for actuals")
 
+    # predict
+    subparsers.add_parser("predict", help="General predictions using default model mode")
+
     # predict-live
     parser_live = subparsers.add_parser("predict-live", help="Predict scorelines using all available data")
     parser_live.add_argument("--as-of-date", default="auto", help="Date cutoff for using historical results")
@@ -78,6 +81,9 @@ def main():
         audit_data()
     elif args.command == "build-features":
         build_features()
+    elif args.command == "predict":
+        from src.predict_scorelines import predict_scorelines
+        predict_scorelines(mode="predict")
     elif args.command == "predict-live":
         from src.predict_scorelines import predict_scorelines
         predict_scorelines(mode="live", as_of_date=parse_date(args.as_of_date))

@@ -67,10 +67,22 @@ def evaluate_predictions(as_of_date=None):
     
     evaluated_matches = []
 
+    top1_scoreline_distribution = {}
+    total_xg_a = 0.0
+    total_xg_b = 0.0
+
     for p in predictions:
         p_date = pd.to_datetime(p["date"]).date()
         p_team_a = p["team_a"]
         p_team_b = p["team_b"]
+        
+        total_xg_a += float(p.get("expected_goals_team_a", 0.0))
+        total_xg_b += float(p.get("expected_goals_team_b", 0.0))
+        
+        top5_list = p.get("top_5_scorelines", [])
+        if top5_list:
+            top_score = top5_list[0]["scoreline"]
+            top1_scoreline_distribution[top_score] = top1_scoreline_distribution.get(top_score, 0) + 1
 
         # Find match in actuals
         match_actual = wc2026_actuals[
@@ -143,6 +155,10 @@ def evaluate_predictions(as_of_date=None):
                 "outcome_1x2_correct": is_outcome
             })
 
+    top1_scoreline_distribution = dict(sorted(top1_scoreline_distribution.items(), key=lambda item: item[1], reverse=True))
+    avg_xg_a = total_xg_a / len(predictions) if predictions else 0.0
+    avg_xg_b = total_xg_b / len(predictions) if predictions else 0.0
+
     report = {
         "martj42_results_max_date": max_date,
         "world_cup_2026_rows_found": world_cup_2026_rows_found,
@@ -154,6 +170,13 @@ def evaluate_predictions(as_of_date=None):
         "exact_score_top5_rate": round(exact_score_top5_hits / matches_evaluated, 4) if matches_evaluated > 0 else 0.0,
         "outcome_1x2_hits": outcome_1x2_hits,
         "outcome_1x2_rate": round(outcome_1x2_hits / matches_evaluated, 4) if matches_evaluated > 0 else 0.0,
+        "diagnostics": {
+            "top1_scoreline_distribution": top1_scoreline_distribution,
+            "average_expected_goals_team_a": round(avg_xg_a, 3),
+            "average_expected_goals_team_b": round(avg_xg_b, 3),
+            "dixon_coles_enabled": True,
+            "rho": -0.13
+        },
         "evaluated_matches": evaluated_matches
     }
 
