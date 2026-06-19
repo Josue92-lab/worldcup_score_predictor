@@ -1,26 +1,22 @@
 # World Cup Score Predictor
 
-A statistical football analytics project that predicts the top 5 most probable
-scorelines for FIFA World Cup 2026 matches using historical international
-results, squad data, and player-level data.
+A statistical football analytics project that predicts the top 5 most probable scorelines for FIFA World Cup 2026 matches using historical international results, squad data, and player-level data.
 
-**This is not a betting app.** Output is probabilistic and explainable, not
-deterministic.
+**This is not a betting app.** Output is probabilistic and explainable, not deterministic.
 
-## Setup Instructions
+## Data Sources and Credits
 
-1. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+This project relies on several excellent open datasets:
 
-2. **No Kaggle credentials needed.**
-   The Kaggle player-scores dataset is downloaded via a public HTTP endpoint –
-   no `kaggle.json` or API key is required.
+- **[martj42/international_results](https://github.com/martj42/international_results):** Used to calculate historical attack/defense strength via a Poisson model. It is also used during the tournament to pull live actual match results for evaluation and live goal calibration.
+- **[davidcariboo/player-scores](https://www.kaggle.com/datasets/davidcariboo/player-scores):** Used for advanced squad and player strength features (market value, recent appearances, goals, etc.).
+- **FIFA SquadLists PDF:** The official source for squad inclusions, caps, and international goals.
 
-## Quick Start
+**Limitations:** The `player-scores` dataset may lag by several days. However, the model dynamically adjusts to the actual tournament scoring environment by generating a live calibration factor from the most recently updated `martj42` match results.
 
-```bash
+## Quick Start (Windows PowerShell)
+
+```powershell
 # 1. Download all raw data (GitHub historical results + Kaggle player-scores)
 python -m src.cli download-data
 
@@ -33,40 +29,28 @@ python -m src.cli audit
 # 4. Build features (historical + squad + Kaggle player matching)
 python -m src.cli build-features
 
-# 5. Predict scorelines (Backtest mode for evaluation)
-python -m src.cli backtest
+# 5. Predict scorelines (Default mode)
+python -m src.cli predict
 
-# 6. Evaluate accuracy against actuals
-python -m src.cli evaluate
+# 6. Predict scorelines (Backtest mode for clean evaluation)
+python -m src.cli backtest --train-cutoff 2026-06-10
 
-# 7. Predict scorelines (Live mode for upcoming matches)
-python -m src.cli predict-live
+# 7. Evaluate accuracy against actuals (requires actuals from martj42)
+python -m src.cli evaluate --actuals-source martj42
 
-# 8. Launch the Streamlit dashboard
+# 8. Predict scorelines (Live mode with goal calibration)
+python -m src.cli predict-live --as-of-date auto
+
+# 9. Launch the Streamlit dashboard
 python -m streamlit run src\app_streamlit.py
 ```
 
-## CLI Commands
+## Prediction Modes Explained
 
-| Command | Description |
-|---------|-------------|
-| `download-data` | Download GitHub results + Kaggle player-scores |
-| `download-kaggle` | Download only Kaggle player-scores (supports `--force`) |
-| `audit` | Audit all raw data and produce `data/audit/audit_report.json` |
-| `build-features` | Build historical team and squad features |
-| `backtest` | Predict scorelines mimicking pre-tournament knowledge (training cutoff 2026-06-10) |
-| `evaluate` | Compare backtest predictions against actuals |
-| `predict-live` | Predict scorelines using all data up to the current date |
-| `simulate-tournament` | Monte Carlo tournament simulation |
-
-## Data Sources
-
-| Source | Method | Credentials |
-|--------|--------|-------------|
-| [martj42/international_results](https://github.com/martj42/international_results) | Raw CSV download via `requests` | None |
-| [davidcariboo/player-scores](https://www.kaggle.com/datasets/davidcariboo/player-scores) | Direct HTTP zip download | **None** |
-| `SquadLists-Spanish.pdf` | Local file, parsed with `pdfplumber` | N/A |
-| `fixture.csv`, `venues.csv` | Local files | N/A |
+- **`predict`:** Generates standard baseline predictions without imposing chronological cutoff constraints. Outputs to `predictions.json`.
+- **`backtest`:** Mimics pre-tournament knowledge by imposing a strict training cutoff (e.g., `2026-06-10`). It **must not** use any World Cup results after the `train_cutoff`. This ensures an honest, uncontaminated baseline evaluation. Outputs to `backtest_report.json`.
+- **`evaluate`:** Compares a prediction report (typically the backtest) against actual recorded match results, outputting hit rates and scoreline concentration diagnostics.
+- **`predict-live`:** Predicts upcoming matches using all data up to the current date. It may use already-played World Cup results from the `martj42` dataset to detect if the model is underestimating goal volume, applying an automatic **live calibration factor** to adjust future predictions. Outputs to `live_predictions.json`.
 
 ## Implementation Status
 
@@ -83,5 +67,5 @@ python -m streamlit run src\app_streamlit.py
 | Streamlit dashboard | ✅ Implemented |
 | Pre-tournament Backtesting | ✅ Implemented |
 | Evaluation Module | ✅ Implemented |
-| Live Prediction Mode | ✅ Implemented |
-| Monte Carlo tournament simulation | ⏳ Pending |
+| Live Prediction & Calibration | ✅ Implemented |
+| Monte Carlo tournament simulation | ⏳ Pending (Not implemented) |
