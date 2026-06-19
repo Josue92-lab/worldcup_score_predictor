@@ -70,6 +70,11 @@ def evaluate_predictions(as_of_date=None):
     top1_scoreline_distribution = {}
     total_xg_a = 0.0
     total_xg_b = 0.0
+    
+    total_actual_goals = 0.0
+    total_predicted_goals = 0.0
+    matches_where_actual_total_goals_gt_4 = 0
+    high_score_miss_count = 0
 
     for p in predictions:
         p_date = pd.to_datetime(p["date"]).date()
@@ -140,6 +145,17 @@ def evaluate_predictions(as_of_date=None):
             if is_outcome:
                 outcome_1x2_hits += 1
                 
+            actual_goals = actual_score_a + actual_score_b
+            pred_goals = float(p.get("expected_goals_team_a", 0.0)) + float(p.get("expected_goals_team_b", 0.0))
+            
+            total_actual_goals += actual_goals
+            total_predicted_goals += pred_goals
+            
+            if actual_goals > 4:
+                matches_where_actual_total_goals_gt_4 += 1
+                if not is_top5:
+                    high_score_miss_count += 1
+                
             matches_evaluated += 1
             
             evaluated_matches.append({
@@ -158,6 +174,12 @@ def evaluate_predictions(as_of_date=None):
     top1_scoreline_distribution = dict(sorted(top1_scoreline_distribution.items(), key=lambda item: item[1], reverse=True))
     avg_xg_a = total_xg_a / len(predictions) if predictions else 0.0
     avg_xg_b = total_xg_b / len(predictions) if predictions else 0.0
+    
+    avg_actual_goals = total_actual_goals / matches_evaluated if matches_evaluated > 0 else 0.0
+    avg_predicted_goals = total_predicted_goals / matches_evaluated if matches_evaluated > 0 else 0.0
+    
+    metadata = data.get("metadata", {})
+    calibration_factor = metadata.get("calibration_factor", 1.0)
 
     report = {
         "martj42_results_max_date": max_date,
@@ -174,6 +196,11 @@ def evaluate_predictions(as_of_date=None):
             "top1_scoreline_distribution": top1_scoreline_distribution,
             "average_expected_goals_team_a": round(avg_xg_a, 3),
             "average_expected_goals_team_b": round(avg_xg_b, 3),
+            "predicted_total_goals_avg": round(avg_predicted_goals, 3),
+            "actual_total_goals_avg": round(avg_actual_goals, 3),
+            "high_score_miss_count": high_score_miss_count,
+            "matches_where_actual_total_goals_gt_4": matches_where_actual_total_goals_gt_4,
+            "calibration_factor": calibration_factor,
             "dixon_coles_enabled": True,
             "rho": -0.13
         },

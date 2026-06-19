@@ -17,6 +17,8 @@ from src.model_poisson import predict_xg, calculate_match_probabilities, fit_poi
 from src.normalize_teams import normalize_team_name
 from src.build_features import load_model_config
 from src.audit_data import is_knockout_placeholder
+from src.calibrate import calculate_calibration_factor
+from src.audit_data import is_knockout_placeholder
 
 
 def _load_squad_features() -> dict:
@@ -38,6 +40,14 @@ def predict_scorelines(mode="live", as_of_date=None, train_cutoff=None):
     fixtures = pd.read_csv(FIXTURE_PATH)
     config = load_model_config()
     max_goals = config.get("model", {}).get("max_goals", 7)
+
+    calibration_info = {"factor": 1.0, "reason": "Not live mode"}
+    if mode == "live":
+        calibration_info = calculate_calibration_factor(as_of_date)
+    
+    calib_factor = calibration_info.get("factor", 1.0)
+    if calib_factor != 1.0:
+        print(f"[predict] Applied live calibration factor: {calib_factor:.3f} ({calibration_info.get('reason')})")
 
     # ── Load historical results and fit the Poisson model ────────────────
     hist_path = PROCESSED_DIR / "historical_features.csv"
@@ -88,6 +98,10 @@ def predict_scorelines(mode="live", as_of_date=None, train_cutoff=None):
         team_b = normalize_team_name(team_b_raw)
 
         xg_a, xg_b = predict_xg(team_a, team_b, model)
+        
+        xg_a = xg_a * calib_factor
+        xg_b = xg_b * calib_factor
+        
         probs = calculate_match_probabilities(xg_a, xg_b, max_goals)
 
         # Squad info
@@ -180,7 +194,10 @@ def predict_scorelines(mode="live", as_of_date=None, train_cutoff=None):
         "metadata": {
             "mode": mode,
             "as_of_date": as_of_date,
-            "train_cutoff": train_cutoff
+            "train_cutoff": train_cutoff,
+            "calibration_factor": calib_factor,
+            "calibrated": bool(calib_factor != 1.0),
+            "calibration_reason": calibration_info.get("reason", "")
         },
         "predictions": predictions_json
     }

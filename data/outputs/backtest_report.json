@@ -2,7 +2,10 @@
   "metadata": {
     "mode": "backtest",
     "as_of_date": null,
-    "train_cutoff": "2026-06-10"
+    "train_cutoff": "2026-06-10",
+    "calibration_factor": 1.0,
+    "calibrated": false,
+    "calibration_reason": "Not live mode"
   },
   "predictions": [
     {

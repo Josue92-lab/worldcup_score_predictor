@@ -19,6 +19,11 @@
     },
     "average_expected_goals_team_a": 1.299,
     "average_expected_goals_team_b": 1.328,
+    "predicted_total_goals_avg": 2.592,
+    "actual_total_goals_avg": 3.179,
+    "high_score_miss_count": 7,
+    "matches_where_actual_total_goals_gt_4": 7,
+    "calibration_factor": 1.0,
     "dixon_coles_enabled": true,
     "rho": -0.13
   },

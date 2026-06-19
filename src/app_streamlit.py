@@ -103,7 +103,7 @@ def main():
         st.header("Match Predictions")
         
         available_reports = list(OUTPUTS_DIR.glob("*.json"))
-        available_reports = [f for f in available_reports if f.name not in ["model_params.json", "evaluation_report.json"]]
+        available_reports = [f for f in available_reports if f.name not in ["model_params.json", "evaluation_report.json", "calibration_report.json"]]
         
         if available_reports:
             # Filters block
@@ -139,6 +139,29 @@ def main():
                 
             if metadata:
                 st.info(f"**Mode:** {metadata.get('mode')} | **As Of Date:** {metadata.get('as_of_date')} | **Train Cutoff:** {metadata.get('train_cutoff')}")
+
+                calib_factor = metadata.get("calibration_factor", 1.0)
+                calib_active = metadata.get("calibrated", False)
+                
+                # Check for calibration_report.json
+                calib_path = OUTPUTS_DIR / "calibration_report.json"
+                if calib_path.exists():
+                    try:
+                        with open(calib_path, "r", encoding="utf-8") as f:
+                            calib_data = json.load(f)
+                            
+                        with st.expander("Model Calibration Panel", expanded=calib_active):
+                            st.write(f"**Model Mode:** {metadata.get('mode')}")
+                            st.write(f"**Average Predicted Goals:** {calib_data.get('average_predicted_total_goals', 0):.2f}")
+                            st.write(f"**Average Actual Goals:** {calib_data.get('average_actual_total_goals', 0):.2f}")
+                            st.write(f"**Calibration Factor:** {calib_factor:.3f}")
+                            
+                            if calib_active:
+                                st.warning(f"⚠️ **Underestimating Goals:** The base model was underestimating goal volume. Lambdas inflated by {calib_factor:.3f}x.")
+                            else:
+                                st.success("Model goal volume is within expected range or calibration is inactive.")
+                    except:
+                        pass
 
             predictions = [normalize_prediction(p) for p in predictions]
             valid_predictions = [p for p in predictions if p.get("team_a") and p.get("team_b")]

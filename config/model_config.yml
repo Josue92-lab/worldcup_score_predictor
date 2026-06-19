@@ -13,3 +13,9 @@ simulation:
 
 features:
   fallback_to_pdf: true
+
+live_goal_calibration:
+  enabled: true
+  max_factor: 1.25
+  min_matches_required: 12
+  use_results_until_as_of_date: true
