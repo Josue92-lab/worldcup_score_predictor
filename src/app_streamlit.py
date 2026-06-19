@@ -11,6 +11,7 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.config import AUDIT_REPORT_PATH, FIXTURE_PATH, OUTPUTS_DIR
+from src.normalize_teams import normalize_team_name
 
 def get_first(row: dict, *keys: str, default=None):
     for key in keys:
@@ -41,8 +42,23 @@ def load_evaluation_report():
     if eval_path.exists():
         with open(eval_path, "r", encoding="utf-8") as f:
             eval_data = json.load(f)
-        matches = eval_data.get("matches", [])
-        return {str(m.get("match_id")): m for m in matches if m.get("match_id")}
+        matches = eval_data.get("evaluated_matches", [])
+        
+        eval_map = {}
+        for m in matches:
+            if m.get("match_id"):
+                eval_map[str(m.get("match_id"))] = m
+            
+            # Fallback key
+            d = str(m.get("date", "")).strip()
+            ta = normalize_team_name(m.get("team_a", ""))
+            tb = normalize_team_name(m.get("team_b", ""))
+            fallback_key = f"{d}_{ta}_{tb}"
+            eval_map[fallback_key] = m
+            fallback_key_rev = f"{d}_{tb}_{ta}"
+            eval_map[fallback_key_rev] = m
+            
+        return eval_map
     return {}
 
 def main():
@@ -133,6 +149,8 @@ def main():
                 
             # Load evaluation data to match
             eval_map = load_evaluation_report()
+            actuals_loaded = len({id(m) for m in eval_map.values()})
+            actuals_matched = 0
 
             # Assign Status & Dates
             available_dates = set()
@@ -142,11 +160,21 @@ def main():
             for p in valid_predictions:
                 match_id = str(p.get("match_id"))
                 eval_match = eval_map.get(match_id)
+                
+                if not eval_match:
+                    p_date_str = str(p.get("date")) if p.get("date") else ""
+                    ta = normalize_team_name(p.get("team_a", ""))
+                    tb = normalize_team_name(p.get("team_b", ""))
+                    eval_match = eval_map.get(f"{p_date_str}_{ta}_{tb}")
+                    
+                if eval_match:
+                    actuals_matched += 1
+
                 p_date_str = str(p.get("date")) if p.get("date") else None
                 
                 # Assign actuals from eval_match if available
                 p["_actual_score"] = eval_match.get("actual_scoreline") if eval_match else None
-                p["_top_5_hit"] = eval_match.get("top_5_correct") if eval_match else None
+                p["_top_5_hit"] = eval_match.get("top5_correct") if eval_match else None
                 p["_1x2_hit"] = eval_match.get("outcome_1x2_correct") if eval_match else None
 
                 # Infer status
@@ -164,6 +192,13 @@ def main():
                 all_teams.add(p['team_b'])
                 if p.get('phase'):
                     all_phases.add(p['phase'])
+
+            # Debug Panel
+            with st.expander("Debug: Actual Results Merge", expanded=False):
+                st.write(f"**Actual results loaded:** {actuals_loaded}")
+                st.write(f"**Actuals matched to selected report:** {actuals_matched}")
+                st.write(f"**Actuals unmatched:** {actuals_loaded - actuals_matched}")
+                st.write(f"**Selected report rows:** {len(valid_predictions)}")
 
             # Add more filters
             col_date, col_team, col_phase, col_status = st.columns(4)

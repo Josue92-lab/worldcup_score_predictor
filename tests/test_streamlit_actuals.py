@@ -1,70 +1,26 @@
 import sys
+import json
 from pathlib import Path
+import pytest
+from unittest import mock
+
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-import json
-import pandas as pd
-from unittest import mock
-import pytest
-from src.app_streamlit import main
+from src.app_streamlit import load_evaluation_report, normalize_prediction
 
-@mock.patch("src.app_streamlit.st")
-@mock.patch("src.app_streamlit.OUTPUTS_DIR")
-@mock.patch("src.app_streamlit.FIXTURE_PATH")
-def test_streamlit_evaluation_merge(mock_fixture_path, mock_outputs_dir, mock_st, tmp_path):
-    mock_outputs_dir.return_value = tmp_path
+def test_streamlit_actuals_merge_smoke(tmp_path, monkeypatch):
+    # Mock OUTPUTS_DIR in app_streamlit to point to tmp_path
+    monkeypatch.setattr("src.app_streamlit.OUTPUTS_DIR", tmp_path)
     
-    # Setup predictions.json
-    preds = {
-        "metadata": {"mode": "predict"},
-        "predictions": [
-            {
-                "match_id": "M_1",
-                "date": "2026-06-15",
-                "team_a": "Mexico",
-                "team_b": "South Africa",
-                "top_5_scorelines": [
-                    {"scoreline": "1-1", "probability": 0.1515},
-                    {"scoreline": "0-0", "probability": 0.1396},
-                    {"scoreline": "1-0", "probability": 0.1211},
-                    {"scoreline": "0-1", "probability": 0.1009},
-                    {"scoreline": "2-0", "probability": 0.0785}
-                ]
-            },
-            {
-                "match_id": "M_2",
-                "date": "2026-06-16",
-                "team_a": "England",
-                "team_b": "Croatia",
-                "top_5_scorelines": [
-                    {"scoreline": "1-0", "probability": 0.15},
-                    {"scoreline": "2-0", "probability": 0.10}
-                ]
-            }
-        ]
-    }
-    
-    preds_path = tmp_path / "predictions.json"
-    with open(preds_path, "w") as f:
-        json.dump(preds, f)
-        
-    # Setup evaluation_report.json
+    # 1. Setup evaluation_report.json
     evals = {
         "evaluated_matches": [
             {
-                "match_id": "M_1",
+                "match_id": "GS_001",
                 "actual_scoreline": "2-0",
-                "top1_correct": False,
                 "top5_correct": True,
-                "outcome_1x2_correct": True
-            },
-            {
-                "match_id": "M_2",
-                "actual_scoreline": "4-2",
-                "top1_correct": False,
-                "top5_correct": False,
                 "outcome_1x2_correct": True
             }
         ]
@@ -74,6 +30,50 @@ def test_streamlit_evaluation_merge(mock_fixture_path, mock_outputs_dir, mock_st
     with open(eval_path, "w") as f:
         json.dump(evals, f)
 
-    # Instead of patching OUTPUTS_DIR directly (since it's imported from src.config),
-    # let's mock the file existence and reading.
-    pass
+    # 2. Selected report row
+    raw_row = {
+        "match_id": "GS_001",
+        "team_a": "Mexico",
+        "team_b": "South Africa",
+        "date": "2026-06-11",
+        "top_5_scorelines": [
+            {"scoreline": "1-1", "display_scoreline": "Mexico 1 - 1 South Africa"},
+            {"scoreline": "2-0", "display_scoreline": "Mexico 2 - 0 South Africa"}
+        ]
+    }
+    
+    p = normalize_prediction(raw_row)
+    
+    # 3. Replicate the merge logic from app_streamlit.py
+    eval_map = load_evaluation_report()
+    
+    match_id = str(p.get("match_id"))
+    eval_match = eval_map.get(match_id)
+    
+    if not eval_match:
+        from src.normalize_teams import normalize_team_name
+        p_date_str = str(p.get("date")) if p.get("date") else ""
+        ta = normalize_team_name(p.get("team_a", ""))
+        tb = normalize_team_name(p.get("team_b", ""))
+        eval_match = eval_map.get(f"{p_date_str}_{ta}_{tb}")
+        
+    p["_actual_score"] = eval_match.get("actual_scoreline") if eval_match else None
+    p["_top_5_hit"] = eval_match.get("top5_correct") if eval_match else None
+    p["_1x2_hit"] = eval_match.get("outcome_1x2_correct") if eval_match else None
+    
+    # 4. Assertions
+    assert p["_actual_score"] == "2-0"
+    assert p["_top_5_hit"] is True
+    assert p["_1x2_hit"] is True
+    
+    # Replicate Top 5 table Result marking
+    import pandas as pd
+    scoreline_data = pd.DataFrame(p['top_5_scorelines'])
+    actual_score = p.get("_actual_score")
+    
+    scoreline_data["Result"] = scoreline_data["scoreline"].apply(
+        lambda x: "Actual result" if x == actual_score else ""
+    )
+    
+    results = scoreline_data["Result"].tolist()
+    assert results == ["", "Actual result"]
