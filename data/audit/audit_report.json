@@ -7,12 +7,8 @@
   "missing_fixture_values": {},
   "missing_venue_codes": [],
   "invalid_dates": [],
-  "unmatched_fixture_teams_to_squads": [
-    "Bosnia and Herzegovina"
-  ],
-  "unmatched_squad_teams_to_fixture": [
-    "Bosnia And Herzegovina"
-  ],
+  "unmatched_fixture_teams_to_squads": [],
+  "unmatched_squad_teams_to_fixture": [],
   "unmatched_squad_players_to_kaggle": [],
   "team_aliases_required": [],
   "knockout_placeholders_detected": true,

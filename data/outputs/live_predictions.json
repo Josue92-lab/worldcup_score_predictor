@@ -1,7 +1,7 @@
 {
   "metadata": {
     "mode": "live",
-    "as_of_date": "2026-06-18",
+    "as_of_date": "2026-06-19",
     "train_cutoff": null
   },
   "predictions": [
@@ -18,39 +18,39 @@
       "team_b_label": "Team B / Listed second",
       "venue": "MEX_CDMX",
       "neutral": true,
-      "expected_goals_team_a": 1.133,
-      "expected_goals_team_b": 0.962,
-      "team_a_win_probability": 0.3771,
-      "draw_probability": 0.3334,
-      "team_b_win_probability": 0.2895,
+      "expected_goals_team_a": 1.136,
+      "expected_goals_team_b": 0.964,
+      "team_a_win_probability": 0.3777,
+      "draw_probability": 0.3329,
+      "team_b_win_probability": 0.2894,
       "top_5_scorelines": [
         {
           "team_a_goals": 1,
           "team_b_goals": 1,
           "scoreline": "1-1",
           "display_scoreline": "Mexico 1 - 1 South Africa",
-          "probability": 0.1516
+          "probability": 0.1515
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "Mexico 0 - 0 South Africa",
-          "probability": 0.1405
+          "probability": 0.1399
         },
         {
           "team_a_goals": 1,
           "team_b_goals": 0,
           "scoreline": "1-0",
           "display_scoreline": "Mexico 1 - 0 South Africa",
-          "probability": 0.122
+          "probability": 0.1217
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 1,
           "scoreline": "0-1",
           "display_scoreline": "Mexico 0 - 1 South Africa",
-          "probability": 0.1009
+          "probability": 0.1006
         },
         {
           "team_a_goals": 2,
@@ -66,10 +66,10 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.1977,
-        "team_b_attack_strength": 0.9176,
+        "team_a_attack_strength": 1.1984,
+        "team_b_attack_strength": 0.919,
         "team_a_defense_strength": 0.7136,
-        "team_b_defense_strength": 0.6437,
+        "team_b_defense_strength": 0.6451,
         "team_a_squad_strength": 17385000.0,
         "team_b_squad_strength": 5675000.0,
         "main_factors": [
@@ -90,46 +90,46 @@
       "team_b_label": "Team B / Listed second",
       "venue": "MEX_GDL",
       "neutral": true,
-      "expected_goals_team_a": 1.237,
-      "expected_goals_team_b": 1.098,
-      "team_a_win_probability": 0.3768,
-      "draw_probability": 0.3146,
-      "team_b_win_probability": 0.3087,
+      "expected_goals_team_a": 1.24,
+      "expected_goals_team_b": 1.101,
+      "team_a_win_probability": 0.3771,
+      "draw_probability": 0.3141,
+      "team_b_win_probability": 0.3089,
       "top_5_scorelines": [
         {
           "team_a_goals": 1,
           "team_b_goals": 1,
           "scoreline": "1-1",
           "display_scoreline": "Korea Republic 1 - 1 Czech Republic",
-          "probability": 0.1486
+          "probability": 0.1485
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "Korea Republic 0 - 0 Czech Republic",
-          "probability": 0.114
+          "probability": 0.1134
         },
         {
           "team_a_goals": 1,
           "team_b_goals": 0,
           "scoreline": "1-0",
           "display_scoreline": "Korea Republic 1 - 0 Czech Republic",
-          "probability": 0.1027
+          "probability": 0.1023
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 1,
           "scoreline": "0-1",
           "display_scoreline": "Korea Republic 0 - 1 Czech Republic",
-          "probability": 0.0893
+          "probability": 0.0889
         },
         {
           "team_a_goals": 2,
           "team_b_goals": 1,
           "scoreline": "2-1",
           "display_scoreline": "Korea Republic 2 - 1 Czech Republic",
-          "probability": 0.0813
+          "probability": 0.0815
         }
       ],
       "data_quality": {
@@ -141,9 +141,9 @@
       },
       "explanation": {
         "team_a_attack_strength": 1.2098,
-        "team_b_attack_strength": 1.2105,
-        "team_a_defense_strength": 0.6171,
-        "team_b_defense_strength": 0.6955,
+        "team_b_attack_strength": 1.2124,
+        "team_a_defense_strength": 0.6177,
+        "team_b_defense_strength": 0.6973,
         "team_a_squad_strength": 2250000.0,
         "team_b_squad_strength": 12400000.0,
         "main_factors": [
@@ -166,46 +166,46 @@
       "team_b_label": "Team B / Listed second",
       "venue": "CAN_TOR",
       "neutral": true,
-      "expected_goals_team_a": 1.201,
-      "expected_goals_team_b": 1.209,
-      "team_a_win_probability": 0.3431,
-      "draw_probability": 0.3099,
-      "team_b_win_probability": 0.347,
+      "expected_goals_team_a": 1.225,
+      "expected_goals_team_b": 1.212,
+      "team_a_win_probability": 0.3493,
+      "draw_probability": 0.3079,
+      "team_b_win_probability": 0.3428,
       "top_5_scorelines": [
         {
           "team_a_goals": 1,
           "team_b_goals": 1,
           "scoreline": "1-1",
           "display_scoreline": "Canada 1 - 1 Bosnia and Herzegovina",
-          "probability": 0.1474
+          "probability": 0.1467
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "Canada 0 - 0 Bosnia and Herzegovina",
-          "probability": 0.1068
-        },
-        {
-          "team_a_goals": 0,
-          "team_b_goals": 1,
-          "scoreline": "0-1",
-          "display_scoreline": "Canada 0 - 1 Bosnia and Herzegovina",
-          "probability": 0.0917
+          "probability": 0.1043
         },
         {
           "team_a_goals": 1,
           "team_b_goals": 0,
           "scoreline": "1-0",
           "display_scoreline": "Canada 1 - 0 Bosnia and Herzegovina",
-          "probability": 0.091
+          "probability": 0.0902
         },
         {
-          "team_a_goals": 1,
-          "team_b_goals": 2,
-          "scoreline": "1-2",
-          "display_scoreline": "Canada 1 - 2 Bosnia and Herzegovina",
-          "probability": 0.0788
+          "team_a_goals": 0,
+          "team_b_goals": 1,
+          "scoreline": "0-1",
+          "display_scoreline": "Canada 0 - 1 Bosnia and Herzegovina",
+          "probability": 0.0891
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "Canada 2 - 1 Bosnia and Herzegovina",
+          "probability": 0.0795
         }
       ],
       "data_quality": {
@@ -214,10 +214,10 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 0.8798,
-        "team_b_attack_strength": 0.9287,
+        "team_a_attack_strength": 0.8885,
+        "team_b_attack_strength": 0.9311,
         "team_a_defense_strength": 0.8856,
-        "team_b_defense_strength": 0.9287,
+        "team_b_defense_strength": 0.9383,
         "team_a_squad_strength": 21275000.0,
         "team_b_squad_strength": 55025000.0,
         "main_factors": [
@@ -238,46 +238,46 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_LA",
       "neutral": true,
-      "expected_goals_team_a": 1.476,
-      "expected_goals_team_b": 1.156,
-      "team_a_win_probability": 0.4292,
-      "draw_probability": 0.2901,
-      "team_b_win_probability": 0.2807,
+      "expected_goals_team_a": 1.472,
+      "expected_goals_team_b": 1.153,
+      "team_a_win_probability": 0.4288,
+      "draw_probability": 0.2905,
+      "team_b_win_probability": 0.2806,
       "top_5_scorelines": [
         {
           "team_a_goals": 1,
           "team_b_goals": 1,
           "scoreline": "1-1",
           "display_scoreline": "United States 1 - 1 Paraguay",
-          "probability": 0.1387
-        },
-        {
-          "team_a_goals": 2,
-          "team_b_goals": 1,
-          "scoreline": "2-1",
-          "display_scoreline": "United States 2 - 1 Paraguay",
-          "probability": 0.0906
+          "probability": 0.139
         },
         {
           "team_a_goals": 1,
           "team_b_goals": 0,
           "scoreline": "1-0",
           "display_scoreline": "United States 1 - 0 Paraguay",
-          "probability": 0.0903
+          "probability": 0.0907
+        },
+        {
+          "team_a_goals": 2,
+          "team_b_goals": 1,
+          "scoreline": "2-1",
+          "display_scoreline": "United States 2 - 1 Paraguay",
+          "probability": 0.0905
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "United States 0 - 0 Paraguay",
-          "probability": 0.088
+          "probability": 0.0885
         },
         {
           "team_a_goals": 2,
           "team_b_goals": 0,
           "scoreline": "2-0",
           "display_scoreline": "United States 2 - 0 Paraguay",
-          "probability": 0.0784
+          "probability": 0.0785
         }
       ],
       "data_quality": {
@@ -286,10 +286,10 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.0357,
-        "team_b_attack_strength": 0.8714,
-        "team_a_defense_strength": 0.9024,
-        "team_b_defense_strength": 0.9695,
+        "team_a_attack_strength": 1.0344,
+        "team_b_attack_strength": 0.8703,
+        "team_a_defense_strength": 0.9012,
+        "team_b_defense_strength": 0.9682,
         "team_a_squad_strength": 41975000.0,
         "team_b_squad_strength": 6000000.0,
         "main_factors": [
@@ -310,46 +310,46 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_SF",
       "neutral": true,
-      "expected_goals_team_a": 1.562,
-      "expected_goals_team_b": 1.223,
-      "team_a_win_probability": 0.4365,
-      "draw_probability": 0.2802,
-      "team_b_win_probability": 0.2833,
+      "expected_goals_team_a": 1.563,
+      "expected_goals_team_b": 1.236,
+      "team_a_win_probability": 0.4339,
+      "draw_probability": 0.2797,
+      "team_b_win_probability": 0.2865,
       "top_5_scorelines": [
         {
           "team_a_goals": 1,
           "team_b_goals": 1,
           "scoreline": "1-1",
           "display_scoreline": "Qatar 1 - 1 Switzerland",
-          "probability": 0.1333
+          "probability": 0.1329
         },
         {
           "team_a_goals": 2,
           "team_b_goals": 1,
           "scoreline": "2-1",
           "display_scoreline": "Qatar 2 - 1 Switzerland",
-          "probability": 0.0921
+          "probability": 0.0919
         },
         {
           "team_a_goals": 1,
           "team_b_goals": 0,
           "scoreline": "1-0",
           "display_scoreline": "Qatar 1 - 0 Switzerland",
-          "probability": 0.0811
+          "probability": 0.0798
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "Qatar 0 - 0 Switzerland",
-          "probability": 0.0771
+          "probability": 0.0761
         },
         {
           "team_a_goals": 2,
           "team_b_goals": 0,
           "scoreline": "2-0",
           "display_scoreline": "Qatar 2 - 0 Switzerland",
-          "probability": 0.0753
+          "probability": 0.0743
         }
       ],
       "data_quality": {
@@ -359,9 +359,9 @@
       },
       "explanation": {
         "team_a_attack_strength": 0.9571,
-        "team_b_attack_strength": 1.0145,
-        "team_a_defense_strength": 0.8204,
-        "team_b_defense_strength": 1.1105,
+        "team_b_attack_strength": 1.0176,
+        "team_a_defense_strength": 0.8268,
+        "team_b_defense_strength": 1.1113,
         "team_a_squad_strength": 4425000.0,
         "team_b_squad_strength": 51150000.0,
         "main_factors": [
@@ -382,11 +382,11 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_NY",
       "neutral": true,
-      "expected_goals_team_a": 1.186,
-      "expected_goals_team_b": 0.912,
-      "team_a_win_probability": 0.4046,
-      "draw_probability": 0.3305,
-      "team_b_win_probability": 0.2649,
+      "expected_goals_team_a": 1.183,
+      "expected_goals_team_b": 0.91,
+      "team_a_win_probability": 0.4043,
+      "draw_probability": 0.3309,
+      "team_b_win_probability": 0.2648,
       "top_5_scorelines": [
         {
           "team_a_goals": 1,
@@ -400,28 +400,28 @@
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "Brazil 0 - 0 Morocco",
-          "probability": 0.1399
+          "probability": 0.1406
         },
         {
           "team_a_goals": 1,
           "team_b_goals": 0,
           "scoreline": "1-0",
           "display_scoreline": "Brazil 1 - 0 Morocco",
-          "probability": 0.1282
+          "probability": 0.1286
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 1,
           "scoreline": "0-1",
           "display_scoreline": "Brazil 0 - 1 Morocco",
-          "probability": 0.0947
+          "probability": 0.095
         },
         {
           "team_a_goals": 2,
           "team_b_goals": 0,
           "scoreline": "2-0",
           "display_scoreline": "Brazil 2 - 0 Morocco",
-          "probability": 0.0862
+          "probability": 0.0863
         }
       ],
       "data_quality": {
@@ -430,10 +430,10 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.4803,
-        "team_b_attack_strength": 1.0097,
-        "team_a_defense_strength": 0.615,
-        "team_b_defense_strength": 0.545,
+        "team_a_attack_strength": 1.4789,
+        "team_b_attack_strength": 1.008,
+        "team_a_defense_strength": 0.6144,
+        "team_b_defense_strength": 0.5441,
         "team_a_squad_strength": 78325000.0,
         "team_b_squad_strength": 83925000.0,
         "main_factors": [
@@ -454,18 +454,18 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_BOS",
       "neutral": true,
-      "expected_goals_team_a": 1.375,
-      "expected_goals_team_b": 1.562,
-      "team_a_win_probability": 0.3214,
-      "draw_probability": 0.2745,
-      "team_b_win_probability": 0.4042,
+      "expected_goals_team_a": 1.371,
+      "expected_goals_team_b": 1.557,
+      "team_a_win_probability": 0.3212,
+      "draw_probability": 0.275,
+      "team_b_win_probability": 0.4039,
       "top_5_scorelines": [
         {
           "team_a_goals": 1,
           "team_b_goals": 1,
           "scoreline": "1-1",
           "display_scoreline": "Haiti 1 - 1 Scotland",
-          "probability": 0.1287
+          "probability": 0.1291
         },
         {
           "team_a_goals": 1,
@@ -486,14 +486,14 @@
           "team_b_goals": 1,
           "scoreline": "0-1",
           "display_scoreline": "Haiti 0 - 1 Scotland",
-          "probability": 0.068
+          "probability": 0.0685
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "Haiti 0 - 0 Scotland",
-          "probability": 0.0678
+          "probability": 0.0684
         }
       ],
       "data_quality": {
@@ -502,10 +502,10 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.1159,
-        "team_b_attack_strength": 1.162,
-        "team_a_defense_strength": 0.9148,
-        "team_b_defense_strength": 0.8386,
+        "team_a_attack_strength": 1.1137,
+        "team_b_attack_strength": 1.1606,
+        "team_a_defense_strength": 0.913,
+        "team_b_defense_strength": 0.8376,
         "team_a_squad_strength": 52075000.0,
         "team_b_squad_strength": 21050000.0,
         "main_factors": [
@@ -526,10 +526,10 @@
       "team_b_label": "Team B / Listed second",
       "venue": "CAN_VAN",
       "neutral": true,
-      "expected_goals_team_a": 1.926,
-      "expected_goals_team_b": 1.012,
-      "team_a_win_probability": 0.5731,
-      "draw_probability": 0.2459,
+      "expected_goals_team_a": 1.919,
+      "expected_goals_team_b": 1.009,
+      "team_a_win_probability": 0.5725,
+      "draw_probability": 0.2465,
       "team_b_win_probability": 0.181,
       "top_5_scorelines": [
         {
@@ -537,7 +537,7 @@
           "team_b_goals": 1,
           "scoreline": "1-1",
           "display_scoreline": "Australia 1 - 1 T\u00fcrkiye",
-          "probability": 0.1168
+          "probability": 0.1171
         },
         {
           "team_a_goals": 2,
@@ -551,21 +551,21 @@
           "team_b_goals": 0,
           "scoreline": "2-0",
           "display_scoreline": "Australia 2 - 0 T\u00fcrkiye",
-          "probability": 0.0984
+          "probability": 0.0987
         },
         {
           "team_a_goals": 1,
           "team_b_goals": 0,
           "scoreline": "1-0",
           "display_scoreline": "Australia 1 - 0 T\u00fcrkiye",
-          "probability": 0.0887
+          "probability": 0.0893
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "Australia 0 - 0 T\u00fcrkiye",
-          "probability": 0.0665
+          "probability": 0.067
         }
       ],
       "data_quality": {
@@ -574,14 +574,14 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.3667,
-        "team_b_attack_strength": 0.9513,
-        "team_a_defense_strength": 0.7237,
-        "team_b_defense_strength": 0.9588,
+        "team_a_attack_strength": 1.3644,
+        "team_b_attack_strength": 0.9499,
+        "team_a_defense_strength": 0.7224,
+        "team_b_defense_strength": 0.9573,
         "team_a_squad_strength": 14650000.0,
         "team_b_squad_strength": 77750000.0,
         "main_factors": [
-          "Australia has strong historical attack (1.37x avg)",
+          "Australia has strong historical attack (1.36x avg)",
           "T\u00fcrkiye squad value is 5.3x Australia"
         ]
       }
@@ -599,7 +599,7 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_HOU",
       "neutral": true,
-      "expected_goals_team_a": 2.445,
+      "expected_goals_team_a": 2.444,
       "expected_goals_team_b": 1.303,
       "team_a_win_probability": 0.614,
       "draw_probability": 0.2047,
@@ -649,7 +649,7 @@
       "explanation": {
         "team_a_attack_strength": 1.5343,
         "team_b_attack_strength": 1.1211,
-        "team_a_defense_strength": 0.7906,
+        "team_a_defense_strength": 0.7905,
         "team_b_defense_strength": 1.0841,
         "team_a_squad_strength": 25600000.0,
         "team_b_squad_strength": 47600000.0,
@@ -719,7 +719,7 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.4251,
+        "team_a_attack_strength": 1.425,
         "team_b_attack_strength": 1.243,
         "team_a_defense_strength": 0.8335,
         "team_b_defense_strength": 0.7845,
@@ -762,7 +762,7 @@
           "team_b_goals": 0,
           "scoreline": "1-0",
           "display_scoreline": "C\u00f4te D'Ivoire 1 - 0 Ecuador",
-          "probability": 0.1221
+          "probability": 0.1222
         },
         {
           "team_a_goals": 2,
@@ -795,7 +795,7 @@
         "team_a_attack_strength": 1.1141,
         "team_b_attack_strength": 0.8241,
         "team_a_defense_strength": 0.6772,
-        "team_b_defense_strength": 1.0391,
+        "team_b_defense_strength": 1.039,
         "team_a_squad_strength": 81575000.0,
         "team_b_squad_strength": 25100000.0,
         "main_factors": [
@@ -939,7 +939,7 @@
         "team_a_attack_strength": 1.3904,
         "team_b_attack_strength": 0.7439,
         "team_a_defense_strength": 0.6101,
-        "team_b_defense_strength": 0.7641,
+        "team_b_defense_strength": 0.764,
         "team_a_squad_strength": 241850000.0,
         "team_b_squad_strength": 15675000.0,
         "main_factors": [
@@ -1084,7 +1084,7 @@
       "explanation": {
         "team_a_attack_strength": 1.0445,
         "team_b_attack_strength": 1.0757,
-        "team_a_defense_strength": 0.7135,
+        "team_a_defense_strength": 0.7134,
         "team_b_defense_strength": 0.8262,
         "team_a_squad_strength": 5325000.0,
         "team_b_squad_strength": 20550000.0,
@@ -1180,7 +1180,7 @@
       "venue": "USA_NY",
       "neutral": true,
       "expected_goals_team_a": 1.177,
-      "expected_goals_team_b": 1.216,
+      "expected_goals_team_b": 1.215,
       "team_a_win_probability": 0.335,
       "draw_probability": 0.3111,
       "team_b_win_probability": 0.3539,
@@ -1303,7 +1303,7 @@
         "team_a_attack_strength": 1.0435,
         "team_b_attack_strength": 1.0561,
         "team_a_defense_strength": 0.6358,
-        "team_b_defense_strength": 1.1045,
+        "team_b_defense_strength": 1.1044,
         "team_a_squad_strength": 8125000.0,
         "team_b_squad_strength": 212400000.0,
         "main_factors": [
@@ -1372,7 +1372,7 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.2916,
+        "team_a_attack_strength": 1.2915,
         "team_b_attack_strength": 1.0493,
         "team_a_defense_strength": 0.6836,
         "team_b_defense_strength": 0.6782,
@@ -1445,7 +1445,7 @@
       },
       "explanation": {
         "team_a_attack_strength": 1.2202,
-        "team_b_attack_strength": 0.8681,
+        "team_b_attack_strength": 0.868,
         "team_a_defense_strength": 1.04,
         "team_b_defense_strength": 0.7616,
         "team_a_squad_strength": 91625000.0,
@@ -1470,7 +1470,7 @@
       "venue": "USA_HOU",
       "neutral": true,
       "expected_goals_team_a": 1.436,
-      "expected_goals_team_b": 1.132,
+      "expected_goals_team_b": 1.131,
       "team_a_win_probability": 0.4241,
       "draw_probability": 0.2946,
       "team_b_win_probability": 0.2813,
@@ -1758,46 +1758,46 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_ATL",
       "neutral": true,
-      "expected_goals_team_a": 1.145,
-      "expected_goals_team_b": 0.938,
-      "team_a_win_probability": 0.3865,
-      "draw_probability": 0.3336,
-      "team_b_win_probability": 0.2799,
+      "expected_goals_team_a": 1.149,
+      "expected_goals_team_b": 0.942,
+      "team_a_win_probability": 0.3868,
+      "draw_probability": 0.3329,
+      "team_b_win_probability": 0.2803,
       "top_5_scorelines": [
         {
           "team_a_goals": 1,
           "team_b_goals": 1,
           "scoreline": "1-1",
           "display_scoreline": "Czech Republic 1 - 1 South Africa",
-          "probability": 0.1512
+          "probability": 0.1511
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "Czech Republic 0 - 0 South Africa",
-          "probability": 0.1419
+          "probability": 0.1409
         },
         {
           "team_a_goals": 1,
           "team_b_goals": 0,
           "scoreline": "1-0",
           "display_scoreline": "Czech Republic 1 - 0 South Africa",
-          "probability": 0.1252
+          "probability": 0.1246
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 1,
           "scoreline": "0-1",
           "display_scoreline": "Czech Republic 0 - 1 South Africa",
-          "probability": 0.0994
+          "probability": 0.099
         },
         {
           "team_a_goals": 2,
           "team_b_goals": 0,
           "scoreline": "2-0",
           "display_scoreline": "Czech Republic 2 - 0 South Africa",
-          "probability": 0.0817
+          "probability": 0.0816
         }
       ],
       "data_quality": {
@@ -1806,10 +1806,10 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.2105,
-        "team_b_attack_strength": 0.9176,
-        "team_a_defense_strength": 0.6955,
-        "team_b_defense_strength": 0.6437,
+        "team_a_attack_strength": 1.2124,
+        "team_b_attack_strength": 0.919,
+        "team_a_defense_strength": 0.6973,
+        "team_b_defense_strength": 0.6451,
         "team_a_squad_strength": 12400000.0,
         "team_b_squad_strength": 5675000.0,
         "main_factors": [
@@ -1831,46 +1831,46 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_LA",
       "neutral": true,
-      "expected_goals_team_a": 1.385,
-      "expected_goals_team_b": 1.516,
-      "team_a_win_probability": 0.3322,
-      "draw_probability": 0.2772,
-      "team_b_win_probability": 0.3906,
+      "expected_goals_team_a": 1.403,
+      "expected_goals_team_b": 1.521,
+      "team_a_win_probability": 0.3359,
+      "draw_probability": 0.276,
+      "team_b_win_probability": 0.3881,
       "top_5_scorelines": [
         {
           "team_a_goals": 1,
           "team_b_goals": 1,
           "scoreline": "1-1",
           "display_scoreline": "Switzerland 1 - 1 Bosnia and Herzegovina",
-          "probability": 0.1305
+          "probability": 0.1296
         },
         {
           "team_a_goals": 1,
           "team_b_goals": 2,
           "scoreline": "1-2",
           "display_scoreline": "Switzerland 1 - 2 Bosnia and Herzegovina",
-          "probability": 0.0875
+          "probability": 0.0872
         },
         {
           "team_a_goals": 2,
           "team_b_goals": 1,
           "scoreline": "2-1",
           "display_scoreline": "Switzerland 2 - 1 Bosnia and Herzegovina",
-          "probability": 0.0799
+          "probability": 0.0805
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "Switzerland 0 - 0 Bosnia and Herzegovina",
-          "probability": 0.07
+          "probability": 0.0686
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 1,
           "scoreline": "0-1",
           "display_scoreline": "Switzerland 0 - 1 Bosnia and Herzegovina",
-          "probability": 0.0684
+          "probability": 0.0668
         }
       ],
       "data_quality": {
@@ -1879,10 +1879,10 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.0145,
-        "team_b_attack_strength": 0.9287,
-        "team_a_defense_strength": 1.1105,
-        "team_b_defense_strength": 0.9287,
+        "team_a_attack_strength": 1.0176,
+        "team_b_attack_strength": 0.9311,
+        "team_a_defense_strength": 1.1113,
+        "team_b_defense_strength": 0.9383,
         "team_a_squad_strength": 51150000.0,
         "team_b_squad_strength": 55025000.0,
         "main_factors": [
@@ -1903,46 +1903,46 @@
       "team_b_label": "Team B / Listed second",
       "venue": "CAN_VAN",
       "neutral": true,
-      "expected_goals_team_a": 1.061,
+      "expected_goals_team_a": 1.08,
       "expected_goals_team_b": 1.246,
-      "team_a_win_probability": 0.2965,
-      "draw_probability": 0.3159,
-      "team_b_win_probability": 0.3876,
+      "team_a_win_probability": 0.3018,
+      "draw_probability": 0.3148,
+      "team_b_win_probability": 0.3834,
       "top_5_scorelines": [
         {
           "team_a_goals": 1,
           "team_b_goals": 1,
           "scoreline": "1-1",
           "display_scoreline": "Canada 1 - 1 Qatar",
-          "probability": 0.1488
+          "probability": 0.1486
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "Canada 0 - 0 Qatar",
-          "probability": 0.1167
+          "probability": 0.1149
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 1,
           "scoreline": "0-1",
           "display_scoreline": "Canada 0 - 1 Qatar",
-          "probability": 0.107
+          "probability": 0.1047
         },
         {
           "team_a_goals": 1,
           "team_b_goals": 0,
           "scoreline": "1-0",
           "display_scoreline": "Canada 1 - 0 Qatar",
-          "probability": 0.0886
+          "probability": 0.0885
         },
         {
           "team_a_goals": 1,
           "team_b_goals": 2,
           "scoreline": "1-2",
           "display_scoreline": "Canada 1 - 2 Qatar",
-          "probability": 0.082
+          "probability": 0.0819
         }
       ],
       "data_quality": {
@@ -1951,10 +1951,10 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 0.8798,
+        "team_a_attack_strength": 0.8885,
         "team_b_attack_strength": 0.9571,
         "team_a_defense_strength": 0.8856,
-        "team_b_defense_strength": 0.8204,
+        "team_b_defense_strength": 0.8268,
         "team_a_squad_strength": 21275000.0,
         "team_b_squad_strength": 4425000.0,
         "main_factors": [
@@ -1975,11 +1975,11 @@
       "team_b_label": "Team B / Listed second",
       "venue": "MEX_GDL",
       "neutral": true,
-      "expected_goals_team_a": 1.086,
+      "expected_goals_team_a": 1.088,
       "expected_goals_team_b": 1.269,
-      "team_a_win_probability": 0.2993,
-      "draw_probability": 0.3123,
-      "team_b_win_probability": 0.3884,
+      "team_a_win_probability": 0.2998,
+      "draw_probability": 0.3122,
+      "team_b_win_probability": 0.388,
       "top_5_scorelines": [
         {
           "team_a_goals": 1,
@@ -1993,14 +1993,14 @@
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "Mexico 0 - 0 Korea Republic",
-          "probability": 0.1119
+          "probability": 0.1117
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 1,
           "scoreline": "0-1",
           "display_scoreline": "Mexico 0 - 1 Korea Republic",
-          "probability": 0.1034
+          "probability": 0.1032
         },
         {
           "team_a_goals": 1,
@@ -2025,10 +2025,10 @@
         ]
       },
       "explanation": {
-        "team_a_attack_strength": 1.1977,
+        "team_a_attack_strength": 1.1984,
         "team_b_attack_strength": 1.2098,
         "team_a_defense_strength": 0.7136,
-        "team_b_defense_strength": 0.6171,
+        "team_b_defense_strength": 0.6177,
         "team_a_squad_strength": 17385000.0,
         "team_b_squad_strength": 2250000.0,
         "main_factors": [
@@ -2050,18 +2050,18 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_SEA",
       "neutral": true,
-      "expected_goals_team_a": 1.102,
-      "expected_goals_team_b": 1.813,
+      "expected_goals_team_a": 1.098,
+      "expected_goals_team_b": 1.807,
       "team_a_win_probability": 0.2156,
-      "draw_probability": 0.2586,
-      "team_b_win_probability": 0.5258,
+      "draw_probability": 0.2591,
+      "team_b_win_probability": 0.5253,
       "top_5_scorelines": [
         {
           "team_a_goals": 1,
           "team_b_goals": 1,
           "scoreline": "1-1",
           "display_scoreline": "United States 1 - 1 Australia",
-          "probability": 0.1225
+          "probability": 0.1228
         },
         {
           "team_a_goals": 1,
@@ -2075,21 +2075,21 @@
           "team_b_goals": 2,
           "scoreline": "0-2",
           "display_scoreline": "United States 0 - 2 Australia",
-          "probability": 0.0892
+          "probability": 0.0894
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 1,
           "scoreline": "0-1",
           "display_scoreline": "United States 0 - 1 Australia",
-          "probability": 0.0843
+          "probability": 0.0848
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "United States 0 - 0 Australia",
-          "probability": 0.0684
+          "probability": 0.0689
         }
       ],
       "data_quality": {
@@ -2098,14 +2098,14 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.0357,
-        "team_b_attack_strength": 1.3667,
-        "team_a_defense_strength": 0.9024,
-        "team_b_defense_strength": 0.7237,
+        "team_a_attack_strength": 1.0344,
+        "team_b_attack_strength": 1.3644,
+        "team_a_defense_strength": 0.9012,
+        "team_b_defense_strength": 0.7224,
         "team_a_squad_strength": 41975000.0,
         "team_b_squad_strength": 14650000.0,
         "main_factors": [
-          "Australia has strong historical attack (1.37x avg)",
+          "Australia has strong historical attack (1.36x avg)",
           "United States squad value is 2.9x Australia"
         ]
       }
@@ -2123,46 +2123,46 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_BOS",
       "neutral": true,
-      "expected_goals_team_a": 0.931,
-      "expected_goals_team_b": 1.244,
-      "team_a_win_probability": 0.2597,
-      "draw_probability": 0.3228,
-      "team_b_win_probability": 0.4175,
+      "expected_goals_team_a": 0.928,
+      "expected_goals_team_b": 1.241,
+      "team_a_win_probability": 0.2596,
+      "draw_probability": 0.3233,
+      "team_b_win_probability": 0.4171,
       "top_5_scorelines": [
         {
           "team_a_goals": 1,
           "team_b_goals": 1,
           "scoreline": "1-1",
           "display_scoreline": "Scotland 1 - 1 Morocco",
-          "probability": 0.1487
+          "probability": 0.1488
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "Scotland 0 - 0 Morocco",
-          "probability": 0.1307
+          "probability": 0.1314
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 1,
           "scoreline": "0-1",
           "display_scoreline": "Scotland 0 - 1 Morocco",
-          "probability": 0.1243
+          "probability": 0.1247
         },
         {
           "team_a_goals": 1,
           "team_b_goals": 0,
           "scoreline": "1-0",
           "display_scoreline": "Scotland 1 - 0 Morocco",
-          "probability": 0.0886
+          "probability": 0.089
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 2,
           "scoreline": "0-2",
           "display_scoreline": "Scotland 0 - 2 Morocco",
-          "probability": 0.0879
+          "probability": 0.088
         }
       ],
       "data_quality": {
@@ -2171,10 +2171,10 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.162,
-        "team_b_attack_strength": 1.0097,
-        "team_a_defense_strength": 0.8386,
-        "team_b_defense_strength": 0.545,
+        "team_a_attack_strength": 1.1606,
+        "team_b_attack_strength": 1.008,
+        "team_a_defense_strength": 0.8376,
+        "team_b_defense_strength": 0.5441,
         "team_a_squad_strength": 21050000.0,
         "team_b_squad_strength": 83925000.0,
         "main_factors": [
@@ -2195,18 +2195,18 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_PHI",
       "neutral": true,
-      "expected_goals_team_a": 1.99,
-      "expected_goals_team_b": 1.008,
-      "team_a_win_probability": 0.5881,
-      "draw_probability": 0.2391,
-      "team_b_win_probability": 0.1727,
+      "expected_goals_team_a": 1.984,
+      "expected_goals_team_b": 1.006,
+      "team_a_win_probability": 0.5876,
+      "draw_probability": 0.2396,
+      "team_b_win_probability": 0.1728,
       "top_5_scorelines": [
         {
           "team_a_goals": 1,
           "team_b_goals": 1,
           "scoreline": "1-1",
           "display_scoreline": "Brazil 1 - 1 Haiti",
-          "probability": 0.1132
+          "probability": 0.1135
         },
         {
           "team_a_goals": 2,
@@ -2220,21 +2220,21 @@
           "team_b_goals": 0,
           "scoreline": "2-0",
           "display_scoreline": "Brazil 2 - 0 Haiti",
-          "probability": 0.0988
+          "probability": 0.0991
         },
         {
           "team_a_goals": 1,
           "team_b_goals": 0,
           "scoreline": "1-0",
           "display_scoreline": "Brazil 1 - 0 Haiti",
-          "probability": 0.0863
+          "probability": 0.0868
         },
         {
           "team_a_goals": 3,
           "team_b_goals": 1,
           "scoreline": "3-1",
           "display_scoreline": "Brazil 3 - 1 Haiti",
-          "probability": 0.0661
+          "probability": 0.0659
         }
       ],
       "data_quality": {
@@ -2243,10 +2243,10 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.4803,
-        "team_b_attack_strength": 1.1159,
-        "team_a_defense_strength": 0.615,
-        "team_b_defense_strength": 0.9148,
+        "team_a_attack_strength": 1.4789,
+        "team_b_attack_strength": 1.1137,
+        "team_a_defense_strength": 0.6144,
+        "team_b_defense_strength": 0.913,
         "team_a_squad_strength": 78325000.0,
         "team_b_squad_strength": 52075000.0,
         "main_factors": [
@@ -2267,46 +2267,46 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_SF",
       "neutral": true,
-      "expected_goals_team_a": 1.355,
-      "expected_goals_team_b": 1.228,
-      "team_a_win_probability": 0.3815,
-      "draw_probability": 0.297,
-      "team_b_win_probability": 0.3216,
+      "expected_goals_team_a": 1.352,
+      "expected_goals_team_b": 1.224,
+      "team_a_win_probability": 0.3812,
+      "draw_probability": 0.2975,
+      "team_b_win_probability": 0.3214,
       "top_5_scorelines": [
         {
           "team_a_goals": 1,
           "team_b_goals": 1,
           "scoreline": "1-1",
           "display_scoreline": "T\u00fcrkiye 1 - 1 Paraguay",
-          "probability": 0.1421
+          "probability": 0.1423
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "T\u00fcrkiye 0 - 0 Paraguay",
-          "probability": 0.0919
+          "probability": 0.0925
         },
         {
           "team_a_goals": 1,
           "team_b_goals": 0,
           "scoreline": "1-0",
           "display_scoreline": "T\u00fcrkiye 1 - 0 Paraguay",
-          "probability": 0.086
+          "probability": 0.0865
         },
         {
           "team_a_goals": 2,
           "team_b_goals": 1,
           "scoreline": "2-1",
           "display_scoreline": "T\u00fcrkiye 2 - 1 Paraguay",
-          "probability": 0.0852
+          "probability": 0.0851
         },
         {
           "team_a_goals": 1,
           "team_b_goals": 2,
           "scoreline": "1-2",
           "display_scoreline": "T\u00fcrkiye 1 - 2 Paraguay",
-          "probability": 0.0772
+          "probability": 0.0771
         }
       ],
       "data_quality": {
@@ -2315,10 +2315,10 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 0.9513,
-        "team_b_attack_strength": 0.8714,
-        "team_a_defense_strength": 0.9588,
-        "team_b_defense_strength": 0.9695,
+        "team_a_attack_strength": 0.9499,
+        "team_b_attack_strength": 0.8703,
+        "team_a_defense_strength": 0.9573,
+        "team_b_defense_strength": 0.9682,
         "team_a_squad_strength": 77750000.0,
         "team_b_squad_strength": 6000000.0,
         "main_factors": [
@@ -2387,7 +2387,7 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.4251,
+        "team_a_attack_strength": 1.425,
         "team_b_attack_strength": 1.3436,
         "team_a_defense_strength": 0.8335,
         "team_b_defense_strength": 0.878,
@@ -2463,7 +2463,7 @@
       "explanation": {
         "team_a_attack_strength": 1.5343,
         "team_b_attack_strength": 1.1141,
-        "team_a_defense_strength": 0.7906,
+        "team_a_defense_strength": 0.7905,
         "team_b_defense_strength": 0.6772,
         "team_a_squad_strength": 25600000.0,
         "team_b_squad_strength": 81575000.0,
@@ -2536,7 +2536,7 @@
       "explanation": {
         "team_a_attack_strength": 0.8241,
         "team_b_attack_strength": 1.1211,
-        "team_a_defense_strength": 1.0391,
+        "team_a_defense_strength": 1.039,
         "team_b_defense_strength": 1.0841,
         "team_a_squad_strength": 25100000.0,
         "team_b_squad_strength": 47600000.0,
@@ -2561,7 +2561,7 @@
       "expected_goals_team_a": 1.127,
       "expected_goals_team_b": 1.272,
       "team_a_win_probability": 0.3099,
-      "draw_probability": 0.3096,
+      "draw_probability": 0.3097,
       "team_b_win_probability": 0.3805,
       "top_5_scorelines": [
         {
@@ -2682,7 +2682,7 @@
         "team_a_attack_strength": 1.3904,
         "team_b_attack_strength": 1.0445,
         "team_a_defense_strength": 0.6101,
-        "team_b_defense_strength": 0.7135,
+        "team_b_defense_strength": 0.7134,
         "team_a_squad_strength": 241850000.0,
         "team_b_squad_strength": 5325000.0,
         "main_factors": [
@@ -2829,7 +2829,7 @@
         "team_a_attack_strength": 1.0757,
         "team_b_attack_strength": 0.7439,
         "team_a_defense_strength": 0.8262,
-        "team_b_defense_strength": 0.7641,
+        "team_b_defense_strength": 0.764,
         "team_a_squad_strength": 20550000.0,
         "team_b_squad_strength": 15675000.0,
         "main_factors": [
@@ -2924,7 +2924,7 @@
       "neutral": true,
       "expected_goals_team_a": 1.974,
       "expected_goals_team_b": 1.226,
-      "team_a_win_probability": 0.5344,
+      "team_a_win_probability": 0.5343,
       "draw_probability": 0.2437,
       "team_b_win_probability": 0.2219,
       "top_5_scorelines": [
@@ -2970,7 +2970,7 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.2916,
+        "team_a_attack_strength": 1.2915,
         "team_b_attack_strength": 1.2202,
         "team_a_defense_strength": 0.6836,
         "team_b_defense_strength": 1.04,
@@ -3000,7 +3000,7 @@
       "expected_goals_team_b": 1.349,
       "team_a_win_probability": 0.3065,
       "draw_probability": 0.3008,
-      "team_b_win_probability": 0.3928,
+      "team_b_win_probability": 0.3927,
       "top_5_scorelines": [
         {
           "team_a_goals": 1,
@@ -3119,7 +3119,7 @@
       "explanation": {
         "team_a_attack_strength": 1.0561,
         "team_b_attack_strength": 0.9403,
-        "team_a_defense_strength": 1.1045,
+        "team_a_defense_strength": 1.1044,
         "team_b_defense_strength": 0.641,
         "team_a_squad_strength": 212400000.0,
         "team_b_squad_strength": 28050000.0,
@@ -3142,7 +3142,7 @@
       "venue": "USA_SF",
       "neutral": true,
       "expected_goals_team_a": 0.865,
-      "expected_goals_team_b": 1.175,
+      "expected_goals_team_b": 1.174,
       "team_a_win_probability": 0.2529,
       "draw_probability": 0.3342,
       "team_b_win_probability": 0.4128,
@@ -3159,7 +3159,7 @@
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "Jordan 0 - 0 Algeria",
-          "probability": 0.1472
+          "probability": 0.1473
         },
         {
           "team_a_goals": 0,
@@ -3189,7 +3189,7 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 0.8681,
+        "team_a_attack_strength": 0.868,
         "team_b_attack_strength": 1.0493,
         "team_a_defense_strength": 0.7616,
         "team_b_defense_strength": 0.6782,
@@ -3441,7 +3441,7 @@
           "team_b_goals": 1,
           "scoreline": "1-1",
           "display_scoreline": "Colombia 1 - 1 Congo DR",
-          "probability": 0.1508
+          "probability": 0.1509
         },
         {
           "team_a_goals": 0,
@@ -3502,46 +3502,46 @@
       "team_b_label": "Team B / Listed second",
       "venue": "CAN_VAN",
       "neutral": true,
-      "expected_goals_team_a": 1.32,
-      "expected_goals_team_b": 1.436,
-      "team_a_win_probability": 0.3307,
-      "draw_probability": 0.286,
-      "team_b_win_probability": 0.3833,
+      "expected_goals_team_a": 1.324,
+      "expected_goals_team_b": 1.451,
+      "team_a_win_probability": 0.3289,
+      "draw_probability": 0.2847,
+      "team_b_win_probability": 0.3864,
       "top_5_scorelines": [
         {
           "team_a_goals": 1,
           "team_b_goals": 1,
           "scoreline": "1-1",
           "display_scoreline": "Switzerland 1 - 1 Canada",
-          "probability": 0.1361
+          "probability": 0.1354
         },
         {
           "team_a_goals": 1,
           "team_b_goals": 2,
           "scoreline": "1-2",
           "display_scoreline": "Switzerland 1 - 2 Canada",
-          "probability": 0.0865
+          "probability": 0.0869
         },
         {
           "team_a_goals": 2,
           "team_b_goals": 1,
           "scoreline": "2-1",
           "display_scoreline": "Switzerland 2 - 1 Canada",
-          "probability": 0.0795
+          "probability": 0.0793
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "Switzerland 0 - 0 Canada",
-          "probability": 0.0792
+          "probability": 0.0779
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 1,
           "scoreline": "0-1",
           "display_scoreline": "Switzerland 0 - 1 Canada",
-          "probability": 0.0756
+          "probability": 0.0749
         }
       ],
       "data_quality": {
@@ -3550,9 +3550,9 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.0145,
-        "team_b_attack_strength": 0.8798,
-        "team_a_defense_strength": 1.1105,
+        "team_a_attack_strength": 1.0176,
+        "team_b_attack_strength": 0.8885,
+        "team_a_defense_strength": 1.1113,
         "team_b_defense_strength": 0.8856,
         "team_a_squad_strength": 51150000.0,
         "team_b_squad_strength": 21275000.0,
@@ -3574,46 +3574,46 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_SEA",
       "neutral": true,
-      "expected_goals_team_a": 1.12,
-      "expected_goals_team_b": 1.306,
-      "team_a_win_probability": 0.3015,
-      "draw_probability": 0.307,
-      "team_b_win_probability": 0.3915,
+      "expected_goals_team_a": 1.131,
+      "expected_goals_team_b": 1.32,
+      "team_a_win_probability": 0.3022,
+      "draw_probability": 0.3052,
+      "team_b_win_probability": 0.3926,
       "top_5_scorelines": [
         {
           "team_a_goals": 1,
           "team_b_goals": 1,
           "scoreline": "1-1",
           "display_scoreline": "Bosnia and Herzegovina 1 - 1 Qatar",
-          "probability": 0.1461
+          "probability": 0.1454
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "Bosnia and Herzegovina 0 - 0 Qatar",
-          "probability": 0.1052
+          "probability": 0.1029
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 1,
           "scoreline": "0-1",
           "display_scoreline": "Bosnia and Herzegovina 0 - 1 Qatar",
-          "probability": 0.0987
+          "probability": 0.097
         },
         {
           "team_a_goals": 1,
           "team_b_goals": 2,
           "scoreline": "1-2",
           "display_scoreline": "Bosnia and Herzegovina 1 - 2 Qatar",
-          "probability": 0.0845
+          "probability": 0.0849
         },
         {
           "team_a_goals": 1,
           "team_b_goals": 0,
           "scoreline": "1-0",
           "display_scoreline": "Bosnia and Herzegovina 1 - 0 Qatar",
-          "probability": 0.0822
+          "probability": 0.0808
         }
       ],
       "data_quality": {
@@ -3622,10 +3622,10 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 0.9287,
+        "team_a_attack_strength": 0.9311,
         "team_b_attack_strength": 0.9571,
-        "team_a_defense_strength": 0.9287,
-        "team_b_defense_strength": 0.8204,
+        "team_a_defense_strength": 0.9383,
+        "team_b_defense_strength": 0.8268,
         "team_a_squad_strength": 55025000.0,
         "team_b_squad_strength": 4425000.0,
         "main_factors": [
@@ -3646,18 +3646,18 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_MIA",
       "neutral": true,
-      "expected_goals_team_a": 1.05,
-      "expected_goals_team_b": 1.824,
+      "expected_goals_team_a": 1.048,
+      "expected_goals_team_b": 1.82,
       "team_a_win_probability": 0.2022,
-      "draw_probability": 0.2571,
-      "team_b_win_probability": 0.5407,
+      "draw_probability": 0.2575,
+      "team_b_win_probability": 0.5403,
       "top_5_scorelines": [
         {
           "team_a_goals": 1,
           "team_b_goals": 1,
           "scoreline": "1-1",
           "display_scoreline": "Scotland 1 - 1 Brazil",
-          "probability": 0.1223
+          "probability": 0.1225
         },
         {
           "team_a_goals": 1,
@@ -3671,21 +3671,21 @@
           "team_b_goals": 2,
           "scoreline": "0-2",
           "display_scoreline": "Scotland 0 - 2 Brazil",
-          "probability": 0.094
+          "probability": 0.0942
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 1,
           "scoreline": "0-1",
           "display_scoreline": "Scotland 0 - 1 Brazil",
-          "probability": 0.089
+          "probability": 0.0894
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "Scotland 0 - 0 Brazil",
-          "probability": 0.0705
+          "probability": 0.0709
         }
       ],
       "data_quality": {
@@ -3694,10 +3694,10 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.162,
-        "team_b_attack_strength": 1.4803,
-        "team_a_defense_strength": 0.8386,
-        "team_b_defense_strength": 0.615,
+        "team_a_attack_strength": 1.1606,
+        "team_b_attack_strength": 1.4789,
+        "team_a_defense_strength": 0.8376,
+        "team_b_defense_strength": 0.6144,
         "team_a_squad_strength": 21050000.0,
         "team_b_squad_strength": 78325000.0,
         "main_factors": [
@@ -3719,46 +3719,46 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_ATL",
       "neutral": true,
-      "expected_goals_team_a": 1.357,
-      "expected_goals_team_b": 0.894,
-      "team_a_win_probability": 0.4591,
-      "draw_probability": 0.3106,
-      "team_b_win_probability": 0.2303,
+      "expected_goals_team_a": 1.353,
+      "expected_goals_team_b": 0.891,
+      "team_a_win_probability": 0.4585,
+      "draw_probability": 0.3113,
+      "team_b_win_probability": 0.2302,
       "top_5_scorelines": [
         {
           "team_a_goals": 1,
           "team_b_goals": 1,
           "scoreline": "1-1",
           "display_scoreline": "Morocco 1 - 1 Haiti",
-          "probability": 0.1443
+          "probability": 0.1445
         },
         {
           "team_a_goals": 1,
           "team_b_goals": 0,
           "scoreline": "1-0",
           "display_scoreline": "Morocco 1 - 0 Haiti",
-          "probability": 0.1263
+          "probability": 0.1269
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "Morocco 0 - 0 Haiti",
-          "probability": 0.1219
+          "probability": 0.1228
         },
         {
           "team_a_goals": 2,
           "team_b_goals": 0,
           "scoreline": "2-0",
           "display_scoreline": "Morocco 2 - 0 Haiti",
-          "probability": 0.097
+          "probability": 0.0971
         },
         {
           "team_a_goals": 2,
           "team_b_goals": 1,
           "scoreline": "2-1",
           "display_scoreline": "Morocco 2 - 1 Haiti",
-          "probability": 0.0867
+          "probability": 0.0865
         }
       ],
       "data_quality": {
@@ -3767,10 +3767,10 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.0097,
-        "team_b_attack_strength": 1.1159,
-        "team_a_defense_strength": 0.545,
-        "team_b_defense_strength": 0.9148,
+        "team_a_attack_strength": 1.008,
+        "team_b_attack_strength": 1.1137,
+        "team_a_defense_strength": 0.5441,
+        "team_b_defense_strength": 0.913,
         "team_a_squad_strength": 83925000.0,
         "team_b_squad_strength": 52075000.0,
         "main_factors": [
@@ -3791,39 +3791,39 @@
       "team_b_label": "Team B / Listed second",
       "venue": "MEX_CDMX",
       "neutral": true,
-      "expected_goals_team_a": 1.27,
-      "expected_goals_team_b": 1.224,
-      "team_a_win_probability": 0.3589,
-      "draw_probability": 0.3038,
-      "team_b_win_probability": 0.3373,
+      "expected_goals_team_a": 1.271,
+      "expected_goals_team_b": 1.228,
+      "team_a_win_probability": 0.3586,
+      "draw_probability": 0.3034,
+      "team_b_win_probability": 0.338,
       "top_5_scorelines": [
         {
           "team_a_goals": 1,
           "team_b_goals": 1,
           "scoreline": "1-1",
           "display_scoreline": "Czech Republic 1 - 1 Mexico",
-          "probability": 0.1451
+          "probability": 0.1449
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "Czech Republic 0 - 0 Mexico",
-          "probability": 0.0993
+          "probability": 0.0988
         },
         {
           "team_a_goals": 1,
           "team_b_goals": 0,
           "scoreline": "1-0",
           "display_scoreline": "Czech Republic 1 - 0 Mexico",
-          "probability": 0.0882
+          "probability": 0.0877
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 1,
           "scoreline": "0-1",
           "display_scoreline": "Czech Republic 0 - 1 Mexico",
-          "probability": 0.0844
+          "probability": 0.0842
         },
         {
           "team_a_goals": 2,
@@ -3839,9 +3839,9 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.2105,
-        "team_b_attack_strength": 1.1977,
-        "team_a_defense_strength": 0.6955,
+        "team_a_attack_strength": 1.2124,
+        "team_b_attack_strength": 1.1984,
+        "team_a_defense_strength": 0.6973,
         "team_b_defense_strength": 0.7136,
         "team_a_squad_strength": 12400000.0,
         "team_b_squad_strength": 17385000.0,
@@ -3863,18 +3863,18 @@
       "team_b_label": "Team B / Listed second",
       "venue": "MEX_MTY",
       "neutral": true,
-      "expected_goals_team_a": 0.832,
-      "expected_goals_team_b": 1.145,
-      "team_a_win_probability": 0.2483,
-      "draw_probability": 0.3397,
-      "team_b_win_probability": 0.412,
+      "expected_goals_team_a": 0.834,
+      "expected_goals_team_b": 1.147,
+      "team_a_win_probability": 0.2485,
+      "draw_probability": 0.3393,
+      "team_b_win_probability": 0.4122,
       "top_5_scorelines": [
         {
           "team_a_goals": 0,
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "South Africa 0 - 0 Korea Republic",
-          "probability": 0.1557
+          "probability": 0.155
         },
         {
           "team_a_goals": 1,
@@ -3888,14 +3888,14 @@
           "team_b_goals": 1,
           "scoreline": "0-1",
           "display_scoreline": "South Africa 0 - 1 Korea Republic",
-          "probability": 0.1414
+          "probability": 0.141
         },
         {
           "team_a_goals": 1,
           "team_b_goals": 0,
           "scoreline": "1-0",
           "display_scoreline": "South Africa 1 - 0 Korea Republic",
-          "probability": 0.0981
+          "probability": 0.0979
         },
         {
           "team_a_goals": 0,
@@ -3913,10 +3913,10 @@
         ]
       },
       "explanation": {
-        "team_a_attack_strength": 0.9176,
+        "team_a_attack_strength": 0.919,
         "team_b_attack_strength": 1.2098,
-        "team_a_defense_strength": 0.6437,
-        "team_b_defense_strength": 0.6171,
+        "team_a_defense_strength": 0.6451,
+        "team_b_defense_strength": 0.6177,
         "team_a_squad_strength": 5675000.0,
         "team_b_squad_strength": 2250000.0,
         "main_factors": [
@@ -3942,7 +3942,7 @@
       "expected_goals_team_b": 1.775,
       "team_a_win_probability": 0.2242,
       "draw_probability": 0.2623,
-      "team_b_win_probability": 0.5136,
+      "team_b_win_probability": 0.5135,
       "top_5_scorelines": [
         {
           "team_a_goals": 1,
@@ -4060,8 +4060,8 @@
       "explanation": {
         "team_a_attack_strength": 0.8241,
         "team_b_attack_strength": 1.5343,
-        "team_a_defense_strength": 1.0391,
-        "team_b_defense_strength": 0.7906,
+        "team_a_defense_strength": 1.039,
+        "team_b_defense_strength": 0.7905,
         "team_a_squad_strength": 25100000.0,
         "team_b_squad_strength": 25600000.0,
         "main_factors": [
@@ -4205,7 +4205,7 @@
       },
       "explanation": {
         "team_a_attack_strength": 0.9771,
-        "team_b_attack_strength": 1.4251,
+        "team_b_attack_strength": 1.425,
         "team_a_defense_strength": 0.6965,
         "team_b_defense_strength": 0.8335,
         "team_a_squad_strength": 18400000.0,
@@ -4229,18 +4229,18 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_LA",
       "neutral": true,
-      "expected_goals_team_a": 1.262,
-      "expected_goals_team_b": 1.459,
-      "team_a_win_probability": 0.3111,
-      "draw_probability": 0.2871,
-      "team_b_win_probability": 0.4017,
+      "expected_goals_team_a": 1.258,
+      "expected_goals_team_b": 1.455,
+      "team_a_win_probability": 0.311,
+      "draw_probability": 0.2876,
+      "team_b_win_probability": 0.4014,
       "top_5_scorelines": [
         {
           "team_a_goals": 1,
           "team_b_goals": 1,
           "scoreline": "1-1",
           "display_scoreline": "T\u00fcrkiye 1 - 1 United States",
-          "probability": 0.1369
+          "probability": 0.1372
         },
         {
           "team_a_goals": 1,
@@ -4254,14 +4254,14 @@
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "T\u00fcrkiye 0 - 0 United States",
-          "probability": 0.0816
+          "probability": 0.0821
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 1,
           "scoreline": "0-1",
           "display_scoreline": "T\u00fcrkiye 0 - 1 United States",
-          "probability": 0.0803
+          "probability": 0.0807
         },
         {
           "team_a_goals": 2,
@@ -4277,10 +4277,10 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 0.9513,
-        "team_b_attack_strength": 1.0357,
-        "team_a_defense_strength": 0.9588,
-        "team_b_defense_strength": 0.9024,
+        "team_a_attack_strength": 0.9499,
+        "team_b_attack_strength": 1.0344,
+        "team_a_defense_strength": 0.9573,
+        "team_b_defense_strength": 0.9012,
         "team_a_squad_strength": 77750000.0,
         "team_b_squad_strength": 41975000.0,
         "main_factors": [
@@ -4301,25 +4301,25 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_SF",
       "neutral": true,
-      "expected_goals_team_a": 0.927,
-      "expected_goals_team_b": 1.947,
+      "expected_goals_team_a": 0.924,
+      "expected_goals_team_b": 1.941,
       "team_a_win_probability": 0.1601,
-      "draw_probability": 0.2414,
-      "team_b_win_probability": 0.5985,
+      "draw_probability": 0.242,
+      "team_b_win_probability": 0.5979,
       "top_5_scorelines": [
         {
           "team_a_goals": 1,
           "team_b_goals": 1,
           "scoreline": "1-1",
           "display_scoreline": "Paraguay 1 - 1 Australia",
-          "probability": 0.1153
+          "probability": 0.1156
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 2,
           "scoreline": "0-2",
           "display_scoreline": "Paraguay 0 - 2 Australia",
-          "probability": 0.1072
+          "probability": 0.1074
         },
         {
           "team_a_goals": 1,
@@ -4333,14 +4333,14 @@
           "team_b_goals": 1,
           "scoreline": "0-1",
           "display_scoreline": "Paraguay 0 - 1 Australia",
-          "probability": 0.0968
+          "probability": 0.0974
         },
         {
           "team_a_goals": 0,
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "Paraguay 0 - 0 Australia",
-          "probability": 0.0698
+          "probability": 0.0703
         }
       ],
       "data_quality": {
@@ -4349,14 +4349,14 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 0.8714,
-        "team_b_attack_strength": 1.3667,
-        "team_a_defense_strength": 0.9695,
-        "team_b_defense_strength": 0.7237,
+        "team_a_attack_strength": 0.8703,
+        "team_b_attack_strength": 1.3644,
+        "team_a_defense_strength": 0.9682,
+        "team_b_defense_strength": 0.7224,
         "team_a_squad_strength": 6000000.0,
         "team_b_squad_strength": 14650000.0,
         "main_factors": [
-          "Australia has strong historical attack (1.37x avg)",
+          "Australia has strong historical attack (1.36x avg)",
           "Australia squad value is 2.4x Paraguay"
         ]
       }
@@ -4424,7 +4424,7 @@
       "explanation": {
         "team_a_attack_strength": 1.0561,
         "team_b_attack_strength": 1.2489,
-        "team_a_defense_strength": 1.1045,
+        "team_a_defense_strength": 1.1044,
         "team_b_defense_strength": 0.8796,
         "team_a_squad_strength": 212400000.0,
         "team_b_squad_strength": 222625000.0,
@@ -4568,8 +4568,8 @@
       "explanation": {
         "team_a_attack_strength": 0.7439,
         "team_b_attack_strength": 1.0445,
-        "team_a_defense_strength": 0.7641,
-        "team_b_defense_strength": 0.7135,
+        "team_a_defense_strength": 0.764,
+        "team_b_defense_strength": 0.7134,
         "team_a_squad_strength": 15675000.0,
         "team_b_squad_strength": 5325000.0,
         "main_factors": [
@@ -5197,7 +5197,7 @@
           "team_b_goals": 0,
           "scoreline": "0-0",
           "display_scoreline": "Jordan 0 - 0 Argentina",
-          "probability": 0.1146
+          "probability": 0.1147
         },
         {
           "team_a_goals": 0,
@@ -5220,8 +5220,8 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 0.8681,
-        "team_b_attack_strength": 1.2916,
+        "team_a_attack_strength": 0.868,
+        "team_b_attack_strength": 1.2915,
         "team_a_defense_strength": 0.7616,
         "team_b_defense_strength": 0.6836,
         "team_a_squad_strength": 8110000.0,

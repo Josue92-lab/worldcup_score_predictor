@@ -1,14 +1,14 @@
 {
   "martj42_results_max_date": "2026-06-27",
-  "world_cup_2026_rows_found": 28,
+  "world_cup_2026_rows_found": 32,
   "actual_results_status": "available",
-  "matches_evaluated": 24,
-  "exact_score_top1_hits": 6,
+  "matches_evaluated": 28,
+  "exact_score_top1_hits": 7,
   "exact_score_top1_rate": 0.25,
-  "exact_score_top5_hits": 14,
-  "exact_score_top5_rate": 0.5833,
-  "outcome_1x2_hits": 9,
-  "outcome_1x2_rate": 0.375,
+  "exact_score_top5_hits": 16,
+  "exact_score_top5_rate": 0.5714,
+  "outcome_1x2_hits": 10,
+  "outcome_1x2_rate": 0.3571,
   "evaluated_matches": [
     {
       "match_id": "GS_001",
@@ -56,9 +56,9 @@
       "predicted_top5": [
         "1-1",
         "0-0",
-        "0-1",
         "1-0",
-        "1-2"
+        "0-1",
+        "2-1"
       ],
       "top1_correct": true,
       "top5_correct": true,
@@ -73,8 +73,8 @@
       "predicted_top1": "1-1",
       "predicted_top5": [
         "1-1",
-        "2-1",
         "1-0",
+        "2-1",
         "0-0",
         "2-0"
       ],
@@ -93,8 +93,8 @@
         "1-1",
         "2-1",
         "1-0",
-        "0-0",
-        "2-0"
+        "2-0",
+        "0-0"
       ],
       "top1_correct": true,
       "top5_correct": true,
@@ -254,8 +254,8 @@
       "predicted_top5": [
         "1-1",
         "1-2",
-        "0-1",
         "0-2",
+        "0-1",
         "2-1"
       ],
       "top1_correct": true,
@@ -345,8 +345,8 @@
         "1-1",
         "0-0",
         "1-0",
-        "0-1",
-        "2-1"
+        "2-1",
+        "0-1"
       ],
       "top1_correct": false,
       "top5_correct": false,
@@ -361,8 +361,8 @@
       "predicted_top1": "1-1",
       "predicted_top5": [
         "1-1",
-        "2-1",
         "0-0",
+        "2-1",
         "1-2",
         "1-0"
       ],
@@ -397,8 +397,8 @@
       "predicted_top1": "1-1",
       "predicted_top5": [
         "1-1",
-        "2-1",
         "1-0",
+        "2-1",
         "0-0",
         "2-0"
       ],
@@ -417,8 +417,8 @@
         "1-1",
         "1-0",
         "2-0",
-        "0-0",
-        "2-1"
+        "2-1",
+        "0-0"
       ],
       "top1_correct": false,
       "top5_correct": true,
@@ -440,6 +440,78 @@
       ],
       "top1_correct": false,
       "top5_correct": false,
+      "outcome_1x2_correct": false
+    },
+    {
+      "match_id": "GS_025",
+      "date": "2026-06-18",
+      "team_a": "Czech Republic",
+      "team_b": "South Africa",
+      "actual_scoreline": "1-1",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "0-0",
+        "1-0",
+        "0-1",
+        "2-0"
+      ],
+      "top1_correct": true,
+      "top5_correct": true,
+      "outcome_1x2_correct": true
+    },
+    {
+      "match_id": "GS_026",
+      "date": "2026-06-18",
+      "team_a": "Switzerland",
+      "team_b": "Bosnia and Herzegovina",
+      "actual_scoreline": "4-1",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "1-2",
+        "2-1",
+        "0-0",
+        "0-1"
+      ],
+      "top1_correct": false,
+      "top5_correct": false,
+      "outcome_1x2_correct": false
+    },
+    {
+      "match_id": "GS_027",
+      "date": "2026-06-18",
+      "team_a": "Canada",
+      "team_b": "Qatar",
+      "actual_scoreline": "6-0",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "0-0",
+        "0-1",
+        "1-0",
+        "1-2"
+      ],
+      "top1_correct": false,
+      "top5_correct": false,
+      "outcome_1x2_correct": false
+    },
+    {
+      "match_id": "GS_028",
+      "date": "2026-06-18",
+      "team_a": "Mexico",
+      "team_b": "Korea Republic",
+      "actual_scoreline": "1-0",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "0-0",
+        "0-1",
+        "1-0",
+        "1-2"
+      ],
+      "top1_correct": false,
+      "top5_correct": true,
       "outcome_1x2_correct": false
     }
   ]
