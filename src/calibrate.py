@@ -173,15 +173,22 @@ def calculate_calibration_factor(as_of_date=None):
     if len(df_recent) < min_matches:
         # 4. Factor Suave Inicial
         smoothing_weight = len(df_recent) / min_matches
-        factor_fav = 1.0 + ((raw_factor_fav * confidence_multiplier - 1.0) * smoothing_weight)
-        factor_und = 1.0 + ((raw_factor_und * confidence_multiplier - 1.0) * smoothing_weight)
-        factor_fav = min(max(factor_fav, 0.8), max_factor)
-        factor_und = min(max(factor_und, 0.8), max_factor)
+        
+        # Smooth with half-step
+        factor_fav = 1.0 + ((raw_factor_fav * confidence_multiplier - 1.0) * smoothing_weight * 0.5)
+        factor_und = 1.0 + ((raw_factor_und * confidence_multiplier - 1.0) * smoothing_weight * 0.5)
+        
+        factor_fav = min(max(factor_fav, 0.90), 1.10)
+        factor_und = min(max(factor_und, 0.90), 1.10)
         factor_global = (factor_fav + factor_und) / 2.0
         reason_msg = f"Smooth factor (only {len(df_recent)} matches)"
     else:
-        factor_fav = min(max(raw_factor_fav * confidence_multiplier, 0.8), max_factor)
-        factor_und = min(max(raw_factor_und * confidence_multiplier, 0.8), max_factor)
+        # Half-step smoothing for strict bounds to prevent inversion of favorites
+        factor_fav = 1.0 + (raw_factor_fav * confidence_multiplier - 1.0) * 0.5
+        factor_und = 1.0 + (raw_factor_und * confidence_multiplier - 1.0) * 0.5
+        
+        factor_fav = min(max(factor_fav, 0.90), 1.10)
+        factor_und = min(max(factor_und, 0.90), 1.10)
         factor_global = (factor_fav + factor_und) / 2.0
         reason_msg = "Rolling Window Calibrated"
 

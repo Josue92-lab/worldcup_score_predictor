@@ -8,7 +8,7 @@ Build team-level and squad-level features from:
 import pandas as pd
 import numpy as np
 from pathlib import Path
-from rapidfuzz import process, fuzz
+from rapidfuzz import process, fuzz, utils
 import sys
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -86,12 +86,23 @@ def _load_kaggle_appearances() -> pd.DataFrame:
     return pd.read_csv(path, low_memory=False)
 
 
-def _fuzzy_match_player(squad_name: str, kaggle_names: list, threshold: float = 75.0):
-    """Fuzzy-match a squad player name against Kaggle player names."""
+def _fuzzy_match_player(squad_name: str, kaggle_names: dict, threshold: float = 85.0):
+    """Fuzzy-match a squad player name against Kaggle player names using token_set_ratio.
+       kaggle_names is expected to be a dictionary mapping the original name to its processed form,
+       so we can use process.extractOne efficiently."""
     if not kaggle_names:
         return None, 0.0
-    match = process.extractOne(squad_name, kaggle_names, scorer=fuzz.WRatio)
-    if match and match[1] >= threshold:
+    
+    # Create list of pre-processed names or let extractOne use the dict keys with processor.
+    # Passing processor=utils.default_process handles lowercasing and non-alphanumeric removal
+    match = process.extractOne(
+        squad_name, 
+        kaggle_names, 
+        scorer=fuzz.token_set_ratio, 
+        processor=utils.default_process,
+        score_cutoff=threshold
+    )
+    if match:
         return match[0], match[1]
     return None, 0.0
 
@@ -176,9 +187,9 @@ def match_squad_to_kaggle(squads_df: pd.DataFrame) -> pd.DataFrame:
         player_full = str(row.get("player_name", ""))
 
         # Try shirt_name first, then full name
-        best_name, best_score = _fuzzy_match_player(search_name, kaggle_names, threshold=70.0)
-        if best_score < 80.0 and player_full != search_name:
-            alt_name, alt_score = _fuzzy_match_player(player_full, kaggle_names, threshold=70.0)
+        best_name, best_score = _fuzzy_match_player(search_name, kaggle_names, threshold=85.0)
+        if best_score < 85.0 and player_full != search_name:
+            alt_name, alt_score = _fuzzy_match_player(player_full, kaggle_names, threshold=85.0)
             if alt_score > best_score:
                 best_name, best_score = alt_name, alt_score
 
@@ -205,11 +216,24 @@ def match_squad_to_kaggle(squads_df: pd.DataFrame) -> pd.DataFrame:
     squads_df["recent_goals"] = recent_goals_list
     squads_df["recent_assists"] = recent_assists_list
 
-    # ── Write matching report ────────────────────────────────────────────
+    # ── Write matching report & detailed logging ─────────────────────────
     total = len(squads_df)
     matched = squads_df["kaggle_player_id"].notna().sum()
     rate = matched / total if total > 0 else 0.0
-    print(f"[features] Player matching: {matched}/{total} matched ({rate:.1%})")
+    print(f"[features] Player matching overall: {matched}/{total} matched ({rate:.1%})")
+
+    # Group by team and log missing players
+    for team, grp in squads_df.groupby("team"):
+        t_total = len(grp)
+        t_matched = grp["kaggle_player_id"].notna().sum()
+        t_rate = t_matched / t_total if t_total > 0 else 0.0
+        unmatched = grp[grp["kaggle_player_id"].isna()]["player_name"].tolist()
+        
+        print(f"[Matching] {team}: {t_matched}/{t_total} jugadores ({t_rate:.1%})")
+        if unmatched:
+            # Safely encode to avoid UnicodeEncodeError in Windows terminal
+            safe_unmatched = [name.encode('ascii', 'replace').decode('ascii') for name in unmatched[:5]]
+            print(f"    No matcheados: {safe_unmatched}{'...' if len(unmatched) > 5 else ''}")
 
     report_path = PROCESSED_DIR / "player_matching_report.csv"
     report_cols = ["team", "player_name", "shirt_name", "kaggle_player_id",
@@ -270,7 +294,6 @@ def calculate_squad_features() -> pd.DataFrame:
             pos_values[f"{pos_label}_total_value"] = float(pos_grp.sum()) if not pos_grp.empty else 0.0
 
         # Squad Quality Index (SQI) Ponderado
-        # Damos un peso de 1.5x a Delanteros (DC), 1.2x a Mediocampistas (MC)
         def calc_sqi(row):
             val = row.get("market_value_eur")
             if pd.isna(val): return 0
@@ -279,10 +302,10 @@ def calculate_squad_features() -> pd.DataFrame:
             if pos == "MC": return val * 1.2
             return val * 1.0
             
-        grp["weighted_value"] = grp.apply(calc_sqi, axis=1)
-        sorted_sqi = grp.sort_values("weighted_value", ascending=False)
-        sqi_index = float(sorted_sqi.head(14)["weighted_value"].mean()) if len(sorted_sqi) >= 14 else 0.0
-
+        grp_copy = grp.copy()
+        grp_copy["weighted_value"] = grp_copy.apply(calc_sqi, axis=1)
+        sqi_raw_sum = grp_copy["weighted_value"].sum()
+        
         # Age
         ages = grp["age"].dropna() if "age" in grp.columns else pd.Series(dtype=float)
         avg_age = float(ages.mean()) if not ages.empty else np.nan
@@ -301,28 +324,38 @@ def calculate_squad_features() -> pd.DataFrame:
         
         total_recent_apps = int(recent_apps.sum()) if not recent_apps.empty else 0
         total_recent_goals = int(recent_goals_s.sum()) if not recent_goals_s.empty else 0
-        club_goals_per_app = round(total_recent_goals / total_recent_apps, 3) if total_recent_apps > 0 else 0.0
+        
+        # PROJECTION FOR POOR MATCHING
+        # If match rate is < 1.0 but > 0, project the values
+        proj_factor = 1.0 / match_rate if 0 < match_rate < 1.0 else 1.0
+        
+        total_mv_proj = total_mv * proj_factor
+        sqi_proj = sqi_raw_sum * proj_factor
+        recent_goals_proj = total_recent_goals * proj_factor
+        recent_apps_proj = total_recent_apps * proj_factor
+        
+        club_goals_per_app = round(recent_goals_proj / recent_apps_proj, 3) if recent_apps_proj > 0 else 0.0
 
         feat = {
             "team": team,
             "squad_size": n_players,
             "kaggle_match_count": kaggle_matched,
             "kaggle_match_rate": round(match_rate, 3),
-            "squad_total_market_value": total_mv,
+            "squad_total_market_value": round(total_mv_proj, 0),
             "squad_avg_market_value": round(avg_mv, 0),
             "top11_avg_market_value": round(top11_mv, 0),
             "top18_avg_market_value": round(top18_mv, 0),
-            **pos_values,
+            **{k: round(v * proj_factor, 0) for k, v in pos_values.items()},
             "squad_avg_age": round(avg_age, 1) if not np.isnan(avg_age) else None,
             "total_caps": total_caps,
             "total_international_goals": total_goals,
             "forward_international_goals": fwd_goals,
             "goalkeeper_caps": gk_caps,
             "defensive_experience_caps": def_caps,
-            "recent_club_appearances_total": total_recent_apps,
-            "recent_club_goals_total": total_recent_goals,
-            "recent_club_assists_total": int(recent_assists_s.sum()) if not recent_assists_s.empty else 0,
-            "squad_quality_index": round(sqi_index, 0),
+            "recent_club_appearances_total": round(recent_apps_proj, 1),
+            "recent_club_goals_total": round(recent_goals_proj, 1),
+            "recent_club_assists_total": round(int(recent_assists_s.sum()) * proj_factor, 1) if not recent_assists_s.empty else 0,
+            "squad_quality_index": round(sqi_proj, 0),
             "recent_club_goals_per_app": club_goals_per_app,
             "data_quality_warnings": [],
         }
@@ -330,7 +363,7 @@ def calculate_squad_features() -> pd.DataFrame:
         # Warnings
         if match_rate < 0.5:
             feat["data_quality_warnings"].append(
-                f"Low Kaggle match rate ({match_rate:.0%}) – squad features may be unreliable"
+                f"Low Kaggle match rate ({match_rate:.0%}) – squad features mathematically projected but may be unreliable"
             )
         if total_mv == 0:
             feat["data_quality_warnings"].append("No market value data available")

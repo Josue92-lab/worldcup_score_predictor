@@ -1,8 +1,8 @@
 {
-  "as_of_date": "2026-06-25",
-  "global_calibration_factor": 1.082,
-  "favorite_calibration_factor": 0.915,
-  "underdog_calibration_factor": 1.25,
+  "as_of_date": "2026-06-20",
+  "global_calibration_factor": 1.029,
+  "favorite_calibration_factor": 0.957,
+  "underdog_calibration_factor": 1.1,
   "matches_evaluated_in_window": 15,
   "average_actual_total_goals": 3.067,
   "average_predicted_total_goals": 2.541,
@@ -15,7 +15,7 @@
       "1X2_hit_rate": 1.0,
       "average_actual_total_goals": 2.5,
       "average_predicted_total_goals": 2.222,
-      "goal_gap": 0.279
+      "goal_gap": 0.277
     },
     {
       "date": "2026-06-12",
