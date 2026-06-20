@@ -338,39 +338,90 @@ Dataset freshness varies. Player-level data can lag real-world transfers/injurie
 """
 
 
+def inject_custom_css() -> None:
+    """Inject global CSS for Fredoka font (Google Fonts) and preserve existing sizing.
+    Applied to main UI, sidebar, text, controls, etc.
+    Monospace preserved for code/JSON.
+    Dataframe internals left to Streamlit defaults for table readability.
+    """
+    st.markdown(
+        """
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
+
+        html, body,
+        [data-testid="stAppViewContainer"],
+        [data-testid="stSidebar"],
+        [data-testid="stHeader"],
+        [data-testid="stToolbar"],
+        .stMarkdown,
+        .stText,
+        .stButton button,
+        .stSelectbox,
+        .stMultiSelect,
+        .stTabs,
+        .stMetric,
+        .stExpander,
+        .stCheckbox label,
+        .stRadio label,
+        label, span, div {
+            font-family: 'Fredoka', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Fredoka', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.01em;
+        }
+
+        p, li {
+            font-family: 'Fredoka', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        /* Dataframe: keep only the size override, leave font internals as Streamlit default for readability */
+        .stDataFrame {
+            font-size: 0.85rem !important;
+        }
+
+        code, pre, kbd, samp {
+            font-family: 'Source Code Pro', Consolas, Monaco, monospace !important;
+        }
+
+        /* Existing size/layout rules preserved */
+        .block-container {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            max-width: 1500px;
+        }
+        h1 {
+            font-size: 2.2rem !important;
+            margin-bottom: 0.5rem !important;
+        }
+        h2 {
+            font-size: 1.45rem !important;
+            margin-top: 1.2rem !important;
+            margin-bottom: 0.6rem !important;
+        }
+        h3 {
+            font-size: 1.15rem !important;
+        }
+        div[data-testid="stMetricValue"] {
+            font-size: 1.55rem !important;
+        }
+        div[data-testid="stMetricLabel"] {
+            font-size: 0.85rem !important;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
 def main():
     st.set_page_config(page_title="World Cup Score Predictor", layout="wide")
 
-    st.markdown("""
-    <style>
-    .block-container {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-        max-width: 1500px;
-    }
-    h1 {
-        font-size: 2.2rem !important;
-        margin-bottom: 0.5rem !important;
-    }
-    h2 {
-        font-size: 1.45rem !important;
-        margin-top: 1.2rem !important;
-        margin-bottom: 0.6rem !important;
-    }
-    h3 {
-        font-size: 1.15rem !important;
-    }
-    div[data-testid="stMetricValue"] {
-        font-size: 1.55rem !important;
-    }
-    div[data-testid="stMetricLabel"] {
-        font-size: 0.85rem !important;
-    }
-    .stDataFrame {
-        font-size: 0.85rem !important;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+    # Inject Fredoka font globally (styling only)
+    inject_custom_css()
 
     st.title("🏆 World Cup Score Predictor")
 
