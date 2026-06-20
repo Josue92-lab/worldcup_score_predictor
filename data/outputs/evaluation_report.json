@@ -1,14 +1,14 @@
 {
   "martj42_results_max_date": "2026-06-27",
-  "world_cup_2026_rows_found": 32,
+  "world_cup_2026_rows_found": 36,
   "actual_results_status": "available",
-  "matches_evaluated": 28,
+  "matches_evaluated": 32,
   "exact_score_top1_hits": 7,
-  "exact_score_top1_rate": 0.25,
-  "exact_score_top5_hits": 16,
-  "exact_score_top5_rate": 0.5714,
+  "exact_score_top1_rate": 0.2188,
+  "exact_score_top5_hits": 17,
+  "exact_score_top5_rate": 0.5312,
   "outcome_1x2_hits": 10,
-  "outcome_1x2_rate": 0.3571,
+  "outcome_1x2_rate": 0.3125,
   "diagnostics": {
     "top1_scoreline_distribution": {
       "1-1": 65,
@@ -19,8 +19,8 @@
     },
     "average_expected_goals_team_a": 1.299,
     "average_expected_goals_team_b": 1.328,
-    "predicted_total_goals_avg": 2.592,
-    "actual_total_goals_avg": 3.179,
+    "predicted_total_goals_avg": 2.601,
+    "actual_total_goals_avg": 3.0,
     "high_score_miss_count": 7,
     "matches_where_actual_total_goals_gt_4": 7,
     "calibration_factor": 1.0,
@@ -530,6 +530,78 @@
       ],
       "top1_correct": false,
       "top5_correct": true,
+      "outcome_1x2_correct": false
+    },
+    {
+      "match_id": "GS_032",
+      "date": "2026-06-19",
+      "team_a": "United States",
+      "team_b": "Australia",
+      "actual_scoreline": "2-0",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "1-2",
+        "0-2",
+        "0-1",
+        "0-0"
+      ],
+      "top1_correct": false,
+      "top5_correct": false,
+      "outcome_1x2_correct": false
+    },
+    {
+      "match_id": "GS_030",
+      "date": "2026-06-19",
+      "team_a": "Scotland",
+      "team_b": "Morocco",
+      "actual_scoreline": "0-1",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "0-0",
+        "0-1",
+        "1-0",
+        "0-2"
+      ],
+      "top1_correct": false,
+      "top5_correct": true,
+      "outcome_1x2_correct": false
+    },
+    {
+      "match_id": "GS_029",
+      "date": "2026-06-19",
+      "team_a": "Brazil",
+      "team_b": "Haiti",
+      "actual_scoreline": "3-0",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "2-1",
+        "2-0",
+        "1-0",
+        "3-1"
+      ],
+      "top1_correct": false,
+      "top5_correct": false,
+      "outcome_1x2_correct": false
+    },
+    {
+      "match_id": "GS_031",
+      "date": "2026-06-19",
+      "team_a": "T\u00fcrkiye",
+      "team_b": "Paraguay",
+      "actual_scoreline": "0-1",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "0-0",
+        "1-0",
+        "2-1",
+        "1-2"
+      ],
+      "top1_correct": false,
+      "top5_correct": false,
       "outcome_1x2_correct": false
     }
   ]
