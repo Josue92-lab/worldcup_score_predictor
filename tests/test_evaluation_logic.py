@@ -124,31 +124,38 @@ def test_evaluation_1x2_logic():
 
 
 def test_aggregate_1x2_helper():
-    # Pure tests for correct aggregate 1X2 (not top-scoreline based)
-    from src.evaluate_predictions import get_aggregate_1x2_outcome, get_actual_1x2_outcome
+    # Pure tests for correct aggregate 1X2 from the canonical module.
+    from src.outcomes import get_predicted_1x2_outcome as get_pred, get_actual_1x2_outcome as get_act
 
     # Team A highest prob, Team A wins -> hit
-    assert get_aggregate_1x2_outcome(0.618, 0.213, 0.169) == "1"
-    assert get_actual_1x2_outcome(3, 0) == "1"
+    assert get_pred(0.618, 0.213, 0.169) == "1"
+    assert get_act(3, 0) == "1"
 
     # Draw highest, actual draw -> hit
-    assert get_aggregate_1x2_outcome(0.30, 0.40, 0.30) == "X"
-    assert get_actual_1x2_outcome(0, 0) == "X"
+    assert get_pred(0.30, 0.40, 0.30) == "X"
+    assert get_act(0, 0) == "X"
 
     # Team B highest, Team B wins -> hit
-    assert get_aggregate_1x2_outcome(0.20, 0.30, 0.50) == "2"
-    assert get_actual_1x2_outcome(0, 2) == "2"
+    assert get_pred(0.20, 0.30, 0.50) == "2"
+    assert get_act(0, 2) == "2"
 
     # Top scoreline can be wrong (e.g. 1-1 top but aggregate says A) but 1X2 from probs
     # Example: high prob A win but top pred 1-1 (possible if many low scores)
     # This test documents separation:
-    assert get_aggregate_1x2_outcome(0.55, 0.25, 0.20) == "1"  # aggregate A
+    assert get_pred(0.55, 0.25, 0.20) == "1"  # aggregate A
     # even if top5[0] == '1-1'
 
     # Actual not in top5 but 1X2 correct possible (e.g. 3-0 not in top but A wins)
-    assert get_actual_1x2_outcome(3, 0) == "1"
-    assert get_aggregate_1x2_outcome(0.618, 0.213, 0.169) == "1"
+    assert get_act(3, 0) == "1"
+    assert get_pred(0.618, 0.213, 0.169) == "1"
 
     # Wrong direction
-    assert get_aggregate_1x2_outcome(0.20, 0.30, 0.50) != get_actual_1x2_outcome(2, 0)
+    assert get_pred(0.20, 0.30, 0.50) != get_act(2, 0)
+
+    # Direct is_1x2_hit helper
+    from src.outcomes import is_1x2_hit
+    assert is_1x2_hit(0.618, 0.213, 0.169, 3, 0) is True
+    assert is_1x2_hit(0.20, 0.30, 0.50, 2, 0) is False
+    # Tie prob -> X , actual draw -> hit
+    assert is_1x2_hit(0.4, 0.4, 0.2, 1, 1) is True
 

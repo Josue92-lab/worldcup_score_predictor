@@ -9,39 +9,7 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from src.config import OUTPUTS_DIR, RAW_DIR
 from src.normalize_teams import normalize_team_name
-
-
-def get_aggregate_1x2_outcome(team_a_win: float, draw: float, team_b_win: float) -> str:
-    """Return '1' (team_a), 'X' (draw) or '2' (team_b) based on highest aggregate probability.
-    This is the correct way to determine predicted 1X2 outcome (not from top exact scoreline).
-    """
-    wa = float(team_a_win or 0.0)
-    d = float(draw or 0.0)
-    wb = float(team_b_win or 0.0)
-    if wa > d and wa > wb:
-        return "1"
-    elif d > wa and d > wb:
-        return "X"
-    elif wb > wa and wb > d:
-        return "2"
-    else:
-        # Tie-breaker consistent with prior logic: favor draw on exact ties
-        if wa == d and wa > wb:
-            return "X"
-        elif wb == d and wb > wa:
-            return "X"
-        else:
-            return "X"
-
-
-def get_actual_1x2_outcome(goals_a: int, goals_b: int) -> str:
-    """Return '1', 'X' or '2' from actual goals."""
-    if goals_a > goals_b:
-        return "1"
-    elif goals_a == goals_b:
-        return "X"
-    else:
-        return "2"
+from src.outcomes import get_predicted_1x2_outcome, get_actual_1x2_outcome, is_1x2_hit
 
 
 def evaluate_predictions(as_of_date=None):
@@ -154,11 +122,11 @@ def evaluate_predictions(as_of_date=None):
             draw = float(p.get("draw_probability", 0.0))
             win_b = float(p.get("team_b_win_probability", 0.0))
             
-            pred_outcome = get_aggregate_1x2_outcome(win_a, draw, win_b)
+            pred_outcome = get_predicted_1x2_outcome(win_a, draw, win_b)
             
             is_top1 = actual_scoreline == top5[0] if top5 else False
             is_top5 = actual_scoreline in top5
-            is_outcome = actual_outcome == pred_outcome
+            is_outcome = is_1x2_hit(win_a, draw, win_b, actual_score_a, actual_score_b)
 
             if is_top1:
                 exact_score_top1_hits += 1

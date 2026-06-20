@@ -14,6 +14,7 @@ if str(PROJECT_ROOT) not in sys.path:
 from src.config import OUTPUTS_DIR, RAW_DIR
 from src.normalize_teams import normalize_team_name
 from src.build_features import load_model_config
+from src.outcomes import get_predicted_1x2_outcome, get_actual_1x2_outcome, is_1x2_hit
 
 def calculate_calibration_factor(as_of_date=None):
     """
@@ -107,31 +108,18 @@ def calculate_calibration_factor(as_of_date=None):
                 fav_xg, und_xg = pred_xg_b, pred_xg_a
                 fav_actual, und_actual = actual_score_b, actual_score_a
             
-            actual_outcome = "1" if actual_score_a > actual_score_b else "X" if actual_score_a == actual_score_b else "2"
+            actual_outcome = get_actual_1x2_outcome(actual_score_a, actual_score_b)
             
             top5 = [s["scoreline"] for s in p["top_5_scorelines"]]
             win_a = float(p.get("team_a_win_probability", 0.0))
             draw = float(p.get("draw_probability", 0.0))
             win_b = float(p.get("team_b_win_probability", 0.0))
             
-            # Use aggregate probabilities for 1X2 (same logic as evaluate)
-            if win_a > draw and win_a > win_b:
-                pred_outcome = "1"
-            elif draw > win_a and draw > win_b:
-                pred_outcome = "X"
-            elif win_b > win_a and win_b > draw:
-                pred_outcome = "2"
-            else:
-                if win_a == draw and win_a > win_b:
-                    pred_outcome = "X"
-                elif win_b == draw and win_b > win_a:
-                    pred_outcome = "X"
-                else:
-                    pred_outcome = "X"
+            pred_outcome = get_predicted_1x2_outcome(win_a, draw, win_b)
                 
             is_top1 = actual_scoreline == top5[0] if top5 else False
             is_top5 = actual_scoreline in top5
-            is_outcome = actual_outcome == pred_outcome
+            is_outcome = is_1x2_hit(win_a, draw, win_b, actual_score_a, actual_score_b)
             
             matched_data.append({
                 "date": str(p_date),

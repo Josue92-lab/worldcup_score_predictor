@@ -38,36 +38,32 @@ def normalize_prediction(row: dict) -> dict:
     return normalized
 
 
-def get_aggregate_1x2_outcome(team_a_win: float, draw: float, team_b_win: float) -> str:
-    """Return 'team_a', 'draw' or 'team_b' from aggregate probabilities.
-    This must be used for 1X2 Hit (dashboard column), separate from any top-scoreline outcome.
-    1X2 correctness is independent of exact top-1 or Top-5.
-    """
-    wa = float(team_a_win or 0.0)
-    d = float(draw or 0.0)
-    wb = float(team_b_win or 0.0)
-    if wa > d and wa > wb:
-        return "team_a"
-    elif d > wa and d > wb:
-        return "draw"
-    elif wb > wa and wb > d:
-        return "team_b"
-    else:
-        if wa == d and wa > wb:
-            return "draw"
-        elif wb == d and wb > wa:
-            return "draw"
-        else:
-            return "draw"
+def extract_predictions_from_report(raw: dict | list) -> list:
+    """Centralize the fragile report shape handling used by the dashboard."""
+    if isinstance(raw, dict):
+        return (
+            raw.get("predictions")
+            or raw.get("matches")
+            or raw.get("data")
+            or []
+        )
+    elif isinstance(raw, list):
+        return raw
+    return []
 
 
-def get_actual_1x2_outcome(goals_a: int, goals_b: int) -> str:
-    if goals_a > goals_b:
-        return "team_a"
-    elif goals_a == goals_b:
-        return "draw"
-    else:
-        return "team_b"
+def load_selected_predictions(selected_file: str) -> tuple[dict, list]:
+    """Load one of the generated report files and return (metadata, predictions_list)."""
+    file_path = OUTPUTS_DIR / selected_file
+    with open(file_path, "r", encoding="utf-8") as f:
+        raw = json.load(f)
+
+    metadata = raw.get("metadata", {}) if isinstance(raw, dict) else {}
+    predictions = extract_predictions_from_report(raw)
+    if not isinstance(predictions, list):
+        st.error("Unsupported JSON format: 'predictions' is not a list.")
+        predictions = []
+    return metadata, predictions
 
 
 def load_evaluation_report():
@@ -338,6 +334,82 @@ Dataset freshness varies. Player-level data can lag real-world transfers/injurie
 """
 
 
+def _render_calibration_panel(metadata: dict, calib_factor: float, calib_active: bool) -> None:
+    """Render the optional calibration expander (internal helper)."""
+    calib_path = OUTPUTS_DIR / "calibration_report.json"
+    if calib_path.exists():
+        try:
+            with open(calib_path, "r", encoding="utf-8") as f:
+                calib_data = json.load(f)
+
+            with st.expander("Model Calibration Panel", expanded=calib_active):
+                st.write(f"**Model Mode:** {metadata.get('mode')}")
+                st.write(f"**Average Predicted Goals:** {calib_data.get('average_predicted_total_goals', 0):.2f}")
+                st.write(f"**Average Actual Goals:** {calib_data.get('average_actual_total_goals', 0):.2f}")
+                st.write(f"**Calibration Factor:** {calib_factor:.3f}")
+
+                if calib_active:
+                    st.warning(f"⚠️ **Underestimating Goals:** The base model was underestimating goal volume. Lambdas inflated by {calib_factor:.3f}x.")
+                else:
+                    st.success("Model goal volume is within expected range or calibration is inactive.")
+        except:
+            pass
+
+
+def render_model_diagnostics(metadata: dict, diag: dict, selected_mode: str) -> None:
+    """Render the model diagnostics panel (extracted for readability)."""
+    base_title = "📊 Model diagnostics (from latest evaluation/calibration)"
+    if selected_mode == "live":
+        base_title += " — backtest evaluation (independent of selected live report)"
+    with st.expander(base_title, expanded=True):
+        c1, c2, c3, c4 = st.columns(4)
+        c1.metric("Matches evaluated", diag.get("matches_evaluated") or "Not available")
+        top1 = diag.get("top1_rate")
+        c2.metric("Top-1 exact hit rate", f"{top1:.1%}" if isinstance(top1, (int, float)) else "Not available")
+        top5 = diag.get("top5_rate")
+        c3.metric("Top-5 exact hit rate", f"{top5:.1%}" if isinstance(top5, (int, float)) else "Not available")
+        one_x2 = diag.get("one_x2_rate")
+        c4.metric("1X2 hit rate", f"{one_x2:.1%}" if isinstance(one_x2, (int, float)) else "Not available")
+
+        c5, c6, c7 = st.columns(3)
+        pred_g = diag.get("avg_predicted_goals")
+        c5.metric("Avg predicted total goals", f"{float(pred_g):.2f}" if isinstance(pred_g, (int, float)) else "Not available")
+        act_g = diag.get("avg_actual_goals")
+        c6.metric("Avg actual total goals", f"{float(act_g):.2f}" if isinstance(act_g, (int, float)) else "Not available")
+        cf = diag.get("calibration_factor")
+        c7.metric("Calibration factor", f"{float(cf):.3f}" if isinstance(cf, (int, float)) else "Not available")
+
+        # Most common top prediction + concentration
+        top1_dist = diag.get("top1_distribution") or {}
+        matches_eval = diag.get("matches_evaluated", 0) or 0
+        if top1_dist:
+            most_common, count = max(top1_dist.items(), key=lambda kv: kv[1])
+            if matches_eval > 0 and count > matches_eval:
+                st.write("**Most common top-1 prediction**: Not available")
+                st.caption("⚠️ Diagnostics data inconsistent (count exceeds evaluated matches); using latest evaluation only.")
+            else:
+                st.write(f"**Most common top-1 prediction**: {most_common} ({count}×)")
+        else:
+            st.write("**Most common top-1 prediction**: Not available")
+
+        st.caption("See warning below the filters for 1-1 concentration note when applicable.")
+        if selected_mode == "live":
+            st.caption("Note: Hit rates / top-1 dist come from backtest evaluation for honesty; live report may have different current top predictions.")
+
+
+def render_educational_panels() -> None:
+    """Render the static educational / trust expanders (kept at top of Dashboard)."""
+    with st.expander("📖 How to read these predictions", expanded=True):
+        st.markdown(get_educational_markdown())
+
+    with st.expander("Trust and limitations", expanded=False):
+        st.markdown("""
+This app is a reproducible educational probability model, not a betting tool or oracle. Predictions are generated from historical international match rates using a Poisson model with optional Dixon-Coles adjustment and live goal-volume calibration. The model exposes its own performance through backtesting and actual-result comparison.
+
+It does not know current injuries, confirmed starting lineups, tactical plans, weather, motivation, or last-minute news. Player and squad data may lag behind real-world changes. Use the app to understand probability, uncertainty, and model calibration — not as a guarantee of match results.
+""")
+
+
 def inject_custom_css() -> None:
     """Inject custom CSS using Fredoka (Google Fonts) selectively for a friendly didactic feel.
     Icons (Material Symbols etc.) are protected so they do not render as text labels.
@@ -493,17 +565,7 @@ def main():
     with tab1:
         st.header("Match Predictions")
 
-        # 1. Prominent educational panel
-        with st.expander("📖 How to read these predictions", expanded=True):
-            st.markdown(get_educational_markdown())
-
-        # 3. Trust and limitations statement
-        with st.expander("Trust and limitations", expanded=False):
-            st.markdown("""
-This app is a reproducible educational probability model, not a betting tool or oracle. Predictions are generated from historical international match rates using a Poisson model with optional Dixon-Coles adjustment and live goal-volume calibration. The model exposes its own performance through backtesting and actual-result comparison.
-
-It does not know current injuries, confirmed starting lineups, tactical plans, weather, motivation, or last-minute news. Player and squad data may lag behind real-world changes. Use the app to understand probability, uncertainty, and model calibration — not as a guarantee of match results.
-""")
+        render_educational_panels()
         
         available_reports = list(OUTPUTS_DIR.glob("*.json"))
         available_reports = [f for f in available_reports if f.name not in ["model_params.json", "evaluation_report.json", "calibration_report.json"]]
@@ -516,29 +578,7 @@ It does not know current injuries, confirmed starting lineups, tactical plans, w
             with col_view:
                 view_mode = st.radio("View Mode", ["Compact", "Detailed"], horizontal=True)
 
-            file_path = OUTPUTS_DIR / selected_file
-            
-            with open(file_path, "r", encoding="utf-8") as f:
-                raw_predictions = json.load(f)
-                
-            if isinstance(raw_predictions, dict):
-                metadata = raw_predictions.get("metadata", {})
-                predictions = (
-                    raw_predictions.get("predictions")
-                    or raw_predictions.get("matches")
-                    or raw_predictions.get("data")
-                    or []
-                )
-            elif isinstance(raw_predictions, list):
-                metadata = {}
-                predictions = raw_predictions
-            else:
-                metadata = {}
-                predictions = []
-
-            if not isinstance(predictions, list):
-                st.error("Unsupported JSON format: 'predictions' is not a list.")
-                predictions = []
+            metadata, predictions = load_selected_predictions(selected_file)
                 
             if metadata:
                 st.info(f"**Mode:** {metadata.get('mode')} | **As Of Date:** {metadata.get('as_of_date')} | **Train Cutoff:** {metadata.get('train_cutoff')}")
@@ -553,69 +593,12 @@ It does not know current injuries, confirmed starting lineups, tactical plans, w
 
                 calib_factor = metadata.get("calibration_factor", 1.0)
                 calib_active = metadata.get("calibrated", False)
-                
-                # Check for calibration_report.json
-                calib_path = OUTPUTS_DIR / "calibration_report.json"
-                if calib_path.exists():
-                    try:
-                        with open(calib_path, "r", encoding="utf-8") as f:
-                            calib_data = json.load(f)
-                            
-                        with st.expander("Model Calibration Panel", expanded=calib_active):
-                            st.write(f"**Model Mode:** {metadata.get('mode')}")
-                            st.write(f"**Average Predicted Goals:** {calib_data.get('average_predicted_total_goals', 0):.2f}")
-                            st.write(f"**Average Actual Goals:** {calib_data.get('average_actual_total_goals', 0):.2f}")
-                            st.write(f"**Calibration Factor:** {calib_factor:.3f}")
-                            
-                            if calib_active:
-                                st.warning(f"⚠️ **Underestimating Goals:** The base model was underestimating goal volume. Lambdas inflated by {calib_factor:.3f}x.")
-                            else:
-                                st.success("Model goal volume is within expected range or calibration is inactive.")
-                    except:
-                        pass
+                _render_calibration_panel(metadata, calib_factor, calib_active)
 
             # 6. Compact Model diagnostics panel (always safe)
             diag = load_diagnostics_summary()
-            # Diagnostics are from evaluation_report which is generated exclusively from backtest runs.
-            # Label scope clearly, especially when viewing live report.
             selected_mode = (metadata or {}).get("mode", "unknown")
-            base_title = "📊 Model diagnostics (from latest evaluation/calibration)"
-            if selected_mode == "live":
-                base_title += " — backtest evaluation (independent of selected live report)"
-            with st.expander(base_title, expanded=True):
-                c1, c2, c3, c4 = st.columns(4)
-                c1.metric("Matches evaluated", diag.get("matches_evaluated") or "Not available")
-                top1 = diag.get("top1_rate")
-                c2.metric("Top-1 exact hit rate", f"{top1:.1%}" if isinstance(top1, (int, float)) else "Not available")
-                top5 = diag.get("top5_rate")
-                c3.metric("Top-5 exact hit rate", f"{top5:.1%}" if isinstance(top5, (int, float)) else "Not available")
-                one_x2 = diag.get("one_x2_rate")
-                c4.metric("1X2 hit rate", f"{one_x2:.1%}" if isinstance(one_x2, (int, float)) else "Not available")
-
-                c5, c6, c7 = st.columns(3)
-                pred_g = diag.get("avg_predicted_goals")
-                c5.metric("Avg predicted total goals", f"{float(pred_g):.2f}" if isinstance(pred_g, (int, float)) else "Not available")
-                act_g = diag.get("avg_actual_goals")
-                c6.metric("Avg actual total goals", f"{float(act_g):.2f}" if isinstance(act_g, (int, float)) else "Not available")
-                cf = diag.get("calibration_factor")
-                c7.metric("Calibration factor", f"{float(cf):.3f}" if isinstance(cf, (int, float)) else "Not available")
-
-                # Most common top prediction + concentration
-                top1_dist = diag.get("top1_distribution") or {}
-                matches_eval = diag.get("matches_evaluated", 0) or 0
-                if top1_dist:
-                    most_common, count = max(top1_dist.items(), key=lambda kv: kv[1])
-                    if matches_eval > 0 and count > matches_eval:
-                        st.write("**Most common top-1 prediction**: Not available")
-                        st.caption("⚠️ Diagnostics data inconsistent (count exceeds evaluated matches); using latest evaluation only.")
-                    else:
-                        st.write(f"**Most common top-1 prediction**: {most_common} ({count}×)")
-                else:
-                    st.write("**Most common top-1 prediction**: Not available")
-
-                st.caption("See warning below the filters for 1-1 concentration note when applicable.")
-                if selected_mode == "live":
-                    st.caption("Note: Hit rates / top-1 dist come from backtest evaluation for honesty; live report may have different current top predictions.")
+            render_model_diagnostics(metadata, diag, selected_mode)
 
             predictions = [normalize_prediction(p) for p in predictions]
             valid_predictions = [p for p in predictions if p.get("team_a") and p.get("team_b")]
