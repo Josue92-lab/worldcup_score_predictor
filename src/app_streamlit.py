@@ -339,52 +339,108 @@ Dataset freshness varies. Player-level data can lag real-world transfers/injurie
 
 
 def inject_custom_css() -> None:
-    """Inject global CSS for Fredoka font (Google Fonts) and preserve existing sizing.
-    Applied to main UI, sidebar, text, controls, etc.
-    Monospace preserved for code/JSON.
-    Dataframe internals left to Streamlit defaults for table readability.
+    """Inject custom CSS using Fredoka (Google Fonts) selectively for a friendly didactic feel.
+    Icons (Material Symbols etc.) are protected so they do not render as text labels.
+    Typography hierarchy is normalized for readability.
+    Monospace for code/JSON. Dataframe internals left mostly default.
     """
     st.markdown(
         """
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
 
+        /* Base font for app container (avoid blanket application to icons/spans) */
         html, body,
         [data-testid="stAppViewContainer"],
         [data-testid="stSidebar"],
         [data-testid="stHeader"],
-        [data-testid="stToolbar"],
-        .stMarkdown,
-        .stText,
-        .stButton button,
-        .stSelectbox,
-        .stMultiSelect,
-        .stTabs,
-        .stMetric,
-        .stExpander,
-        .stCheckbox label,
-        .stRadio label,
-        label, span, div {
-            font-family: 'Fredoka', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+        [data-testid="stToolbar"] {
+            font-family: 'Fredoka', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 16px;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        /* Headings use Fredoka with controlled weights */
+        h1, h2, h3, h4, h5, h6,
+        .stTitle, .stHeader {
             font-family: 'Fredoka', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
             font-weight: 600 !important;
-            letter-spacing: 0.01em;
+            letter-spacing: 0.005em;
         }
 
-        p, li {
+        h2, h3 {
+            font-weight: 500 !important;
+        }
+
+        /* Educational / markdown text (selective) */
+        .stMarkdown,
+        .stMarkdown p,
+        .stMarkdown li {
+            font-family: 'Fredoka', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-weight: 400;
+            line-height: 1.55;
+        }
+
+        /* Sidebar text */
+        [data-testid="stSidebar"] .stMarkdown,
+        [data-testid="stSidebar"] p,
+        [data-testid="stSidebar"] li,
+        [data-testid="stSidebar"] label {
             font-family: 'Fredoka', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
 
-        /* Dataframe: keep only the size override, leave font internals as Streamlit default for readability */
+        /* Controls: buttons, selects, tabs, metrics, expanders (labels only where needed) */
+        .stButton button,
+        .stSelectbox label,
+        .stMultiSelect label,
+        .stRadio label,
+        .stCheckbox label,
+        .stTabs [role="tab"],
+        .stMetric label,
+        [data-testid="stExpander"] summary {
+            font-family: 'Fredoka', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+            font-weight: 500;
+        }
+
+        /* Metric values keep a clean look (size already controlled) */
+        div[data-testid="stMetricValue"] {
+            font-family: 'Fredoka', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        /* Protect icon fonts (Material Symbols / icons used by Streamlit) */
+        .material-icons,
+        .material-symbols-outlined,
+        .material-symbols-rounded,
+        .material-symbols-sharp,
+        [class*="material-icons"],
+        [class*="material-symbols"],
+        [data-testid*="Icon"],
+        [data-testid*="icon"],
+        svg,
+        i,
+        .st-emotion-cache * [class*="icon"] {
+            font-family: 'Material Symbols Rounded', 'Material Symbols Outlined', 'Material Icons', 'Segoe UI Symbol' !important;
+            font-weight: normal !important;
+            font-style: normal !important;
+            font-feature-settings: normal !important;
+        }
+
+        /* Code / raw JSON / preformatted must stay monospace */
+        code, pre, kbd, samp,
+        .stCodeBlock,
+        .stJson,
+        [data-testid="stJson"] {
+            font-family: 'Source Code Pro', Consolas, Monaco, 'Courier New', monospace !important;
+        }
+
+        /* DataFrame: keep size but do not force Fredoka on table cells for readability */
         .stDataFrame {
             font-size: 0.85rem !important;
         }
-
-        code, pre, kbd, samp {
-            font-family: 'Source Code Pro', Consolas, Monaco, monospace !important;
+        .stDataFrame table,
+        .stDataFrame td,
+        .stDataFrame th,
+        .stDataFrame * {
+            font-family: inherit;
         }
 
         /* Existing size/layout rules preserved */
