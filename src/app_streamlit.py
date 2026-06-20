@@ -61,6 +61,237 @@ def load_evaluation_report():
         return eval_map
     return {}
 
+
+def load_full_evaluation_report():
+    """Load the full evaluation report safely. Return {} if missing or invalid."""
+    eval_path = OUTPUTS_DIR / "evaluation_report.json"
+    if not eval_path.exists():
+        return {}
+    try:
+        with open(eval_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def load_calibration_report():
+    """Load the full calibration report safely. Return {} if missing or invalid."""
+    calib_path = OUTPUTS_DIR / "calibration_report.json"
+    if not calib_path.exists():
+        return {}
+    try:
+        with open(calib_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def load_diagnostics_summary():
+    """Return a safe summary dict with hit rates, goal stats, concentration info.
+    Never crashes on missing fields.
+    """
+    eval_report = load_full_evaluation_report()
+    calib_report = load_calibration_report()
+
+    diag = {
+        "top1_rate": None,
+        "top5_rate": None,
+        "one_x2_rate": None,
+        "matches_evaluated": 0,
+        "avg_predicted_goals": None,
+        "avg_actual_goals": None,
+        "calibration_factor": None,
+        "top1_distribution": {},
+        "high_score_miss_count": None,
+        "one_one_count": 0,
+        "one_one_pct": None,
+        "source": "evaluation_report",
+    }
+
+    if eval_report:
+        diag["matches_evaluated"] = eval_report.get("matches_evaluated", 0) or 0
+        diag["top1_rate"] = eval_report.get("exact_score_top1_rate")
+        diag["top5_rate"] = eval_report.get("exact_score_top5_rate")
+        diag["one_x2_rate"] = eval_report.get("outcome_1x2_rate")
+
+        d = eval_report.get("diagnostics", {}) or {}
+        diag["avg_predicted_goals"] = d.get("predicted_total_goals_avg")
+        diag["avg_actual_goals"] = d.get("actual_total_goals_avg")
+        diag["calibration_factor"] = d.get("calibration_factor")
+        diag["top1_distribution"] = d.get("top1_scoreline_distribution", {}) or {}
+        diag["high_score_miss_count"] = d.get("high_score_miss_count")
+
+        top1_dist = diag["top1_distribution"]
+        total_top1 = sum(top1_dist.values()) if top1_dist else 0
+        one_one = top1_dist.get("1-1", 0) or 0
+        diag["one_one_count"] = one_one
+        if total_top1 > 0:
+            diag["one_one_pct"] = one_one / total_top1
+
+    # Prefer calibration numbers if they are more recent / relevant
+    if calib_report:
+        if diag["avg_predicted_goals"] is None:
+            diag["avg_predicted_goals"] = calib_report.get("average_predicted_total_goals")
+        if diag["avg_actual_goals"] is None:
+            diag["avg_actual_goals"] = calib_report.get("average_actual_total_goals")
+        if diag["calibration_factor"] is None:
+            diag["calibration_factor"] = calib_report.get("global_calibration_factor")
+
+    return diag
+
+
+def get_educational_markdown() -> str:
+    """Concise plain-language explanation of the predictions."""
+    return """
+**This is a probabilistic educational model, not a betting tool or oracle.**
+
+- **Exact scoreline vs outcome**: A scoreline like `1-1` is one specific final score. The three percentages (`Team A Win %`, `Draw %`, `Team B Win %`) are sums across *all* possible scorelines that produce that broad result.
+- **1-1 can be most likely exact score even when one team is favored**: Many small probabilities for different winning scores can add up to more total probability than the single most likely draw.
+- **Team A / Team B**: These are simply the first-listed and second-listed teams in the fixture (neutral venue for World Cup matches unless noted). No home advantage is assumed.
+- **Top Prediction**: The single most probable exact scoreline according to the model.
+- **Top 5 Hit**: ✅ if the actual final score was among the model's top 5 most probable exact scorelines.
+- **1X2 Hit**: ✅ if the model correctly predicted the broad outcome (Team A win, draw, or Team B win) by taking the highest of the three aggregated percentages.
+- **Pending**: No actual result has been matched yet from the results feed.
+"""
+
+
+def get_mode_banner(metadata: dict) -> str:
+    """Return a clear banner message for backtest vs live, or empty string."""
+    mode = (metadata or {}).get("mode") or "unknown"
+    as_of = (metadata or {}).get("as_of_date")
+    train_cutoff = (metadata or {}).get("train_cutoff")
+
+    if mode == "backtest":
+        cutoff = train_cutoff or "Unknown"
+        return (
+            f"**Backtest mode**: This evaluates what the model would have predicted using only data before the training cutoff ({cutoff}). "
+            "It must not use later World Cup results for training or calibration. Use this to assess historical model skill honestly."
+        )
+    elif mode == "live":
+        asof = as_of or "Unknown"
+        return (
+            f"**Live mode** (as of {asof}): This may use already-played World Cup results up to the as-of date to detect goal-volume trends and apply a calibration factor to future predictions. "
+            "Live numbers should not be interpreted as a retroactive claim of past predictive performance."
+        )
+    else:
+        return ""
+
+
+def format_explanation_bullets(p: dict, report_metadata: dict = None) -> str:
+    """Return human-readable markdown bullets for explanation & data quality.
+    Safe for any missing keys.
+    """
+    lines = []
+    exp = p.get("explanation") or {}
+    dq = p.get("data_quality") or {}
+    meta = report_metadata or {}
+
+    # Expected goals (top level on prediction)
+    xg_a = p.get("expected_goals_team_a")
+    xg_b = p.get("expected_goals_team_b")
+    if xg_a is not None and xg_b is not None:
+        lines.append(f"- **Expected goals**: {float(xg_a):.2f} – {float(xg_b):.2f}")
+
+    # Strengths from explanation
+    att_a = exp.get("team_a_attack_strength")
+    att_b = exp.get("team_b_attack_strength")
+    def_a = exp.get("team_a_defense_strength")
+    def_b = exp.get("team_b_defense_strength")
+    if att_a is not None:
+        lines.append(f"- **Team A attack strength**: {float(att_a):.2f}× historical average")
+    if att_b is not None:
+        lines.append(f"- **Team B attack strength**: {float(att_b):.2f}× historical average")
+    if def_a is not None:
+        lines.append(f"- **Team A defense strength**: {float(def_a):.2f}× (lower is better)")
+    if def_b is not None:
+        lines.append(f"- **Team B defense strength**: {float(def_b):.2f}× (lower is better)")
+
+    # Squad
+    sq_a = exp.get("team_a_squad_strength") or exp.get("team_a_sqi")
+    sq_b = exp.get("team_b_squad_strength") or exp.get("team_b_sqi")
+    if sq_a is not None and sq_b is not None:
+        try:
+            lines.append(f"- **Squad strength (A vs B)**: {float(sq_a):,.0f} vs {float(sq_b):,.0f}")
+        except Exception:
+            pass
+
+    # Main factors
+    factors = exp.get("main_factors") or []
+    if factors:
+        lines.append("- **Main factors**: " + " | ".join(str(f) for f in factors))
+
+    # Data quality
+    status = dq.get("squad_match_status")
+    rate = dq.get("player_kaggle_match_rate")
+    if status:
+        rate_str = f" (match rate ~{float(rate):.0%})" if rate is not None else ""
+        lines.append(f"- **Squad data status**: {status}{rate_str}")
+    if rate is not None and rate < 0.6:
+        lines.append("- **Note**: Low player data coverage for one or both teams — squad context is limited.")
+
+    # Calibration status from report metadata
+    if meta.get("calibrated"):
+        cf = meta.get("calibration_factor_fav") or meta.get("calibration_factor")
+        lines.append(f"- **Live calibration active**: goal rates adjusted (factor ≈ {cf:.3f})" if cf else "- **Live calibration active**")
+
+    # Warnings
+    warnings = dq.get("warnings") or []
+    if warnings:
+        for w in warnings:
+            lines.append(f"- ⚠️ {w}")
+
+    if not lines:
+        lines.append("- Baseline Poisson model (historical attack/defense strengths). Limited additional context available.")
+
+    return "\n".join(lines)
+
+
+def get_1_1_concentration_note(diag: dict, predictions: list) -> str:
+    """Return a warning string if 1-1 concentration is high, else ''."""
+    one_one_pct = diag.get("one_one_pct")
+    one_one_count = diag.get("one_one_count", 0)
+    matches = diag.get("matches_evaluated", 0) or len(predictions) or 0
+
+    # Also compute from current predictions if eval dist looks inflated
+    if not predictions:
+        pred_one_one = 0
+    else:
+        pred_one_one = sum(
+            1 for p in predictions
+            if p.get("top_5_scorelines") and p["top_5_scorelines"][0].get("scoreline") == "1-1"
+        )
+
+    total_for_pct = matches or len(predictions) or 1
+    effective_pct = one_one_pct if (one_one_pct is not None and one_one_pct > 0.3) else (pred_one_one / total_for_pct if total_for_pct else 0)
+
+    if effective_pct and effective_pct > 0.4:
+        pct_str = f"{effective_pct*100:.0f}%"
+        return (
+            f"⚠️ The model is currently heavily concentrated on **1-1** as the top prediction ({pct_str} of recent top-1s). "
+            "This is typical of a conservative Poisson baseline on lower-scoring historical international data and often underestimates high-scoring matches. "
+            "Live calibration can partially compensate for future matches but should never be applied retroactively to backtest results to claim better historical accuracy."
+        )
+    if one_one_count > 20 and matches and one_one_count / matches > 0.5:
+        return (
+            "⚠️ Very high 1-1 concentration detected in evaluation diagnostics. "
+            "The baseline model may be under-dispersed relative to actual tournament scoring."
+        )
+    return ""
+
+
+def get_data_credits_markdown() -> str:
+    return """
+**Data credits**
+
+- Historical international results & live actuals: [martj42/international_results](https://github.com/martj42/international_results)
+- Player valuations, appearances & squad context: [davidcariboo/player-scores](https://www.kaggle.com/datasets/davidcariboo/player-scores)
+- Official national team squads: FIFA SquadLists PDF (parsed)
+- Fixtures & venues: project `fixture.csv` / `venues.csv`
+
+Dataset freshness varies. Player-level data can lag real-world transfers/injuries. Match results are updated independently.
+"""
+
+
 def main():
     st.set_page_config(page_title="World Cup Score Predictor", layout="wide")
 
@@ -97,10 +328,29 @@ def main():
 
     st.title("🏆 World Cup Score Predictor")
 
+    # Sidebar controls (debug + credits access)
+    with st.sidebar:
+        st.header("Controls")
+        show_debug = st.checkbox("Show debug diagnostics", value=False, help="For developers: shows internal actuals merge stats.")
+        st.markdown("---")
+        st.markdown(get_data_credits_markdown())
+
     tab1, tab2, tab3 = st.tabs(["Dashboard", "Audit Report", "Fixtures"])
 
     with tab1:
         st.header("Match Predictions")
+
+        # 1. Prominent educational panel
+        with st.expander("📖 How to read these predictions", expanded=True):
+            st.markdown(get_educational_markdown())
+
+        # 3. Trust and limitations statement
+        with st.expander("Trust and limitations", expanded=False):
+            st.markdown("""
+This app is a reproducible educational probability model, not a betting tool or oracle. Predictions are generated from historical international match rates using a Poisson model with optional Dixon-Coles adjustment and live goal-volume calibration. The model exposes its own performance through backtesting and actual-result comparison.
+
+It does not know current injuries, confirmed starting lineups, tactical plans, weather, motivation, or last-minute news. Player and squad data may lag behind real-world changes. Use the app to understand probability, uncertainty, and model calibration — not as a guarantee of match results.
+""")
         
         available_reports = list(OUTPUTS_DIR.glob("*.json"))
         available_reports = [f for f in available_reports if f.name not in ["model_params.json", "evaluation_report.json", "calibration_report.json"]]
@@ -140,6 +390,14 @@ def main():
             if metadata:
                 st.info(f"**Mode:** {metadata.get('mode')} | **As Of Date:** {metadata.get('as_of_date')} | **Train Cutoff:** {metadata.get('train_cutoff')}")
 
+                # 2. Visible backtest vs live banner
+                banner = get_mode_banner(metadata)
+                if banner:
+                    if metadata.get("mode") == "backtest":
+                        st.success(banner)
+                    else:
+                        st.info(banner)
+
                 calib_factor = metadata.get("calibration_factor", 1.0)
                 calib_active = metadata.get("calibrated", False)
                 
@@ -163,12 +421,47 @@ def main():
                     except:
                         pass
 
+            # 6. Compact Model diagnostics panel (always safe)
+            diag = load_diagnostics_summary()
+            with st.expander("📊 Model diagnostics (from latest evaluation/calibration)", expanded=True):
+                c1, c2, c3, c4 = st.columns(4)
+                c1.metric("Matches evaluated", diag.get("matches_evaluated") or "Not available")
+                top1 = diag.get("top1_rate")
+                c2.metric("Top-1 exact hit rate", f"{top1:.1%}" if isinstance(top1, (int, float)) else "Not available")
+                top5 = diag.get("top5_rate")
+                c3.metric("Top-5 exact hit rate", f"{top5:.1%}" if isinstance(top5, (int, float)) else "Not available")
+                one_x2 = diag.get("one_x2_rate")
+                c4.metric("1X2 hit rate", f"{one_x2:.1%}" if isinstance(one_x2, (int, float)) else "Not available")
+
+                c5, c6, c7 = st.columns(3)
+                pred_g = diag.get("avg_predicted_goals")
+                c5.metric("Avg predicted total goals", f"{float(pred_g):.2f}" if isinstance(pred_g, (int, float)) else "Not available")
+                act_g = diag.get("avg_actual_goals")
+                c6.metric("Avg actual total goals", f"{float(act_g):.2f}" if isinstance(act_g, (int, float)) else "Not available")
+                cf = diag.get("calibration_factor")
+                c7.metric("Calibration factor", f"{float(cf):.3f}" if isinstance(cf, (int, float)) else "Not available")
+
+                # Most common top prediction + concentration
+                top1_dist = diag.get("top1_distribution") or {}
+                if top1_dist:
+                    most_common = max(top1_dist.items(), key=lambda kv: kv[1])[0]
+                    st.write(f"**Most common top-1 prediction**: {most_common} ({top1_dist.get(most_common, 0)}×)")
+                else:
+                    st.write("**Most common top-1 prediction**: Not available")
+
+                st.caption("See warning below the filters for 1-1 concentration note when applicable.")
+
             predictions = [normalize_prediction(p) for p in predictions]
             valid_predictions = [p for p in predictions if p.get("team_a") and p.get("team_b")]
             
             skipped = len(predictions) - len(valid_predictions)
             if skipped > 0:
                 st.warning(f"Skipped {skipped} prediction rows due to missing team fields.")
+
+            # 7. 1-1 concentration note (computed from actual predictions + diagnostics)
+            conc_note = get_1_1_concentration_note(diag, valid_predictions)
+            if conc_note:
+                st.warning(conc_note)
                 
             # Load evaluation data to match
             eval_map = load_evaluation_report()
@@ -216,12 +509,17 @@ def main():
                 if p.get('phase'):
                     all_phases.add(p['phase'])
 
-            # Debug Panel
-            with st.expander("Debug: Actual Results Merge", expanded=False):
-                st.write(f"**Actual results loaded:** {actuals_loaded}")
-                st.write(f"**Actuals matched to selected report:** {actuals_matched}")
-                st.write(f"**Actuals unmatched:** {actuals_loaded - actuals_matched}")
-                st.write(f"**Selected report rows:** {len(valid_predictions)}")
+            # Debug Panel - hidden by default, controlled from sidebar
+            if show_debug:
+                with st.expander("Debug: Actual Results Merge", expanded=False):
+                    st.write(f"**Actual results loaded:** {actuals_loaded}")
+                    st.write(f"**Actuals matched to selected report:** {actuals_matched}")
+                    st.write(f"**Actuals unmatched:** {actuals_loaded - actuals_matched}")
+                    st.write(f"**Selected report rows:** {len(valid_predictions)}")
+                # Also surface concentration from the actual loaded predictions
+                conc_note2 = get_1_1_concentration_note(diag, valid_predictions)
+                if conc_note2:
+                    st.caption(conc_note2)
 
             # Add more filters
             col_date, col_team, col_phase, col_status = st.columns(4)
@@ -402,12 +700,25 @@ def main():
                                 st.info(f"Actual result: {actual_score_display} was not in the model's top 5 scorelines.")
                         
                         with st.expander("Explanation & Data Quality", expanded=False):
-                            st.json(p.get('explanation', {}))
-                            if p.get('data_quality', {}).get('warnings'):
-                                for w in p.get('data_quality', {}).get('warnings', []):
+                            # Readable version (primary)
+                            bullets = format_explanation_bullets(p, metadata)
+                            st.markdown(bullets)
+
+                            # Warnings already in bullets, but surface again if present
+                            dq = p.get('data_quality', {}) or {}
+                            if dq.get('warnings'):
+                                for w in dq.get('warnings', []):
                                     st.warning(w)
+
+                            # 5. Raw JSON hidden by default
+                            if st.checkbox("Show raw JSON", key=f"show_raw_{p.get('match_id', idx)}"):
+                                st.json({"explanation": p.get('explanation', {}), "data_quality": dq})
                         if view_mode == "Detailed":
                             st.divider()
+
+            # Data credits footer inside dashboard (once, after match list)
+            st.markdown("---")
+            st.caption("Data sources: martj42/international_results • davidcariboo/player-scores • FIFA SquadLists PDF • project fixtures. See sidebar for full credits.")
         else:
             st.info("Run `python -m src.cli backtest` to generate predictions.")
 

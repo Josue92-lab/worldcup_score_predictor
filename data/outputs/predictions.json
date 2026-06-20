@@ -3,7 +3,8 @@
     "mode": "predict",
     "as_of_date": null,
     "train_cutoff": null,
-    "calibration_factor": 1.0,
+    "calibration_factor_fav": 1.0,
+    "calibration_factor_und": 1.0,
     "calibrated": false,
     "calibration_reason": "Not live mode"
   },
@@ -65,7 +66,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.962,
+        "player_kaggle_match_rate": 0.885,
         "warnings": []
       },
       "explanation": {
@@ -73,10 +74,16 @@
         "team_b_attack_strength": 0.9171,
         "team_a_defense_strength": 0.7129,
         "team_b_defense_strength": 0.6438,
-        "team_a_squad_strength": 17385000.0,
-        "team_b_squad_strength": 5675000.0,
+        "team_a_squad_strength": 56285000.0,
+        "team_b_squad_strength": 1073913.0,
+        "team_a_sqi": 80730000.0,
+        "team_b_sqi": 1316957.0,
+        "team_a_club_form": 0.164,
+        "team_b_club_form": 0.034,
+        "sqi_diff": 79413043.0,
+        "club_form_diff": 0.13,
         "main_factors": [
-          "Mexico squad value is 3.1x South Africa"
+          "Mexico squad quality is 61.3x South Africa"
         ]
       }
     },
@@ -136,23 +143,26 @@
         }
       ],
       "data_quality": {
-        "squad_match_status": "partial",
-        "player_kaggle_match_rate": 0.423,
-        "warnings": [
-          "Korea Republic: squad data is partial"
-        ]
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.654,
+        "warnings": []
       },
       "explanation": {
         "team_a_attack_strength": 1.2086,
         "team_b_attack_strength": 1.2091,
         "team_a_defense_strength": 0.6171,
         "team_b_defense_strength": 0.6954,
-        "team_a_squad_strength": 2250000.0,
-        "team_b_squad_strength": 12400000.0,
+        "team_a_squad_strength": 54829412.0,
+        "team_b_squad_strength": 123000000.0,
+        "team_a_sqi": 75568235.0,
+        "team_b_sqi": 149980000.0,
+        "team_a_club_form": 0.171,
+        "team_b_club_form": 0.14,
+        "sqi_diff": -74411765.0,
+        "club_form_diff": 0.031,
         "main_factors": [
           "Korea Republic has strong historical attack (1.21x avg)",
-          "Czech Republic has strong historical attack (1.21x avg)",
-          "Czech Republic squad value is 5.5x Korea Republic"
+          "Czech Republic has strong historical attack (1.21x avg)"
         ]
       }
     },
@@ -213,7 +223,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 1.0,
+        "player_kaggle_match_rate": 0.962,
         "warnings": []
       },
       "explanation": {
@@ -221,10 +231,16 @@
         "team_b_attack_strength": 0.9279,
         "team_a_defense_strength": 0.8837,
         "team_b_defense_strength": 0.935,
-        "team_a_squad_strength": 21275000.0,
-        "team_b_squad_strength": 55025000.0,
+        "team_a_squad_strength": 112575000.0,
+        "team_b_squad_strength": 93756000.0,
+        "team_a_sqi": 133462500.0,
+        "team_b_sqi": 124394400.0,
+        "team_a_club_form": 0.05,
+        "team_b_club_form": 0.115,
+        "sqi_diff": 9068100.0,
+        "club_form_diff": -0.065,
         "main_factors": [
-          "Bosnia and Herzegovina squad value is 2.6x Canada"
+          "Baseline Poisson model with default strengths"
         ]
       }
     },
@@ -285,7 +301,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 1.0,
+        "player_kaggle_match_rate": 0.923,
         "warnings": []
       },
       "explanation": {
@@ -293,10 +309,16 @@
         "team_b_attack_strength": 0.87,
         "team_a_defense_strength": 0.9001,
         "team_b_defense_strength": 0.967,
-        "team_a_squad_strength": 41975000.0,
-        "team_b_squad_strength": 6000000.0,
+        "team_a_squad_strength": 150400000.0,
+        "team_b_squad_strength": 66245833.0,
+        "team_a_sqi": 201520000.0,
+        "team_b_sqi": 84091042.0,
+        "team_a_club_form": 0.111,
+        "team_b_club_form": 0.068,
+        "sqi_diff": 117428958.0,
+        "club_form_diff": 0.043,
         "main_factors": [
-          "United States squad value is 7.0x Paraguay"
+          "United States squad quality is 2.4x Paraguay"
         ]
       }
     },
@@ -357,7 +379,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.962,
+        "player_kaggle_match_rate": 0.885,
         "warnings": []
       },
       "explanation": {
@@ -365,10 +387,16 @@
         "team_b_attack_strength": 1.0165,
         "team_a_defense_strength": 0.8255,
         "team_b_defense_strength": 1.1101,
-        "team_a_squad_strength": 4425000.0,
-        "team_b_squad_strength": 51150000.0,
+        "team_a_squad_strength": 42306522.0,
+        "team_b_squad_strength": 187350000.0,
+        "team_a_sqi": 45316304.0,
+        "team_b_sqi": 219435000.0,
+        "team_a_club_form": 0.452,
+        "team_b_club_form": 0.064,
+        "sqi_diff": -174118696.0,
+        "club_form_diff": 0.388,
         "main_factors": [
-          "Switzerland squad value is 11.6x Qatar"
+          "Switzerland squad quality is 4.8x Qatar"
         ]
       }
     },
@@ -437,8 +465,14 @@
         "team_b_attack_strength": 1.0075,
         "team_a_defense_strength": 0.6138,
         "team_b_defense_strength": 0.5433,
-        "team_a_squad_strength": 78325000.0,
-        "team_b_squad_strength": 83925000.0,
+        "team_a_squad_strength": 185675000.0,
+        "team_b_squad_strength": 266370000.0,
+        "team_a_sqi": 220590000.0,
+        "team_b_sqi": 294626800.0,
+        "team_a_club_form": 0.227,
+        "team_b_club_form": 0.135,
+        "sqi_diff": -74036800.0,
+        "club_form_diff": 0.092,
         "main_factors": [
           "Brazil has strong historical attack (1.48x avg)"
         ]
@@ -501,7 +535,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.923,
+        "player_kaggle_match_rate": 0.846,
         "warnings": []
       },
       "explanation": {
@@ -509,10 +543,16 @@
         "team_b_attack_strength": 1.1593,
         "team_a_defense_strength": 0.9152,
         "team_b_defense_strength": 0.8374,
-        "team_a_squad_strength": 52075000.0,
-        "team_b_squad_strength": 21050000.0,
+        "team_a_squad_strength": 57613636.0,
+        "team_b_squad_strength": 121056000.0,
+        "team_a_sqi": 75021818.0,
+        "team_b_sqi": 141866400.0,
+        "team_a_club_form": 0.088,
+        "team_b_club_form": 0.16,
+        "sqi_diff": -66844582.0,
+        "club_form_diff": -0.07200000000000001,
         "main_factors": [
-          "Haiti squad value is 2.5x Scotland"
+          "Baseline Poisson model with default strengths"
         ]
       }
     },
@@ -573,7 +613,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 1.0,
+        "player_kaggle_match_rate": 0.923,
         "warnings": []
       },
       "explanation": {
@@ -581,11 +621,17 @@
         "team_b_attack_strength": 0.9484,
         "team_a_defense_strength": 0.7236,
         "team_b_defense_strength": 0.9569,
-        "team_a_squad_strength": 14650000.0,
-        "team_b_squad_strength": 77750000.0,
+        "team_a_squad_strength": 22625000.0,
+        "team_b_squad_strength": 153968750.0,
+        "team_a_sqi": 29305000.0,
+        "team_b_sqi": 181815833.0,
+        "team_a_club_form": 0.047,
+        "team_b_club_form": 0.127,
+        "sqi_diff": -152510833.0,
+        "club_form_diff": -0.08,
         "main_factors": [
           "Australia has strong historical attack (1.36x avg)",
-          "T\u00fcrkiye squad value is 5.3x Australia"
+          "T\u00fcrkiye squad quality is 6.2x Australia"
         ]
       }
     },
@@ -646,7 +692,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 1.0,
+        "player_kaggle_match_rate": 0.962,
         "warnings": []
       },
       "explanation": {
@@ -654,10 +700,17 @@
         "team_b_attack_strength": 1.1154,
         "team_a_defense_strength": 0.789,
         "team_b_defense_strength": 1.0786,
-        "team_a_squad_strength": 25600000.0,
-        "team_b_squad_strength": 47600000.0,
+        "team_a_squad_strength": 757025000.0,
+        "team_b_squad_strength": 35906000.0,
+        "team_a_sqi": 919470000.0,
+        "team_b_sqi": 43690400.0,
+        "team_a_club_form": 0.135,
+        "team_b_club_form": 0.063,
+        "sqi_diff": 875779600.0,
+        "club_form_diff": 0.07200000000000001,
         "main_factors": [
-          "Germany has strong historical attack (1.53x avg)"
+          "Germany has strong historical attack (1.53x avg)",
+          "Germany squad quality is 21.0x Cura\u00e7ao"
         ]
       }
     },
@@ -718,7 +771,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.962,
+        "player_kaggle_match_rate": 1.0,
         "warnings": []
       },
       "explanation": {
@@ -726,11 +779,18 @@
         "team_b_attack_strength": 1.2399,
         "team_a_defense_strength": 0.8317,
         "team_b_defense_strength": 0.7826,
-        "team_a_squad_strength": 243585000.0,
-        "team_b_squad_strength": 166225000.0,
+        "team_a_squad_strength": 593250000.0,
+        "team_b_squad_strength": 127175000.0,
+        "team_a_sqi": 693880000.0,
+        "team_b_sqi": 149960000.0,
+        "team_a_club_form": 0.132,
+        "team_b_club_form": 0.19,
+        "sqi_diff": 543920000.0,
+        "club_form_diff": -0.057999999999999996,
         "main_factors": [
           "Netherlands has strong historical attack (1.42x avg)",
-          "Japan has strong historical attack (1.24x avg)"
+          "Japan has strong historical attack (1.24x avg)",
+          "Netherlands squad quality is 4.6x Japan"
         ]
       }
     },
@@ -791,7 +851,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 1.0,
+        "player_kaggle_match_rate": 0.923,
         "warnings": []
       },
       "explanation": {
@@ -799,10 +859,16 @@
         "team_b_attack_strength": 0.8214,
         "team_a_defense_strength": 0.6751,
         "team_b_defense_strength": 1.0356,
-        "team_a_squad_strength": 81575000.0,
-        "team_b_squad_strength": 25100000.0,
+        "team_a_squad_strength": 234216667.0,
+        "team_b_squad_strength": 156416000.0,
+        "team_a_sqi": 296605833.0,
+        "team_b_sqi": 159689400.0,
+        "team_a_club_form": 0.11,
+        "team_b_club_form": 0.054,
+        "sqi_diff": 136916433.0,
+        "club_form_diff": 0.056,
         "main_factors": [
-          "C\u00f4te D'Ivoire squad value is 3.2x Ecuador"
+          "Baseline Poisson model with default strengths"
         ]
       }
     },
@@ -863,7 +929,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.962,
+        "player_kaggle_match_rate": 0.923,
         "warnings": []
       },
       "explanation": {
@@ -871,10 +937,17 @@
         "team_b_attack_strength": 0.9742,
         "team_a_defense_strength": 0.8765,
         "team_b_defense_strength": 0.6944,
-        "team_a_squad_strength": 15425000.0,
-        "team_b_squad_strength": 18400000.0,
+        "team_a_squad_strength": 247825000.0,
+        "team_b_squad_strength": 95766667.0,
+        "team_a_sqi": 327127500.0,
+        "team_b_sqi": 109649583.0,
+        "team_a_club_form": 0.174,
+        "team_b_club_form": 0.076,
+        "sqi_diff": 217477917.0,
+        "club_form_diff": 0.09799999999999999,
         "main_factors": [
-          "Sweden has strong historical attack (1.34x avg)"
+          "Sweden has strong historical attack (1.34x avg)",
+          "Sweden squad quality is 3.0x Tunisia"
         ]
       }
     },
@@ -943,12 +1016,18 @@
         "team_b_attack_strength": 0.7376,
         "team_a_defense_strength": 0.6086,
         "team_b_defense_strength": 0.7576,
-        "team_a_squad_strength": 241850000.0,
-        "team_b_squad_strength": 15675000.0,
+        "team_a_squad_strength": 581885000.0,
+        "team_b_squad_strength": 53014000.0,
+        "team_a_sqi": 718777500.0,
+        "team_b_sqi": 76393200.0,
+        "team_a_club_form": 0.139,
+        "team_b_club_form": 0.124,
+        "sqi_diff": 642384300.0,
+        "club_form_diff": 0.015000000000000013,
         "main_factors": [
           "Spain has strong historical attack (1.39x avg)",
           "Cabo Verde has weak historical attack (0.74x avg)",
-          "Spain squad value is 15.4x Cabo Verde"
+          "Spain squad quality is 9.4x Cabo Verde"
         ]
       }
     },
@@ -1009,7 +1088,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 1.0,
+        "player_kaggle_match_rate": 0.846,
         "warnings": []
       },
       "explanation": {
@@ -1017,10 +1096,17 @@
         "team_b_attack_strength": 1.0991,
         "team_a_defense_strength": 1.0262,
         "team_b_defense_strength": 0.6876,
-        "team_a_squad_strength": 54825000.0,
-        "team_b_squad_strength": 45400000.0,
+        "team_a_squad_strength": 373575000.0,
+        "team_b_squad_strength": 143265909.0,
+        "team_a_sqi": 460295000.0,
+        "team_b_sqi": 206150455.0,
+        "team_a_club_form": 0.098,
+        "team_b_club_form": 0.349,
+        "sqi_diff": 254144545.0,
+        "club_form_diff": -0.251,
         "main_factors": [
-          "Belgium has strong historical attack (1.23x avg)"
+          "Belgium has strong historical attack (1.23x avg)",
+          "Belgium squad quality is 2.2x Egypt"
         ]
       }
     },
@@ -1081,7 +1167,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 1.0,
+        "player_kaggle_match_rate": 0.769,
         "warnings": []
       },
       "explanation": {
@@ -1089,10 +1175,16 @@
         "team_b_attack_strength": 1.0735,
         "team_a_defense_strength": 0.7115,
         "team_b_defense_strength": 0.8245,
-        "team_a_squad_strength": 5325000.0,
-        "team_b_squad_strength": 20550000.0,
+        "team_a_squad_strength": 5850000.0,
+        "team_b_squad_strength": 94875000.0,
+        "team_a_sqi": 6093750.0,
+        "team_b_sqi": 114205000.0,
+        "team_a_club_form": 0.044,
+        "team_b_club_form": 0.075,
+        "sqi_diff": -108111250.0,
+        "club_form_diff": -0.031,
         "main_factors": [
-          "Uruguay squad value is 3.9x Saudi Arabia"
+          "Uruguay squad quality is 18.7x Saudi Arabia"
         ]
       }
     },
@@ -1153,7 +1245,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.769,
+        "player_kaggle_match_rate": 0.731,
         "warnings": []
       },
       "explanation": {
@@ -1161,11 +1253,17 @@
         "team_b_attack_strength": 1.1871,
         "team_a_defense_strength": 0.5366,
         "team_b_defense_strength": 1.0166,
-        "team_a_squad_strength": 7600000.0,
-        "team_b_squad_strength": 17775000.0,
+        "team_a_squad_strength": 28223684.0,
+        "team_b_squad_strength": 12425000.0,
+        "team_a_sqi": 34340526.0,
+        "team_b_sqi": 13830000.0,
+        "team_a_club_form": 0.174,
+        "team_b_club_form": 0.206,
+        "sqi_diff": 20510526.0,
+        "club_form_diff": -0.032,
         "main_factors": [
           "IR Iran has strong historical attack (1.28x avg)",
-          "New Zealand squad value is 2.3x IR Iran"
+          "IR Iran squad quality is 2.5x New Zealand"
         ]
       }
     },
@@ -1226,7 +1324,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.962,
+        "player_kaggle_match_rate": 0.846,
         "warnings": []
       },
       "explanation": {
@@ -1234,11 +1332,17 @@
         "team_b_attack_strength": 0.9373,
         "team_a_defense_strength": 0.8778,
         "team_b_defense_strength": 0.6391,
-        "team_a_squad_strength": 222625000.0,
-        "team_b_squad_strength": 28050000.0,
+        "team_a_squad_strength": 636645455.0,
+        "team_b_squad_strength": 48050000.0,
+        "team_a_sqi": 764618636.0,
+        "team_b_sqi": 50310000.0,
+        "team_a_club_form": 0.144,
+        "team_b_club_form": 0.013,
+        "sqi_diff": 714308636.0,
+        "club_form_diff": 0.13099999999999998,
         "main_factors": [
           "France has strong historical attack (1.25x avg)",
-          "France squad value is 7.9x Senegal"
+          "France squad quality is 15.2x Senegal"
         ]
       }
     },
@@ -1299,7 +1403,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 1.0,
+        "player_kaggle_match_rate": 0.962,
         "warnings": []
       },
       "explanation": {
@@ -1307,10 +1411,16 @@
         "team_b_attack_strength": 1.0537,
         "team_a_defense_strength": 0.6339,
         "team_b_defense_strength": 1.1019,
-        "team_a_squad_strength": 8125000.0,
-        "team_b_squad_strength": 212400000.0,
+        "team_a_squad_strength": 8268000.0,
+        "team_b_squad_strength": 355300000.0,
+        "team_a_sqi": 10384400.0,
+        "team_b_sqi": 500435000.0,
+        "team_a_club_form": 0.049,
+        "team_b_club_form": 0.174,
+        "sqi_diff": -490050600.0,
+        "club_form_diff": -0.12499999999999999,
         "main_factors": [
-          "Norway squad value is 26.1x Iraq"
+          "Norway squad quality is 48.2x Iraq"
         ]
       }
     },
@@ -1379,8 +1489,14 @@
         "team_b_attack_strength": 1.0459,
         "team_a_defense_strength": 0.6824,
         "team_b_defense_strength": 0.6761,
-        "team_a_squad_strength": 32525000.0,
-        "team_b_squad_strength": 21600000.0,
+        "team_a_squad_strength": 229475000.0,
+        "team_b_squad_strength": 158545833.0,
+        "team_a_sqi": 318505000.0,
+        "team_b_sqi": 210513333.0,
+        "team_a_club_form": 0.153,
+        "team_b_club_form": 0.124,
+        "sqi_diff": 107991667.0,
+        "club_form_diff": 0.028999999999999998,
         "main_factors": [
           "Argentina has strong historical attack (1.29x avg)"
         ]
@@ -1443,7 +1559,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 1.0,
+        "player_kaggle_match_rate": 0.615,
         "warnings": []
       },
       "explanation": {
@@ -1451,11 +1567,17 @@
         "team_b_attack_strength": 0.8645,
         "team_a_defense_strength": 1.0376,
         "team_b_defense_strength": 0.7585,
-        "team_a_squad_strength": 91625000.0,
-        "team_b_squad_strength": 8110000.0,
+        "team_a_squad_strength": 187425000.0,
+        "team_b_squad_strength": 731250.0,
+        "team_a_sqi": 213755000.0,
+        "team_b_sqi": 788125.0,
+        "team_a_club_form": 0.057,
+        "team_b_club_form": 0.0,
+        "sqi_diff": 212966875.0,
+        "club_form_diff": 0.057,
         "main_factors": [
           "Austria has strong historical attack (1.22x avg)",
-          "Austria squad value is 11.3x Jordan"
+          "Austria squad quality is 271.2x Jordan"
         ]
       }
     },
@@ -1524,8 +1646,14 @@
         "team_b_attack_strength": 1.0071,
         "team_a_defense_strength": 0.7594,
         "team_b_defense_strength": 0.8109,
-        "team_a_squad_strength": 35550000.0,
-        "team_b_squad_strength": 46810000.0,
+        "team_a_squad_strength": 218050000.0,
+        "team_b_squad_strength": 116506000.0,
+        "team_a_sqi": 263565000.0,
+        "team_b_sqi": 145113800.0,
+        "team_a_club_form": 0.134,
+        "team_b_club_form": 0.068,
+        "sqi_diff": 118451200.0,
+        "club_form_diff": 0.066,
         "main_factors": [
           "Baseline Poisson model with default strengths"
         ]
@@ -1596,11 +1724,17 @@
         "team_b_attack_strength": 1.1767,
         "team_a_defense_strength": 0.6493,
         "team_b_defense_strength": 0.689,
-        "team_a_squad_strength": 278610000.0,
-        "team_b_squad_strength": 94470000.0,
+        "team_a_squad_strength": 801975000.0,
+        "team_b_squad_strength": 310900000.0,
+        "team_a_sqi": 1001420000.0,
+        "team_b_sqi": 336075000.0,
+        "team_a_club_form": 0.118,
+        "team_b_club_form": 0.127,
+        "sqi_diff": 665345000.0,
+        "club_form_diff": -0.009000000000000008,
         "main_factors": [
           "England has strong historical attack (1.48x avg)",
-          "England squad value is 2.9x Croatia"
+          "England squad quality is 3.0x Croatia"
         ]
       }
     },
@@ -1661,7 +1795,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.962,
+        "player_kaggle_match_rate": 0.923,
         "warnings": []
       },
       "explanation": {
@@ -1669,10 +1803,16 @@
         "team_b_attack_strength": 0.8525,
         "team_a_defense_strength": 0.7067,
         "team_b_defense_strength": 1.0332,
-        "team_a_squad_strength": 51700000.0,
-        "team_b_squad_strength": 15625000.0,
+        "team_a_squad_strength": 129225000.0,
+        "team_b_squad_strength": 7664583.0,
+        "team_a_sqi": 168195000.0,
+        "team_b_sqi": 7843333.0,
+        "team_a_club_form": 0.148,
+        "team_b_club_form": 0.088,
+        "sqi_diff": 160351667.0,
+        "club_form_diff": 0.06,
         "main_factors": [
-          "Ghana squad value is 3.3x Panama"
+          "Ghana squad quality is 21.4x Panama"
         ]
       }
     },
@@ -1733,7 +1873,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.808,
+        "player_kaggle_match_rate": 0.923,
         "warnings": []
       },
       "explanation": {
@@ -1741,10 +1881,16 @@
         "team_b_attack_strength": 0.8768,
         "team_a_defense_strength": 0.7567,
         "team_b_defense_strength": 0.7824,
-        "team_a_squad_strength": 53625000.0,
-        "team_b_squad_strength": 28225000.0,
+        "team_a_squad_strength": 57904167.0,
+        "team_b_squad_strength": 20350000.0,
+        "team_a_sqi": 63291042.0,
+        "team_b_sqi": 24000000.0,
+        "team_a_club_form": 0.193,
+        "team_b_club_form": 0.186,
+        "sqi_diff": 39291042.0,
+        "club_form_diff": 0.007000000000000006,
         "main_factors": [
-          "Baseline Poisson model with default strengths"
+          "Uzbekistan squad quality is 2.6x Colombia"
         ]
       }
     },
@@ -1805,7 +1951,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.962,
+        "player_kaggle_match_rate": 0.885,
         "warnings": []
       },
       "explanation": {
@@ -1813,11 +1959,17 @@
         "team_b_attack_strength": 0.9171,
         "team_a_defense_strength": 0.6954,
         "team_b_defense_strength": 0.6438,
-        "team_a_squad_strength": 12400000.0,
-        "team_b_squad_strength": 5675000.0,
+        "team_a_squad_strength": 123000000.0,
+        "team_b_squad_strength": 1073913.0,
+        "team_a_sqi": 149980000.0,
+        "team_b_sqi": 1316957.0,
+        "team_a_club_form": 0.14,
+        "team_b_club_form": 0.034,
+        "sqi_diff": 148663043.0,
+        "club_form_diff": 0.10600000000000001,
         "main_factors": [
           "Czech Republic has strong historical attack (1.21x avg)",
-          "Czech Republic squad value is 2.2x South Africa"
+          "Czech Republic squad quality is 113.9x South Africa"
         ]
       }
     },
@@ -1878,7 +2030,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 1.0,
+        "player_kaggle_match_rate": 0.962,
         "warnings": []
       },
       "explanation": {
@@ -1886,8 +2038,14 @@
         "team_b_attack_strength": 0.9279,
         "team_a_defense_strength": 1.1101,
         "team_b_defense_strength": 0.935,
-        "team_a_squad_strength": 51150000.0,
-        "team_b_squad_strength": 55025000.0,
+        "team_a_squad_strength": 187350000.0,
+        "team_b_squad_strength": 93756000.0,
+        "team_a_sqi": 219435000.0,
+        "team_b_sqi": 124394400.0,
+        "team_a_club_form": 0.064,
+        "team_b_club_form": 0.115,
+        "sqi_diff": 95040600.0,
+        "club_form_diff": -0.051000000000000004,
         "main_factors": [
           "Baseline Poisson model with default strengths"
         ]
@@ -1950,7 +2108,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.962,
+        "player_kaggle_match_rate": 0.885,
         "warnings": []
       },
       "explanation": {
@@ -1958,10 +2116,16 @@
         "team_b_attack_strength": 0.9556,
         "team_a_defense_strength": 0.8837,
         "team_b_defense_strength": 0.8255,
-        "team_a_squad_strength": 21275000.0,
-        "team_b_squad_strength": 4425000.0,
+        "team_a_squad_strength": 112575000.0,
+        "team_b_squad_strength": 42306522.0,
+        "team_a_sqi": 133462500.0,
+        "team_b_sqi": 45316304.0,
+        "team_a_club_form": 0.05,
+        "team_b_club_form": 0.452,
+        "sqi_diff": 88146196.0,
+        "club_form_diff": -0.402,
         "main_factors": [
-          "Canada squad value is 4.8x Qatar"
+          "Canada squad quality is 2.9x Qatar"
         ]
       }
     },
@@ -2021,22 +2185,25 @@
         }
       ],
       "data_quality": {
-        "squad_match_status": "partial",
-        "player_kaggle_match_rate": 0.423,
-        "warnings": [
-          "Korea Republic: squad data is partial"
-        ]
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.654,
+        "warnings": []
       },
       "explanation": {
         "team_a_attack_strength": 1.1972,
         "team_b_attack_strength": 1.2086,
         "team_a_defense_strength": 0.7129,
         "team_b_defense_strength": 0.6171,
-        "team_a_squad_strength": 17385000.0,
-        "team_b_squad_strength": 2250000.0,
+        "team_a_squad_strength": 56285000.0,
+        "team_b_squad_strength": 54829412.0,
+        "team_a_sqi": 80730000.0,
+        "team_b_sqi": 75568235.0,
+        "team_a_club_form": 0.164,
+        "team_b_club_form": 0.171,
+        "sqi_diff": 5161765.0,
+        "club_form_diff": -0.007000000000000006,
         "main_factors": [
-          "Korea Republic has strong historical attack (1.21x avg)",
-          "Mexico squad value is 7.7x Korea Republic"
+          "Korea Republic has strong historical attack (1.21x avg)"
         ]
       }
     },
@@ -2105,11 +2272,17 @@
         "team_b_attack_strength": 1.3621,
         "team_a_defense_strength": 0.9001,
         "team_b_defense_strength": 0.7236,
-        "team_a_squad_strength": 41975000.0,
-        "team_b_squad_strength": 14650000.0,
+        "team_a_squad_strength": 150400000.0,
+        "team_b_squad_strength": 22625000.0,
+        "team_a_sqi": 201520000.0,
+        "team_b_sqi": 29305000.0,
+        "team_a_club_form": 0.111,
+        "team_b_club_form": 0.047,
+        "sqi_diff": 172215000.0,
+        "club_form_diff": 0.064,
         "main_factors": [
           "Australia has strong historical attack (1.36x avg)",
-          "United States squad value is 2.9x Australia"
+          "United States squad quality is 6.9x Australia"
         ]
       }
     },
@@ -2178,10 +2351,16 @@
         "team_b_attack_strength": 1.0075,
         "team_a_defense_strength": 0.8374,
         "team_b_defense_strength": 0.5433,
-        "team_a_squad_strength": 21050000.0,
-        "team_b_squad_strength": 83925000.0,
+        "team_a_squad_strength": 121056000.0,
+        "team_b_squad_strength": 266370000.0,
+        "team_a_sqi": 141866400.0,
+        "team_b_sqi": 294626800.0,
+        "team_a_club_form": 0.16,
+        "team_b_club_form": 0.135,
+        "sqi_diff": -152760400.0,
+        "club_form_diff": 0.024999999999999994,
         "main_factors": [
-          "Morocco squad value is 4.0x Scotland"
+          "Morocco squad quality is 2.1x Scotland"
         ]
       }
     },
@@ -2242,7 +2421,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.923,
+        "player_kaggle_match_rate": 0.846,
         "warnings": []
       },
       "explanation": {
@@ -2250,10 +2429,17 @@
         "team_b_attack_strength": 1.1115,
         "team_a_defense_strength": 0.6138,
         "team_b_defense_strength": 0.9152,
-        "team_a_squad_strength": 78325000.0,
-        "team_b_squad_strength": 52075000.0,
+        "team_a_squad_strength": 185675000.0,
+        "team_b_squad_strength": 57613636.0,
+        "team_a_sqi": 220590000.0,
+        "team_b_sqi": 75021818.0,
+        "team_a_club_form": 0.227,
+        "team_b_club_form": 0.088,
+        "sqi_diff": 145568182.0,
+        "club_form_diff": 0.139,
         "main_factors": [
-          "Brazil has strong historical attack (1.48x avg)"
+          "Brazil has strong historical attack (1.48x avg)",
+          "Brazil squad quality is 2.9x Haiti"
         ]
       }
     },
@@ -2314,7 +2500,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 1.0,
+        "player_kaggle_match_rate": 0.923,
         "warnings": []
       },
       "explanation": {
@@ -2322,10 +2508,16 @@
         "team_b_attack_strength": 0.87,
         "team_a_defense_strength": 0.9569,
         "team_b_defense_strength": 0.967,
-        "team_a_squad_strength": 77750000.0,
-        "team_b_squad_strength": 6000000.0,
+        "team_a_squad_strength": 153968750.0,
+        "team_b_squad_strength": 66245833.0,
+        "team_a_sqi": 181815833.0,
+        "team_b_sqi": 84091042.0,
+        "team_a_club_form": 0.127,
+        "team_b_club_form": 0.068,
+        "sqi_diff": 97724791.0,
+        "club_form_diff": 0.059,
         "main_factors": [
-          "T\u00fcrkiye squad value is 13.0x Paraguay"
+          "T\u00fcrkiye squad quality is 2.2x Paraguay"
         ]
       }
     },
@@ -2394,12 +2586,18 @@
         "team_b_attack_strength": 1.3412,
         "team_a_defense_strength": 0.8317,
         "team_b_defense_strength": 0.8765,
-        "team_a_squad_strength": 243585000.0,
-        "team_b_squad_strength": 15425000.0,
+        "team_a_squad_strength": 593250000.0,
+        "team_b_squad_strength": 247825000.0,
+        "team_a_sqi": 693880000.0,
+        "team_b_sqi": 327127500.0,
+        "team_a_club_form": 0.132,
+        "team_b_club_form": 0.174,
+        "sqi_diff": 366752500.0,
+        "club_form_diff": -0.04199999999999998,
         "main_factors": [
           "Netherlands has strong historical attack (1.42x avg)",
           "Sweden has strong historical attack (1.34x avg)",
-          "Netherlands squad value is 15.8x Sweden"
+          "Netherlands squad quality is 2.1x Sweden"
         ]
       }
     },
@@ -2460,7 +2658,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 1.0,
+        "player_kaggle_match_rate": 0.923,
         "warnings": []
       },
       "explanation": {
@@ -2468,11 +2666,17 @@
         "team_b_attack_strength": 1.1107,
         "team_a_defense_strength": 0.789,
         "team_b_defense_strength": 0.6751,
-        "team_a_squad_strength": 25600000.0,
-        "team_b_squad_strength": 81575000.0,
+        "team_a_squad_strength": 757025000.0,
+        "team_b_squad_strength": 234216667.0,
+        "team_a_sqi": 919470000.0,
+        "team_b_sqi": 296605833.0,
+        "team_a_club_form": 0.135,
+        "team_b_club_form": 0.11,
+        "sqi_diff": 622864167.0,
+        "club_form_diff": 0.02500000000000001,
         "main_factors": [
           "Germany has strong historical attack (1.53x avg)",
-          "C\u00f4te D'Ivoire squad value is 3.2x Germany"
+          "Germany squad quality is 3.1x C\u00f4te D'Ivoire"
         ]
       }
     },
@@ -2533,7 +2737,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 1.0,
+        "player_kaggle_match_rate": 0.962,
         "warnings": []
       },
       "explanation": {
@@ -2541,10 +2745,16 @@
         "team_b_attack_strength": 1.1154,
         "team_a_defense_strength": 1.0356,
         "team_b_defense_strength": 1.0786,
-        "team_a_squad_strength": 25100000.0,
-        "team_b_squad_strength": 47600000.0,
+        "team_a_squad_strength": 156416000.0,
+        "team_b_squad_strength": 35906000.0,
+        "team_a_sqi": 159689400.0,
+        "team_b_sqi": 43690400.0,
+        "team_a_club_form": 0.054,
+        "team_b_club_form": 0.063,
+        "sqi_diff": 115999000.0,
+        "club_form_diff": -0.009000000000000001,
         "main_factors": [
-          "Baseline Poisson model with default strengths"
+          "Ecuador squad quality is 3.7x Cura\u00e7ao"
         ]
       }
     },
@@ -2605,7 +2815,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.962,
+        "player_kaggle_match_rate": 0.923,
         "warnings": []
       },
       "explanation": {
@@ -2613,11 +2823,16 @@
         "team_b_attack_strength": 1.2399,
         "team_a_defense_strength": 0.6944,
         "team_b_defense_strength": 0.7826,
-        "team_a_squad_strength": 18400000.0,
-        "team_b_squad_strength": 166225000.0,
+        "team_a_squad_strength": 95766667.0,
+        "team_b_squad_strength": 127175000.0,
+        "team_a_sqi": 109649583.0,
+        "team_b_sqi": 149960000.0,
+        "team_a_club_form": 0.076,
+        "team_b_club_form": 0.19,
+        "sqi_diff": -40310417.0,
+        "club_form_diff": -0.114,
         "main_factors": [
-          "Japan has strong historical attack (1.24x avg)",
-          "Japan squad value is 9.0x Tunisia"
+          "Japan has strong historical attack (1.24x avg)"
         ]
       }
     },
@@ -2678,7 +2893,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 1.0,
+        "player_kaggle_match_rate": 0.769,
         "warnings": []
       },
       "explanation": {
@@ -2686,11 +2901,17 @@
         "team_b_attack_strength": 1.0417,
         "team_a_defense_strength": 0.6086,
         "team_b_defense_strength": 0.7115,
-        "team_a_squad_strength": 241850000.0,
-        "team_b_squad_strength": 5325000.0,
+        "team_a_squad_strength": 581885000.0,
+        "team_b_squad_strength": 5850000.0,
+        "team_a_sqi": 718777500.0,
+        "team_b_sqi": 6093750.0,
+        "team_a_club_form": 0.139,
+        "team_b_club_form": 0.044,
+        "sqi_diff": 712683750.0,
+        "club_form_diff": 0.09500000000000001,
         "main_factors": [
           "Spain has strong historical attack (1.39x avg)",
-          "Spain squad value is 45.4x Saudi Arabia"
+          "Spain squad quality is 118.0x Saudi Arabia"
         ]
       }
     },
@@ -2751,7 +2972,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.769,
+        "player_kaggle_match_rate": 0.731,
         "warnings": []
       },
       "explanation": {
@@ -2759,12 +2980,18 @@
         "team_b_attack_strength": 1.2801,
         "team_a_defense_strength": 1.0262,
         "team_b_defense_strength": 0.5366,
-        "team_a_squad_strength": 54825000.0,
-        "team_b_squad_strength": 7600000.0,
+        "team_a_squad_strength": 373575000.0,
+        "team_b_squad_strength": 28223684.0,
+        "team_a_sqi": 460295000.0,
+        "team_b_sqi": 34340526.0,
+        "team_a_club_form": 0.098,
+        "team_b_club_form": 0.174,
+        "sqi_diff": 425954474.0,
+        "club_form_diff": -0.07599999999999998,
         "main_factors": [
           "Belgium has strong historical attack (1.23x avg)",
           "IR Iran has strong historical attack (1.28x avg)",
-          "Belgium squad value is 7.2x IR Iran"
+          "Belgium squad quality is 13.4x IR Iran"
         ]
       }
     },
@@ -2833,8 +3060,14 @@
         "team_b_attack_strength": 0.7376,
         "team_a_defense_strength": 0.8245,
         "team_b_defense_strength": 0.7576,
-        "team_a_squad_strength": 20550000.0,
-        "team_b_squad_strength": 15675000.0,
+        "team_a_squad_strength": 94875000.0,
+        "team_b_squad_strength": 53014000.0,
+        "team_a_sqi": 114205000.0,
+        "team_b_sqi": 76393200.0,
+        "team_a_club_form": 0.075,
+        "team_b_club_form": 0.124,
+        "sqi_diff": 37811800.0,
+        "club_form_diff": -0.049,
         "main_factors": [
           "Cabo Verde has weak historical attack (0.74x avg)"
         ]
@@ -2897,7 +3130,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 1.0,
+        "player_kaggle_match_rate": 0.846,
         "warnings": []
       },
       "explanation": {
@@ -2905,10 +3138,16 @@
         "team_b_attack_strength": 1.0991,
         "team_a_defense_strength": 1.0166,
         "team_b_defense_strength": 0.6876,
-        "team_a_squad_strength": 17775000.0,
-        "team_b_squad_strength": 45400000.0,
+        "team_a_squad_strength": 12425000.0,
+        "team_b_squad_strength": 143265909.0,
+        "team_a_sqi": 13830000.0,
+        "team_b_sqi": 206150455.0,
+        "team_a_club_form": 0.206,
+        "team_b_club_form": 0.349,
+        "sqi_diff": -192320455.0,
+        "club_form_diff": -0.143,
         "main_factors": [
-          "Egypt squad value is 2.6x New Zealand"
+          "Egypt squad quality is 14.9x New Zealand"
         ]
       }
     },
@@ -2977,12 +3216,17 @@
         "team_b_attack_strength": 1.2174,
         "team_a_defense_strength": 0.6824,
         "team_b_defense_strength": 1.0376,
-        "team_a_squad_strength": 32525000.0,
-        "team_b_squad_strength": 91625000.0,
+        "team_a_squad_strength": 229475000.0,
+        "team_b_squad_strength": 187425000.0,
+        "team_a_sqi": 318505000.0,
+        "team_b_sqi": 213755000.0,
+        "team_a_club_form": 0.153,
+        "team_b_club_form": 0.057,
+        "sqi_diff": 104750000.0,
+        "club_form_diff": 0.096,
         "main_factors": [
           "Argentina has strong historical attack (1.29x avg)",
-          "Austria has strong historical attack (1.22x avg)",
-          "Austria squad value is 2.8x Argentina"
+          "Austria has strong historical attack (1.22x avg)"
         ]
       }
     },
@@ -3043,7 +3287,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 1.0,
+        "player_kaggle_match_rate": 0.846,
         "warnings": []
       },
       "explanation": {
@@ -3051,11 +3295,17 @@
         "team_b_attack_strength": 1.0403,
         "team_a_defense_strength": 0.8778,
         "team_b_defense_strength": 0.6339,
-        "team_a_squad_strength": 222625000.0,
-        "team_b_squad_strength": 8125000.0,
+        "team_a_squad_strength": 636645455.0,
+        "team_b_squad_strength": 8268000.0,
+        "team_a_sqi": 764618636.0,
+        "team_b_sqi": 10384400.0,
+        "team_a_club_form": 0.144,
+        "team_b_club_form": 0.049,
+        "sqi_diff": 754234236.0,
+        "club_form_diff": 0.09499999999999999,
         "main_factors": [
           "France has strong historical attack (1.25x avg)",
-          "France squad value is 27.4x Iraq"
+          "France squad quality is 73.6x Iraq"
         ]
       }
     },
@@ -3116,7 +3366,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.962,
+        "player_kaggle_match_rate": 1.0,
         "warnings": []
       },
       "explanation": {
@@ -3124,10 +3374,16 @@
         "team_b_attack_strength": 0.9373,
         "team_a_defense_strength": 1.1019,
         "team_b_defense_strength": 0.6391,
-        "team_a_squad_strength": 212400000.0,
-        "team_b_squad_strength": 28050000.0,
+        "team_a_squad_strength": 355300000.0,
+        "team_b_squad_strength": 48050000.0,
+        "team_a_sqi": 500435000.0,
+        "team_b_sqi": 50310000.0,
+        "team_a_club_form": 0.174,
+        "team_b_club_form": 0.013,
+        "sqi_diff": 450125000.0,
+        "club_form_diff": 0.16099999999999998,
         "main_factors": [
-          "Norway squad value is 7.6x Senegal"
+          "Norway squad quality is 9.9x Senegal"
         ]
       }
     },
@@ -3188,7 +3444,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.923,
+        "player_kaggle_match_rate": 0.615,
         "warnings": []
       },
       "explanation": {
@@ -3196,10 +3452,16 @@
         "team_b_attack_strength": 1.0459,
         "team_a_defense_strength": 0.7585,
         "team_b_defense_strength": 0.6761,
-        "team_a_squad_strength": 8110000.0,
-        "team_b_squad_strength": 21600000.0,
+        "team_a_squad_strength": 731250.0,
+        "team_b_squad_strength": 158545833.0,
+        "team_a_sqi": 788125.0,
+        "team_b_sqi": 210513333.0,
+        "team_a_club_form": 0.0,
+        "team_b_club_form": 0.124,
+        "sqi_diff": -209725208.0,
+        "club_form_diff": -0.124,
         "main_factors": [
-          "Algeria squad value is 2.7x Jordan"
+          "Algeria squad quality is 267.1x Jordan"
         ]
       }
     },
@@ -3260,7 +3522,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.808,
+        "player_kaggle_match_rate": 0.923,
         "warnings": []
       },
       "explanation": {
@@ -3268,10 +3530,16 @@
         "team_b_attack_strength": 1.1703,
         "team_a_defense_strength": 0.7594,
         "team_b_defense_strength": 0.7567,
-        "team_a_squad_strength": 35550000.0,
-        "team_b_squad_strength": 53625000.0,
+        "team_a_squad_strength": 218050000.0,
+        "team_b_squad_strength": 57904167.0,
+        "team_a_sqi": 263565000.0,
+        "team_b_sqi": 63291042.0,
+        "team_a_club_form": 0.134,
+        "team_b_club_form": 0.193,
+        "sqi_diff": 200273958.0,
+        "club_form_diff": -0.059,
         "main_factors": [
-          "Baseline Poisson model with default strengths"
+          "Portugal squad quality is 4.2x Uzbekistan"
         ]
       }
     },
@@ -3332,7 +3600,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.962,
+        "player_kaggle_match_rate": 1.0,
         "warnings": []
       },
       "explanation": {
@@ -3340,11 +3608,17 @@
         "team_b_attack_strength": 1.0631,
         "team_a_defense_strength": 0.6493,
         "team_b_defense_strength": 0.7067,
-        "team_a_squad_strength": 278610000.0,
-        "team_b_squad_strength": 51700000.0,
+        "team_a_squad_strength": 801975000.0,
+        "team_b_squad_strength": 129225000.0,
+        "team_a_sqi": 1001420000.0,
+        "team_b_sqi": 168195000.0,
+        "team_a_club_form": 0.118,
+        "team_b_club_form": 0.148,
+        "sqi_diff": 833225000.0,
+        "club_form_diff": -0.03,
         "main_factors": [
           "England has strong historical attack (1.48x avg)",
-          "England squad value is 5.4x Ghana"
+          "England squad quality is 6.0x Ghana"
         ]
       }
     },
@@ -3405,7 +3679,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.962,
+        "player_kaggle_match_rate": 0.923,
         "warnings": []
       },
       "explanation": {
@@ -3413,10 +3687,16 @@
         "team_b_attack_strength": 1.1767,
         "team_a_defense_strength": 1.0332,
         "team_b_defense_strength": 0.689,
-        "team_a_squad_strength": 15625000.0,
-        "team_b_squad_strength": 94470000.0,
+        "team_a_squad_strength": 7664583.0,
+        "team_b_squad_strength": 310900000.0,
+        "team_a_sqi": 7843333.0,
+        "team_b_sqi": 336075000.0,
+        "team_a_club_form": 0.088,
+        "team_b_club_form": 0.127,
+        "sqi_diff": -328231667.0,
+        "club_form_diff": -0.03900000000000001,
         "main_factors": [
-          "Croatia squad value is 6.0x Panama"
+          "Croatia squad quality is 42.8x Panama"
         ]
       }
     },
@@ -3485,10 +3765,16 @@
         "team_b_attack_strength": 1.0071,
         "team_a_defense_strength": 0.7824,
         "team_b_defense_strength": 0.8109,
-        "team_a_squad_strength": 28225000.0,
-        "team_b_squad_strength": 46810000.0,
+        "team_a_squad_strength": 20350000.0,
+        "team_b_squad_strength": 116506000.0,
+        "team_a_sqi": 24000000.0,
+        "team_b_sqi": 145113800.0,
+        "team_a_club_form": 0.186,
+        "team_b_club_form": 0.068,
+        "sqi_diff": -121113800.0,
+        "club_form_diff": 0.118,
         "main_factors": [
-          "Baseline Poisson model with default strengths"
+          "Congo DR squad quality is 6.0x Colombia"
         ]
       }
     },
@@ -3557,10 +3843,16 @@
         "team_b_attack_strength": 0.8866,
         "team_a_defense_strength": 1.1101,
         "team_b_defense_strength": 0.8837,
-        "team_a_squad_strength": 51150000.0,
-        "team_b_squad_strength": 21275000.0,
+        "team_a_squad_strength": 187350000.0,
+        "team_b_squad_strength": 112575000.0,
+        "team_a_sqi": 219435000.0,
+        "team_b_sqi": 133462500.0,
+        "team_a_club_form": 0.064,
+        "team_b_club_form": 0.05,
+        "sqi_diff": 85972500.0,
+        "club_form_diff": 0.013999999999999999,
         "main_factors": [
-          "Switzerland squad value is 2.4x Canada"
+          "Baseline Poisson model with default strengths"
         ]
       }
     },
@@ -3621,7 +3913,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.962,
+        "player_kaggle_match_rate": 0.885,
         "warnings": []
       },
       "explanation": {
@@ -3629,10 +3921,16 @@
         "team_b_attack_strength": 0.9556,
         "team_a_defense_strength": 0.935,
         "team_b_defense_strength": 0.8255,
-        "team_a_squad_strength": 55025000.0,
-        "team_b_squad_strength": 4425000.0,
+        "team_a_squad_strength": 93756000.0,
+        "team_b_squad_strength": 42306522.0,
+        "team_a_sqi": 124394400.0,
+        "team_b_sqi": 45316304.0,
+        "team_a_club_form": 0.115,
+        "team_b_club_form": 0.452,
+        "sqi_diff": 79078096.0,
+        "club_form_diff": -0.337,
         "main_factors": [
-          "Bosnia and Herzegovina squad value is 12.4x Qatar"
+          "Bosnia and Herzegovina squad quality is 2.7x Qatar"
         ]
       }
     },
@@ -3693,7 +3991,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 1.0,
+        "player_kaggle_match_rate": 0.962,
         "warnings": []
       },
       "explanation": {
@@ -3701,11 +3999,16 @@
         "team_b_attack_strength": 1.4794,
         "team_a_defense_strength": 0.8374,
         "team_b_defense_strength": 0.6138,
-        "team_a_squad_strength": 21050000.0,
-        "team_b_squad_strength": 78325000.0,
+        "team_a_squad_strength": 121056000.0,
+        "team_b_squad_strength": 185675000.0,
+        "team_a_sqi": 141866400.0,
+        "team_b_sqi": 220590000.0,
+        "team_a_club_form": 0.16,
+        "team_b_club_form": 0.227,
+        "sqi_diff": -78723600.0,
+        "club_form_diff": -0.067,
         "main_factors": [
-          "Brazil has strong historical attack (1.48x avg)",
-          "Brazil squad value is 3.7x Scotland"
+          "Brazil has strong historical attack (1.48x avg)"
         ]
       }
     },
@@ -3766,7 +4069,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.923,
+        "player_kaggle_match_rate": 0.846,
         "warnings": []
       },
       "explanation": {
@@ -3774,10 +4077,16 @@
         "team_b_attack_strength": 1.1115,
         "team_a_defense_strength": 0.5433,
         "team_b_defense_strength": 0.9152,
-        "team_a_squad_strength": 83925000.0,
-        "team_b_squad_strength": 52075000.0,
+        "team_a_squad_strength": 266370000.0,
+        "team_b_squad_strength": 57613636.0,
+        "team_a_sqi": 294626800.0,
+        "team_b_sqi": 75021818.0,
+        "team_a_club_form": 0.135,
+        "team_b_club_form": 0.088,
+        "sqi_diff": 219604982.0,
+        "club_form_diff": 0.047000000000000014,
         "main_factors": [
-          "Baseline Poisson model with default strengths"
+          "Morocco squad quality is 3.9x Haiti"
         ]
       }
     },
@@ -3846,8 +4155,14 @@
         "team_b_attack_strength": 1.1972,
         "team_a_defense_strength": 0.6954,
         "team_b_defense_strength": 0.7129,
-        "team_a_squad_strength": 12400000.0,
-        "team_b_squad_strength": 17385000.0,
+        "team_a_squad_strength": 123000000.0,
+        "team_b_squad_strength": 56285000.0,
+        "team_a_sqi": 149980000.0,
+        "team_b_sqi": 80730000.0,
+        "team_a_club_form": 0.14,
+        "team_b_club_form": 0.164,
+        "sqi_diff": 69250000.0,
+        "club_form_diff": -0.023999999999999994,
         "main_factors": [
           "Czech Republic has strong historical attack (1.21x avg)"
         ]
@@ -3909,22 +4224,26 @@
         }
       ],
       "data_quality": {
-        "squad_match_status": "partial",
-        "player_kaggle_match_rate": 0.423,
-        "warnings": [
-          "Korea Republic: squad data is partial"
-        ]
+        "squad_match_status": "ok",
+        "player_kaggle_match_rate": 0.654,
+        "warnings": []
       },
       "explanation": {
         "team_a_attack_strength": 0.9171,
         "team_b_attack_strength": 1.2086,
         "team_a_defense_strength": 0.6438,
         "team_b_defense_strength": 0.6171,
-        "team_a_squad_strength": 5675000.0,
-        "team_b_squad_strength": 2250000.0,
+        "team_a_squad_strength": 1073913.0,
+        "team_b_squad_strength": 54829412.0,
+        "team_a_sqi": 1316957.0,
+        "team_b_sqi": 75568235.0,
+        "team_a_club_form": 0.034,
+        "team_b_club_form": 0.171,
+        "sqi_diff": -74251278.0,
+        "club_form_diff": -0.137,
         "main_factors": [
           "Korea Republic has strong historical attack (1.21x avg)",
-          "South Africa squad value is 2.5x Korea Republic"
+          "Korea Republic squad quality is 57.4x South Africa"
         ]
       }
     },
@@ -3985,7 +4304,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 1.0,
+        "player_kaggle_match_rate": 0.923,
         "warnings": []
       },
       "explanation": {
@@ -3993,10 +4312,16 @@
         "team_b_attack_strength": 1.1107,
         "team_a_defense_strength": 1.0786,
         "team_b_defense_strength": 0.6751,
-        "team_a_squad_strength": 47600000.0,
-        "team_b_squad_strength": 81575000.0,
+        "team_a_squad_strength": 35906000.0,
+        "team_b_squad_strength": 234216667.0,
+        "team_a_sqi": 43690400.0,
+        "team_b_sqi": 296605833.0,
+        "team_a_club_form": 0.063,
+        "team_b_club_form": 0.11,
+        "sqi_diff": -252915433.0,
+        "club_form_diff": -0.047,
         "main_factors": [
-          "Baseline Poisson model with default strengths"
+          "C\u00f4te D'Ivoire squad quality is 6.8x Cura\u00e7ao"
         ]
       }
     },
@@ -4057,7 +4382,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 1.0,
+        "player_kaggle_match_rate": 0.962,
         "warnings": []
       },
       "explanation": {
@@ -4065,10 +4390,17 @@
         "team_b_attack_strength": 1.5313,
         "team_a_defense_strength": 1.0356,
         "team_b_defense_strength": 0.789,
-        "team_a_squad_strength": 25100000.0,
-        "team_b_squad_strength": 25600000.0,
+        "team_a_squad_strength": 156416000.0,
+        "team_b_squad_strength": 757025000.0,
+        "team_a_sqi": 159689400.0,
+        "team_b_sqi": 919470000.0,
+        "team_a_club_form": 0.054,
+        "team_b_club_form": 0.135,
+        "sqi_diff": -759780600.0,
+        "club_form_diff": -0.08100000000000002,
         "main_factors": [
-          "Germany has strong historical attack (1.53x avg)"
+          "Germany has strong historical attack (1.53x avg)",
+          "Germany squad quality is 5.8x Ecuador"
         ]
       }
     },
@@ -4129,7 +4461,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.962,
+        "player_kaggle_match_rate": 1.0,
         "warnings": []
       },
       "explanation": {
@@ -4137,12 +4469,18 @@
         "team_b_attack_strength": 1.3412,
         "team_a_defense_strength": 0.7826,
         "team_b_defense_strength": 0.8765,
-        "team_a_squad_strength": 166225000.0,
-        "team_b_squad_strength": 15425000.0,
+        "team_a_squad_strength": 127175000.0,
+        "team_b_squad_strength": 247825000.0,
+        "team_a_sqi": 149960000.0,
+        "team_b_sqi": 327127500.0,
+        "team_a_club_form": 0.19,
+        "team_b_club_form": 0.174,
+        "sqi_diff": -177167500.0,
+        "club_form_diff": 0.016000000000000014,
         "main_factors": [
           "Japan has strong historical attack (1.24x avg)",
           "Sweden has strong historical attack (1.34x avg)",
-          "Japan squad value is 10.8x Sweden"
+          "Sweden squad quality is 2.2x Japan"
         ]
       }
     },
@@ -4203,7 +4541,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.962,
+        "player_kaggle_match_rate": 0.923,
         "warnings": []
       },
       "explanation": {
@@ -4211,11 +4549,17 @@
         "team_b_attack_strength": 1.4219,
         "team_a_defense_strength": 0.6944,
         "team_b_defense_strength": 0.8317,
-        "team_a_squad_strength": 18400000.0,
-        "team_b_squad_strength": 243585000.0,
+        "team_a_squad_strength": 95766667.0,
+        "team_b_squad_strength": 593250000.0,
+        "team_a_sqi": 109649583.0,
+        "team_b_sqi": 693880000.0,
+        "team_a_club_form": 0.076,
+        "team_b_club_form": 0.132,
+        "sqi_diff": -584230417.0,
+        "club_form_diff": -0.05600000000000001,
         "main_factors": [
           "Netherlands has strong historical attack (1.42x avg)",
-          "Netherlands squad value is 13.2x Tunisia"
+          "Netherlands squad quality is 6.3x Tunisia"
         ]
       }
     },
@@ -4276,7 +4620,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 1.0,
+        "player_kaggle_match_rate": 0.923,
         "warnings": []
       },
       "explanation": {
@@ -4284,8 +4628,14 @@
         "team_b_attack_strength": 1.0348,
         "team_a_defense_strength": 0.9569,
         "team_b_defense_strength": 0.9001,
-        "team_a_squad_strength": 77750000.0,
-        "team_b_squad_strength": 41975000.0,
+        "team_a_squad_strength": 153968750.0,
+        "team_b_squad_strength": 150400000.0,
+        "team_a_sqi": 181815833.0,
+        "team_b_sqi": 201520000.0,
+        "team_a_club_form": 0.127,
+        "team_b_club_form": 0.111,
+        "sqi_diff": -19704167.0,
+        "club_form_diff": 0.016,
         "main_factors": [
           "Baseline Poisson model with default strengths"
         ]
@@ -4348,7 +4698,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 1.0,
+        "player_kaggle_match_rate": 0.923,
         "warnings": []
       },
       "explanation": {
@@ -4356,11 +4706,17 @@
         "team_b_attack_strength": 1.3621,
         "team_a_defense_strength": 0.967,
         "team_b_defense_strength": 0.7236,
-        "team_a_squad_strength": 6000000.0,
-        "team_b_squad_strength": 14650000.0,
+        "team_a_squad_strength": 66245833.0,
+        "team_b_squad_strength": 22625000.0,
+        "team_a_sqi": 84091042.0,
+        "team_b_sqi": 29305000.0,
+        "team_a_club_form": 0.068,
+        "team_b_club_form": 0.047,
+        "sqi_diff": 54786042.0,
+        "club_form_diff": 0.021000000000000005,
         "main_factors": [
           "Australia has strong historical attack (1.36x avg)",
-          "Australia squad value is 2.4x Paraguay"
+          "Paraguay squad quality is 2.9x Australia"
         ]
       }
     },
@@ -4421,7 +4777,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 1.0,
+        "player_kaggle_match_rate": 0.846,
         "warnings": []
       },
       "explanation": {
@@ -4429,8 +4785,14 @@
         "team_b_attack_strength": 1.2463,
         "team_a_defense_strength": 1.1019,
         "team_b_defense_strength": 0.8778,
-        "team_a_squad_strength": 212400000.0,
-        "team_b_squad_strength": 222625000.0,
+        "team_a_squad_strength": 355300000.0,
+        "team_b_squad_strength": 636645455.0,
+        "team_a_sqi": 500435000.0,
+        "team_b_sqi": 764618636.0,
+        "team_a_club_form": 0.174,
+        "team_b_club_form": 0.144,
+        "sqi_diff": -264183636.0,
+        "club_form_diff": 0.03,
         "main_factors": [
           "France has strong historical attack (1.25x avg)"
         ]
@@ -4501,10 +4863,16 @@
         "team_b_attack_strength": 1.0403,
         "team_a_defense_strength": 0.6391,
         "team_b_defense_strength": 0.6339,
-        "team_a_squad_strength": 28050000.0,
-        "team_b_squad_strength": 8125000.0,
+        "team_a_squad_strength": 48050000.0,
+        "team_b_squad_strength": 8268000.0,
+        "team_a_sqi": 50310000.0,
+        "team_b_sqi": 10384400.0,
+        "team_a_club_form": 0.013,
+        "team_b_club_form": 0.049,
+        "sqi_diff": 39925600.0,
+        "club_form_diff": -0.036000000000000004,
         "main_factors": [
-          "Senegal squad value is 3.5x Iraq"
+          "Senegal squad quality is 4.8x Iraq"
         ]
       }
     },
@@ -4565,7 +4933,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.962,
+        "player_kaggle_match_rate": 0.769,
         "warnings": []
       },
       "explanation": {
@@ -4573,11 +4941,17 @@
         "team_b_attack_strength": 1.0417,
         "team_a_defense_strength": 0.7576,
         "team_b_defense_strength": 0.7115,
-        "team_a_squad_strength": 15675000.0,
-        "team_b_squad_strength": 5325000.0,
+        "team_a_squad_strength": 53014000.0,
+        "team_b_squad_strength": 5850000.0,
+        "team_a_sqi": 76393200.0,
+        "team_b_sqi": 6093750.0,
+        "team_a_club_form": 0.124,
+        "team_b_club_form": 0.044,
+        "sqi_diff": 70299450.0,
+        "club_form_diff": 0.08,
         "main_factors": [
           "Cabo Verde has weak historical attack (0.74x avg)",
-          "Cabo Verde squad value is 2.9x Saudi Arabia"
+          "Cabo Verde squad quality is 12.5x Saudi Arabia"
         ]
       }
     },
@@ -4646,11 +5020,17 @@
         "team_b_attack_strength": 1.3869,
         "team_a_defense_strength": 0.8245,
         "team_b_defense_strength": 0.6086,
-        "team_a_squad_strength": 20550000.0,
-        "team_b_squad_strength": 241850000.0,
+        "team_a_squad_strength": 94875000.0,
+        "team_b_squad_strength": 581885000.0,
+        "team_a_sqi": 114205000.0,
+        "team_b_sqi": 718777500.0,
+        "team_a_club_form": 0.075,
+        "team_b_club_form": 0.139,
+        "sqi_diff": -604572500.0,
+        "club_form_diff": -0.06400000000000002,
         "main_factors": [
           "Spain has strong historical attack (1.39x avg)",
-          "Spain squad value is 11.8x Uruguay"
+          "Spain squad quality is 6.3x Uruguay"
         ]
       }
     },
@@ -4711,7 +5091,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.769,
+        "player_kaggle_match_rate": 0.731,
         "warnings": []
       },
       "explanation": {
@@ -4719,11 +5099,17 @@
         "team_b_attack_strength": 1.2801,
         "team_a_defense_strength": 0.6876,
         "team_b_defense_strength": 0.5366,
-        "team_a_squad_strength": 45400000.0,
-        "team_b_squad_strength": 7600000.0,
+        "team_a_squad_strength": 143265909.0,
+        "team_b_squad_strength": 28223684.0,
+        "team_a_sqi": 206150455.0,
+        "team_b_sqi": 34340526.0,
+        "team_a_club_form": 0.349,
+        "team_b_club_form": 0.174,
+        "sqi_diff": 171809929.0,
+        "club_form_diff": 0.175,
         "main_factors": [
           "IR Iran has strong historical attack (1.28x avg)",
-          "Egypt squad value is 6.0x IR Iran"
+          "Egypt squad quality is 6.0x IR Iran"
         ]
       }
     },
@@ -4792,11 +5178,17 @@
         "team_b_attack_strength": 1.2329,
         "team_a_defense_strength": 1.0166,
         "team_b_defense_strength": 1.0262,
-        "team_a_squad_strength": 17775000.0,
-        "team_b_squad_strength": 54825000.0,
+        "team_a_squad_strength": 12425000.0,
+        "team_b_squad_strength": 373575000.0,
+        "team_a_sqi": 13830000.0,
+        "team_b_sqi": 460295000.0,
+        "team_a_club_form": 0.206,
+        "team_b_club_form": 0.098,
+        "sqi_diff": -446465000.0,
+        "club_form_diff": 0.10799999999999998,
         "main_factors": [
           "Belgium has strong historical attack (1.23x avg)",
-          "Belgium squad value is 3.1x New Zealand"
+          "Belgium squad quality is 33.3x New Zealand"
         ]
       }
     },
@@ -4857,7 +5249,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.962,
+        "player_kaggle_match_rate": 0.923,
         "warnings": []
       },
       "explanation": {
@@ -4865,11 +5257,17 @@
         "team_b_attack_strength": 1.4848,
         "team_a_defense_strength": 1.0332,
         "team_b_defense_strength": 0.6493,
-        "team_a_squad_strength": 15625000.0,
-        "team_b_squad_strength": 278610000.0,
+        "team_a_squad_strength": 7664583.0,
+        "team_b_squad_strength": 801975000.0,
+        "team_a_sqi": 7843333.0,
+        "team_b_sqi": 1001420000.0,
+        "team_a_club_form": 0.088,
+        "team_b_club_form": 0.118,
+        "sqi_diff": -993576667.0,
+        "club_form_diff": -0.03,
         "main_factors": [
           "England has strong historical attack (1.48x avg)",
-          "England squad value is 17.8x Panama"
+          "England squad quality is 127.7x Panama"
         ]
       }
     },
@@ -4930,7 +5328,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.962,
+        "player_kaggle_match_rate": 1.0,
         "warnings": []
       },
       "explanation": {
@@ -4938,8 +5336,14 @@
         "team_b_attack_strength": 1.0631,
         "team_a_defense_strength": 0.689,
         "team_b_defense_strength": 0.7067,
-        "team_a_squad_strength": 94470000.0,
-        "team_b_squad_strength": 51700000.0,
+        "team_a_squad_strength": 310900000.0,
+        "team_b_squad_strength": 129225000.0,
+        "team_a_sqi": 336075000.0,
+        "team_b_sqi": 168195000.0,
+        "team_a_club_form": 0.127,
+        "team_b_club_form": 0.148,
+        "sqi_diff": 167880000.0,
+        "club_form_diff": -0.02099999999999999,
         "main_factors": [
           "Baseline Poisson model with default strengths"
         ]
@@ -5010,10 +5414,16 @@
         "team_b_attack_strength": 1.1971,
         "team_a_defense_strength": 0.7824,
         "team_b_defense_strength": 0.7594,
-        "team_a_squad_strength": 28225000.0,
-        "team_b_squad_strength": 35550000.0,
+        "team_a_squad_strength": 20350000.0,
+        "team_b_squad_strength": 218050000.0,
+        "team_a_sqi": 24000000.0,
+        "team_b_sqi": 263565000.0,
+        "team_a_club_form": 0.186,
+        "team_b_club_form": 0.134,
+        "sqi_diff": -239565000.0,
+        "club_form_diff": 0.05199999999999999,
         "main_factors": [
-          "Baseline Poisson model with default strengths"
+          "Portugal squad quality is 11.0x Colombia"
         ]
       }
     },
@@ -5074,7 +5484,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 0.808,
+        "player_kaggle_match_rate": 0.923,
         "warnings": []
       },
       "explanation": {
@@ -5082,10 +5492,16 @@
         "team_b_attack_strength": 1.1703,
         "team_a_defense_strength": 0.8109,
         "team_b_defense_strength": 0.7567,
-        "team_a_squad_strength": 46810000.0,
-        "team_b_squad_strength": 53625000.0,
+        "team_a_squad_strength": 116506000.0,
+        "team_b_squad_strength": 57904167.0,
+        "team_a_sqi": 145113800.0,
+        "team_b_sqi": 63291042.0,
+        "team_a_club_form": 0.068,
+        "team_b_club_form": 0.193,
+        "sqi_diff": 81822758.0,
+        "club_form_diff": -0.125,
         "main_factors": [
-          "Baseline Poisson model with default strengths"
+          "Congo DR squad quality is 2.3x Uzbekistan"
         ]
       }
     },
@@ -5154,11 +5570,16 @@
         "team_b_attack_strength": 1.2174,
         "team_a_defense_strength": 0.6761,
         "team_b_defense_strength": 1.0376,
-        "team_a_squad_strength": 21600000.0,
-        "team_b_squad_strength": 91625000.0,
+        "team_a_squad_strength": 158545833.0,
+        "team_b_squad_strength": 187425000.0,
+        "team_a_sqi": 210513333.0,
+        "team_b_sqi": 213755000.0,
+        "team_a_club_form": 0.124,
+        "team_b_club_form": 0.057,
+        "sqi_diff": -3241667.0,
+        "club_form_diff": 0.067,
         "main_factors": [
-          "Austria has strong historical attack (1.22x avg)",
-          "Austria squad value is 4.2x Algeria"
+          "Austria has strong historical attack (1.22x avg)"
         ]
       }
     },
@@ -5219,7 +5640,7 @@
       ],
       "data_quality": {
         "squad_match_status": "ok",
-        "player_kaggle_match_rate": 1.0,
+        "player_kaggle_match_rate": 0.615,
         "warnings": []
       },
       "explanation": {
@@ -5227,11 +5648,17 @@
         "team_b_attack_strength": 1.2892,
         "team_a_defense_strength": 0.7585,
         "team_b_defense_strength": 0.6824,
-        "team_a_squad_strength": 8110000.0,
-        "team_b_squad_strength": 32525000.0,
+        "team_a_squad_strength": 731250.0,
+        "team_b_squad_strength": 229475000.0,
+        "team_a_sqi": 788125.0,
+        "team_b_sqi": 318505000.0,
+        "team_a_club_form": 0.0,
+        "team_b_club_form": 0.153,
+        "sqi_diff": -317716875.0,
+        "club_form_diff": -0.153,
         "main_factors": [
           "Argentina has strong historical attack (1.29x avg)",
-          "Argentina squad value is 4.0x Jordan"
+          "Argentina squad quality is 404.1x Jordan"
         ]
       }
     }
