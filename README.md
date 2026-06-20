@@ -129,5 +129,5 @@ It does not know current injuries, confirmed starting lineups, tactical plans, w
 - Debug information hidden behind sidebar checkbox
 - Data credits in sidebar + footer
 
-The dashboard uses the friendly, readable **Fredoka** font (loaded from Google Fonts) for a modern didactic feel. Code/JSON blocks remain in monospace.
+The dashboard uses the professional, analytical **Barlow** font (loaded from Google Fonts). Code/JSON blocks remain in monospace.
 

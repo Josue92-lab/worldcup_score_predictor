@@ -411,7 +411,7 @@ It does not know current injuries, confirmed starting lineups, tactical plans, w
 
 
 def inject_custom_css() -> None:
-    """Inject custom CSS using Fredoka (Google Fonts) selectively for a friendly didactic feel.
+    """Inject custom CSS using Barlow (Google Fonts) for a professional, analytical dashboard feel.
     Icons (Material Symbols etc.) are protected so they do not render as text labels.
     Typography hierarchy is normalized for readability.
     Monospace for code/JSON. Dataframe internals left mostly default.
@@ -419,7 +419,7 @@ def inject_custom_css() -> None:
     st.markdown(
         """
         <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap');
 
         /* Base font for app container (avoid blanket application to icons/spans) */
         html, body,
@@ -427,14 +427,14 @@ def inject_custom_css() -> None:
         [data-testid="stSidebar"],
         [data-testid="stHeader"],
         [data-testid="stToolbar"] {
-            font-family: 'Fredoka', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Barlow', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             font-size: 16px;
         }
 
-        /* Headings use Fredoka with controlled weights */
+        /* Headings use Barlow with controlled weights */
         h1, h2, h3, h4, h5, h6,
         .stTitle, .stHeader {
-            font-family: 'Fredoka', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+            font-family: 'Barlow', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
             font-weight: 600 !important;
             letter-spacing: 0.005em;
         }
@@ -447,7 +447,7 @@ def inject_custom_css() -> None:
         .stMarkdown,
         .stMarkdown p,
         .stMarkdown li {
-            font-family: 'Fredoka', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Barlow', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             font-weight: 400;
             line-height: 1.55;
         }
@@ -457,7 +457,7 @@ def inject_custom_css() -> None:
         [data-testid="stSidebar"] p,
         [data-testid="stSidebar"] li,
         [data-testid="stSidebar"] label {
-            font-family: 'Fredoka', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Barlow', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
 
         /* Controls: buttons, selects, tabs, metrics, expanders (labels only where needed) */
@@ -469,13 +469,13 @@ def inject_custom_css() -> None:
         .stTabs [role="tab"],
         .stMetric label,
         [data-testid="stExpander"] summary {
-            font-family: 'Fredoka', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+            font-family: 'Barlow', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
             font-weight: 500;
         }
 
         /* Metric values keep a clean look (size already controlled) */
         div[data-testid="stMetricValue"] {
-            font-family: 'Fredoka', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Barlow', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
 
         /* Protect icon fonts (Material Symbols / icons used by Streamlit) */
@@ -504,7 +504,7 @@ def inject_custom_css() -> None:
             font-family: 'Source Code Pro', Consolas, Monaco, 'Courier New', monospace !important;
         }
 
-        /* DataFrame: keep size but do not force Fredoka on table cells for readability */
+        /* DataFrame: keep size but do not force Barlow on table cells for readability */
         .stDataFrame {
             font-size: 0.85rem !important;
         }
@@ -548,7 +548,7 @@ def inject_custom_css() -> None:
 def main():
     st.set_page_config(page_title="World Cup Score Predictor", layout="wide")
 
-    # Inject Fredoka font globally (styling only)
+    # Inject Barlow font (styling only)
     inject_custom_css()
 
     st.title("🏆 World Cup Score Predictor")
