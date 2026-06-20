@@ -1,5 +1,5 @@
 {
-  "as_of_date": "2026-06-20",
+  "as_of_date": "2026-06-25",
   "global_calibration_factor": 1.153,
   "raw_calibration_factor": 1.153,
   "average_actual_total_goals": 3.0,
@@ -11,7 +11,7 @@
       "matches_evaluated": 2,
       "top1_exact_hit_rate": 0.0,
       "top5_exact_hit_rate": 1.0,
-      "1X2_hit_rate": 0.0,
+      "1X2_hit_rate": 1.0,
       "average_actual_total_goals": 2.5,
       "average_predicted_total_goals": 2.222,
       "goal_gap": 0.279
@@ -21,7 +21,7 @@
       "matches_evaluated": 4,
       "top1_exact_hit_rate": 0.25,
       "top5_exact_hit_rate": 0.75,
-      "1X2_hit_rate": 0.25,
+      "1X2_hit_rate": 0.75,
       "average_actual_total_goals": 3.0,
       "average_predicted_total_goals": 2.374,
       "goal_gap": 0.626
@@ -31,7 +31,7 @@
       "matches_evaluated": 8,
       "top1_exact_hit_rate": 0.375,
       "top5_exact_hit_rate": 0.875,
-      "1X2_hit_rate": 0.375,
+      "1X2_hit_rate": 0.625,
       "average_actual_total_goals": 2.375,
       "average_predicted_total_goals": 2.534,
       "goal_gap": -0.159
@@ -41,7 +41,7 @@
       "matches_evaluated": 12,
       "top1_exact_hit_rate": 0.25,
       "top5_exact_hit_rate": 0.75,
-      "1X2_hit_rate": 0.4167,
+      "1X2_hit_rate": 0.6667,
       "average_actual_total_goals": 3.167,
       "average_predicted_total_goals": 2.693,
       "goal_gap": 0.474
@@ -61,7 +61,7 @@
       "matches_evaluated": 20,
       "top1_exact_hit_rate": 0.25,
       "top5_exact_hit_rate": 0.6,
-      "1X2_hit_rate": 0.4,
+      "1X2_hit_rate": 0.5,
       "average_actual_total_goals": 3.1,
       "average_predicted_total_goals": 2.641,
       "goal_gap": 0.459
@@ -71,7 +71,7 @@
       "matches_evaluated": 24,
       "top1_exact_hit_rate": 0.25,
       "top5_exact_hit_rate": 0.5833,
-      "1X2_hit_rate": 0.375,
+      "1X2_hit_rate": 0.5,
       "average_actual_total_goals": 3.125,
       "average_predicted_total_goals": 2.62,
       "goal_gap": 0.505
@@ -81,7 +81,7 @@
       "matches_evaluated": 28,
       "top1_exact_hit_rate": 0.25,
       "top5_exact_hit_rate": 0.5714,
-      "1X2_hit_rate": 0.3571,
+      "1X2_hit_rate": 0.4286,
       "average_actual_total_goals": 3.179,
       "average_predicted_total_goals": 2.592,
       "goal_gap": 0.587
@@ -91,7 +91,7 @@
       "matches_evaluated": 32,
       "top1_exact_hit_rate": 0.2188,
       "top5_exact_hit_rate": 0.5312,
-      "1X2_hit_rate": 0.3125,
+      "1X2_hit_rate": 0.4375,
       "average_actual_total_goals": 3.0,
       "average_predicted_total_goals": 2.601,
       "goal_gap": 0.399

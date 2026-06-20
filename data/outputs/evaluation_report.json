@@ -7,8 +7,8 @@
   "exact_score_top1_rate": 0.2188,
   "exact_score_top5_hits": 17,
   "exact_score_top5_rate": 0.5312,
-  "outcome_1x2_hits": 10,
-  "outcome_1x2_rate": 0.3125,
+  "outcome_1x2_hits": 14,
+  "outcome_1x2_rate": 0.4375,
   "diagnostics": {
     "top1_scoreline_distribution": {
       "1-1": 65,
@@ -44,7 +44,7 @@
       ],
       "top1_correct": false,
       "top5_correct": true,
-      "outcome_1x2_correct": false
+      "outcome_1x2_correct": true
     },
     {
       "match_id": "GS_002",
@@ -62,7 +62,7 @@
       ],
       "top1_correct": false,
       "top5_correct": true,
-      "outcome_1x2_correct": false
+      "outcome_1x2_correct": true
     },
     {
       "match_id": "GS_003",
@@ -80,7 +80,7 @@
       ],
       "top1_correct": true,
       "top5_correct": true,
-      "outcome_1x2_correct": true
+      "outcome_1x2_correct": false
     },
     {
       "match_id": "GS_004",
@@ -98,7 +98,7 @@
       ],
       "top1_correct": false,
       "top5_correct": false,
-      "outcome_1x2_correct": false
+      "outcome_1x2_correct": true
     },
     {
       "match_id": "GS_008",
@@ -116,7 +116,7 @@
       ],
       "top1_correct": true,
       "top5_correct": true,
-      "outcome_1x2_correct": true
+      "outcome_1x2_correct": false
     },
     {
       "match_id": "GS_007",
@@ -134,7 +134,7 @@
       ],
       "top1_correct": true,
       "top5_correct": true,
-      "outcome_1x2_correct": true
+      "outcome_1x2_correct": false
     },
     {
       "match_id": "GS_005",
@@ -152,7 +152,7 @@
       ],
       "top1_correct": false,
       "top5_correct": true,
-      "outcome_1x2_correct": false
+      "outcome_1x2_correct": true
     },
     {
       "match_id": "GS_006",
@@ -170,7 +170,7 @@
       ],
       "top1_correct": false,
       "top5_correct": true,
-      "outcome_1x2_correct": false
+      "outcome_1x2_correct": true
     },
     {
       "match_id": "GS_010",
@@ -206,7 +206,7 @@
       ],
       "top1_correct": false,
       "top5_correct": true,
-      "outcome_1x2_correct": true
+      "outcome_1x2_correct": false
     },
     {
       "match_id": "GS_009",
@@ -224,7 +224,7 @@
       ],
       "top1_correct": false,
       "top5_correct": true,
-      "outcome_1x2_correct": false
+      "outcome_1x2_correct": true
     },
     {
       "match_id": "GS_012",
@@ -242,7 +242,7 @@
       ],
       "top1_correct": false,
       "top5_correct": false,
-      "outcome_1x2_correct": false
+      "outcome_1x2_correct": true
     },
     {
       "match_id": "GS_014",
@@ -278,7 +278,7 @@
       ],
       "top1_correct": true,
       "top5_correct": true,
-      "outcome_1x2_correct": true
+      "outcome_1x2_correct": false
     },
     {
       "match_id": "GS_013",
@@ -296,7 +296,7 @@
       ],
       "top1_correct": true,
       "top5_correct": true,
-      "outcome_1x2_correct": true
+      "outcome_1x2_correct": false
     },
     {
       "match_id": "GS_015",
@@ -314,7 +314,7 @@
       ],
       "top1_correct": false,
       "top5_correct": false,
-      "outcome_1x2_correct": true
+      "outcome_1x2_correct": false
     },
     {
       "match_id": "GS_017",
@@ -368,7 +368,7 @@
       ],
       "top1_correct": false,
       "top5_correct": false,
-      "outcome_1x2_correct": false
+      "outcome_1x2_correct": true
     },
     {
       "match_id": "GS_020",
@@ -386,7 +386,7 @@
       ],
       "top1_correct": false,
       "top5_correct": false,
-      "outcome_1x2_correct": false
+      "outcome_1x2_correct": true
     },
     {
       "match_id": "GS_023",
@@ -404,7 +404,7 @@
       ],
       "top1_correct": true,
       "top5_correct": true,
-      "outcome_1x2_correct": true
+      "outcome_1x2_correct": false
     },
     {
       "match_id": "GS_022",
@@ -422,7 +422,7 @@
       ],
       "top1_correct": false,
       "top5_correct": false,
-      "outcome_1x2_correct": false
+      "outcome_1x2_correct": true
     },
     {
       "match_id": "GS_021",
@@ -440,7 +440,7 @@
       ],
       "top1_correct": false,
       "top5_correct": true,
-      "outcome_1x2_correct": false
+      "outcome_1x2_correct": true
     },
     {
       "match_id": "GS_024",
@@ -476,7 +476,7 @@
       ],
       "top1_correct": true,
       "top5_correct": true,
-      "outcome_1x2_correct": true
+      "outcome_1x2_correct": false
     },
     {
       "match_id": "GS_026",
@@ -566,7 +566,7 @@
       ],
       "top1_correct": false,
       "top5_correct": true,
-      "outcome_1x2_correct": false
+      "outcome_1x2_correct": true
     },
     {
       "match_id": "GS_029",
@@ -584,7 +584,7 @@
       ],
       "top1_correct": false,
       "top5_correct": false,
-      "outcome_1x2_correct": false
+      "outcome_1x2_correct": true
     },
     {
       "match_id": "GS_031",

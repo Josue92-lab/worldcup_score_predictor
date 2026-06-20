@@ -121,18 +121,25 @@ def evaluate_predictions(as_of_date=None):
                 
             top5 = [s["scoreline"] for s in p["top_5_scorelines"]]
             
-            # Derive pred_outcome from predicted_top1 exact score
-            if top5:
-                pred_score_a = int(top5[0].split('-')[0])
-                pred_score_b = int(top5[0].split('-')[1])
-                if pred_score_a > pred_score_b:
-                    pred_outcome = "1"
-                elif pred_score_a == pred_score_b:
+            win_a = float(p.get("team_a_win_probability", 0.0))
+            draw = float(p.get("draw_probability", 0.0))
+            win_b = float(p.get("team_b_win_probability", 0.0))
+            
+            if win_a > draw and win_a > win_b:
+                pred_outcome = "1"
+            elif draw > win_a and draw > win_b:
+                pred_outcome = "X"
+            elif win_b > win_a and win_b > draw:
+                pred_outcome = "2"
+            else:
+                # Tie-breaker logic (rare but possible)
+                if win_a == draw and win_a > win_b:
+                    pred_outcome = "X" # Favor draw on exact tie
+                elif win_b == draw and win_b > win_a:
                     pred_outcome = "X"
                 else:
-                    pred_outcome = "2"
-            else:
-                pred_outcome = "X"
+                    pred_outcome = "X" # Exact 3-way tie or win_a == win_b
+
             
             is_top1 = actual_scoreline == top5[0] if top5 else False
             is_top5 = actual_scoreline in top5

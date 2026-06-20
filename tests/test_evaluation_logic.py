@@ -26,25 +26,37 @@ def test_evaluation_1x2_logic():
         mock_predictions = {
             "predictions": [
                 {
+                    # Brazil vs Haiti
                     "match_id": "M1",
                     "date": "2026-06-11",
-                    "team_a": "Team A",
-                    "team_b": "Team B",
-                    "top_5_scorelines": [{"scoreline": "1-1"}]
+                    "team_a": "Brazil",
+                    "team_b": "Haiti",
+                    "team_a_win_probability": 0.618,
+                    "draw_probability": 0.213,
+                    "team_b_win_probability": 0.169,
+                    "top_5_scorelines": [{"scoreline": "2-0"}, {"scoreline": "1-0"}, {"scoreline": "2-1"}, {"scoreline": "1-1"}, {"scoreline": "3-1"}]
                 },
                 {
+                    # Draw vs Draw
                     "match_id": "M2",
                     "date": "2026-06-12",
                     "team_a": "Team C",
                     "team_b": "Team D",
-                    "top_5_scorelines": [{"scoreline": "2-0"}]
+                    "team_a_win_probability": 0.300,
+                    "draw_probability": 0.400,
+                    "team_b_win_probability": 0.300,
+                    "top_5_scorelines": [{"scoreline": "1-1"}]
                 },
                 {
+                    # Team B vs Team A Actual
                     "match_id": "M3",
                     "date": "2026-06-13",
                     "team_a": "Team E",
                     "team_b": "Team F",
-                    "top_5_scorelines": [{"scoreline": "1-0"}]
+                    "team_a_win_probability": 0.200,
+                    "draw_probability": 0.300,
+                    "team_b_win_probability": 0.500,
+                    "top_5_scorelines": [{"scoreline": "0-1"}]
                 }
             ]
         }
@@ -56,17 +68,17 @@ def test_evaluation_1x2_logic():
         mock_actuals = pd.DataFrame([
             {
                 "date": "2026-06-11",
-                "home_team": "Team A",
-                "away_team": "Team B",
-                "home_score": 1,
-                "away_score": 1,
+                "home_team": "Brazil",
+                "away_team": "Haiti",
+                "home_score": 3,
+                "away_score": 0,
                 "tournament": "World Cup"
             },
             {
                 "date": "2026-06-12",
                 "home_team": "Team C",
                 "away_team": "Team D",
-                "home_score": 1,
+                "home_score": 0,
                 "away_score": 0,
                 "tournament": "World Cup"
             },
@@ -74,8 +86,8 @@ def test_evaluation_1x2_logic():
                 "date": "2026-06-13",
                 "home_team": "Team E",
                 "away_team": "Team F",
-                "home_score": 0,
-                "away_score": 1,
+                "home_score": 2,
+                "away_score": 0,
                 "tournament": "World Cup"
             }
         ])
@@ -96,14 +108,16 @@ def test_evaluation_1x2_logic():
             matches = report["evaluated_matches"]
             assert len(matches) == 3
             
-            # M1: Pred 1-1, Act 1-1 => Draw, Draw => True
+            # M1: Brazil vs Haiti (Pred 1 Win, Act 3-0 Win) => True
             m1 = next(m for m in matches if m["match_id"] == "M1")
             assert m1["outcome_1x2_correct"] is True
+            assert m1["top1_correct"] is False
+            assert m1["top5_correct"] is False
             
-            # M2: Pred 2-0, Act 1-0 => Home Win, Home Win => True
+            # M2: Draw vs Draw => True
             m2 = next(m for m in matches if m["match_id"] == "M2")
             assert m2["outcome_1x2_correct"] is True
             
-            # M3: Pred 1-0, Act 0-1 => Home Win, Away Win => False
+            # M3: Pred B Win, Act A Win => False
             m3 = next(m for m in matches if m["match_id"] == "M3")
             assert m3["outcome_1x2_correct"] is False

@@ -98,12 +98,23 @@ def calculate_calibration_factor(as_of_date=None):
             actual_outcome = "1" if actual_score_a > actual_score_b else "X" if actual_score_a == actual_score_b else "2"
             
             top5 = [s["scoreline"] for s in p["top_5_scorelines"]]
-            if top5:
-                pred_score_a = int(top5[0].split('-')[0])
-                pred_score_b = int(top5[0].split('-')[1])
-                pred_outcome = "1" if pred_score_a > pred_score_b else "X" if pred_score_a == pred_score_b else "2"
-            else:
+            win_a = float(p.get("team_a_win_probability", 0.0))
+            draw = float(p.get("draw_probability", 0.0))
+            win_b = float(p.get("team_b_win_probability", 0.0))
+            
+            if win_a > draw and win_a > win_b:
+                pred_outcome = "1"
+            elif draw > win_a and draw > win_b:
                 pred_outcome = "X"
+            elif win_b > win_a and win_b > draw:
+                pred_outcome = "2"
+            else:
+                if win_a == draw and win_a > win_b:
+                    pred_outcome = "X"
+                elif win_b == draw and win_b > win_a:
+                    pred_outcome = "X"
+                else:
+                    pred_outcome = "X"
                 
             is_top1 = actual_scoreline == top5[0] if top5 else False
             is_top5 = actual_scoreline in top5
