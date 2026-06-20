@@ -41,13 +41,14 @@ def predict_scorelines(mode="live", as_of_date=None, train_cutoff=None):
     config = load_model_config()
     max_goals = config.get("model", {}).get("max_goals", 7)
 
-    calibration_info = {"factor": 1.0, "reason": "Not live mode"}
+    calibration_info = {"factor": 1.0, "factor_fav": 1.0, "factor_und": 1.0, "reason": "Not live mode"}
     if mode == "live":
         calibration_info = calculate_calibration_factor(as_of_date)
     
-    calib_factor = calibration_info.get("factor", 1.0)
-    if calib_factor != 1.0:
-        print(f"[predict] Applied live calibration factor: {calib_factor:.3f} ({calibration_info.get('reason')})")
+    calib_factor_fav = calibration_info.get("factor_fav", 1.0)
+    calib_factor_und = calibration_info.get("factor_und", 1.0)
+    if calib_factor_fav != 1.0 or calib_factor_und != 1.0:
+        print(f"[predict] Applied live calibration - Fav: {calib_factor_fav:.3f}, Und: {calib_factor_und:.3f} ({calibration_info.get('reason')})")
 
     # ── Load historical results and fit the Poisson model ────────────────
     hist_path = PROCESSED_DIR / "historical_features.csv"
@@ -99,8 +100,12 @@ def predict_scorelines(mode="live", as_of_date=None, train_cutoff=None):
 
         xg_a, xg_b = predict_xg(team_a, team_b, model)
         
-        xg_a = xg_a * calib_factor
-        xg_b = xg_b * calib_factor
+        if xg_a >= xg_b:
+            xg_a = xg_a * calib_factor_fav
+            xg_b = xg_b * calib_factor_und
+        else:
+            xg_b = xg_b * calib_factor_fav
+            xg_a = xg_a * calib_factor_und
         
         probs = calculate_match_probabilities(xg_a, xg_b, max_goals)
 
@@ -171,6 +176,12 @@ def predict_scorelines(mode="live", as_of_date=None, train_cutoff=None):
                 "team_b_defense_strength": round(model["defense"].get(team_b, 1.0), 4),
                 "team_a_squad_strength": round(sq_a.get("squad_total_market_value", 0.0), 0),
                 "team_b_squad_strength": round(sq_b.get("squad_total_market_value", 0.0), 0),
+                "team_a_sqi": sq_a.get("squad_quality_index", 0),
+                "team_b_sqi": sq_b.get("squad_quality_index", 0),
+                "team_a_club_form": sq_a.get("recent_club_goals_per_app", 0),
+                "team_b_club_form": sq_b.get("recent_club_goals_per_app", 0),
+                "sqi_diff": sq_a.get("squad_quality_index", 0) - sq_b.get("squad_quality_index", 0),
+                "club_form_diff": sq_a.get("recent_club_goals_per_app", 0) - sq_b.get("recent_club_goals_per_app", 0),
                 "main_factors": _build_explanation_factors(team_a, team_b, model, sq_a, sq_b),
             },
         }
@@ -195,8 +206,9 @@ def predict_scorelines(mode="live", as_of_date=None, train_cutoff=None):
             "mode": mode,
             "as_of_date": as_of_date,
             "train_cutoff": train_cutoff,
-            "calibration_factor": calib_factor,
-            "calibrated": bool(calib_factor != 1.0),
+            "calibration_factor_fav": calib_factor_fav,
+            "calibration_factor_und": calib_factor_und,
+            "calibrated": bool(calib_factor_fav != 1.0 or calib_factor_und != 1.0),
             "calibration_reason": calibration_info.get("reason", "")
         },
         "predictions": predictions_json
@@ -263,14 +275,14 @@ def _build_explanation_factors(team_a, team_b, model, sq_a, sq_b) -> list:
     else:
         factors.append(f"{team_b}: no historical data – using baseline")
 
-    mv_a = sq_a.get("squad_total_market_value", 0)
-    mv_b = sq_b.get("squad_total_market_value", 0)
+    mv_a = sq_a.get("squad_quality_index", sq_a.get("squad_total_market_value", 0))
+    mv_b = sq_b.get("squad_quality_index", sq_b.get("squad_total_market_value", 0))
     if mv_a > 0 and mv_b > 0:
         ratio = mv_a / mv_b if mv_b > 0 else 0
         if ratio > 2:
-            factors.append(f"{team_a} squad value is {ratio:.1f}x {team_b}")
+            factors.append(f"{team_a} squad quality is {ratio:.1f}x {team_b}")
         elif ratio < 0.5:
-            factors.append(f"{team_b} squad value is {1/ratio:.1f}x {team_a}")
+            factors.append(f"{team_b} squad quality is {1/ratio:.1f}x {team_a}")
 
     if not factors:
         factors.append("Baseline Poisson model with default strengths")

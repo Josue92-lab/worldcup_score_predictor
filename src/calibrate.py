@@ -25,24 +25,25 @@ def calculate_calibration_factor(as_of_date=None):
     """
     config = load_model_config().get("live_goal_calibration", {})
     if not config.get("enabled", False):
-        return {"factor": 1.0, "reason": "Disabled in config", "actual_goals_avg": 0.0, "predicted_goals_avg": 0.0}
+        return {"factor": 1.0, "factor_fav": 1.0, "factor_und": 1.0, "reason": "Disabled in config"}
     
     max_factor = config.get("max_factor", 1.25)
     min_matches = config.get("min_matches_required", 12)
+    rolling_window = config.get("rolling_window", 15)
     
     backtest_path = OUTPUTS_DIR / "backtest_report.json"
     if not backtest_path.exists():
-        return {"factor": 1.0, "reason": "No backtest_report.json", "actual_goals_avg": 0.0, "predicted_goals_avg": 0.0}
+        return {"factor": 1.0, "factor_fav": 1.0, "factor_und": 1.0, "reason": "No backtest_report.json"}
     
     with open(backtest_path, "r", encoding="utf-8") as f:
         data = json.load(f)
     predictions = data.get("predictions", [])
     if not predictions:
-        return {"factor": 1.0, "reason": "No predictions in backtest", "actual_goals_avg": 0.0, "predicted_goals_avg": 0.0}
+        return {"factor": 1.0, "factor_fav": 1.0, "factor_und": 1.0, "reason": "No predictions in backtest"}
         
     results_path = RAW_DIR / "international_results" / "results.csv"
     if not results_path.exists():
-        return {"factor": 1.0, "reason": "No actual results.csv", "actual_goals_avg": 0.0, "predicted_goals_avg": 0.0}
+        return {"factor": 1.0, "factor_fav": 1.0, "factor_und": 1.0, "reason": "No actual results.csv"}
         
     actuals = pd.read_csv(results_path)
     actuals["date"] = pd.to_datetime(actuals["date"], errors="coerce")
@@ -58,8 +59,8 @@ def calculate_calibration_factor(as_of_date=None):
     if as_of_date:
         wc2026_actuals = wc2026_actuals[wc2026_actuals["date"] <= pd.to_datetime(as_of_date)]
         
-    if len(wc2026_actuals) < min_matches:
-        return {"factor": 1.0, "reason": f"Only {len(wc2026_actuals)} actual matches < {min_matches} required", "actual_goals_avg": 0.0, "predicted_goals_avg": 0.0}
+    if len(wc2026_actuals) == 0:
+        return {"factor": 1.0, "factor_fav": 1.0, "factor_und": 1.0, "reason": "No actual matches yet"}
         
     # Match backtest predictions to actuals
     matched_data = []
@@ -83,7 +84,9 @@ def calculate_calibration_factor(as_of_date=None):
                 continue
                 
             actual_goals = int(row["home_score"]) + int(row["away_score"])
-            pred_xg = float(p.get("expected_goals_team_a", 0.0)) + float(p.get("expected_goals_team_b", 0.0))
+            pred_xg_a = float(p.get("expected_goals_team_a", 0.0))
+            pred_xg_b = float(p.get("expected_goals_team_b", 0.0))
+            pred_xg = pred_xg_a + pred_xg_b
             
             # Hit metrics
             if row["home_team_norm"] == p_team_a:
@@ -93,7 +96,16 @@ def calculate_calibration_factor(as_of_date=None):
                 actual_score_a = int(row["away_score"])
                 actual_score_b = int(row["home_score"])
                 
+            actual_goals = actual_score_a + actual_score_b
             actual_scoreline = f"{actual_score_a}-{actual_score_b}"
+            
+            # Identify favorite vs underdog
+            if pred_xg_a >= pred_xg_b:
+                fav_xg, und_xg = pred_xg_a, pred_xg_b
+                fav_actual, und_actual = actual_score_a, actual_score_b
+            else:
+                fav_xg, und_xg = pred_xg_b, pred_xg_a
+                fav_actual, und_actual = actual_score_b, actual_score_a
             
             actual_outcome = "1" if actual_score_a > actual_score_b else "X" if actual_score_a == actual_score_b else "2"
             
@@ -124,60 +136,82 @@ def calculate_calibration_factor(as_of_date=None):
                 "date": str(p_date),
                 "actual_goals": actual_goals,
                 "predicted_goals": pred_xg,
+                "fav_actual": fav_actual,
+                "fav_xg": fav_xg,
+                "und_actual": und_actual,
+                "und_xg": und_xg,
                 "top1_exact": is_top1,
                 "top5_exact": is_top5,
                 "outcome_1x2": is_outcome
             })
             
     df = pd.DataFrame(matched_data)
-    if df.empty or len(df) < min_matches:
-        return {"factor": 1.0, "reason": f"Only {len(df)} matched rows < {min_matches}", "actual_goals_avg": 0.0, "predicted_goals_avg": 0.0}
+    if df.empty:
+        return {"factor": 1.0, "factor_fav": 1.0, "factor_und": 1.0, "reason": "No matched rows"}
         
     df["date"] = pd.to_datetime(df["date"])
+    df = df.sort_values("date")
     
-    # Global metrics
-    global_actual = df["actual_goals"].mean()
-    global_pred = df["predicted_goals"].mean()
+    # 1. Rolling Window
+    df_recent = df.tail(rolling_window)
     
-    if global_pred > 0 and global_actual > global_pred:
-        raw_factor = global_actual / global_pred
-        factor = min(raw_factor, max_factor)
+    global_actual = df_recent["actual_goals"].mean()
+    global_pred = df_recent["predicted_goals"].mean()
+    
+    fav_actual_sum = df_recent["fav_actual"].sum()
+    fav_xg_sum = df_recent["fav_xg"].sum()
+    und_actual_sum = df_recent["und_actual"].sum()
+    und_xg_sum = df_recent["und_xg"].sum()
+    
+    raw_factor_fav = (fav_actual_sum / fav_xg_sum) if fav_xg_sum > 0 else 1.0
+    raw_factor_und = (und_actual_sum / und_xg_sum) if und_xg_sum > 0 else 1.0
+    
+    # 3. Combinar Señales: Confianza basada en precisión 1X2
+    hit_rate = df_recent["outcome_1x2"].mean()
+    confidence_multiplier = 1.0 if hit_rate < 0.5 else 1.1
+
+    if len(df_recent) < min_matches:
+        # 4. Factor Suave Inicial
+        smoothing_weight = len(df_recent) / min_matches
+        factor_fav = 1.0 + ((raw_factor_fav * confidence_multiplier - 1.0) * smoothing_weight)
+        factor_und = 1.0 + ((raw_factor_und * confidence_multiplier - 1.0) * smoothing_weight)
+        factor_fav = min(max(factor_fav, 0.8), max_factor)
+        factor_und = min(max(factor_und, 0.8), max_factor)
+        factor_global = (factor_fav + factor_und) / 2.0
+        reason_msg = f"Smooth factor (only {len(df_recent)} matches)"
     else:
-        factor = 1.0
-        
-    # Rolling evaluation by date
+        factor_fav = min(max(raw_factor_fav * confidence_multiplier, 0.8), max_factor)
+        factor_und = min(max(raw_factor_und * confidence_multiplier, 0.8), max_factor)
+        factor_global = (factor_fav + factor_und) / 2.0
+        reason_msg = "Rolling Window Calibrated"
+
+    # Reporte de métricas usando df completo para historico
     rolling_report = []
-    df_sorted = df.sort_values("date")
-    dates = df_sorted["date"].unique()
+    dates = df["date"].unique()
     
     for d in dates:
         d_str = str(pd.to_datetime(d).date())
-        # Up to this date
-        sub_df = df_sorted[df_sorted["date"] <= d]
-        
-        matches_evaluated = len(sub_df)
-        avg_act = sub_df["actual_goals"].mean()
-        avg_pred = sub_df["predicted_goals"].mean()
-        goal_gap = avg_act - avg_pred
+        sub_df = df[df["date"] <= d]
         
         rolling_report.append({
             "date": d_str,
-            "matches_evaluated": matches_evaluated,
+            "matches_evaluated": len(sub_df),
             "top1_exact_hit_rate": round(sub_df["top1_exact"].mean(), 4),
             "top5_exact_hit_rate": round(sub_df["top5_exact"].mean(), 4),
             "1X2_hit_rate": round(sub_df["outcome_1x2"].mean(), 4),
-            "average_actual_total_goals": round(avg_act, 3),
-            "average_predicted_total_goals": round(avg_pred, 3),
-            "goal_gap": round(goal_gap, 3)
+            "average_actual_total_goals": round(sub_df["actual_goals"].mean(), 3),
+            "average_predicted_total_goals": round(sub_df["predicted_goals"].mean(), 3),
+            "goal_gap": round(sub_df["actual_goals"].mean() - sub_df["predicted_goals"].mean(), 3)
         })
         
     report_output = {
         "as_of_date": as_of_date,
-        "global_calibration_factor": round(factor, 3),
-        "raw_calibration_factor": round(global_actual / global_pred, 3) if global_pred > 0 else 1.0,
+        "global_calibration_factor": round(factor_global, 3),
+        "favorite_calibration_factor": round(factor_fav, 3),
+        "underdog_calibration_factor": round(factor_und, 3),
+        "matches_evaluated_in_window": len(df_recent),
         "average_actual_total_goals": round(global_actual, 3),
         "average_predicted_total_goals": round(global_pred, 3),
-        "matches_evaluated": len(df),
         "rolling_metrics": rolling_report
     }
     
@@ -186,10 +220,12 @@ def calculate_calibration_factor(as_of_date=None):
         json.dump(report_output, f, indent=2)
         
     return {
-        "factor": round(factor, 3),
+        "factor": round(factor_global, 3),
+        "factor_fav": round(factor_fav, 3),
+        "factor_und": round(factor_und, 3),
         "actual_goals_avg": round(global_actual, 3),
         "predicted_goals_avg": round(global_pred, 3),
-        "reason": "Calibrated"
+        "reason": reason_msg
     }
 
 if __name__ == "__main__":

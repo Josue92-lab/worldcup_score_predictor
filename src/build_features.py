@@ -269,6 +269,20 @@ def calculate_squad_features() -> pd.DataFrame:
             pos_grp = grp[grp["position"] == pos_code]["market_value_eur"].dropna()
             pos_values[f"{pos_label}_total_value"] = float(pos_grp.sum()) if not pos_grp.empty else 0.0
 
+        # Squad Quality Index (SQI) Ponderado
+        # Damos un peso de 1.5x a Delanteros (DC), 1.2x a Mediocampistas (MC)
+        def calc_sqi(row):
+            val = row.get("market_value_eur")
+            if pd.isna(val): return 0
+            pos = row.get("position")
+            if pos == "DC": return val * 1.5
+            if pos == "MC": return val * 1.2
+            return val * 1.0
+            
+        grp["weighted_value"] = grp.apply(calc_sqi, axis=1)
+        sorted_sqi = grp.sort_values("weighted_value", ascending=False)
+        sqi_index = float(sorted_sqi.head(14)["weighted_value"].mean()) if len(sorted_sqi) >= 14 else 0.0
+
         # Age
         ages = grp["age"].dropna() if "age" in grp.columns else pd.Series(dtype=float)
         avg_age = float(ages.mean()) if not ages.empty else np.nan
@@ -284,6 +298,10 @@ def calculate_squad_features() -> pd.DataFrame:
         recent_apps = grp["recent_appearances"].dropna()
         recent_goals_s = grp["recent_goals"].dropna()
         recent_assists_s = grp["recent_assists"].dropna()
+        
+        total_recent_apps = int(recent_apps.sum()) if not recent_apps.empty else 0
+        total_recent_goals = int(recent_goals_s.sum()) if not recent_goals_s.empty else 0
+        club_goals_per_app = round(total_recent_goals / total_recent_apps, 3) if total_recent_apps > 0 else 0.0
 
         feat = {
             "team": team,
@@ -301,9 +319,11 @@ def calculate_squad_features() -> pd.DataFrame:
             "forward_international_goals": fwd_goals,
             "goalkeeper_caps": gk_caps,
             "defensive_experience_caps": def_caps,
-            "recent_club_appearances_total": int(recent_apps.sum()) if not recent_apps.empty else 0,
-            "recent_club_goals_total": int(recent_goals_s.sum()) if not recent_goals_s.empty else 0,
+            "recent_club_appearances_total": total_recent_apps,
+            "recent_club_goals_total": total_recent_goals,
             "recent_club_assists_total": int(recent_assists_s.sum()) if not recent_assists_s.empty else 0,
+            "squad_quality_index": round(sqi_index, 0),
+            "recent_club_goals_per_app": club_goals_per_app,
             "data_quality_warnings": [],
         }
 
