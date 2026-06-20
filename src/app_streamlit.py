@@ -37,6 +37,39 @@ def normalize_prediction(row: dict) -> dict:
     normalized["away_win_probability"] = get_first(row, "away_win_probability", "team_b_win_probability")
     return normalized
 
+
+def get_aggregate_1x2_outcome(team_a_win: float, draw: float, team_b_win: float) -> str:
+    """Return 'team_a', 'draw' or 'team_b' from aggregate probabilities.
+    This must be used for 1X2 Hit (dashboard column), separate from any top-scoreline outcome.
+    1X2 correctness is independent of exact top-1 or Top-5.
+    """
+    wa = float(team_a_win or 0.0)
+    d = float(draw or 0.0)
+    wb = float(team_b_win or 0.0)
+    if wa > d and wa > wb:
+        return "team_a"
+    elif d > wa and d > wb:
+        return "draw"
+    elif wb > wa and wb > d:
+        return "team_b"
+    else:
+        if wa == d and wa > wb:
+            return "draw"
+        elif wb == d and wb > wa:
+            return "draw"
+        else:
+            return "draw"
+
+
+def get_actual_1x2_outcome(goals_a: int, goals_b: int) -> str:
+    if goals_a > goals_b:
+        return "team_a"
+    elif goals_a == goals_b:
+        return "draw"
+    else:
+        return "team_b"
+
+
 def load_evaluation_report():
     eval_path = OUTPUTS_DIR / "evaluation_report.json"
     if eval_path.exists():
@@ -123,10 +156,18 @@ def load_diagnostics_summary():
 
         top1_dist = diag["top1_distribution"]
         total_top1 = sum(top1_dist.values()) if top1_dist else 0
+        matches_eval = diag.get("matches_evaluated", 0) or 0
         one_one = top1_dist.get("1-1", 0) or 0
-        diag["one_one_count"] = one_one
-        if total_top1 > 0:
-            diag["one_one_pct"] = one_one / total_top1
+        # Prevent impossible: count cannot exceed evaluated matches (e.g. dist over full report vs matched)
+        if matches_eval > 0 and total_top1 > matches_eval:
+            # Inconsistent source data; fall back to safe
+            diag["top1_distribution"] = {}
+            diag["one_one_count"] = 0
+            diag["one_one_pct"] = None
+        else:
+            diag["one_one_count"] = one_one
+            if total_top1 > 0:
+                diag["one_one_pct"] = one_one / total_top1
 
     # Prefer calibration numbers if they are more recent / relevant
     if calib_report:
@@ -251,6 +292,11 @@ def get_1_1_concentration_note(diag: dict, predictions: list) -> str:
     one_one_pct = diag.get("one_one_pct")
     one_one_count = diag.get("one_one_count", 0)
     matches = diag.get("matches_evaluated", 0) or len(predictions) or 0
+
+    # Guard against any residual inconsistent count
+    if matches > 0 and one_one_count > matches:
+        one_one_count = 0
+        one_one_pct = None
 
     # Also compute from current predictions if eval dist looks inflated
     if not predictions:
@@ -423,7 +469,13 @@ It does not know current injuries, confirmed starting lineups, tactical plans, w
 
             # 6. Compact Model diagnostics panel (always safe)
             diag = load_diagnostics_summary()
-            with st.expander("📊 Model diagnostics (from latest evaluation/calibration)", expanded=True):
+            # Diagnostics are from evaluation_report which is generated exclusively from backtest runs.
+            # Label scope clearly, especially when viewing live report.
+            selected_mode = (metadata or {}).get("mode", "unknown")
+            base_title = "📊 Model diagnostics (from latest evaluation/calibration)"
+            if selected_mode == "live":
+                base_title += " — backtest evaluation (independent of selected live report)"
+            with st.expander(base_title, expanded=True):
                 c1, c2, c3, c4 = st.columns(4)
                 c1.metric("Matches evaluated", diag.get("matches_evaluated") or "Not available")
                 top1 = diag.get("top1_rate")
@@ -443,13 +495,20 @@ It does not know current injuries, confirmed starting lineups, tactical plans, w
 
                 # Most common top prediction + concentration
                 top1_dist = diag.get("top1_distribution") or {}
+                matches_eval = diag.get("matches_evaluated", 0) or 0
                 if top1_dist:
-                    most_common = max(top1_dist.items(), key=lambda kv: kv[1])[0]
-                    st.write(f"**Most common top-1 prediction**: {most_common} ({top1_dist.get(most_common, 0)}×)")
+                    most_common, count = max(top1_dist.items(), key=lambda kv: kv[1])
+                    if matches_eval > 0 and count > matches_eval:
+                        st.write("**Most common top-1 prediction**: Not available")
+                        st.caption("⚠️ Diagnostics data inconsistent (count exceeds evaluated matches); using latest evaluation only.")
+                    else:
+                        st.write(f"**Most common top-1 prediction**: {most_common} ({count}×)")
                 else:
                     st.write("**Most common top-1 prediction**: Not available")
 
                 st.caption("See warning below the filters for 1-1 concentration note when applicable.")
+                if selected_mode == "live":
+                    st.caption("Note: Hit rates / top-1 dist come from backtest evaluation for honesty; live report may have different current top predictions.")
 
             predictions = [normalize_prediction(p) for p in predictions]
             valid_predictions = [p for p in predictions if p.get("team_a") and p.get("team_b")]

@@ -11,9 +11,7 @@
   "outcome_1x2_rate": 0.4375,
   "diagnostics": {
     "top1_scoreline_distribution": {
-      "1-1": 65,
-      "0-0": 3,
-      "0-2": 2,
+      "1-1": 30,
       "2-1": 1,
       "1-0": 1
     },

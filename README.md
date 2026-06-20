@@ -48,7 +48,7 @@ The Streamlit app lets you load either `backtest_report.json` or `live_predictio
 - **Top Prediction** = single most probable exact final score (e.g. 1-1).
 - **Team A / Team B Win %** + Draw % = aggregated probability across dozens of scorelines.
 - **Top 5 Hit** = actual result landed in the model's 5 most likely exact scores.
-- **1X2 Hit** = model picked the correct broad category by argmax of the three probabilities.
+- **1X2 Hit** = model picked the correct broad category by argmax of the three *aggregate* probabilities (independent of whether the exact score or top-5 matched).
 - **Pending** = result not yet available in the results feed.
 
 See the in-app "How to read these predictions" panel for the full plain-language guide.

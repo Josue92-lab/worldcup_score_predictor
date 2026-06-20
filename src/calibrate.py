@@ -114,6 +114,7 @@ def calculate_calibration_factor(as_of_date=None):
             draw = float(p.get("draw_probability", 0.0))
             win_b = float(p.get("team_b_win_probability", 0.0))
             
+            # Use aggregate probabilities for 1X2 (same logic as evaluate)
             if win_a > draw and win_a > win_b:
                 pred_outcome = "1"
             elif draw > win_a and draw > win_b:

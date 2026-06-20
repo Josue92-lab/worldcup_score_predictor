@@ -147,3 +147,28 @@ def test_get_data_credits_markdown():
     assert "davidcariboo/player-scores" in md
     assert "FIFA SquadLists" in md
     assert "lag" in md.lower() or "freshness" in md.lower()
+
+
+def test_aggregate_1x2_helpers_in_app():
+    # Verify pure helpers available in app for any display logic / docs
+    from src.app_streamlit import get_aggregate_1x2_outcome, get_actual_1x2_outcome
+
+    # Aggregate from probs (the correct source for 1X2 Hit)
+    assert get_aggregate_1x2_outcome(0.618, 0.213, 0.169) == "team_a"
+    assert get_aggregate_1x2_outcome(0.30, 0.40, 0.30) == "draw"
+    assert get_aggregate_1x2_outcome(0.20, 0.30, 0.50) == "team_b"
+
+    # Top score wrong but aggregate 1X2 correct example
+    # (e.g. top5[0]='1-1' but probs favor A, actual 3-0)
+    assert get_aggregate_1x2_outcome(0.55, 0.30, 0.15) == "team_a"
+    assert get_actual_1x2_outcome(3, 0) == "team_a"
+
+    # Actual outside top5 still can be 1X2 hit
+    assert get_actual_1x2_outcome(4, 1) == "team_a"
+    assert get_aggregate_1x2_outcome(0.70, 0.20, 0.10) == "team_a"
+
+    # Mismatch
+    assert get_aggregate_1x2_outcome(0.10, 0.20, 0.70) == "team_b"
+    assert get_actual_1x2_outcome(2, 0) == "team_a"
+    # not equal
+
