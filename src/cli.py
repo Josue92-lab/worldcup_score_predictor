@@ -86,7 +86,14 @@ def main():
         predict_scorelines(mode="predict")
     elif args.command == "predict-live":
         from src.predict_scorelines import predict_scorelines
-        predict_scorelines(mode="live", as_of_date=parse_date(args.as_of_date))
+        date = parse_date(args.as_of_date)
+        for posture in ["current", "moderate", "aggressive"]:
+            print(f"[cli] Generating live predictions for posture: {posture}")
+            predict_scorelines(mode="live", as_of_date=date, calibration_posture=posture)
+        print("[cli] Challenger live predictions generated (current/moderate/aggressive). Default live_predictions.json set to moderate.")
+        # Generate the comparison report using the just-created files
+        from src.predict_scorelines import generate_calibration_challenger_report
+        generate_calibration_challenger_report()
     elif args.command == "backtest":
         from src.predict_scorelines import predict_scorelines
         predict_scorelines(mode="backtest", train_cutoff=args.train_cutoff)
