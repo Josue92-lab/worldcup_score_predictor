@@ -57,6 +57,9 @@ def main():
     parser_sim = subparsers.add_parser("simulate-tournament", help="Simulate the entire tournament")
     parser_sim.add_argument("--runs", type=int, default=10000, help="Number of Monte Carlo simulations")
 
+    # calibration-replay (experiment only)
+    subparsers.add_parser("calibration-replay", help="Run retrospective calibration replay experiment (fixed + walk-forward). Outputs audit files only.")
+
     args = parser.parse_args()
 
     # Parse dynamic dates
@@ -102,6 +105,9 @@ def main():
         evaluate_predictions(as_of_date=parse_date(args.as_of_date))
     elif args.command == "simulate-tournament":
         simulate_tournament(runs=args.runs)
+    elif args.command == "calibration-replay":
+        from src.calibration_replay import run_replay
+        run_replay()
     else:
         parser.print_help()
 
