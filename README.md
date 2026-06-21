@@ -1,133 +1,217 @@
 # World Cup Score Predictor
 
-**A reproducible, auditable, educational probability model for World Cup scoreline scenarios.**
+**A reproducible, auditable, educational probability model for World Cup scoreline and outcome forecasting.**
 
-## What this app is
+## Overview
 
-- An interactive dashboard that shows the **top 5 most probable exact scorelines** for each fixture using a transparent Poisson model (with Dixon-Coles low-score adjustment).
-- Designed to help users understand probabilistic forecasting: why the single most likely score can differ from the most likely 1X2 outcome, how models can be backtested, and what calibration does.
-- Exposes its own performance (Top-1 / Top-5 / 1X2 hit rates), data quality signals, and limitations.
+This app generates probabilistic predictions for international football matches (focusing on the 2026 World Cup) and exposes the models transparently for inspection and backtesting.
 
-## What it is not
+- **Exact scoreline predictions**: Top-5 most probable final scores per match.
+- **Aggregate 1X2 probabilities**: Win / Draw / Win for the two teams.
+- **Goal volume diagnostics**: Expected total goals and calibration signals.
+- **Model comparison**: Live mode uses the best available engine; legacy base model remains available for benchmarking.
 
-**Not a betting tool. Not a guarantee of results. Not an oracle.** Exact score prediction is inherently uncertain. The app deliberately shows when its predictions miss.
+The system is designed for learning about probabilistic modeling, not for betting.
 
-## Data source credits
+## Core v2 (Current Live Default)
 
-- **Historical international results & live actuals for evaluation/calibration**: [martj42/international_results](https://github.com/martj42/international_results)
-- **Player valuations, club form, appearances for squad context**: [davidcariboo/player-scores](https://www.kaggle.com/datasets/davidcariboo/player-scores)
-- **Official squad lists**: FIFA SquadLists PDF (48 teams × 26 players parsed)
-- **Fixtures and venue/timezone metadata**: `data/raw/fixture.csv` + `venues.csv` (dates corrected to local venue time where needed)
+**Core v2 Hybrid** is the default engine for live predictions:
 
-**Dataset freshness**: Player-level data (Kaggle) may lag by days. Match results from martj42 are refreshed independently. Low coverage on some squads is flagged in the UI.
+- **Scoreline engine**: `ensemble` (best Top-5 exact scoreline coverage in bake-off testing).
+- **1X2 engine**: `hybrid_elo_poisson` (strongest aggregate outcome probabilities on Brier score and log loss).
+- **Goal-volume policy**: Moderate calibration (lambda ≈ 1.15 style).
+- **Transparency**: Includes legacy base comparison and engine divergence diagnostics.
 
-## How the model works (high level)
+Core v2 is the best available live engine based on current bake-off evidence, but it remains an educational/prototype forecasting model.
 
-1. Historical international matches (pre-cutoff in backtest mode) → empirical **attack strength** and **defense strength** per team (relative to average).
-2. **Poisson** distribution produces a full scoreline probability matrix for expected goals of Team A and Team B.
-3. Optional **Dixon-Coles** adjustment (rho ≈ -0.13) increases probability mass on low-score outcomes (0-0, 1-0, 0-1, 1-1).
-4. Top 5 scorelines are taken directly from the normalized probability matrix.
-5. **1X2 probabilities** (Team A win / draw / Team B win) are *aggregates* — the sum of probabilities of every scoreline that produces that outcome. This is why `1-1` can be the #1 exact score while one team still has >50% chance to win overall.
+## Legacy Base Model
 
-**Important honesty about player / squad data**: Player and squad features (market value, SQI, recent club stats) are currently used **only** for:
-- Data quality warnings
-- The "Explanation & Data Quality" panel
-- Generating human-readable "main factors"
+The original Poisson + Dixon-Coles baseline is preserved as:
 
-The numerical forecast (xG / scoreline probabilities) is driven by **historical team attack/defense** + the live goal-volume calibration factor. Squad data does not directly adjust the lambdas in the current implementation.
+- Honest backtest reference.
+- Educational benchmark.
+- Fallback option.
 
-## Backtest vs live prediction modes
+Backtest mode defaults to the legacy base for historical honesty.
 
-- **Backtest** (`python -m src.cli backtest --train-cutoff 2026-06-10`): Uses a strict training cutoff. Historical features are filtered to data **before** the cutoff. No World Cup 2026 results after the cutoff are used for fitting or calibration. Intended for honest model evaluation.
-- **Live** (`python -m src.cli predict-live --as-of-date auto`): May incorporate already-played World Cup results up to the `as_of_date` to compute a rolling calibration factor (fav/underdog asymmetric) that inflates or deflates future goal expectations. **Live calibration must not be used retroactively to claim past predictive skill.**
+## Model Architecture
 
-The Streamlit app lets you load either `backtest_report.json` or `live_predictions.json` (plus the evaluation/calibration artifacts).
+| Model                | Purpose                              | Key Strength                     | Notes |
+|----------------------|--------------------------------------|----------------------------------|-------|
+| `base`               | Legacy Poisson/Dixon-Coles baseline | Transparent, simple              | Benchmark & backtest default |
+| `lambda_1.15`        | Goal-volume calibrated Poisson       | Matches observed goal totals     | Improves volume gap |
+| `hybrid_elo_poisson` | Elo strength blended with Poisson    | Best 1X2 probabilistic metrics   | Strong aggregate outcomes |
+| `ensemble`           | Multi-engine scoreline combination   | Best Top-5 exact score coverage  | Good for exact score focus |
+| `core_v2` (default)  | Hybrid production engine             | Balanced across metrics          | Live default; ensemble + hybrid + moderate calibration |
 
-## Prediction interpretation (key concepts the UI teaches)
+Global lambda calibration alone improves volume but does not solve discrimination or 1-1 concentration issues. Core v2 combines the strongest tested components.
 
-- **Top Prediction** = single most probable exact final score (e.g. 1-1).
-- **Team A / Team B Win %** + Draw % = aggregated probability across dozens of scorelines.
-- **Top 5 Hit** = actual result landed in the model's 5 most likely exact scores.
-- **1X2 Hit** = model picked the correct broad category by argmax of the three *aggregate* probabilities (independent of whether the exact score or top-5 matched).
-- **Pending** = result not yet available in the results feed.
+## Prediction Modes
 
-See the in-app "How to read these predictions" panel for the full plain-language guide.
+- **Live** (`predict-live --as-of-date auto`): Default = Core v2. May use results up to the as-of date for calibration of *future* matches only. Not a backtest.
+- **Backtest** (`backtest --train-cutoff YYYY-MM-DD`): Strict cutoff. No post-cutoff data leaks into parameters or calibration. Honest evaluation of skill. Supports `--model base` or `--model core_v2`.
+- **Evaluate**: Matches predictions against actual results (Top-1, Top-5, 1X2, goal volume).
+- **Model Bake-off**: Runs full comparison of model families using only pre-cutoff data.
 
-## Quick Start (Windows PowerShell)
+**Critical honesty rule**: Backtest results are never retroactively calibrated with future match results.
+
+## Data Sources
+
+- Historical international results & live actuals: [martj42/international_results](https://github.com/martj42/international_results)
+- Player valuations, appearances, club form: [davidcariboo/player-scores](https://www.kaggle.com/datasets/davidcariboo/player-scores)
+- Squad lists: FIFA SquadLists PDF (parsed)
+- Fixtures and venues: `data/raw/fixture.csv` + `venues.csv`
+
+Player/squad data is used primarily for data quality flags and explanations. Core numeric forecasts come from historical team strengths + calibration.
+
+## Quick Start (PowerShell)
 
 ```powershell
-# 1. Download all raw data (GitHub historical results + Kaggle player-scores)
+# Download raw data
 python -m src.cli download-data
 
-# 2. Parse the squad PDF
+# (Optional) Parse squad PDF and audit
 python -m src.parse_squads_pdf
-
-# 3. Audit the data
 python -m src.cli audit
 
-# 4. Build features (historical + squad + Kaggle player matching)
+# Build features
 python -m src.cli build-features
 
-# 5. Predict scorelines (Default mode)
-python -m src.cli predict
+# Honest backtest (legacy base - recommended for claims)
+python -m src.cli backtest --train-cutoff 2026-06-10 --model base
 
-# 6. Predict scorelines (Backtest mode for clean evaluation)
-python -m src.cli backtest --train-cutoff 2026-06-10
+# Backtest with Core v2 for comparison
+python -m src.cli backtest --train-cutoff 2026-06-10 --model core_v2
 
-# 7. Evaluate accuracy against actuals (requires actuals from martj42)
+# Evaluate against actuals
 python -m src.cli evaluate --actuals-source martj42
 
-# 8. Predict scorelines (Live mode with goal calibration)
-python -m src.cli predict-live --as-of-date auto
+# Live predictions (Core v2 default)
+python -m src.cli predict-live --as-of-date auto --model core_v2
 
-# 9. Launch the Streamlit dashboard
+# Full model bake-off audit
+python -m src.cli model-bakeoff
+
+# Launch dashboard
 python -m streamlit run src\app_streamlit.py
 ```
 
-## Prediction Modes Explained (see also the UI banners)
+## CLI Commands
 
-- **`predict`:** Standard run. No enforced cutoff. Useful for development.
-- **`backtest --train-cutoff YYYY-MM-DD`:** The mode you should use for any claim about model skill. Training data strictly ends at the cutoff. No post-cutoff World Cup results leak into attack/defense parameters or calibration.
-- **`evaluate`:** Matches predictions (usually backtest) against actual results from the martj42 feed. Computes Top-1, Top-5 and 1X2 hit rates + goal volume diagnostics.
-- **`predict-live --as-of-date auto|YYYY-MM-DD`:** Uses results up to the date for calibration only. For "what would we predict today". Do **not** treat the numbers as a backtest of past accuracy.
+- `python -m pytest` — Run tests.
+- `python -m src.cli backtest --train-cutoff 2026-06-10 --model base` — Legacy honest backtest.
+- `python -m src.cli backtest --train-cutoff 2026-06-10 --model core_v2` — Core v2 backtest.
+- `python -m src.cli evaluate --actuals-source martj42` — Match predictions to actual results.
+- `python -m src.cli predict-live --as-of-date auto --model core_v2` — Generate live predictions (Core v2).
+- `python -m src.cli model-bakeoff` — Run full model family comparison.
+- `python -m streamlit run src\app_streamlit.py` — Interactive dashboard.
 
-**Live calibration is for operational use only.** It should never be turned on retroactively and then used to publish "our backtest hit rate improved".
+## Streamlit Dashboard
 
-## Implementation Status
+The dashboard defaults to Core v2 predictions when available.
 
-| Component | Status |
-|-----------|--------|
-| GitHub data download | ✅ Implemented |
-| Kaggle data download (no credentials) | ✅ Implemented |
-| PDF squad parsing | ✅ Implemented |
-| Data audit with Kaggle validation | ✅ Implemented |
-| Team name normalisation | ✅ Implemented |
-| Historical Poisson model | ✅ Implemented |
-| Squad feature engineering (Kaggle) | ✅ Implemented |
-| Top 5 scoreline predictions | ✅ Implemented |
-| Streamlit dashboard | ✅ Implemented |
-| Pre-tournament Backtesting | ✅ Implemented |
-| Evaluation Module | ✅ Implemented |
-| Live Prediction & Calibration | ✅ Implemented |
-| Monte Carlo tournament simulation | ⏳ Pending (Not implemented) |
+- Model selector allows switching between **Core v2 Hybrid** and **Legacy Base**.
+- Core v2 banner explains the engines in use.
+- Diagnostics panel shows hit rates, goal averages, 1-1 concentration, and calibration signals.
+- Legacy base remains available for side-by-side comparison.
 
-## Trust & limitations (displayed in app)
+## Output Files
 
-This app is a reproducible educational probability model, not a betting tool or oracle. Predictions are generated from historical international match rates using a Poisson model with optional Dixon-Coles adjustment and live goal-volume calibration. The model exposes its own performance through backtesting and actual-result comparison.
+Important generated artifacts (in `data/outputs/`):
 
-It does not know current injuries, confirmed starting lineups, tactical plans, weather, motivation, or last-minute news. Player and squad data may lag behind real-world changes. Use the app to understand probability, uncertainty, and model calibration — not as a guarantee of match results.
+- `live_predictions.json` — Default live (Core v2)
+- `live_predictions_core_v2.json` — Explicit Core v2 output
+- `live_predictions_legacy_base.json` — Legacy base for comparison
+- `backtest_report.json` — Honest pre-tournament predictions
+- `evaluation_report.json` — Actuals matching + metrics
+- `core_v2_comparison_report.json` / `.md` — Core v2 vs alternatives
+- `model_bakeoff_audit.json` / `.md` / `leaderboard.csv` — Full bake-off results
 
-**Player/squad data note**: Currently used for context and data quality flags only. The core scoreline probabilities come from historical team strengths + calibration.
+## Evaluation and Backtesting
 
-## In-app educational features (as of this update)
+- **Train cutoff** enforces no leakage: features and calibration for a backtest use only data up to the cutoff.
+- Live calibration is **future-only**.
+- Evaluation uses matched actual results from the martj42 feed.
+- Key metrics: Top-1/Top-5 exact hit rates, 1X2 accuracy, Brier score, log loss, goal gap, 1-1 concentration.
 
-- "How to read these predictions" panel (top of Dashboard)
-- Mode-specific banners (Backtest vs Live)
-- "Trust and limitations" guidance (sidebar + README)
-- Readable Explanation & Data Quality bullets (with raw JSON toggle)
-- Model diagnostics panel (hit rates, goal averages, calibration factor, 1-1 concentration warnings)
-- Debug information hidden behind sidebar checkbox
-- Data credits in sidebar + footer
+## Model Bake-off Summary
 
-The dashboard uses the professional, analytical **Barlow** font (loaded from Google Fonts). Code/JSON blocks remain in monospace.
+Testing on the 2026-06-11 → 2026-06-20 window (pre-cutoff models only) showed:
 
+- Base model exhibited high 1-1 concentration and modest 1X2 skill.
+- Global lambda calibration improved goal-volume match but delivered limited gains on Top-5 or 1X2.
+- Ensemble improved exact scoreline coverage (Top-5).
+- Hybrid Elo-Poisson delivered the strongest 1X2 probabilistic scoring (Brier / log loss).
+- Core v2 combines these strengths for the current live default.
+
+The evaluation sample is small; results should be treated as directional evidence requiring ongoing monitoring.
+
+## Model Risk and Limitations
+
+**Educational / prototype status**: Amber  
+**High-stakes forecasting readiness**: Red
+
+Limitations:
+
+- Small evaluation sample (tens of matches).
+- Exact score prediction remains inherently difficult.
+- Historical data quality and coverage vary.
+- No current injuries, lineups, or late news.
+- Global factors and simple hybrids have limits.
+
+This is **not** a betting tool. Use it to understand uncertainty and model behavior.
+
+Monitor after each matchday. Future validation on new data is required before stronger claims.
+
+## Repository Structure
+
+```
+src/
+  models/
+    base_poisson.py
+    lambda_calibrated.py
+    elo.py
+    hybrid_elo_poisson.py
+    ensemble.py
+    core_v2.py
+    registry.py
+  predict_scorelines.py
+  evaluate_predictions.py
+  calibrate.py
+  cli.py
+  app_streamlit.py
+  ...
+data/
+  outputs/
+    live_predictions*.json
+    backtest_report.json
+    model_bakeoff_* / core_v2_*
+  raw/
+  processed/
+```
+
+## Development Notes
+
+When adding models:
+
+1. Implement in `src/models/`.
+2. Register in `registry.py`.
+3. Add entry to bake-off (pre-cutoff only).
+4. Update model cards with strengths/weaknesses.
+5. Ensure `--model` support in CLI and no leakage.
+6. Add tests for the new engine.
+7. Document in README and comparison reports.
+
+All model selection / calibration must be done on pre-cutoff validation data.
+
+## Data Credits
+
+See the in-app sidebar and the credits section above.
+
+## License
+
+Educational use. See individual dataset licenses.
+
+---
+
+**This README reflects Core v2 as the live default and the legacy base as the benchmark/fallback.** All historical backtests remain honest.

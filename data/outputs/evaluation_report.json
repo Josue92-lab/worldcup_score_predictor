@@ -21,7 +21,7 @@
     "actual_total_goals_avg": 3.028,
     "high_score_miss_count": 8,
     "matches_where_actual_total_goals_gt_4": 8,
-    "calibration_factor": 1.0,
+    "calibration_factor": 1.15,
     "dixon_coles_enabled": true,
     "rho": -0.13
   },

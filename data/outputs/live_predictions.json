@@ -3,18 +3,16 @@
     "mode": "live",
     "as_of_date": "2026-06-21",
     "train_cutoff": null,
-    "prediction_core": "core_v2",
-    "core_version": "v2",
+    "prediction_core": "base",
+    "core_version": "legacy",
     "calibration_factor_fav": 1.051,
     "calibration_factor_und": 1.142,
     "calibration_factor": 1.096,
     "calibrated": true,
     "calibration_reason": "Challenger moderate posture derived from base 1.056 (target 1.096)",
-    "scoreline_engine": "ensemble",
-    "outcome_engine": "hybrid_elo_poisson",
-    "goal_volume_policy": "lambda_1.15",
-    "future_only": true,
-    "backtest_honest": true
+    "scoreline_engine": "base_poisson",
+    "outcome_engine": "base_poisson",
+    "goal_volume_policy": "none"
   },
   "predictions": [
     {

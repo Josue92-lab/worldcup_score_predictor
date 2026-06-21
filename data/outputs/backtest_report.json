@@ -3,11 +3,16 @@
     "mode": "backtest",
     "as_of_date": null,
     "train_cutoff": "2026-06-10",
+    "prediction_core": "core_v2",
+    "core_version": "v2",
     "calibration_factor_fav": 1.0,
     "calibration_factor_und": 1.0,
-    "calibration_factor": 1.0,
-    "calibrated": false,
-    "calibration_reason": "Not live mode"
+    "calibration_factor": 1.15,
+    "calibrated": true,
+    "calibration_reason": "Core v2 hybrid",
+    "scoreline_engine": "ensemble",
+    "outcome_engine": "hybrid_elo_poisson",
+    "goal_volume_policy": "lambda_1.15"
   },
   "predictions": [
     {

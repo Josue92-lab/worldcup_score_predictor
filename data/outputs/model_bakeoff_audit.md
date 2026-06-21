@@ -1,6 +1,6 @@
 # World Cup Score Predictor - Full Model Bake-off Audit
 
-Generated: 2026-06-21T13:35:46.443998Z
+Generated: 2026-06-21T14:06:51.296583Z
 Train cutoff: 2026-06-10
 Test matches: 36
 
