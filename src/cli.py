@@ -47,11 +47,13 @@ def main():
     # predict-live
     parser_live = subparsers.add_parser("predict-live", help="Predict scorelines using all available data")
     parser_live.add_argument("--as-of-date", default="auto", help="Date cutoff for using historical results")
+    parser_live.add_argument("--model", default="core_v2", choices=["core_v2", "base", "legacy"], help="Prediction core: core_v2 (default) or base (legacy)")
 
     # backtest
     parser_backtest = subparsers.add_parser("backtest", help="Evaluate pre-tournament model quality")
     parser_backtest.add_argument("--train-cutoff", required=True, help="Training cutoff date (e.g. 2026-06-10)")
     parser_backtest.add_argument("--actuals-source", default="martj42", help="Source for actuals")
+    parser_backtest.add_argument("--model", default="base", choices=["base", "core_v2"], help="Model for backtest: base (default, honest) or core_v2")
 
     # simulate-tournament
     parser_sim = subparsers.add_parser("simulate-tournament", help="Simulate the entire tournament")
@@ -59,6 +61,9 @@ def main():
 
     # calibration-replay (experiment only)
     subparsers.add_parser("calibration-replay", help="Run retrospective calibration replay experiment (fixed + walk-forward). Outputs audit files only.")
+
+    # model-bakeoff
+    subparsers.add_parser("model-bakeoff", help="Full model family bake-off and audit (pre-cutoff only). Outputs audit artifacts only.")
 
     args = parser.parse_args()
 
@@ -90,16 +95,25 @@ def main():
     elif args.command == "predict-live":
         from src.predict_scorelines import predict_scorelines
         date = parse_date(args.as_of_date)
-        for posture in ["current", "moderate", "aggressive"]:
-            print(f"[cli] Generating live predictions for posture: {posture}")
-            predict_scorelines(mode="live", as_of_date=date, calibration_posture=posture)
-        print("[cli] Challenger live predictions generated (current/moderate/aggressive). Default live_predictions.json set to moderate.")
-        # Generate the comparison report using the just-created files
-        from src.predict_scorelines import generate_calibration_challenger_report
-        generate_calibration_challenger_report()
+        model = getattr(args, "model", "core_v2")
+        if model in ("core_v2", "base"):
+            print(f"[cli] Generating live predictions with model={model}")
+            predict_scorelines(mode="live", as_of_date=date, model=model)
+            if model == "core_v2":
+                # also generate legacy for comparison
+                predict_scorelines(mode="live", as_of_date=date, model="base")
+        else:
+            # legacy behavior for challenger postures
+            for posture in ["current", "moderate", "aggressive"]:
+                print(f"[cli] Generating live predictions for posture: {posture}")
+                predict_scorelines(mode="live", as_of_date=date, calibration_posture=posture)
+            print("[cli] Challenger live predictions generated. Default live_predictions.json set to moderate.")
+            from src.predict_scorelines import generate_calibration_challenger_report
+            generate_calibration_challenger_report()
     elif args.command == "backtest":
         from src.predict_scorelines import predict_scorelines
-        predict_scorelines(mode="backtest", train_cutoff=args.train_cutoff)
+        model = getattr(args, "model", "base")
+        predict_scorelines(mode="backtest", train_cutoff=args.train_cutoff, model=model)
     elif args.command == "evaluate":
         from src.evaluate_predictions import evaluate_predictions
         evaluate_predictions(as_of_date=parse_date(args.as_of_date))
@@ -108,6 +122,9 @@ def main():
     elif args.command == "calibration-replay":
         from src.calibration_replay import run_replay
         run_replay()
+    elif args.command == "model-bakeoff":
+        from src.model_bakeoff import run_bakeoff
+        run_bakeoff()
     else:
         parser.print_help()
 

@@ -1,5 +1,5 @@
 # Calibration Replay Audit
-Generated: 2026-06-21T13:12:45.557801Z
+Generated: 2026-06-21T13:21:45.106276Z
 
 ## Overview
 Retrospective calibration replay on the 36 evaluated matches (2026-06-11 to 2026-06-20).
@@ -58,12 +58,13 @@ Walk-forward best 1X2: conservative
 
 ## Recommendation
 Recommended posture: **moderate**
-- On fixed-factor replay, moderate often improves Top-5 and volume without as much risk as aggressive.
-- On walk-forward, results are closer between postures; moderate provides balanced improvement.
-- Aggressive reduces 1-1 concentration more but on small daily samples can be unstable.
-- Conservative (current) is safest but leaves goal volume gap.
-- Recommendation: use moderate as production default for future-only; continue monitoring with more matchdays.
-- Do not promote aggressive to default without clear sustained benefit in walk-forward on new data.
+- Base (factor 1.0) has the best Top-5 rate in this replay.
+- Among calibrated postures, conservative performs at least as well as moderate/aggressive on Top-5 and 1X2.
+- 1X2 rates are essentially identical across all postures in both replay modes.
+- Moderate (and higher) mainly improves the goal-volume gap (reduces underestimation).
+- moderate is recommended ONLY if the priority is goal-volume calibration for future matches, not because it improves Top-5 or 1X2 accuracy on this replay sample.
+- Aggressive does not clearly outperform on accuracy metrics and increases risk of over-correction on small sample.
+- More data needed; this replay does not strongly support changing the production default away from conservative if accuracy is primary.
 
 ## Warnings
 - FIXED-FACTOR REPLAY IS RETROSPECTIVE and uses factors informed by full sample. Do not interpret as prospective performance.
@@ -76,3 +77,27 @@ Recommended posture: **moderate**
 Fixed-factor results can appear better because the factors were selected knowing the full sample outcomes.
 Walk-forward is the relevant test for whether a policy would have worked prospectively.
 More matchdays needed before promoting any posture change to production.
+
+## Sensitivity Grid (fixed-factor, analysis only)
+Factor | Avg Pred Goals | Gap | Top5% | 1X2% | 1-1% | Top5 changed | 1X2 changed
+-------|----------------|-----|-------|------|------|--------------|-------------
+1.00 | 2.638 | 0.39 | 50.0% | 47.2% | 94.4% | 0 | 0
+1.05 | 2.77 | 0.258 | 44.4% | 47.2% | 94.4% | 26 | 0
+1.10 | 2.902 | 0.126 | 41.7% | 47.2% | 94.4% | 35 | 0
+1.15 | 3.033 | -0.005 | 44.4% | 47.2% | 91.7% | 36 | 0
+1.20 | 3.165 | -0.137 | 44.4% | 47.2% | 86.1% | 36 | 0
+1.25 | 3.297 | -0.269 | 41.7% | 47.2% | 80.6% | 36 | 0
+1.30 | 3.429 | -0.401 | 44.4% | 47.2% | 80.6% | 36 | 0
+
+## Model-Family Sensitivity Notes
+A global lambda (goal-volume) multiplier primarily scales total expected goals but preserves the relative attack/defense strengths between teams.
+As a result:
+- It can improve average goal volume match (reduce the +0.39 gap).
+- It often has little or no effect on aggregate 1X2 outcome probabilities.
+- It may reduce 1-1 concentration only modestly, because the mode of the distribution remains similar relative to team strength difference.
+De-concentrating 1-1 or meaningfully improving 1X2 may require other adjustments such as:
+  - asymmetric favorite/underdog scaling,
+  - draw dampening,
+  - sensitivity on Dixon-Coles rho,
+  - or better separation in underlying team strength estimates.
+These are outside the scope of pure lambda calibration and were not implemented in this replay.

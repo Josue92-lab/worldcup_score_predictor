@@ -276,14 +276,13 @@ def run_replay():
             top5_c = actual_sl in top5_sls
             o1x2_c = (sim["predicted_aggregate_1x2"] == m["actual_1x2"])
 
-            # vs base
-            base_top = m.get("base_top")
-            base_top5 = m.get("base_top5", [])
-            top_changed = sim["predicted_top_scoreline"] != base_top
-            top5_changed = actual_sl not in base_top5 if base_top5 else True  # rough
-            # better: did the top prediction change
-            base_sim = _recompute_with_factor(m["base_xga"], m["base_xgb"], 1.0)
-            o1x2_changed = sim["predicted_aggregate_1x2"] != base_sim["predicted_aggregate_1x2"]
+            # vs base - recompute base for consistency of lists and probs
+            base_sim_for_cmp = _recompute_with_factor(m["base_xga"], m["base_xgb"], 1.0)
+            base_top5_list = [s["scoreline"] for s in base_sim_for_cmp.get("top5_scorelines", [])]
+            top_changed = sim["predicted_top_scoreline"] != base_sim_for_cmp["predicted_top_scoreline"]
+            sim_top5_list = [s["scoreline"] for s in sim.get("top5_scorelines", [])]
+            top5_changed = sim_top5_list != base_top5_list
+            o1x2_changed = sim["predicted_aggregate_1x2"] != base_sim_for_cmp["predicted_aggregate_1x2"]
 
             pm = {
                 "match_id": m["match_id"],
@@ -309,8 +308,10 @@ def run_replay():
                 "actual_total_goals": act_total,
                 "actual_minus_predicted_goals": round(gap, 3),
                 "top_prediction_changed_vs_base": top_changed,
-                "top5_changed_vs_base": (sim["predicted_top_scoreline"] not in base_top5) if base_top5 else False,
-                "outcome_changed_vs_base": (sim["predicted_aggregate_1x2"] != base_sim["predicted_aggregate_1x2"]),
+                "top5_changed_vs_base": top5_changed,
+                "outcome_changed_vs_base": o1x2_changed,
+                "top5_probability_mass": sim["top5_probability_mass"],
+                "top_prediction_probability": sim["top_prediction_probability"],
             }
             posture_matches.append(pm)
             per_match_all.append(pm)
@@ -318,11 +319,10 @@ def run_replay():
         fixed_results[posture_key] = _aggregate_metrics(posture_matches, posture_key)
         fixed_results[posture_key]["description"] = pinfo["description"]
 
-    # Add base (factor 1.0) for reference in fixed
+    # Add base (factor 1.0) for reference in fixed - recompute for consistent probs
     base_matches = []
     for m in all_matches:
-        # use the report's base as "recomputed" with 1.0
-        base_total = m["base_xga"] + m["base_xgb"]
+        base_sim = _recompute_with_factor(m["base_xga"], m["base_xgb"], 1.0)
         pm = {
             "match_id": m["match_id"],
             "date": m["date"],
@@ -333,22 +333,24 @@ def run_replay():
             "replay_mode": "fixed_factor",
             "posture": "base",
             "factor_used": 1.0,
-            "predicted_top_scoreline": m.get("base_top"),
-            "top_prediction_probability": None,  # not stored easily
-            "top5_scorelines": [{"scoreline": s, "probability": None} for s in m.get("base_top5", [])],
-            "team_a_win_probability": None,
-            "draw_probability": None,
-            "team_b_win_probability": None,
-            "predicted_aggregate_1x2": _get_1x2(m["actual_team_a_goals"], m["actual_team_b_goals"]),
-            "top1_exact_correct": m.get("base_top1_correct", False),
+            "predicted_top_scoreline": base_sim["predicted_top_scoreline"],
+            "top_prediction_probability": base_sim["top_prediction_probability"],
+            "top5_scorelines": base_sim["top5_scorelines"],
+            "team_a_win_probability": base_sim["team_a_win_probability"],
+            "draw_probability": base_sim["draw_probability"],
+            "team_b_win_probability": base_sim["team_b_win_probability"],
+            "predicted_aggregate_1x2": base_sim["predicted_aggregate_1x2"],
+            "top1_exact_correct": m.get("base_top1_correct", False),  # prefer ev report for base hits, should match
             "top5_exact_correct": m.get("base_top5_correct", False),
             "aggregate_1x2_correct": m.get("base_1x2_correct", False),
-            "predicted_total_goals": round(base_total, 3),
+            "predicted_total_goals": base_sim["predicted_total_goals"],
             "actual_total_goals": m["actual_total_goals"],
-            "actual_minus_predicted_goals": round(m["actual_total_goals"] - base_total, 3),
+            "actual_minus_predicted_goals": round(m["actual_total_goals"] - base_sim["predicted_total_goals"], 3),
             "top_prediction_changed_vs_base": False,
             "top5_changed_vs_base": False,
             "outcome_changed_vs_base": False,
+            "top5_probability_mass": base_sim.get("top5_probability_mass", 0),
+            "top_prediction_probability": base_sim.get("top_prediction_probability", 0),
         }
         base_matches.append(pm)
     fixed_results["base"] = _aggregate_metrics(base_matches, "base")
@@ -380,10 +382,9 @@ def run_replay():
                 top5_c = actual_sl in top5_sls
                 o1x2_c = (sim["predicted_aggregate_1x2"] == m["actual_1x2"])
 
-                base_top = m.get("base_top")
-                base_top5 = m.get("base_top5", [])
-                base_sim = _recompute_with_factor(m["base_xga"], m["base_xgb"], 1.0)
-                base_o1x2 = base_sim["predicted_aggregate_1x2"]
+                base_sim_for_cmp = _recompute_with_factor(m["base_xga"], m["base_xgb"], 1.0)
+                base_top5_list = [s["scoreline"] for s in base_sim_for_cmp.get("top5_scorelines", [])]
+                base_o1x2 = base_sim_for_cmp["predicted_aggregate_1x2"]
 
                 pm = {
                     "match_id": m["match_id"],
@@ -408,9 +409,11 @@ def run_replay():
                     "predicted_total_goals": pred_total,
                     "actual_total_goals": act_total,
                     "actual_minus_predicted_goals": round(gap, 3),
-                    "top_prediction_changed_vs_base": sim["predicted_top_scoreline"] != base_top,
-                    "top5_changed_vs_base": (sim["predicted_top_scoreline"] not in base_top5) if base_top5 else False,
+                    "top_prediction_changed_vs_base": sim["predicted_top_scoreline"] != base_sim_for_cmp["predicted_top_scoreline"],
+                    "top5_changed_vs_base": ([s["scoreline"] for s in sim.get("top5_scorelines", [])] != base_top5_list),
                     "outcome_changed_vs_base": sim["predicted_aggregate_1x2"] != base_o1x2,
+                    "top5_probability_mass": sim["top5_probability_mass"],
+                    "top_prediction_probability": sim["top_prediction_probability"],
                 }
                 posture_day_matches.append(pm)
                 walk_per_match.append(pm)
@@ -421,6 +424,60 @@ def run_replay():
     # base for walk forward is the same fixed base
     walk_results["base"] = fixed_results["base"].copy()
     walk_results["base"]["description"] = "No calibration (factor=1.0) - original backtest (walk-forward reference)"
+
+    # ========== SENSITIVITY GRID (fixed factor only, for analysis; do not use as production defaults) ==========
+    sensitivity_factors = [1.00, 1.05, 1.10, 1.15, 1.20, 1.25, 1.30]
+    sensitivity_grid = {}
+    for f in sensitivity_factors:
+        posture_matches = []
+        for m in all_matches:
+            sim = _recompute_with_factor(m["base_xga"], m["base_xgb"], f)
+            pred_total = sim["predicted_total_goals"]
+            act_total = m["actual_total_goals"]
+            actual_sl = m["actual_score"]
+            top5_sls = [s["scoreline"] for s in sim["top5_scorelines"]]
+            top1_c = (sim["predicted_top_scoreline"] == actual_sl)
+            top5_c = actual_sl in top5_sls
+            o1x2_c = (sim["predicted_aggregate_1x2"] == m["actual_1x2"])
+            base_sim = _recompute_with_factor(m["base_xga"], m["base_xgb"], 1.0)
+            base_top5_list = [s["scoreline"] for s in base_sim.get("top5_scorelines", [])]
+            top_changed = sim["predicted_top_scoreline"] != base_sim["predicted_top_scoreline"]
+            sim_top5_list = [s["scoreline"] for s in sim.get("top5_scorelines", [])]
+            top5_changed = sim_top5_list != base_top5_list
+            o1x2_changed = sim["predicted_aggregate_1x2"] != base_sim["predicted_aggregate_1x2"]
+            posture_matches.append({
+                "actual_total_goals": act_total,
+                "predicted_total_goals": pred_total,
+                "top1_exact_correct": top1_c,
+                "top5_exact_correct": top5_c,
+                "aggregate_1x2_correct": o1x2_c,
+                "top_prediction_probability": sim["top_prediction_probability"],
+                "top5_probability_mass": sim["top5_probability_mass"],
+                "predicted_top_scoreline": sim["predicted_top_scoreline"],
+                "team_a_win_probability": sim["team_a_win_probability"],
+                "draw_probability": sim["draw_probability"],
+                "team_b_win_probability": sim["team_b_win_probability"],
+                "actual_1x2": m["actual_1x2"],
+                "top_prediction_changed_vs_base": top_changed,
+                "top5_changed_vs_base": top5_changed,
+                "outcome_changed_vs_base": o1x2_changed,
+            })
+        sens_metrics = _aggregate_metrics(posture_matches, f"factor_{f}")
+        key = f"factor_{f:.2f}"
+        sensitivity_grid[key] = {
+            "factor": f,
+            "avg_predicted_goals": sens_metrics.get("average_predicted_goals"),
+            "goal_gap": sens_metrics.get("actual_minus_predicted_goal_gap"),
+            "top1_exact_rate": sens_metrics.get("top1_exact_rate"),
+            "top5_exact_rate": sens_metrics.get("top5_exact_rate"),
+            "aggregate_1x2_rate": sens_metrics.get("aggregate_1x2_rate"),
+            "brier_1x2": sens_metrics.get("brier_1x2"),
+            "logloss_1x2": sens_metrics.get("logloss_1x2"),
+            "one_one_top_count": sens_metrics.get("one_one_top_count"),
+            "one_one_top_percentage": sens_metrics.get("one_one_top_percentage"),
+            "top5_changed_vs_base_count": sens_metrics.get("matches_top5_changed_vs_base"),
+            "outcome_changed_vs_base_count": sens_metrics.get("matches_1x2_changed_vs_base"),
+        }
 
     # ========== BUILD REPORT ==========
     generated_at = datetime.utcnow().isoformat() + "Z"
@@ -477,17 +534,19 @@ def run_replay():
     recommendation = {
         "recommended_posture": "moderate",
         "reasoning": [
-            "On fixed-factor replay, moderate often improves Top-5 and volume without as much risk as aggressive.",
-            "On walk-forward, results are closer between postures; moderate provides balanced improvement.",
-            "Aggressive reduces 1-1 concentration more but on small daily samples can be unstable.",
-            "Conservative (current) is safest but leaves goal volume gap.",
-            "Recommendation: use moderate as production default for future-only; continue monitoring with more matchdays.",
-            "Do not promote aggressive to default without clear sustained benefit in walk-forward on new data."
+            "Base (factor 1.0) has the best Top-5 rate in this replay.",
+            "Among calibrated postures, conservative performs at least as well as moderate/aggressive on Top-5 and 1X2.",
+            "1X2 rates are essentially identical across all postures in both replay modes.",
+            "Moderate (and higher) mainly improves the goal-volume gap (reduces underestimation).",
+            "moderate is recommended ONLY if the priority is goal-volume calibration for future matches, not because it improves Top-5 or 1X2 accuracy on this replay sample.",
+            "Aggressive does not clearly outperform on accuracy metrics and increases risk of over-correction on small sample.",
+            "More data needed; this replay does not strongly support changing the production default away from conservative if accuracy is primary."
         ],
         "risks": [
             "All replays use the same set of 36 matches; risk of overfitting to this particular sample of results.",
             "Fixed-factor is sensitivity analysis, not true out-of-sample validation.",
-            "Walk-forward still uses the same underlying base model trained before tournament."
+            "Walk-forward still uses the same underlying base model trained before tournament.",
+            "Global lambda multiplier preserves relative strengths; may have limited effect on 1-1 concentration or 1X2."
         ],
         "what_to_monitor": [
             "Daily goal gap under moderate vs conservative in live.",
@@ -510,6 +569,7 @@ def run_replay():
         "postures": {k: v for k, v in postures.items()},
         "fixed_factor_replay": fixed_results,
         "walk_forward_replay": walk_results,
+        "sensitivity_grid": sensitivity_grid,
         "comparison_summary": comparison,
         "per_match_results": per_match_all + walk_per_match,
         "recommendation": recommendation,
@@ -592,6 +652,27 @@ def _build_markdown(report):
     lines.append("Fixed-factor results can appear better because the factors were selected knowing the full sample outcomes.")
     lines.append("Walk-forward is the relevant test for whether a policy would have worked prospectively.")
     lines.append("More matchdays needed before promoting any posture change to production.")
+    lines.append("")
+    lines.append("## Sensitivity Grid (fixed-factor, analysis only)")
+    sg = report.get("sensitivity_grid", {})
+    if sg:
+        lines.append("Factor | Avg Pred Goals | Gap | Top5% | 1X2% | 1-1% | Top5 changed | 1X2 changed")
+        lines.append("-------|----------------|-----|-------|------|------|--------------|-------------")
+        for k, v in sorted(sg.items(), key=lambda x: float(x[1]['factor'])):
+            lines.append(f"{v['factor']:.2f} | {v['avg_predicted_goals']} | {v['goal_gap']} | {v['top5_exact_rate']*100:.1f}% | {v['aggregate_1x2_rate']*100:.1f}% | {v['one_one_top_percentage']}% | {v.get('top5_changed_vs_base_count',0)} | {v.get('outcome_changed_vs_base_count',0)}")
+    lines.append("")
+    lines.append("## Model-Family Sensitivity Notes")
+    lines.append("A global lambda (goal-volume) multiplier primarily scales total expected goals but preserves the relative attack/defense strengths between teams.")
+    lines.append("As a result:")
+    lines.append("- It can improve average goal volume match (reduce the +0.39 gap).")
+    lines.append("- It often has little or no effect on aggregate 1X2 outcome probabilities.")
+    lines.append("- It may reduce 1-1 concentration only modestly, because the mode of the distribution remains similar relative to team strength difference.")
+    lines.append("De-concentrating 1-1 or meaningfully improving 1X2 may require other adjustments such as:")
+    lines.append("  - asymmetric favorite/underdog scaling,")
+    lines.append("  - draw dampening,")
+    lines.append("  - sensitivity on Dixon-Coles rho,")
+    lines.append("  - or better separation in underlying team strength estimates.")
+    lines.append("These are outside the scope of pure lambda calibration and were not implemented in this replay.")
     return "\n".join(lines)
 
 if __name__ == "__main__":

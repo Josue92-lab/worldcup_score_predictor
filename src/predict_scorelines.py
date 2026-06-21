@@ -21,6 +21,15 @@ from src.audit_data import is_knockout_placeholder
 from src.calibrate import calculate_calibration_factor
 from src.audit_data import is_knockout_placeholder
 
+# Core v2 integration
+try:
+    from src.models.registry import get_model, predict_match
+    from src.models.core_v2 import CoreV2Predictor
+    HAS_CORE_V2 = True
+except Exception:
+    HAS_CORE_V2 = False
+
+
 
 def _load_squad_features() -> dict:
     """Load squad features keyed by normalised team name."""
@@ -33,7 +42,7 @@ def _load_squad_features() -> dict:
     return {row["team"]: row.to_dict() for _, row in df.iterrows()}
 
 
-def predict_scorelines(mode="live", as_of_date=None, train_cutoff=None, calibration_posture=None):
+def predict_scorelines(mode="live", as_of_date=None, train_cutoff=None, calibration_posture=None, model="core_v2"):
     if not FIXTURE_PATH.exists():
         print(f"Error: Fixture file {FIXTURE_PATH} not found.")
         return
@@ -41,6 +50,38 @@ def predict_scorelines(mode="live", as_of_date=None, train_cutoff=None, calibrat
     fixtures = pd.read_csv(FIXTURE_PATH)
     config = load_model_config()
     max_goals = config.get("model", {}).get("max_goals", 7)
+
+    use_core_v2 = (model in ("core_v2", "ensemble", "hybrid")) and HAS_CORE_V2
+    if use_core_v2:
+        print(f"[predict] Using Core v2 hybrid engine (model={model})")
+        # Preload models with cutoff data
+        hist_df = None
+        try:
+            hist_path = PROCESSED_DIR / "historical_features.csv"
+            if hist_path.exists():
+                hist_df = pd.read_csv(hist_path)
+                hist_df["date"] = pd.to_datetime(hist_df["date"], errors="coerce")
+                if train_cutoff:
+                    hist_df = hist_df[hist_df["date"] <= pd.to_datetime(train_cutoff)]
+                elif as_of_date:
+                    hist_df = hist_df[hist_df["date"] <= pd.to_datetime(as_of_date)]
+            res_df = None
+            try:
+                res_path = RAW_DIR / "international_results" / "results.csv"
+                if res_path.exists():
+                    res_df = pd.read_csv(res_path)
+                    res_df["date"] = pd.to_datetime(res_df["date"], errors="coerce")
+                    if train_cutoff:
+                        res_df = res_df[res_df["date"] <= pd.to_datetime(train_cutoff)]
+            except:
+                pass
+            core = get_model("core_v2")
+            core.fit(hist_df, res_df)
+            legacy = get_model("base")
+            legacy.fit(hist_df)
+        except Exception as e:
+            print(f"[predict] Core v2 preload warning: {e}. Falling back to base logic.")
+            use_core_v2 = False
 
     calibration_info = {"factor": 1.0, "factor_fav": 1.0, "factor_und": 1.0, "reason": "Not live mode"}
     applied_posture = None
@@ -151,19 +192,35 @@ def predict_scorelines(mode="live", as_of_date=None, train_cutoff=None, calibrat
         team_a = normalize_team_name(team_a_raw)
         team_b = normalize_team_name(team_b_raw)
 
-        xg_a, xg_b = predict_xg(team_a, team_b, model)
-        
-        # Apply calibration multipliers ONLY to future (unplayed) matches
         p_date = str(row.get("date", ""))
         is_played = (p_date, team_a, team_b) in played_keys or (p_date, team_b, team_a) in played_keys
-        apply_calib = (mode == "live") and (not is_played) and (calib_factor_fav != 1.0 or calib_factor_und != 1.0)
-        if apply_calib:
-            if xg_a >= xg_b:
-                xg_a = xg_a * calib_factor_fav
-                xg_b = xg_b * calib_factor_und
-            else:
-                xg_b = xg_b * calib_factor_fav
-                xg_a = xg_a * calib_factor_und
+
+        if use_core_v2 and mode == "live":
+            match_dict = {
+                "match_id": match_id,
+                "date": p_date,
+                "team_a": team_a,
+                "team_b": team_b,
+            }
+            try:
+                v2_result = core.predict(match_dict)
+            except Exception as ex:
+                print(f"[predict] Core v2 error for {match_id}: {ex}")
+                v2_result = None
+            xg_a, xg_b = predict_xg(team_a, team_b, model)
+        else:
+            xg_a, xg_b = predict_xg(team_a, team_b, model)
+            v2_result = None
+
+            # Legacy calibration only for non-v2
+            apply_calib = (mode == "live") and (not is_played) and (calib_factor_fav != 1.0 or calib_factor_und != 1.0)
+            if apply_calib:
+                if xg_a >= xg_b:
+                    xg_a = xg_a * calib_factor_fav
+                    xg_b = xg_b * calib_factor_und
+                else:
+                    xg_b = xg_b * calib_factor_fav
+                    xg_a = xg_a * calib_factor_und
         
         probs = calculate_match_probabilities(xg_a, xg_b, max_goals)
 
@@ -194,55 +251,104 @@ def predict_scorelines(mode="live", as_of_date=None, train_cutoff=None, calibrat
             sq_b.get("kaggle_match_rate", 0.0),
         )
 
-        pred_dict = {
-            "match_id": match_id,
-            "date": row.get("date", ""),
-            "phase": row.get("stage", ""),
-            "group": row.get("stage", ""),
-            "team_a": team_a,
-            "team_b": team_b,
-            "home_team": team_a,
-            "away_team": team_b,
-            "team_a_label": "Team A / Listed first",
-            "team_b_label": "Team B / Listed second",
-            "venue": row.get("venue_code", ""),
-            "neutral": True,
-            "expected_goals_team_a": round(xg_a, 3),
-            "expected_goals_team_b": round(xg_b, 3),
-            "team_a_win_probability": round(probs["win_a"], 4),
-            "draw_probability": round(probs["draw"], 4),
-            "team_b_win_probability": round(probs["win_b"], 4),
-            "top_5_scorelines": [
-                {
-                    "team_a_goals": int(s["scoreline"].split('-')[0]),
-                    "team_b_goals": int(s["scoreline"].split('-')[1]),
-                    "scoreline": s["scoreline"],
-                    "display_scoreline": f"{team_a} {s['scoreline'].split('-')[0]} - {s['scoreline'].split('-')[1]} {team_b}",
-                    "probability": round(s["probability"], 4)
-                }
-                for s in probs["top_5"]
-            ],
-            "data_quality": {
-                "squad_match_status": overall_squad_status,
-                "player_kaggle_match_rate": round(kaggle_rate, 3),
-                "warnings": dq_warnings,
-            },
-            "explanation": {
-                "team_a_attack_strength": round(model["attack"].get(team_a, 1.0), 4),
-                "team_b_attack_strength": round(model["attack"].get(team_b, 1.0), 4),
-                "team_a_defense_strength": round(model["defense"].get(team_a, 1.0), 4),
-                "team_b_defense_strength": round(model["defense"].get(team_b, 1.0), 4),
-                "team_a_squad_strength": round(sq_a.get("squad_total_market_value", 0.0), 0),
-                "team_b_squad_strength": round(sq_b.get("squad_total_market_value", 0.0), 0),
-                "team_a_sqi": sq_a.get("squad_quality_index", 0),
-                "team_b_sqi": sq_b.get("squad_quality_index", 0),
-                "team_a_club_form": sq_a.get("recent_club_goals_per_app", 0),
-                "team_b_club_form": sq_b.get("recent_club_goals_per_app", 0),
-                "sqi_diff": sq_a.get("squad_quality_index", 0) - sq_b.get("squad_quality_index", 0),
-                "club_form_diff": sq_a.get("recent_club_goals_per_app", 0) - sq_b.get("recent_club_goals_per_app", 0),
-                "main_factors": _build_explanation_factors(team_a, team_b, model, sq_a, sq_b),
-            },
-        }
+        if v2_result is not None:
+            # Use Core v2 reconciled prediction
+            pred_dict = {
+                "match_id": match_id,
+                "date": row.get("date", ""),
+                "phase": row.get("stage", ""),
+                "group": row.get("stage", ""),
+                "team_a": team_a,
+                "team_b": team_b,
+                "home_team": team_a,
+                "away_team": team_b,
+                "team_a_label": "Team A / Listed first",
+                "team_b_label": "Team B / Listed second",
+                "venue": row.get("venue_code", ""),
+                "neutral": True,
+                "expected_goals_team_a": v2_result.get("expected_team_a_goals", round(xg_a, 3)),
+                "expected_goals_team_b": v2_result.get("expected_team_b_goals", round(xg_b, 3)),
+                "team_a_win_probability": v2_result.get("team_a_win_probability", round(probs["win_a"], 4)),
+                "draw_probability": v2_result.get("draw_probability", round(probs["draw"], 4)),
+                "team_b_win_probability": v2_result.get("team_b_win_probability", round(probs["win_b"], 4)),
+                "top_5_scorelines": v2_result.get("top5_scorelines", [
+                    {
+                        "team_a_goals": int(s["scoreline"].split('-')[0]),
+                        "team_b_goals": int(s["scoreline"].split('-')[1]),
+                        "scoreline": s["scoreline"],
+                        "display_scoreline": f"{team_a} {s['scoreline'].split('-')[0]} - {s['scoreline'].split('-')[1]} {team_b}",
+                        "probability": round(s["probability"], 4)
+                    }
+                    for s in probs["top_5"]
+                ]),
+                "data_quality": {
+                    "squad_match_status": overall_squad_status,
+                    "player_kaggle_match_rate": round(kaggle_rate, 3),
+                    "warnings": dq_warnings,
+                },
+                "explanation": {
+                    "team_a_attack_strength": round(model.get("attack", {}).get(team_a, 1.0), 4),
+                    "team_b_attack_strength": round(model.get("attack", {}).get(team_b, 1.0), 4),
+                    "team_a_defense_strength": round(model.get("defense", {}).get(team_a, 1.0), 4),
+                    "team_b_defense_strength": round(model.get("defense", {}).get(team_b, 1.0), 4),
+                    "model_version": v2_result.get("model_version", "core_v2"),
+                    "scoreline_engine": v2_result.get("scoreline_engine", "ensemble"),
+                    "outcome_engine": v2_result.get("outcome_engine", "hybrid_elo_poisson"),
+                    "goal_volume_policy": v2_result.get("goal_volume_policy", f"lambda_{1.15}"),
+                    "legacy_base_comparison": v2_result.get("legacy_base_comparison", {}),
+                    "main_factors": ["Core v2 hybrid: ensemble scorelines + hybrid Elo-Poisson 1X2 + moderate calibration"],
+                },
+            }
+        else:
+            pred_dict = {
+                "match_id": match_id,
+                "date": row.get("date", ""),
+                "phase": row.get("stage", ""),
+                "group": row.get("stage", ""),
+                "team_a": team_a,
+                "team_b": team_b,
+                "home_team": team_a,
+                "away_team": team_b,
+                "team_a_label": "Team A / Listed first",
+                "team_b_label": "Team B / Listed second",
+                "venue": row.get("venue_code", ""),
+                "neutral": True,
+                "expected_goals_team_a": round(xg_a, 3),
+                "expected_goals_team_b": round(xg_b, 3),
+                "team_a_win_probability": round(probs["win_a"], 4),
+                "draw_probability": round(probs["draw"], 4),
+                "team_b_win_probability": round(probs["win_b"], 4),
+                "top_5_scorelines": [
+                    {
+                        "team_a_goals": int(s["scoreline"].split('-')[0]),
+                        "team_b_goals": int(s["scoreline"].split('-')[1]),
+                        "scoreline": s["scoreline"],
+                        "display_scoreline": f"{team_a} {s['scoreline'].split('-')[0]} - {s['scoreline'].split('-')[1]} {team_b}",
+                        "probability": round(s["probability"], 4)
+                    }
+                    for s in probs["top_5"]
+                ],
+                "data_quality": {
+                    "squad_match_status": overall_squad_status,
+                    "player_kaggle_match_rate": round(kaggle_rate, 3),
+                    "warnings": dq_warnings,
+                },
+                "explanation": {
+                    "team_a_attack_strength": round(model["attack"].get(team_a, 1.0), 4),
+                    "team_b_attack_strength": round(model["attack"].get(team_b, 1.0), 4),
+                    "team_a_defense_strength": round(model["defense"].get(team_a, 1.0), 4),
+                    "team_b_defense_strength": round(model["defense"].get(team_b, 1.0), 4),
+                    "team_a_squad_strength": round(sq_a.get("squad_total_market_value", 0.0), 0),
+                    "team_b_squad_strength": round(sq_b.get("squad_total_market_value", 0.0), 0),
+                    "team_a_sqi": sq_a.get("squad_quality_index", 0),
+                    "team_b_sqi": sq_b.get("squad_quality_index", 0),
+                    "team_a_club_form": sq_a.get("recent_club_goals_per_app", 0),
+                    "team_b_club_form": sq_b.get("recent_club_goals_per_app", 0),
+                    "sqi_diff": sq_a.get("squad_quality_index", 0) - sq_b.get("squad_quality_index", 0),
+                    "club_form_diff": sq_a.get("recent_club_goals_per_app", 0) - sq_b.get("recent_club_goals_per_app", 0),
+                    "main_factors": _build_explanation_factors(team_a, team_b, model, sq_a, sq_b),
+                },
+            }
         predictions_json.append(pred_dict)
 
     # ── Save Model Params ────────────────────────────────────────────────
@@ -253,52 +359,46 @@ def predict_scorelines(mode="live", as_of_date=None, train_cutoff=None, calibrat
 
     # ── Save JSON ────────────────────────────────────────────────────────
     if mode == "backtest":
-        out_path = PREDICTIONS_JSON_PATH.parent / "backtest_report.json"
+        base_out = PREDICTIONS_JSON_PATH.parent / "backtest_report.json"
     elif mode == "live":
-        out_path = PREDICTIONS_JSON_PATH.parent / "live_predictions.json"
+        if use_core_v2:
+            base_out = PREDICTIONS_JSON_PATH.parent / "live_predictions_core_v2.json"
+        else:
+            base_out = PREDICTIONS_JSON_PATH.parent / "live_predictions.json"
     else:
-        out_path = PREDICTIONS_JSON_PATH
-    
+        base_out = PREDICTIONS_JSON_PATH
+
     meta = {
         "mode": mode,
         "as_of_date": as_of_date,
         "train_cutoff": train_cutoff,
-        "calibration_factor_fav": calib_factor_fav,
-        "calibration_factor_und": calib_factor_und,
-        "calibration_factor": round((calib_factor_fav + calib_factor_und) / 2.0, 3),
-        "calibrated": bool(calib_factor_fav != 1.0 or calib_factor_und != 1.0),
-        "calibration_reason": calibration_info.get("reason", "")
+        "prediction_core": "core_v2" if use_core_v2 else "base",
+        "core_version": "v2" if use_core_v2 else "legacy",
+        "calibration_factor_fav": calib_factor_fav if not use_core_v2 else 1.0,
+        "calibration_factor_und": calib_factor_und if not use_core_v2 else 1.0,
+        "calibration_factor": round((calib_factor_fav + calib_factor_und) / 2.0, 3) if not use_core_v2 else 1.15,
+        "calibrated": bool(calib_factor_fav != 1.0 or calib_factor_und != 1.0) if not use_core_v2 else True,
+        "calibration_reason": "Core v2 hybrid" if use_core_v2 else calibration_info.get("reason", ""),
+        "scoreline_engine": "ensemble" if use_core_v2 else "base_poisson",
+        "outcome_engine": "hybrid_elo_poisson" if use_core_v2 else "base_poisson",
+        "goal_volume_policy": "lambda_1.15" if use_core_v2 else "none",
     }
-    if mode == "live" and applied_posture:
-        meta["calibration_posture"] = applied_posture
-        meta["calibration_source"] = "performance audit / live goal-volume calibration"
-        meta["future_only"] = True
-        meta["not_for_backtest"] = True
 
     output_obj = {
         "metadata": meta,
         "predictions": predictions_json
     }
 
-    # Determine output paths (challenger variants get separate files)
-    if mode == "backtest":
-        out_path = PREDICTIONS_JSON_PATH.parent / "backtest_report.json"
-    elif mode == "live":
-        posture = applied_posture or "moderate"
-        out_path = PREDICTIONS_JSON_PATH.parent / f"live_predictions_{posture}.json"
-    else:
-        out_path = PREDICTIONS_JSON_PATH
-    
-    with open(out_path, "w", encoding="utf-8") as f:
+    with open(base_out, "w", encoding="utf-8") as f:
         json.dump(output_obj, f, indent=2)
-    print(f"[predict] Saved {len(predictions_json)} predictions -> {out_path}")
+    print(f"[predict] Saved {len(predictions_json)} predictions -> {base_out}")
 
-    # For moderate (production posture), also update the default live_predictions.json
-    if mode == "live" and (applied_posture or "moderate") == "moderate":
+    # Always also save/overwrite default live for core_v2
+    if mode == "live" and use_core_v2:
         default_path = PREDICTIONS_JSON_PATH.parent / "live_predictions.json"
         with open(default_path, "w", encoding="utf-8") as f:
             json.dump(output_obj, f, indent=2)
-        print(f"[predict] Also saved default live_predictions.json using moderate posture")
+        print(f"[predict] Updated default live_predictions.json to Core v2")
     
     # Update PREDICTIONS_CSV_PATH based on mode (only for backtest/default live to avoid clutter)
     if mode == "backtest":

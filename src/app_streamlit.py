@@ -624,7 +624,10 @@ def main():
             metadata, predictions = load_selected_predictions(selected_file)
                 
             if metadata:
-                st.info(f"**Mode:** {metadata.get('mode')} | **As Of Date:** {metadata.get('as_of_date')} | **Train Cutoff:** {metadata.get('train_cutoff')}")
+                core = metadata.get('prediction_core', metadata.get('mode', 'unknown'))
+                st.info(f"**Mode:** {metadata.get('mode')} | **Core:** {core} | **As Of Date:** {metadata.get('as_of_date')} | **Train Cutoff:** {metadata.get('train_cutoff')}")
+                if core == 'core_v2':
+                    st.caption('Core v2 Hybrid: ensemble scoreline + hybrid_elo_poisson 1X2 + lambda_1.15 volume. Legacy base available as benchmark.')
 
                 # 2. Visible backtest vs live banner
                 banner = get_mode_banner(metadata)

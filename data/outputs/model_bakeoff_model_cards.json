@@ -1,0 +1,130 @@
+{
+  "base": {
+    "name": "base",
+    "family": "poisson",
+    "description": "Pre-cutoff only.",
+    "strengths": [],
+    "weaknesses": [],
+    "validation": "Pre 2026-06-10 data only."
+  },
+  "lambda_1.05": {
+    "name": "lambda_1.05",
+    "family": "poisson",
+    "description": "Pre-cutoff only.",
+    "strengths": [],
+    "weaknesses": [],
+    "validation": "Pre 2026-06-10 data only."
+  },
+  "lambda_1.10": {
+    "name": "lambda_1.10",
+    "family": "poisson",
+    "description": "Pre-cutoff only.",
+    "strengths": [],
+    "weaknesses": [],
+    "validation": "Pre 2026-06-10 data only."
+  },
+  "lambda_1.15": {
+    "name": "lambda_1.15",
+    "family": "poisson",
+    "description": "Pre-cutoff only.",
+    "strengths": [],
+    "weaknesses": [],
+    "validation": "Pre 2026-06-10 data only."
+  },
+  "lambda_1.20": {
+    "name": "lambda_1.20",
+    "family": "poisson",
+    "description": "Pre-cutoff only.",
+    "strengths": [],
+    "weaknesses": [],
+    "validation": "Pre 2026-06-10 data only."
+  },
+  "lambda_1.25": {
+    "name": "lambda_1.25",
+    "family": "poisson",
+    "description": "Pre-cutoff only.",
+    "strengths": [],
+    "weaknesses": [],
+    "validation": "Pre 2026-06-10 data only."
+  },
+  "lambda_1.30": {
+    "name": "lambda_1.30",
+    "family": "poisson",
+    "description": "Pre-cutoff only.",
+    "strengths": [],
+    "weaknesses": [],
+    "validation": "Pre 2026-06-10 data only."
+  },
+  "draw_damp_0.6": {
+    "name": "draw_damp_0.6",
+    "family": "poisson",
+    "description": "Pre-cutoff only.",
+    "strengths": [],
+    "weaknesses": [],
+    "validation": "Pre 2026-06-10 data only."
+  },
+  "draw_damp_0.75": {
+    "name": "draw_damp_0.75",
+    "family": "poisson",
+    "description": "Pre-cutoff only.",
+    "strengths": [],
+    "weaknesses": [],
+    "validation": "Pre 2026-06-10 data only."
+  },
+  "lowscore_damp": {
+    "name": "lowscore_damp",
+    "family": "poisson",
+    "description": "Pre-cutoff only.",
+    "strengths": [],
+    "weaknesses": [],
+    "validation": "Pre 2026-06-10 data only."
+  },
+  "asym_fav": {
+    "name": "asym_fav",
+    "family": "poisson",
+    "description": "Pre-cutoff only.",
+    "strengths": [],
+    "weaknesses": [],
+    "validation": "Pre 2026-06-10 data only."
+  },
+  "recency_poisson": {
+    "name": "recency_poisson",
+    "family": "poisson",
+    "description": "Pre-cutoff only.",
+    "strengths": [],
+    "weaknesses": [],
+    "validation": "Pre 2026-06-10 data only."
+  },
+  "elo": {
+    "name": "elo",
+    "family": "elo",
+    "description": "Pre-cutoff only.",
+    "strengths": [],
+    "weaknesses": [],
+    "validation": "Pre 2026-06-10 data only."
+  },
+  "hybrid_elo_poisson": {
+    "name": "hybrid_elo_poisson",
+    "family": "elo",
+    "description": "Pre-cutoff only.",
+    "strengths": [],
+    "weaknesses": [],
+    "validation": "Pre 2026-06-10 data only."
+  },
+  "regularized_poisson": {
+    "name": "regularized_poisson",
+    "family": "poisson",
+    "description": "Pre-cutoff only.",
+    "strengths": [],
+    "weaknesses": [],
+    "validation": "Pre 2026-06-10 data only."
+  },
+  "ensemble": {
+    "name": "ensemble",
+    "family": "ensemble",
+    "description": "Pre-cutoff only.",
+    "strengths": [],
+    "weaknesses": [],
+    "validation": "Pre 2026-06-10 data only."
+  }
+}
