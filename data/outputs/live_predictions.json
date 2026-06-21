@@ -5,6 +5,7 @@
     "train_cutoff": null,
     "calibration_factor_fav": 1.013,
     "calibration_factor_und": 1.1,
+    "calibration_factor": 1.056,
     "calibrated": true,
     "calibration_reason": "Rolling Window Calibrated"
   },

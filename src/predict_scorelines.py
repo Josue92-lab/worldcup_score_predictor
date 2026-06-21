@@ -208,6 +208,7 @@ def predict_scorelines(mode="live", as_of_date=None, train_cutoff=None):
             "train_cutoff": train_cutoff,
             "calibration_factor_fav": calib_factor_fav,
             "calibration_factor_und": calib_factor_und,
+            "calibration_factor": round((calib_factor_fav + calib_factor_und) / 2.0, 3),
             "calibrated": bool(calib_factor_fav != 1.0 or calib_factor_und != 1.0),
             "calibration_reason": calibration_info.get("reason", "")
         },

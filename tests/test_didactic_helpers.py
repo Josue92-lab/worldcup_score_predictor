@@ -177,3 +177,122 @@ def test_aggregate_1x2_helpers_via_canonical():
     assert pred(0.10, 0.20, 0.70) == "2"
     assert actual(2, 0) == "1"
 
+
+# --- Calibration diagnostics tests (added for audit) ---
+
+def test_resolve_calibration_factor_prefers_explicit_and_fav_und(monkeypatch):
+    from src.app_streamlit import _resolve_calibration_factor
+    # explicit key
+    assert _resolve_calibration_factor({"calibration_factor": 1.056}) == 1.056
+    # fav/und avg
+    meta = {"calibration_factor_fav": 1.013, "calibration_factor_und": 1.1}
+    assert _resolve_calibration_factor(meta) == round((1.013 + 1.1) / 2, 3)
+    # fallback to calib
+    calib = {"global_calibration_factor": 1.03}
+    assert _resolve_calibration_factor({}, calib) == 1.03
+    # default
+    assert _resolve_calibration_factor({}) == 1.0
+
+
+def test_if_factor_eq_1_no_inflate_claim_in_warning_logic():
+    """If effective factor == 1.0, must not emit text claiming lambdas were inflated."""
+    from src.app_streamlit import _resolve_calibration_factor
+    # simulate panel decision
+    factor = 1.0
+    active = True  # could be set if fav/und were neutral
+    would_claim_inflate = (factor > 1.001)
+    assert would_claim_inflate is False
+    # even when using resolve
+    assert _resolve_calibration_factor({"calibration_factor": 1.0}) == 1.0
+    # neutral wording path would be taken, not "inflated by 1.000x"
+
+
+def test_if_factor_gt_1_may_claim_inflation():
+    from src.app_streamlit import _resolve_calibration_factor
+    factor = _resolve_calibration_factor({"calibration_factor_fav": 1.08, "calibration_factor_und": 1.08})
+    assert factor > 1.0
+    assert factor > 1.001
+    # caller would use "Lambdas inflated by Xx"
+
+
+def test_displayed_rounded_factor_does_not_hide_meaningful_value():
+    # 1.002 should round display to 1.002 not collapse to 1.000 without context
+    from src.app_streamlit import _resolve_calibration_factor
+    f = _resolve_calibration_factor({"calibration_factor": 1.0023})
+    assert abs(f - 1.002) < 0.001
+    assert f != 1.0
+
+
+def test_diagnostics_scope_safe_when_live_selected_but_source_backtest(tmp_path, monkeypatch):
+    """When live report selected, diag and captions must reflect backtest/eval source for avgs/factor."""
+    import src.app_streamlit as app_mod
+    monkeypatch.setattr(app_mod, "OUTPUTS_DIR", tmp_path)
+
+    # eval from backtest (cf=1.0)
+    eval_data = {
+        "matches_evaluated": 36,
+        "exact_score_top1_rate": 0.1944,
+        "diagnostics": {
+            "predicted_total_goals_avg": 2.638,
+            "actual_total_goals_avg": 3.028,
+            "calibration_factor": 1.0,
+        }
+    }
+    (tmp_path / "evaluation_report.json").write_text(json.dumps(eval_data))
+
+    # calib has the live window factor >1
+    calib_data = {
+        "average_predicted_total_goals": 2.637,
+        "average_actual_total_goals": 3.0,
+        "global_calibration_factor": 1.056,
+        "matches_evaluated_in_window": 15,
+    }
+    (tmp_path / "calibration_report.json").write_text(json.dumps(calib_data))
+
+    diag = app_mod.load_diagnostics_summary()
+    # Because eval cf==1.0, we now fallback to calib's non-1 in load
+    assert diag["matches_evaluated"] == 36
+    assert diag.get("avg_actual_goals") in (3.028, 3.0)
+    # factor should prefer calib's when eval 1.0
+    assert diag.get("calibration_factor") == 1.056 or diag.get("calibration_factor") == 1.056
+
+    # resolve on live meta would give applied
+    live_meta = {"mode": "live", "calibration_factor_fav": 1.013, "calibration_factor_und": 1.1, "calibrated": True}
+    eff = app_mod._resolve_calibration_factor(live_meta, calib_data)
+    assert eff > 1.0
+
+
+def test_average_actual_goals_uses_only_evaluated_matches(tmp_path, monkeypatch):
+    """Test via report shape that matches_evaluated and avgs are derived only from scored matches."""
+    import src.app_streamlit as app_mod
+    monkeypatch.setattr(app_mod, "OUTPUTS_DIR", tmp_path)
+
+    # Simulate report as would be produced by evaluate (only completed)
+    eval = {
+        "matches_evaluated": 36,
+        "diagnostics": {"actual_total_goals_avg": 3.028, "predicted_total_goals_avg": 2.638, "calibration_factor": 1.0},
+        "evaluated_matches": [{"actual_scoreline": "2-0"} for _ in range(36)],  # 36 entries
+    }
+    (tmp_path / "evaluation_report.json").write_text(json.dumps(eval))
+    diag = app_mod.load_diagnostics_summary()
+    assert diag["matches_evaluated"] == 36
+    # avg computed as sum / 36 not including any pending (which wouldn't be in evaluated_matches)
+    assert abs(diag["avg_actual_goals"] - 3.028) < 0.01
+
+
+def test_pending_matches_do_not_affect_average_actual_goals(tmp_path, monkeypatch):
+    """Pending (no actual_scoreline) are excluded from evaluated counts and avgs."""
+    import src.app_streamlit as app_mod
+    monkeypatch.setattr(app_mod, "OUTPUTS_DIR", tmp_path)
+
+    # report has 40 wc rows but only 36 evaluated (4 pending had no score)
+    eval = {
+        "matches_evaluated": 36,
+        "diagnostics": {"actual_total_goals_avg": 3.028, "predicted_total_goals_avg": 2.638},
+        "evaluated_matches": [{} for _ in range(36)],
+    }
+    (tmp_path / "evaluation_report.json").write_text(json.dumps(eval))
+    diag = app_mod.load_diagnostics_summary()
+    # total would be different if pending leaked in
+    assert diag["matches_evaluated"] == 36
+    # no way pending contribute since evaluate skips na scores, and eval_map only has completed

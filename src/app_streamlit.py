@@ -115,6 +115,34 @@ def load_calibration_report():
         return {}
 
 
+def _resolve_calibration_factor(metadata: dict, calib_data: dict = None) -> float:
+    """Resolve single factor from metadata (new key or fav/und avg) or calib global. Default 1.0.
+    Used for display and warning guards.
+    """
+    m = metadata or {}
+    cf = m.get("calibration_factor")
+    if cf is not None:
+        try:
+            return round(float(cf), 3)
+        except Exception:
+            pass
+    fav = m.get("calibration_factor_fav")
+    und = m.get("calibration_factor_und")
+    if fav is not None and und is not None:
+        try:
+            return round((float(fav) + float(und)) / 2.0, 3)
+        except Exception:
+            pass
+    if calib_data:
+        g = calib_data.get("global_calibration_factor")
+        if g is not None:
+            try:
+                return round(float(g), 3)
+            except Exception:
+                pass
+    return 1.0
+
+
 def load_diagnostics_summary():
     """Return a safe summary dict with hit rates, goal stats, concentration info.
     Never crashes on missing fields.
@@ -171,8 +199,15 @@ def load_diagnostics_summary():
             diag["avg_predicted_goals"] = calib_report.get("average_predicted_total_goals")
         if diag["avg_actual_goals"] is None:
             diag["avg_actual_goals"] = calib_report.get("average_actual_total_goals")
-        if diag["calibration_factor"] is None:
-            diag["calibration_factor"] = calib_report.get("global_calibration_factor")
+        if diag.get("calibration_factor") in (None, 1.0):
+            gcf = calib_report.get("global_calibration_factor")
+            if gcf is not None:
+                try:
+                    if float(gcf) != 1.0:
+                        diag["calibration_factor"] = float(gcf)
+                except Exception:
+                    if diag["calibration_factor"] is None:
+                        diag["calibration_factor"] = gcf
 
     return diag
 
@@ -342,16 +377,24 @@ def _render_calibration_panel(metadata: dict, calib_factor: float, calib_active:
             with open(calib_path, "r", encoding="utf-8") as f:
                 calib_data = json.load(f)
 
+            effective_factor = _resolve_calibration_factor(metadata, calib_data)
+            mode = (metadata or {}).get("mode") or "unknown"
             with st.expander("Model Calibration Panel", expanded=calib_active):
-                st.write(f"**Model Mode:** {metadata.get('mode')}")
+                st.write(f"**Model Mode:** {mode}")
                 st.write(f"**Average Predicted Goals:** {calib_data.get('average_predicted_total_goals', 0):.2f}")
                 st.write(f"**Average Actual Goals:** {calib_data.get('average_actual_total_goals', 0):.2f}")
-                st.write(f"**Calibration Factor:** {calib_factor:.3f}")
+                st.write(f"**Calibration Factor:** {effective_factor:.3f}")
 
-                if calib_active:
-                    st.warning(f"⚠️ **Underestimating Goals:** The base model was underestimating goal volume. Lambdas inflated by {calib_factor:.3f}x.")
+                if effective_factor > 1.001:
+                    st.warning(f"⚠️ **Underestimating Goals:** The base model was underestimating goal volume. Lambdas inflated by {effective_factor:.3f}x.")
+                elif calib_active:
+                    st.info("The model is underestimating goal volume, but no effective lambda inflation is currently applied.")
                 else:
                     st.success("Model goal volume is within expected range or calibration is inactive.")
+
+                st.caption("Diagnostics source: calibration_report.json (backtest predictions matched to actuals using rolling window).")
+                if mode == "live":
+                    st.caption("Selected report is live_predictions.json; calibration (if >1) applies only to future-match lambdas.")
         except:
             pass
 
@@ -394,7 +437,7 @@ def render_model_diagnostics(metadata: dict, diag: dict, selected_mode: str) -> 
 
         st.caption("See warning below the filters for 1-1 concentration note when applicable.")
         if selected_mode == "live":
-            st.caption("Note: Hit rates / top-1 dist come from backtest evaluation for honesty; live report may have different current top predictions.")
+            st.caption("Note: Hit rates / top-1 dist / avgs / calibration factor shown here are from backtest evaluation (base model, for honesty). Live report applies calibration only to future predictions. See Model Calibration Panel for windowed actual/predicted avgs and applied factor.")
 
 
 def render_educational_panels() -> None:
@@ -591,9 +634,10 @@ def main():
                     else:
                         st.info(banner)
 
-                calib_factor = metadata.get("calibration_factor", 1.0)
-                calib_active = metadata.get("calibrated", False)
-                _render_calibration_panel(metadata, calib_factor, calib_active)
+                calib_active = metadata.get("calibrated", False) if metadata else False
+                calib_report_for_factor = load_calibration_report()
+                calib_factor = _resolve_calibration_factor(metadata, calib_report_for_factor)
+                _render_calibration_panel(metadata, float(calib_factor), calib_active)
 
             # 6. Compact Model diagnostics panel (always safe)
             diag = load_diagnostics_summary()

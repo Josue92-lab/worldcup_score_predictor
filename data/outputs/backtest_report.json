@@ -5,6 +5,7 @@
     "train_cutoff": "2026-06-10",
     "calibration_factor_fav": 1.0,
     "calibration_factor_und": 1.0,
+    "calibration_factor": 1.0,
     "calibrated": false,
     "calibration_reason": "Not live mode"
   },
