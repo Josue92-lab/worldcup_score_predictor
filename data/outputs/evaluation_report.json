@@ -1,26 +1,26 @@
 {
   "martj42_results_max_date": "2026-06-27",
-  "world_cup_2026_rows_found": 36,
+  "world_cup_2026_rows_found": 40,
   "actual_results_status": "available",
-  "matches_evaluated": 32,
+  "matches_evaluated": 36,
   "exact_score_top1_hits": 7,
-  "exact_score_top1_rate": 0.2188,
-  "exact_score_top5_hits": 17,
-  "exact_score_top5_rate": 0.5312,
-  "outcome_1x2_hits": 14,
-  "outcome_1x2_rate": 0.4375,
+  "exact_score_top1_rate": 0.1944,
+  "exact_score_top5_hits": 18,
+  "exact_score_top5_rate": 0.5,
+  "outcome_1x2_hits": 17,
+  "outcome_1x2_rate": 0.4722,
   "diagnostics": {
     "top1_scoreline_distribution": {
-      "1-1": 30,
+      "1-1": 34,
       "2-1": 1,
       "1-0": 1
     },
     "average_expected_goals_team_a": 1.299,
     "average_expected_goals_team_b": 1.328,
-    "predicted_total_goals_avg": 2.601,
-    "actual_total_goals_avg": 3.0,
-    "high_score_miss_count": 7,
-    "matches_where_actual_total_goals_gt_4": 7,
+    "predicted_total_goals_avg": 2.638,
+    "actual_total_goals_avg": 3.028,
+    "high_score_miss_count": 8,
+    "matches_where_actual_total_goals_gt_4": 8,
     "calibration_factor": 1.0,
     "dixon_coles_enabled": true,
     "rho": -0.13
@@ -601,6 +601,78 @@
       "top1_correct": false,
       "top5_correct": false,
       "outcome_1x2_correct": false
+    },
+    {
+      "match_id": "GS_035",
+      "date": "2026-06-20",
+      "team_a": "Netherlands",
+      "team_b": "Sweden",
+      "actual_scoreline": "5-1",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "2-1",
+        "1-2",
+        "2-2",
+        "3-1"
+      ],
+      "top1_correct": false,
+      "top5_correct": false,
+      "outcome_1x2_correct": true
+    },
+    {
+      "match_id": "GS_033",
+      "date": "2026-06-20",
+      "team_a": "Germany",
+      "team_b": "C\u00f4te D'Ivoire",
+      "actual_scoreline": "2-1",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "2-1",
+        "1-2",
+        "1-0",
+        "0-0"
+      ],
+      "top1_correct": false,
+      "top5_correct": true,
+      "outcome_1x2_correct": true
+    },
+    {
+      "match_id": "GS_034",
+      "date": "2026-06-20",
+      "team_a": "Ecuador",
+      "team_b": "Cura\u00e7ao",
+      "actual_scoreline": "0-0",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "1-2",
+        "0-2",
+        "2-1",
+        "0-1"
+      ],
+      "top1_correct": false,
+      "top5_correct": false,
+      "outcome_1x2_correct": false
+    },
+    {
+      "match_id": "GS_036",
+      "date": "2026-06-20",
+      "team_a": "Tunisia",
+      "team_b": "Japan",
+      "actual_scoreline": "0-4",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "0-0",
+        "0-1",
+        "1-0",
+        "1-2"
+      ],
+      "top1_correct": false,
+      "top5_correct": false,
+      "outcome_1x2_correct": true
     }
   ]
 }
