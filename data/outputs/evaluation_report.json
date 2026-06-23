@@ -1,26 +1,26 @@
 {
   "martj42_results_max_date": "2026-06-27",
-  "world_cup_2026_rows_found": 40,
+  "world_cup_2026_rows_found": 48,
   "actual_results_status": "available",
-  "matches_evaluated": 36,
+  "matches_evaluated": 44,
   "exact_score_top1_hits": 7,
-  "exact_score_top1_rate": 0.1944,
-  "exact_score_top5_hits": 18,
-  "exact_score_top5_rate": 0.5,
-  "outcome_1x2_hits": 17,
-  "outcome_1x2_rate": 0.4722,
+  "exact_score_top1_rate": 0.1591,
+  "exact_score_top5_hits": 20,
+  "exact_score_top5_rate": 0.4545,
+  "outcome_1x2_hits": 21,
+  "outcome_1x2_rate": 0.4773,
   "diagnostics": {
     "top1_scoreline_distribution": {
-      "1-1": 34,
+      "1-1": 42,
       "2-1": 1,
       "1-0": 1
     },
     "average_expected_goals_team_a": 1.299,
     "average_expected_goals_team_b": 1.328,
-    "predicted_total_goals_avg": 2.638,
-    "actual_total_goals_avg": 3.028,
-    "high_score_miss_count": 8,
-    "matches_where_actual_total_goals_gt_4": 8,
+    "predicted_total_goals_avg": 2.625,
+    "actual_total_goals_avg": 3.045,
+    "high_score_miss_count": 9,
+    "matches_where_actual_total_goals_gt_4": 9,
     "calibration_factor": 1.15,
     "dixon_coles_enabled": true,
     "rho": -0.13
@@ -669,6 +669,150 @@
         "0-1",
         "1-0",
         "1-2"
+      ],
+      "top1_correct": false,
+      "top5_correct": false,
+      "outcome_1x2_correct": true
+    },
+    {
+      "match_id": "GS_038",
+      "date": "2026-06-21",
+      "team_a": "Spain",
+      "team_b": "Saudi Arabia",
+      "actual_scoreline": "4-0",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "1-0",
+        "0-0",
+        "2-0",
+        "2-1"
+      ],
+      "top1_correct": false,
+      "top5_correct": false,
+      "outcome_1x2_correct": true
+    },
+    {
+      "match_id": "GS_039",
+      "date": "2026-06-21",
+      "team_a": "Belgium",
+      "team_b": "IR Iran",
+      "actual_scoreline": "0-0",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "0-2",
+        "1-2",
+        "0-1",
+        "0-0"
+      ],
+      "top1_correct": false,
+      "top5_correct": true,
+      "outcome_1x2_correct": false
+    },
+    {
+      "match_id": "GS_037",
+      "date": "2026-06-21",
+      "team_a": "Uruguay",
+      "team_b": "Cabo Verde",
+      "actual_scoreline": "2-2",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "0-0",
+        "1-0",
+        "0-1",
+        "2-0"
+      ],
+      "top1_correct": false,
+      "top5_correct": false,
+      "outcome_1x2_correct": false
+    },
+    {
+      "match_id": "GS_040",
+      "date": "2026-06-21",
+      "team_a": "New Zealand",
+      "team_b": "Egypt",
+      "actual_scoreline": "1-3",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "1-2",
+        "0-1",
+        "0-2",
+        "0-0"
+      ],
+      "top1_correct": false,
+      "top5_correct": false,
+      "outcome_1x2_correct": true
+    },
+    {
+      "match_id": "GS_043",
+      "date": "2026-06-22",
+      "team_a": "Argentina",
+      "team_b": "Austria",
+      "actual_scoreline": "2-0",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "2-1",
+        "2-0",
+        "1-0",
+        "3-1"
+      ],
+      "top1_correct": false,
+      "top5_correct": true,
+      "outcome_1x2_correct": true
+    },
+    {
+      "match_id": "GS_042",
+      "date": "2026-06-22",
+      "team_a": "France",
+      "team_b": "Iraq",
+      "actual_scoreline": "3-0",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "0-0",
+        "0-1",
+        "1-2",
+        "1-0"
+      ],
+      "top1_correct": false,
+      "top5_correct": false,
+      "outcome_1x2_correct": false
+    },
+    {
+      "match_id": "GS_041",
+      "date": "2026-06-22",
+      "team_a": "Norway",
+      "team_b": "Senegal",
+      "actual_scoreline": "3-2",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "0-1",
+        "0-0",
+        "0-2",
+        "1-2"
+      ],
+      "top1_correct": false,
+      "top5_correct": false,
+      "outcome_1x2_correct": false
+    },
+    {
+      "match_id": "GS_044",
+      "date": "2026-06-22",
+      "team_a": "Jordan",
+      "team_b": "Algeria",
+      "actual_scoreline": "1-2",
+      "predicted_top1": "1-1",
+      "predicted_top5": [
+        "1-1",
+        "0-0",
+        "0-1",
+        "1-0",
+        "0-2"
       ],
       "top1_correct": false,
       "top5_correct": false,

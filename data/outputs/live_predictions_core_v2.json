@@ -1,7 +1,7 @@
 {
   "metadata": {
     "mode": "live",
-    "as_of_date": "2026-06-21",
+    "as_of_date": "2026-06-23",
     "train_cutoff": null,
     "prediction_core": "core_v2",
     "core_version": "v2",
@@ -64,7 +64,7 @@
         "team_a_attack_strength": 1.1984,
         "team_b_attack_strength": 0.919,
         "team_a_defense_strength": 0.7136,
-        "team_b_defense_strength": 0.6452,
+        "team_b_defense_strength": 0.6451,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
@@ -220,7 +220,7 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_LA",
       "neutral": true,
-      "expected_goals_team_a": 1.696,
+      "expected_goals_team_a": 1.695,
       "expected_goals_team_b": 1.327,
       "team_a_win_probability": 0.4483,
       "draw_probability": 0.2887,
@@ -574,8 +574,8 @@
       },
       "explanation": {
         "team_a_attack_strength": 1.5341,
-        "team_b_attack_strength": 1.1183,
-        "team_a_defense_strength": 0.7905,
+        "team_b_attack_strength": 1.1182,
+        "team_a_defense_strength": 0.7904,
         "team_b_defense_strength": 1.0813,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
@@ -701,7 +701,7 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.1135,
+        "team_a_attack_strength": 1.1134,
         "team_b_attack_strength": 0.8227,
         "team_a_defense_strength": 0.6783,
         "team_b_defense_strength": 1.0373,
@@ -796,31 +796,31 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_ATL",
       "neutral": true,
-      "expected_goals_team_a": 1.786,
-      "expected_goals_team_b": 0.763,
-      "team_a_win_probability": 0.7288,
+      "expected_goals_team_a": 1.804,
+      "expected_goals_team_b": 0.769,
+      "team_a_win_probability": 0.7285,
       "draw_probability": 0.1957,
-      "team_b_win_probability": 0.0755,
+      "team_b_win_probability": 0.0758,
       "top_5_scorelines": [
         {
           "scoreline": "2-0",
-          "probability": 0.1377
+          "probability": 0.1372
         },
         {
           "scoreline": "1-0",
-          "probability": 0.1371
+          "probability": 0.1356
         },
         {
           "scoreline": "1-1",
-          "probability": 0.1136
+          "probability": 0.1132
         },
         {
           "scoreline": "0-0",
-          "probability": 0.0949
+          "probability": 0.0936
         },
         {
           "scoreline": "2-1",
-          "probability": 0.0922
+          "probability": 0.0924
         }
       ],
       "data_quality": {
@@ -829,17 +829,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.3886,
-        "team_b_attack_strength": 0.7407,
+        "team_a_attack_strength": 1.3921,
+        "team_b_attack_strength": 0.7465,
         "team_a_defense_strength": 0.6094,
-        "team_b_defense_strength": 0.7608,
+        "team_b_defense_strength": 0.7666,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-0",
-          "base_predicted_total_goals": 2.216,
+          "base_predicted_total_goals": 2.237,
           "base_1x2": "1"
         },
         "main_factors": [
@@ -860,31 +860,31 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_SEA",
       "neutral": true,
-      "expected_goals_team_a": 1.436,
-      "expected_goals_team_b": 1.911,
-      "team_a_win_probability": 0.4257,
-      "draw_probability": 0.2831,
-      "team_b_win_probability": 0.2913,
+      "expected_goals_team_a": 1.438,
+      "expected_goals_team_b": 1.916,
+      "team_a_win_probability": 0.416,
+      "draw_probability": 0.2838,
+      "team_b_win_probability": 0.3002,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1259
+          "probability": 0.1256
         },
         {
           "scoreline": "1-2",
-          "probability": 0.0892
+          "probability": 0.0895
         },
         {
           "scoreline": "2-1",
-          "probability": 0.0782
+          "probability": 0.0777
         },
         {
           "scoreline": "0-1",
-          "probability": 0.0649
+          "probability": 0.065
         },
         {
-          "scoreline": "0-0",
-          "probability": 0.0641
+          "scoreline": "0-2",
+          "probability": 0.064
         }
       ],
       "data_quality": {
@@ -893,17 +893,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.2344,
-        "team_b_attack_strength": 1.1006,
+        "team_a_attack_strength": 1.2343,
+        "team_b_attack_strength": 1.1032,
         "team_a_defense_strength": 1.0274,
-        "team_b_defense_strength": 0.6885,
+        "team_b_defense_strength": 0.6894,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.911,
+          "base_predicted_total_goals": 2.916,
           "base_1x2": "2"
         },
         "main_factors": [
@@ -924,31 +924,31 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_MIA",
       "neutral": true,
-      "expected_goals_team_a": 1.455,
-      "expected_goals_team_b": 1.294,
-      "team_a_win_probability": 0.2178,
-      "draw_probability": 0.2878,
-      "team_b_win_probability": 0.4944,
+      "expected_goals_team_a": 1.457,
+      "expected_goals_team_b": 1.302,
+      "team_a_win_probability": 0.2195,
+      "draw_probability": 0.2879,
+      "team_b_win_probability": 0.4925,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1434
+          "probability": 0.1431
         },
         {
           "scoreline": "0-0",
-          "probability": 0.095
+          "probability": 0.0943
         },
         {
           "scoreline": "0-1",
-          "probability": 0.0871
+          "probability": 0.0867
         },
         {
           "scoreline": "1-2",
-          "probability": 0.0838
+          "probability": 0.0839
         },
         {
           "scoreline": "1-0",
-          "probability": 0.0796
+          "probability": 0.0791
         }
       ],
       "data_quality": {
@@ -958,16 +958,16 @@
       },
       "explanation": {
         "team_a_attack_strength": 1.0431,
-        "team_b_attack_strength": 1.0746,
-        "team_a_defense_strength": 0.7125,
-        "team_b_defense_strength": 0.8254,
+        "team_b_attack_strength": 1.076,
+        "team_a_defense_strength": 0.7162,
+        "team_b_defense_strength": 0.8267,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.39,
+          "base_predicted_total_goals": 2.4,
           "base_1x2": "1"
         },
         "main_factors": [
@@ -988,19 +988,19 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_LA",
       "neutral": true,
-      "expected_goals_team_a": 2.208,
-      "expected_goals_team_b": 1.081,
-      "team_a_win_probability": 0.6205,
-      "draw_probability": 0.2406,
-      "team_b_win_probability": 0.1389,
+      "expected_goals_team_a": 2.219,
+      "expected_goals_team_b": 1.082,
+      "team_a_win_probability": 0.6308,
+      "draw_probability": 0.2367,
+      "team_b_win_probability": 0.1324,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1116
+          "probability": 0.1107
         },
         {
           "scoreline": "2-0",
-          "probability": 0.1054
+          "probability": 0.106
         },
         {
           "scoreline": "2-1",
@@ -1008,11 +1008,11 @@
         },
         {
           "scoreline": "1-0",
-          "probability": 0.0917
+          "probability": 0.0916
         },
         {
           "scoreline": "3-0",
-          "probability": 0.0708
+          "probability": 0.0717
         }
       ],
       "data_quality": {
@@ -1022,16 +1022,16 @@
       },
       "explanation": {
         "team_a_attack_strength": 1.2822,
-        "team_b_attack_strength": 1.19,
+        "team_b_attack_strength": 1.1916,
         "team_a_defense_strength": 0.5375,
-        "team_b_defense_strength": 1.019,
+        "team_b_defense_strength": 1.0239,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.86,
+          "base_predicted_total_goals": 2.871,
           "base_1x2": "1"
         },
         "main_factors": [
@@ -1052,31 +1052,31 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_NY",
       "neutral": true,
-      "expected_goals_team_a": 1.353,
-      "expected_goals_team_b": 1.398,
-      "team_a_win_probability": 0.5045,
-      "draw_probability": 0.2856,
-      "team_b_win_probability": 0.2099,
+      "expected_goals_team_a": 1.359,
+      "expected_goals_team_b": 1.397,
+      "team_a_win_probability": 0.5174,
+      "draw_probability": 0.2825,
+      "team_b_win_probability": 0.2001,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1428
+          "probability": 0.1425
         },
         {
           "scoreline": "0-0",
-          "probability": 0.0948
+          "probability": 0.0945
         },
         {
           "scoreline": "1-0",
-          "probability": 0.0905
+          "probability": 0.091
         },
         {
           "scoreline": "2-1",
-          "probability": 0.0862
+          "probability": 0.0868
         },
         {
           "scoreline": "0-1",
-          "probability": 0.0762
+          "probability": 0.0752
         }
       ],
       "data_quality": {
@@ -1085,17 +1085,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.2489,
-        "team_b_attack_strength": 0.9403,
-        "team_a_defense_strength": 0.8796,
-        "team_b_defense_strength": 0.641,
+        "team_a_attack_strength": 1.2498,
+        "team_b_attack_strength": 0.9409,
+        "team_a_defense_strength": 0.8787,
+        "team_b_defense_strength": 0.6432,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.392,
+          "base_predicted_total_goals": 2.396,
           "base_1x2": "2"
         },
         "main_factors": [
@@ -1116,31 +1116,31 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_BOS",
       "neutral": true,
-      "expected_goals_team_a": 1.948,
-      "expected_goals_team_b": 1.135,
-      "team_a_win_probability": 0.2982,
-      "draw_probability": 0.2914,
-      "team_b_win_probability": 0.4103,
+      "expected_goals_team_a": 1.945,
+      "expected_goals_team_b": 1.14,
+      "team_a_win_probability": 0.2871,
+      "draw_probability": 0.2902,
+      "team_b_win_probability": 0.4228,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1316
+          "probability": 0.1318
         },
         {
           "scoreline": "2-1",
-          "probability": 0.0939
+          "probability": 0.0935
         },
         {
           "scoreline": "1-0",
-          "probability": 0.0829
+          "probability": 0.0821
         },
         {
           "scoreline": "2-0",
-          "probability": 0.0791
+          "probability": 0.078
         },
         {
           "scoreline": "0-0",
-          "probability": 0.0759
+          "probability": 0.0758
         }
       ],
       "data_quality": {
@@ -1149,17 +1149,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.0435,
-        "team_b_attack_strength": 1.0561,
-        "team_a_defense_strength": 0.6358,
-        "team_b_defense_strength": 1.1045,
+        "team_a_attack_strength": 1.0419,
+        "team_b_attack_strength": 1.0573,
+        "team_a_defense_strength": 0.638,
+        "team_b_defense_strength": 1.1047,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.681,
+          "base_predicted_total_goals": 2.683,
           "base_1x2": "1"
         },
         "main_factors": [
@@ -1182,9 +1182,9 @@
       "neutral": true,
       "expected_goals_team_a": 1.481,
       "expected_goals_team_b": 1.212,
-      "team_a_win_probability": 0.5757,
-      "draw_probability": 0.2679,
-      "team_b_win_probability": 0.1564,
+      "team_a_win_probability": 0.5755,
+      "draw_probability": 0.268,
+      "team_b_win_probability": 0.1565,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
@@ -1196,7 +1196,7 @@
         },
         {
           "scoreline": "0-0",
-          "probability": 0.098
+          "probability": 0.0981
         },
         {
           "scoreline": "2-1",
@@ -1204,7 +1204,7 @@
         },
         {
           "scoreline": "2-0",
-          "probability": 0.0904
+          "probability": 0.0905
         }
       ],
       "data_quality": {
@@ -1214,8 +1214,8 @@
       },
       "explanation": {
         "team_a_attack_strength": 1.2916,
-        "team_b_attack_strength": 1.0493,
-        "team_a_defense_strength": 0.6836,
+        "team_b_attack_strength": 1.0498,
+        "team_a_defense_strength": 0.683,
         "team_b_defense_strength": 0.6782,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
@@ -1223,7 +1223,7 @@
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.342,
+          "base_predicted_total_goals": 2.341,
           "base_1x2": "1"
         },
         "main_factors": [
@@ -1246,17 +1246,17 @@
       "neutral": true,
       "expected_goals_team_a": 1.571,
       "expected_goals_team_b": 1.526,
-      "team_a_win_probability": 0.4988,
-      "draw_probability": 0.2782,
-      "team_b_win_probability": 0.2231,
+      "team_a_win_probability": 0.4994,
+      "draw_probability": 0.278,
+      "team_b_win_probability": 0.2226,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1334
+          "probability": 0.1333
         },
         {
           "scoreline": "2-1",
-          "probability": 0.0897
+          "probability": 0.0898
         },
         {
           "scoreline": "1-2",
@@ -1264,11 +1264,11 @@
         },
         {
           "scoreline": "1-0",
-          "probability": 0.076
+          "probability": 0.0761
         },
         {
           "scoreline": "0-0",
-          "probability": 0.0755
+          "probability": 0.0754
         }
       ],
       "data_quality": {
@@ -1277,10 +1277,10 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.2202,
-        "team_b_attack_strength": 0.8681,
-        "team_a_defense_strength": 1.04,
-        "team_b_defense_strength": 0.7617,
+        "team_a_attack_strength": 1.2188,
+        "team_b_attack_strength": 0.8677,
+        "team_a_defense_strength": 1.0404,
+        "team_b_defense_strength": 0.7629,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
@@ -1308,31 +1308,31 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_HOU",
       "neutral": true,
-      "expected_goals_team_a": 1.652,
-      "expected_goals_team_b": 1.301,
+      "expected_goals_team_a": 1.646,
+      "expected_goals_team_b": 1.297,
       "team_a_win_probability": 0.603,
-      "draw_probability": 0.2497,
-      "team_b_win_probability": 0.1473,
+      "draw_probability": 0.2499,
+      "team_b_win_probability": 0.1471,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1317
+          "probability": 0.1319
         },
         {
           "scoreline": "2-1",
-          "probability": 0.0958
+          "probability": 0.0957
         },
         {
           "scoreline": "1-0",
-          "probability": 0.0925
+          "probability": 0.093
         },
         {
           "scoreline": "2-0",
-          "probability": 0.0884
+          "probability": 0.0886
         },
         {
           "scoreline": "0-0",
-          "probability": 0.0806
+          "probability": 0.0811
         }
       ],
       "data_quality": {
@@ -1341,17 +1341,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.2006,
-        "team_b_attack_strength": 1.011,
-        "team_a_defense_strength": 0.7616,
-        "team_b_defense_strength": 0.8139,
+        "team_a_attack_strength": 1.1988,
+        "team_b_attack_strength": 1.009,
+        "team_a_defense_strength": 0.7605,
+        "team_b_defense_strength": 0.8124,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.568,
+          "base_predicted_total_goals": 2.559,
           "base_1x2": "1"
         },
         "main_factors": [
@@ -1372,31 +1372,31 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_DAL",
       "neutral": true,
-      "expected_goals_team_a": 1.741,
-      "expected_goals_team_b": 1.3,
-      "team_a_win_probability": 0.4768,
-      "draw_probability": 0.2837,
+      "expected_goals_team_a": 1.735,
+      "expected_goals_team_b": 1.296,
+      "team_a_win_probability": 0.4766,
+      "draw_probability": 0.284,
       "team_b_win_probability": 0.2394,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1324
+          "probability": 0.1327
         },
         {
           "scoreline": "2-1",
-          "probability": 0.0942
+          "probability": 0.0941
         },
         {
           "scoreline": "1-0",
-          "probability": 0.0856
+          "probability": 0.0861
         },
         {
           "scoreline": "2-0",
-          "probability": 0.0811
+          "probability": 0.0812
         },
         {
           "scoreline": "0-0",
-          "probability": 0.078
+          "probability": 0.0785
         }
       ],
       "data_quality": {
@@ -1405,17 +1405,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.4875,
-        "team_b_attack_strength": 1.1826,
-        "team_a_defense_strength": 0.6505,
-        "team_b_defense_strength": 0.6924,
+        "team_a_attack_strength": 1.4861,
+        "team_b_attack_strength": 1.1797,
+        "team_a_defense_strength": 0.6499,
+        "team_b_defense_strength": 0.6907,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.644,
+          "base_predicted_total_goals": 2.635,
           "base_1x2": "1"
         },
         "main_factors": [
@@ -1436,31 +1436,31 @@
       "team_b_label": "Team B / Listed second",
       "venue": "CAN_TOR",
       "neutral": true,
-      "expected_goals_team_a": 1.869,
-      "expected_goals_team_b": 1.025,
-      "team_a_win_probability": 0.35,
-      "draw_probability": 0.2994,
-      "team_b_win_probability": 0.3506,
+      "expected_goals_team_a": 1.863,
+      "expected_goals_team_b": 1.022,
+      "team_a_win_probability": 0.3496,
+      "draw_probability": 0.2997,
+      "team_b_win_probability": 0.3507,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1345
+          "probability": 0.1348
         },
         {
           "scoreline": "1-0",
-          "probability": 0.0962
+          "probability": 0.0967
         },
         {
           "scoreline": "2-1",
-          "probability": 0.0947
+          "probability": 0.0946
         },
         {
           "scoreline": "2-0",
-          "probability": 0.0889
+          "probability": 0.089
         },
         {
           "scoreline": "0-0",
-          "probability": 0.0857
+          "probability": 0.0863
         }
       ],
       "data_quality": {
@@ -1469,17 +1469,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.0662,
-        "team_b_attack_strength": 0.8556,
-        "team_a_defense_strength": 0.7088,
-        "team_b_defense_strength": 1.0371,
+        "team_a_attack_strength": 1.0646,
+        "team_b_attack_strength": 0.854,
+        "team_a_defense_strength": 0.7077,
+        "team_b_defense_strength": 1.0351,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.516,
+          "base_predicted_total_goals": 2.508,
           "base_1x2": "1"
         },
         "main_factors": [
@@ -1500,31 +1500,31 @@
       "team_b_label": "Team B / Listed second",
       "venue": "MEX_CDMX",
       "neutral": true,
-      "expected_goals_team_a": 1.561,
-      "expected_goals_team_b": 1.131,
-      "team_a_win_probability": 0.2301,
-      "draw_probability": 0.2928,
-      "team_b_win_probability": 0.4772,
+      "expected_goals_team_a": 1.554,
+      "expected_goals_team_b": 1.126,
+      "team_a_win_probability": 0.2296,
+      "draw_probability": 0.293,
+      "team_b_win_probability": 0.4773,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1447
+          "probability": 0.145
         },
         {
           "scoreline": "0-0",
-          "probability": 0.0987
+          "probability": 0.0994
         },
         {
           "scoreline": "1-0",
-          "probability": 0.0898
+          "probability": 0.0902
         },
         {
           "scoreline": "2-1",
-          "probability": 0.0831
+          "probability": 0.0829
         },
         {
           "scoreline": "0-1",
-          "probability": 0.0821
+          "probability": 0.0826
         }
       ],
       "data_quality": {
@@ -1533,17 +1533,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.1769,
-        "team_b_attack_strength": 0.8796,
-        "team_a_defense_strength": 0.761,
-        "team_b_defense_strength": 0.7848,
+        "team_a_attack_strength": 1.1736,
+        "team_b_attack_strength": 0.8782,
+        "team_a_defense_strength": 0.7588,
+        "team_b_defense_strength": 0.7836,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.341,
+          "base_predicted_total_goals": 2.331,
           "base_1x2": "1"
         },
         "main_factors": [
@@ -1600,7 +1600,7 @@
         "team_a_attack_strength": 1.2124,
         "team_b_attack_strength": 0.919,
         "team_a_defense_strength": 0.6974,
-        "team_b_defense_strength": 0.6452,
+        "team_b_defense_strength": 0.6451,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
@@ -1692,7 +1692,7 @@
       "team_b_label": "Team B / Listed second",
       "venue": "CAN_VAN",
       "neutral": true,
-      "expected_goals_team_a": 1.242,
+      "expected_goals_team_a": 1.241,
       "expected_goals_team_b": 1.433,
       "team_a_win_probability": 0.5257,
       "draw_probability": 0.2825,
@@ -2055,7 +2055,7 @@
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.579,
+          "base_predicted_total_goals": 2.578,
           "base_1x2": "1"
         },
         "main_factors": [
@@ -2174,8 +2174,8 @@
       },
       "explanation": {
         "team_a_attack_strength": 1.5341,
-        "team_b_attack_strength": 1.1135,
-        "team_a_defense_strength": 0.7905,
+        "team_b_attack_strength": 1.1134,
+        "team_a_defense_strength": 0.7904,
         "team_b_defense_strength": 0.6783,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
@@ -2238,7 +2238,7 @@
       },
       "explanation": {
         "team_a_attack_strength": 0.8227,
-        "team_b_attack_strength": 1.1183,
+        "team_b_attack_strength": 1.1182,
         "team_a_defense_strength": 1.0373,
         "team_b_defense_strength": 1.0813,
         "model_version": "core_v2",
@@ -2332,31 +2332,31 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_ATL",
       "neutral": true,
-      "expected_goals_team_a": 1.672,
+      "expected_goals_team_a": 1.685,
       "expected_goals_team_b": 1.074,
-      "team_a_win_probability": 0.6672,
-      "draw_probability": 0.2228,
-      "team_b_win_probability": 0.11,
+      "team_a_win_probability": 0.6702,
+      "draw_probability": 0.2211,
+      "team_b_win_probability": 0.1088,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1277
+          "probability": 0.127
         },
         {
           "scoreline": "1-0",
-          "probability": 0.1097
+          "probability": 0.1091
         },
         {
           "scoreline": "2-0",
-          "probability": 0.1068
+          "probability": 0.107
         },
         {
           "scoreline": "2-1",
-          "probability": 0.097
+          "probability": 0.0972
         },
         {
           "scoreline": "0-0",
-          "probability": 0.0872
+          "probability": 0.0862
         }
       ],
       "data_quality": {
@@ -2365,17 +2365,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.3886,
+        "team_a_attack_strength": 1.3921,
         "team_b_attack_strength": 1.0431,
         "team_a_defense_strength": 0.6094,
-        "team_b_defense_strength": 0.7125,
+        "team_b_defense_strength": 0.7162,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.388,
+          "base_predicted_total_goals": 2.399,
           "base_1x2": "1"
         },
         "main_factors": [
@@ -2398,25 +2398,25 @@
       "neutral": true,
       "expected_goals_team_a": 1.121,
       "expected_goals_team_b": 2.226,
-      "team_a_win_probability": 0.3059,
-      "draw_probability": 0.2845,
-      "team_b_win_probability": 0.4096,
+      "team_a_win_probability": 0.3027,
+      "draw_probability": 0.2842,
+      "team_b_win_probability": 0.4131,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1183
+          "probability": 0.1182
         },
         {
           "scoreline": "1-2",
-          "probability": 0.0986
+          "probability": 0.0987
         },
         {
           "scoreline": "0-2",
-          "probability": 0.0881
+          "probability": 0.0883
         },
         {
           "scoreline": "0-1",
-          "probability": 0.0798
+          "probability": 0.08
         },
         {
           "scoreline": "0-0",
@@ -2429,7 +2429,7 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.2344,
+        "team_a_attack_strength": 1.2343,
         "team_b_attack_strength": 1.2822,
         "team_a_defense_strength": 1.0274,
         "team_b_defense_strength": 0.5375,
@@ -2460,11 +2460,11 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_MIA",
       "neutral": true,
-      "expected_goals_team_a": 1.382,
-      "expected_goals_team_b": 1.033,
-      "team_a_win_probability": 0.5935,
-      "draw_probability": 0.2674,
-      "team_b_win_probability": 0.1391,
+      "expected_goals_team_a": 1.394,
+      "expected_goals_team_b": 1.043,
+      "team_a_win_probability": 0.5888,
+      "draw_probability": 0.2696,
+      "team_b_win_probability": 0.1416,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
@@ -2472,19 +2472,19 @@
         },
         {
           "scoreline": "1-0",
-          "probability": 0.1266
+          "probability": 0.1254
         },
         {
           "scoreline": "0-0",
-          "probability": 0.117
+          "probability": 0.116
         },
         {
           "scoreline": "2-0",
-          "probability": 0.1013
+          "probability": 0.1007
         },
         {
           "scoreline": "2-1",
-          "probability": 0.0889
+          "probability": 0.0891
         }
       ],
       "data_quality": {
@@ -2493,17 +2493,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.0746,
-        "team_b_attack_strength": 0.7407,
-        "team_a_defense_strength": 0.8254,
-        "team_b_defense_strength": 0.7608,
+        "team_a_attack_strength": 1.076,
+        "team_b_attack_strength": 0.7465,
+        "team_a_defense_strength": 0.8267,
+        "team_b_defense_strength": 0.7666,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.1,
+          "base_predicted_total_goals": 2.119,
           "base_1x2": "1"
         },
         "main_factors": [
@@ -2524,23 +2524,23 @@
       "team_b_label": "Team B / Listed second",
       "venue": "CAN_VAN",
       "neutral": true,
-      "expected_goals_team_a": 1.385,
-      "expected_goals_team_b": 1.895,
-      "team_a_win_probability": 0.2299,
-      "draw_probability": 0.2744,
-      "team_b_win_probability": 0.4957,
+      "expected_goals_team_a": 1.388,
+      "expected_goals_team_b": 1.909,
+      "team_a_win_probability": 0.2167,
+      "draw_probability": 0.2705,
+      "team_b_win_probability": 0.5129,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1247
+          "probability": 0.1238
         },
         {
           "scoreline": "1-2",
-          "probability": 0.0957
+          "probability": 0.0961
         },
         {
           "scoreline": "0-2",
-          "probability": 0.0785
+          "probability": 0.0793
         },
         {
           "scoreline": "0-1",
@@ -2548,7 +2548,7 @@
         },
         {
           "scoreline": "2-1",
-          "probability": 0.0673
+          "probability": 0.0663
         }
       ],
       "data_quality": {
@@ -2557,17 +2557,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.19,
-        "team_b_attack_strength": 1.1006,
-        "team_a_defense_strength": 1.019,
-        "team_b_defense_strength": 0.6885,
+        "team_a_attack_strength": 1.1916,
+        "team_b_attack_strength": 1.1032,
+        "team_a_defense_strength": 1.0239,
+        "team_b_defense_strength": 0.6894,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.852,
+          "base_predicted_total_goals": 2.867,
           "base_1x2": "2"
         },
         "main_factors": [
@@ -2588,31 +2588,31 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_DAL",
       "neutral": true,
-      "expected_goals_team_a": 2.27,
-      "expected_goals_team_b": 1.41,
-      "team_a_win_probability": 0.6106,
-      "draw_probability": 0.2365,
-      "team_b_win_probability": 0.1529,
+      "expected_goals_team_a": 2.271,
+      "expected_goals_team_b": 1.407,
+      "team_a_win_probability": 0.6204,
+      "draw_probability": 0.2334,
+      "team_b_win_probability": 0.1462,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1067
+          "probability": 0.1065
         },
         {
           "scoreline": "2-1",
-          "probability": 0.0981
+          "probability": 0.0982
         },
         {
           "scoreline": "2-0",
-          "probability": 0.0829
+          "probability": 0.0837
         },
         {
           "scoreline": "3-1",
-          "probability": 0.0679
+          "probability": 0.0682
         },
         {
           "scoreline": "1-0",
-          "probability": 0.0676
+          "probability": 0.068
         }
       ],
       "data_quality": {
@@ -2622,16 +2622,16 @@
       },
       "explanation": {
         "team_a_attack_strength": 1.2916,
-        "team_b_attack_strength": 1.2202,
-        "team_a_defense_strength": 0.6836,
-        "team_b_defense_strength": 1.04,
+        "team_b_attack_strength": 1.2188,
+        "team_a_defense_strength": 0.683,
+        "team_b_defense_strength": 1.0404,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 3.2,
+          "base_predicted_total_goals": 3.198,
           "base_1x2": "1"
         },
         "main_factors": [
@@ -2652,23 +2652,23 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_PHI",
       "neutral": true,
-      "expected_goals_team_a": 1.342,
-      "expected_goals_team_b": 1.551,
-      "team_a_win_probability": 0.5624,
-      "draw_probability": 0.2595,
-      "team_b_win_probability": 0.1781,
+      "expected_goals_team_a": 1.348,
+      "expected_goals_team_b": 1.547,
+      "team_a_win_probability": 0.5664,
+      "draw_probability": 0.2577,
+      "team_b_win_probability": 0.1759,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1377
+          "probability": 0.1375
         },
         {
           "scoreline": "2-1",
-          "probability": 0.0873
+          "probability": 0.0876
         },
         {
           "scoreline": "0-0",
-          "probability": 0.0826
+          "probability": 0.0822
         },
         {
           "scoreline": "1-0",
@@ -2676,7 +2676,7 @@
         },
         {
           "scoreline": "1-2",
-          "probability": 0.0777
+          "probability": 0.0774
         }
       ],
       "data_quality": {
@@ -2685,17 +2685,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.2489,
-        "team_b_attack_strength": 1.0435,
-        "team_a_defense_strength": 0.8796,
-        "team_b_defense_strength": 0.6358,
+        "team_a_attack_strength": 1.2498,
+        "team_b_attack_strength": 1.0419,
+        "team_a_defense_strength": 0.8787,
+        "team_b_defense_strength": 0.638,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.516,
+          "base_predicted_total_goals": 2.517,
           "base_1x2": "2"
         },
         "main_factors": [
@@ -2716,31 +2716,31 @@
       "team_b_label": "Team B / Listed second",
       "venue": "CAN_TOR",
       "neutral": true,
-      "expected_goals_team_a": 1.144,
-      "expected_goals_team_b": 1.755,
-      "team_a_win_probability": 0.3207,
-      "draw_probability": 0.2985,
-      "team_b_win_probability": 0.3808,
+      "expected_goals_team_a": 1.149,
+      "expected_goals_team_b": 1.757,
+      "team_a_win_probability": 0.3371,
+      "draw_probability": 0.2989,
+      "team_b_win_probability": 0.364,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1363
+          "probability": 0.1366
         },
         {
           "scoreline": "1-2",
-          "probability": 0.093
+          "probability": 0.0925
         },
         {
           "scoreline": "0-1",
-          "probability": 0.0922
+          "probability": 0.0909
         },
         {
           "scoreline": "0-0",
-          "probability": 0.0856
+          "probability": 0.0853
         },
         {
           "scoreline": "0-2",
-          "probability": 0.0831
+          "probability": 0.0816
         }
       ],
       "data_quality": {
@@ -2749,17 +2749,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.0561,
-        "team_b_attack_strength": 0.9403,
-        "team_a_defense_strength": 1.1045,
-        "team_b_defense_strength": 0.641,
+        "team_a_attack_strength": 1.0573,
+        "team_b_attack_strength": 0.9409,
+        "team_a_defense_strength": 1.1047,
+        "team_b_defense_strength": 0.6432,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.521,
+          "base_predicted_total_goals": 2.527,
           "base_1x2": "2"
         },
         "main_factors": [
@@ -2781,30 +2781,30 @@
       "venue": "USA_SF",
       "neutral": true,
       "expected_goals_team_a": 0.995,
-      "expected_goals_team_b": 1.351,
-      "team_a_win_probability": 0.1962,
-      "draw_probability": 0.2955,
-      "team_b_win_probability": 0.5084,
+      "expected_goals_team_b": 1.354,
+      "team_a_win_probability": 0.187,
+      "draw_probability": 0.2923,
+      "team_b_win_probability": 0.5206,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1452
+          "probability": 0.1447
         },
         {
           "scoreline": "0-1",
-          "probability": 0.1262
+          "probability": 0.1271
         },
         {
           "scoreline": "0-0",
-          "probability": 0.1237
+          "probability": 0.1234
         },
         {
           "scoreline": "0-2",
-          "probability": 0.0955
+          "probability": 0.0967
         },
         {
           "scoreline": "1-2",
-          "probability": 0.0859
+          "probability": 0.0862
         }
       ],
       "data_quality": {
@@ -2813,9 +2813,9 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 0.8681,
-        "team_b_attack_strength": 1.0493,
-        "team_a_defense_strength": 0.7617,
+        "team_a_attack_strength": 0.8677,
+        "team_b_attack_strength": 1.0498,
+        "team_a_defense_strength": 0.7629,
         "team_b_defense_strength": 0.6782,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
@@ -2823,7 +2823,7 @@
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.04,
+          "base_predicted_total_goals": 2.042,
           "base_1x2": "2"
         },
         "main_factors": [
@@ -2844,31 +2844,31 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_HOU",
       "neutral": true,
-      "expected_goals_team_a": 1.544,
-      "expected_goals_team_b": 1.515,
+      "expected_goals_team_a": 1.537,
+      "expected_goals_team_b": 1.508,
       "team_a_win_probability": 0.525,
-      "draw_probability": 0.2733,
-      "team_b_win_probability": 0.2017,
+      "draw_probability": 0.2736,
+      "team_b_win_probability": 0.2014,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1342
+          "probability": 0.1346
         },
         {
           "scoreline": "2-1",
-          "probability": 0.0902
+          "probability": 0.0901
         },
         {
           "scoreline": "1-0",
-          "probability": 0.0785
+          "probability": 0.0791
         },
         {
           "scoreline": "0-0",
-          "probability": 0.0773
+          "probability": 0.078
         },
         {
           "scoreline": "1-2",
-          "probability": 0.0751
+          "probability": 0.075
         }
       ],
       "data_quality": {
@@ -2877,17 +2877,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.2006,
-        "team_b_attack_strength": 1.1769,
-        "team_a_defense_strength": 0.7616,
-        "team_b_defense_strength": 0.761,
+        "team_a_attack_strength": 1.1988,
+        "team_b_attack_strength": 1.1736,
+        "team_a_defense_strength": 0.7605,
+        "team_b_defense_strength": 0.7588,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.66,
+          "base_predicted_total_goals": 2.649,
           "base_1x2": "1"
         },
         "main_factors": [
@@ -2908,19 +2908,19 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_BOS",
       "neutral": true,
-      "expected_goals_team_a": 1.782,
-      "expected_goals_team_b": 1.172,
-      "team_a_win_probability": 0.6597,
-      "draw_probability": 0.2234,
-      "team_b_win_probability": 0.1169,
+      "expected_goals_team_a": 1.778,
+      "expected_goals_team_b": 1.169,
+      "team_a_win_probability": 0.6596,
+      "draw_probability": 0.2236,
+      "team_b_win_probability": 0.1168,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1243
+          "probability": 0.1245
         },
         {
           "scoreline": "2-0",
-          "probability": 0.1001
+          "probability": 0.1003
         },
         {
           "scoreline": "2-1",
@@ -2928,11 +2928,11 @@
         },
         {
           "scoreline": "1-0",
-          "probability": 0.0975
+          "probability": 0.0979
         },
         {
           "scoreline": "0-0",
-          "probability": 0.0767
+          "probability": 0.0771
         }
       ],
       "data_quality": {
@@ -2941,17 +2941,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.4875,
-        "team_b_attack_strength": 1.0662,
-        "team_a_defense_strength": 0.6505,
-        "team_b_defense_strength": 0.7088,
+        "team_a_attack_strength": 1.4861,
+        "team_b_attack_strength": 1.0646,
+        "team_a_defense_strength": 0.6499,
+        "team_b_defense_strength": 0.7077,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.569,
+          "base_predicted_total_goals": 2.563,
           "base_1x2": "1"
         },
         "main_factors": [
@@ -2972,31 +2972,31 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_BOS",
       "neutral": true,
-      "expected_goals_team_a": 1.001,
-      "expected_goals_team_b": 2.073,
+      "expected_goals_team_a": 0.997,
+      "expected_goals_team_b": 2.064,
       "team_a_win_probability": 0.1498,
-      "draw_probability": 0.2525,
-      "team_b_win_probability": 0.5977,
+      "draw_probability": 0.2529,
+      "team_b_win_probability": 0.5972,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1176
+          "probability": 0.118
         },
         {
           "scoreline": "0-2",
-          "probability": 0.1103
+          "probability": 0.1106
         },
         {
           "scoreline": "0-1",
-          "probability": 0.1026
+          "probability": 0.1034
         },
         {
           "scoreline": "1-2",
-          "probability": 0.0988
+          "probability": 0.0987
         },
         {
           "scoreline": "0-0",
-          "probability": 0.0747
+          "probability": 0.0754
         }
       ],
       "data_quality": {
@@ -3005,17 +3005,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 0.8556,
-        "team_b_attack_strength": 1.1826,
-        "team_a_defense_strength": 1.0371,
-        "team_b_defense_strength": 0.6924,
+        "team_a_attack_strength": 0.854,
+        "team_b_attack_strength": 1.1797,
+        "team_a_defense_strength": 1.0351,
+        "team_b_defense_strength": 0.6907,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.673,
+          "base_predicted_total_goals": 2.661,
           "base_1x2": "2"
         },
         "main_factors": [
@@ -3036,31 +3036,31 @@
       "team_b_label": "Team B / Listed second",
       "venue": "MEX_GDL",
       "neutral": true,
-      "expected_goals_team_a": 1.21,
-      "expected_goals_team_b": 1.341,
-      "team_a_win_probability": 0.5544,
-      "draw_probability": 0.2732,
-      "team_b_win_probability": 0.1724,
+      "expected_goals_team_a": 1.206,
+      "expected_goals_team_b": 1.336,
+      "team_a_win_probability": 0.5545,
+      "draw_probability": 0.2734,
+      "team_b_win_probability": 0.1721,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1462
+          "probability": 0.1464
         },
         {
           "scoreline": "0-0",
-          "probability": 0.1057
+          "probability": 0.1064
         },
         {
           "scoreline": "1-0",
-          "probability": 0.0994
+          "probability": 0.0999
         },
         {
           "scoreline": "2-1",
-          "probability": 0.0845
+          "probability": 0.0844
         },
         {
           "scoreline": "0-1",
-          "probability": 0.0822
+          "probability": 0.0825
         }
       ],
       "data_quality": {
@@ -3069,17 +3069,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 0.8796,
-        "team_b_attack_strength": 1.011,
-        "team_a_defense_strength": 0.7848,
-        "team_b_defense_strength": 0.8139,
+        "team_a_attack_strength": 0.8782,
+        "team_b_attack_strength": 1.009,
+        "team_a_defense_strength": 0.7836,
+        "team_b_defense_strength": 0.8124,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.218,
+          "base_predicted_total_goals": 2.21,
           "base_1x2": "2"
         },
         "main_factors": [
@@ -3455,7 +3455,7 @@
       "explanation": {
         "team_a_attack_strength": 0.919,
         "team_b_attack_strength": 1.2098,
-        "team_a_defense_strength": 0.6452,
+        "team_a_defense_strength": 0.6451,
         "team_b_defense_strength": 0.6177,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
@@ -3517,8 +3517,8 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.1183,
-        "team_b_attack_strength": 1.1135,
+        "team_a_attack_strength": 1.1182,
+        "team_b_attack_strength": 1.1134,
         "team_a_defense_strength": 1.0813,
         "team_b_defense_strength": 0.6783,
         "model_version": "core_v2",
@@ -3549,7 +3549,7 @@
       "venue": "USA_NY",
       "neutral": true,
       "expected_goals_team_a": 1.099,
-      "expected_goals_team_b": 2.69,
+      "expected_goals_team_b": 2.689,
       "team_a_win_probability": 0.1689,
       "draw_probability": 0.2406,
       "team_b_win_probability": 0.5905,
@@ -3584,7 +3584,7 @@
         "team_a_attack_strength": 0.8227,
         "team_b_attack_strength": 1.5341,
         "team_a_defense_strength": 1.0373,
-        "team_b_defense_strength": 0.7905,
+        "team_b_defense_strength": 0.7904,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
@@ -3679,7 +3679,7 @@
       "expected_goals_team_a": 1.374,
       "expected_goals_team_b": 1.687,
       "team_a_win_probability": 0.1563,
-      "draw_probability": 0.253,
+      "draw_probability": 0.2531,
       "team_b_win_probability": 0.5907,
       "top_5_scorelines": [
         {
@@ -3869,10 +3869,10 @@
       "venue": "USA_BOS",
       "neutral": true,
       "expected_goals_team_a": 1.57,
-      "expected_goals_team_b": 2.331,
-      "team_a_win_probability": 0.1962,
-      "draw_probability": 0.2477,
-      "team_b_win_probability": 0.5561,
+      "expected_goals_team_b": 2.333,
+      "team_a_win_probability": 0.1999,
+      "draw_probability": 0.2489,
+      "team_b_win_probability": 0.5513,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
@@ -3880,19 +3880,19 @@
         },
         {
           "scoreline": "1-2",
-          "probability": 0.095
+          "probability": 0.0949
         },
         {
           "scoreline": "0-2",
-          "probability": 0.071
+          "probability": 0.0708
         },
         {
           "scoreline": "1-3",
-          "probability": 0.0662
+          "probability": 0.0661
         },
         {
           "scoreline": "2-2",
-          "probability": 0.0635
+          "probability": 0.0636
         }
       ],
       "data_quality": {
@@ -3901,17 +3901,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.0561,
-        "team_b_attack_strength": 1.2489,
-        "team_a_defense_strength": 1.1045,
-        "team_b_defense_strength": 0.8796,
+        "team_a_attack_strength": 1.0573,
+        "team_b_attack_strength": 1.2498,
+        "team_a_defense_strength": 1.1047,
+        "team_b_defense_strength": 0.8787,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 3.393,
+          "base_predicted_total_goals": 3.394,
           "base_1x2": "2"
         },
         "main_factors": [
@@ -3932,11 +3932,11 @@
       "team_b_label": "Team B / Listed second",
       "venue": "CAN_TOR",
       "neutral": true,
-      "expected_goals_team_a": 1.01,
-      "expected_goals_team_b": 1.131,
-      "team_a_win_probability": 0.4433,
-      "draw_probability": 0.3148,
-      "team_b_win_probability": 0.2419,
+      "expected_goals_team_a": 1.015,
+      "expected_goals_team_b": 1.133,
+      "team_a_win_probability": 0.4378,
+      "draw_probability": 0.3155,
+      "team_b_win_probability": 0.2467,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
@@ -3944,11 +3944,11 @@
         },
         {
           "scoreline": "0-0",
-          "probability": 0.1428
+          "probability": 0.1422
         },
         {
           "scoreline": "1-0",
-          "probability": 0.1163
+          "probability": 0.1156
         },
         {
           "scoreline": "0-1",
@@ -3956,7 +3956,7 @@
         },
         {
           "scoreline": "2-1",
-          "probability": 0.0722
+          "probability": 0.0721
         }
       ],
       "data_quality": {
@@ -3965,17 +3965,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 0.9403,
-        "team_b_attack_strength": 1.0435,
-        "team_a_defense_strength": 0.641,
-        "team_b_defense_strength": 0.6358,
+        "team_a_attack_strength": 0.9409,
+        "team_b_attack_strength": 1.0419,
+        "team_a_defense_strength": 0.6432,
+        "team_b_defense_strength": 0.638,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "0-0",
-          "base_predicted_total_goals": 1.862,
+          "base_predicted_total_goals": 1.867,
           "base_1x2": "X"
         },
         "main_factors": [
@@ -3996,31 +3996,31 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_HOU",
       "neutral": true,
-      "expected_goals_team_a": 0.892,
-      "expected_goals_team_b": 1.341,
-      "team_a_win_probability": 0.2504,
-      "draw_probability": 0.313,
-      "team_b_win_probability": 0.4366,
+      "expected_goals_team_a": 0.904,
+      "expected_goals_team_b": 1.351,
+      "team_a_win_probability": 0.2576,
+      "draw_probability": 0.3134,
+      "team_b_win_probability": 0.429,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1467
+          "probability": 0.1469
         },
         {
           "scoreline": "0-0",
-          "probability": 0.1335
+          "probability": 0.1316
         },
         {
           "scoreline": "0-1",
-          "probability": 0.1321
+          "probability": 0.13
         },
         {
           "scoreline": "0-2",
-          "probability": 0.0951
+          "probability": 0.094
         },
         {
           "scoreline": "1-0",
-          "probability": 0.0848
+          "probability": 0.0846
         }
       ],
       "data_quality": {
@@ -4029,17 +4029,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 0.7407,
+        "team_a_attack_strength": 0.7465,
         "team_b_attack_strength": 1.0431,
-        "team_a_defense_strength": 0.7608,
-        "team_b_defense_strength": 0.7125,
+        "team_a_defense_strength": 0.7666,
+        "team_b_defense_strength": 0.7162,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "0-0",
-          "base_predicted_total_goals": 1.942,
+          "base_predicted_total_goals": 1.961,
           "base_1x2": "2"
         },
         "main_factors": [
@@ -4060,31 +4060,31 @@
       "team_b_label": "Team B / Listed second",
       "venue": "MEX_GDL",
       "neutral": true,
-      "expected_goals_team_a": 1.107,
-      "expected_goals_team_b": 1.937,
-      "team_a_win_probability": 0.1507,
-      "draw_probability": 0.2539,
-      "team_b_win_probability": 0.5954,
+      "expected_goals_team_a": 1.108,
+      "expected_goals_team_b": 1.945,
+      "team_a_win_probability": 0.1457,
+      "draw_probability": 0.2511,
+      "team_b_win_probability": 0.6032,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1231
+          "probability": 0.1225
         },
         {
           "scoreline": "0-2",
-          "probability": 0.1026
+          "probability": 0.1031
         },
         {
           "scoreline": "0-1",
-          "probability": 0.0992
+          "probability": 0.0991
         },
         {
           "scoreline": "1-2",
-          "probability": 0.0986
+          "probability": 0.0987
         },
         {
           "scoreline": "0-0",
-          "probability": 0.0768
+          "probability": 0.0762
         }
       ],
       "data_quality": {
@@ -4093,9 +4093,9 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.0746,
-        "team_b_attack_strength": 1.3886,
-        "team_a_defense_strength": 0.8254,
+        "team_a_attack_strength": 1.076,
+        "team_b_attack_strength": 1.3921,
+        "team_a_defense_strength": 0.8267,
         "team_b_defense_strength": 0.6094,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
@@ -4103,7 +4103,7 @@
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.647,
+          "base_predicted_total_goals": 2.655,
           "base_1x2": "2"
         },
         "main_factors": [
@@ -4124,31 +4124,31 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_SEA",
       "neutral": true,
-      "expected_goals_team_a": 1.0,
-      "expected_goals_team_b": 1.492,
-      "team_a_win_probability": 0.2378,
-      "draw_probability": 0.3013,
-      "team_b_win_probability": 0.4609,
+      "expected_goals_team_a": 1.002,
+      "expected_goals_team_b": 1.494,
+      "team_a_win_probability": 0.2436,
+      "draw_probability": 0.3023,
+      "team_b_win_probability": 0.4541,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1431
+          "probability": 0.1433
         },
         {
           "scoreline": "0-1",
-          "probability": 0.1178
+          "probability": 0.1171
         },
         {
           "scoreline": "0-0",
-          "probability": 0.1121
+          "probability": 0.1118
         },
         {
           "scoreline": "0-2",
-          "probability": 0.0943
+          "probability": 0.0936
         },
         {
           "scoreline": "1-2",
-          "probability": 0.0889
+          "probability": 0.0888
         }
       ],
       "data_quality": {
@@ -4157,9 +4157,9 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.1006,
+        "team_a_attack_strength": 1.1032,
         "team_b_attack_strength": 1.2822,
-        "team_a_defense_strength": 0.6885,
+        "team_a_defense_strength": 0.6894,
         "team_b_defense_strength": 0.5375,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
@@ -4167,7 +4167,7 @@
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.167,
+          "base_predicted_total_goals": 2.171,
           "base_1x2": "2"
         },
         "main_factors": [
@@ -4188,31 +4188,31 @@
       "team_b_label": "Team B / Listed second",
       "venue": "CAN_VAN",
       "neutral": true,
-      "expected_goals_team_a": 2.066,
-      "expected_goals_team_b": 2.126,
-      "team_a_win_probability": 0.2006,
-      "draw_probability": 0.2399,
-      "team_b_win_probability": 0.5595,
+      "expected_goals_team_a": 2.069,
+      "expected_goals_team_b": 2.136,
+      "team_a_win_probability": 0.1987,
+      "draw_probability": 0.2383,
+      "team_b_win_probability": 0.563,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.0966
+          "probability": 0.0959
         },
         {
           "scoreline": "1-2",
-          "probability": 0.0852
-        },
-        {
-          "scoreline": "2-1",
-          "probability": 0.0714
+          "probability": 0.0851
         },
         {
           "scoreline": "2-2",
           "probability": 0.0712
         },
         {
+          "scoreline": "2-1",
+          "probability": 0.071
+        },
+        {
           "scoreline": "1-3",
-          "probability": 0.0566
+          "probability": 0.0569
         }
       ],
       "data_quality": {
@@ -4221,9 +4221,9 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.19,
-        "team_b_attack_strength": 1.2344,
-        "team_a_defense_strength": 1.019,
+        "team_a_attack_strength": 1.1916,
+        "team_b_attack_strength": 1.2343,
+        "team_a_defense_strength": 1.0239,
         "team_b_defense_strength": 1.0274,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
@@ -4231,7 +4231,7 @@
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 3.645,
+          "base_predicted_total_goals": 3.657,
           "base_1x2": "2"
         },
         "main_factors": [
@@ -4252,15 +4252,15 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_NY",
       "neutral": true,
-      "expected_goals_team_a": 0.941,
-      "expected_goals_team_b": 2.607,
+      "expected_goals_team_a": 0.938,
+      "expected_goals_team_b": 2.6,
       "team_a_win_probability": 0.0853,
-      "draw_probability": 0.1963,
-      "team_b_win_probability": 0.7184,
+      "draw_probability": 0.1965,
+      "team_b_win_probability": 0.7181,
       "top_5_scorelines": [
         {
           "scoreline": "0-2",
-          "probability": 0.1178
+          "probability": 0.1181
         },
         {
           "scoreline": "1-2",
@@ -4268,15 +4268,15 @@
         },
         {
           "scoreline": "0-3",
-          "probability": 0.0927
+          "probability": 0.0928
         },
         {
           "scoreline": "1-1",
-          "probability": 0.0908
+          "probability": 0.091
         },
         {
           "scoreline": "0-1",
-          "probability": 0.0892
+          "probability": 0.0897
         }
       ],
       "data_quality": {
@@ -4285,17 +4285,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 0.8556,
-        "team_b_attack_strength": 1.4875,
-        "team_a_defense_strength": 1.0371,
-        "team_b_defense_strength": 0.6505,
+        "team_a_attack_strength": 0.854,
+        "team_b_attack_strength": 1.4861,
+        "team_a_defense_strength": 1.0351,
+        "team_b_defense_strength": 0.6499,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "0-2",
-          "base_predicted_total_goals": 3.085,
+          "base_predicted_total_goals": 3.076,
           "base_1x2": "2"
         },
         "main_factors": [
@@ -4316,31 +4316,31 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_PHI",
       "neutral": true,
-      "expected_goals_team_a": 1.417,
-      "expected_goals_team_b": 1.248,
+      "expected_goals_team_a": 1.411,
+      "expected_goals_team_b": 1.243,
       "team_a_win_probability": 0.58,
-      "draw_probability": 0.2644,
-      "team_b_win_probability": 0.1556,
+      "draw_probability": 0.2647,
+      "team_b_win_probability": 0.1554,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.141
+          "probability": 0.1413
         },
         {
           "scoreline": "1-0",
-          "probability": 0.1036
+          "probability": 0.1042
         },
         {
           "scoreline": "0-0",
-          "probability": 0.0985
+          "probability": 0.0992
         },
         {
           "scoreline": "2-1",
-          "probability": 0.0909
+          "probability": 0.0907
         },
         {
           "scoreline": "2-0",
-          "probability": 0.0872
+          "probability": 0.0874
         }
       ],
       "data_quality": {
@@ -4349,17 +4349,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.1826,
-        "team_b_attack_strength": 1.0662,
-        "team_a_defense_strength": 0.6924,
-        "team_b_defense_strength": 0.7088,
+        "team_a_attack_strength": 1.1797,
+        "team_b_attack_strength": 1.0646,
+        "team_a_defense_strength": 0.6907,
+        "team_b_defense_strength": 0.7077,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.317,
+          "base_predicted_total_goals": 2.308,
           "base_1x2": "1"
         },
         "main_factors": [
@@ -4380,31 +4380,31 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_MIA",
       "neutral": true,
-      "expected_goals_team_a": 1.132,
-      "expected_goals_team_b": 1.592,
+      "expected_goals_team_a": 1.129,
+      "expected_goals_team_b": 1.588,
       "team_a_win_probability": 0.3039,
-      "draw_probability": 0.3029,
-      "team_b_win_probability": 0.3932,
+      "draw_probability": 0.3031,
+      "team_b_win_probability": 0.3929,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1414
+          "probability": 0.1416
         },
         {
           "scoreline": "0-1",
-          "probability": 0.0987
+          "probability": 0.0991
         },
         {
           "scoreline": "0-0",
-          "probability": 0.0962
+          "probability": 0.0968
         },
         {
           "scoreline": "1-2",
-          "probability": 0.09
+          "probability": 0.0899
         },
         {
           "scoreline": "0-2",
-          "probability": 0.0826
+          "probability": 0.0828
         }
       ],
       "data_quality": {
@@ -4413,17 +4413,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 0.8796,
-        "team_b_attack_strength": 1.2006,
-        "team_a_defense_strength": 0.7848,
-        "team_b_defense_strength": 0.7616,
+        "team_a_attack_strength": 0.8782,
+        "team_b_attack_strength": 1.1988,
+        "team_a_defense_strength": 0.7836,
+        "team_b_defense_strength": 0.7605,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.369,
+          "base_predicted_total_goals": 2.362,
           "base_1x2": "2"
         },
         "main_factors": [
@@ -4444,31 +4444,31 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_ATL",
       "neutral": true,
-      "expected_goals_team_a": 1.3,
-      "expected_goals_team_b": 1.619,
-      "team_a_win_probability": 0.2623,
-      "draw_probability": 0.2918,
-      "team_b_win_probability": 0.4459,
+      "expected_goals_team_a": 1.294,
+      "expected_goals_team_b": 1.611,
+      "team_a_win_probability": 0.2622,
+      "draw_probability": 0.2922,
+      "team_b_win_probability": 0.4456,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1372
+          "probability": 0.1375
         },
         {
           "scoreline": "1-2",
-          "probability": 0.0912
+          "probability": 0.0911
         },
         {
           "scoreline": "0-1",
-          "probability": 0.0877
+          "probability": 0.0884
         },
         {
           "scoreline": "0-0",
-          "probability": 0.0847
+          "probability": 0.0854
         },
         {
           "scoreline": "0-2",
-          "probability": 0.0778
+          "probability": 0.078
         }
       ],
       "data_quality": {
@@ -4477,17 +4477,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.011,
-        "team_b_attack_strength": 1.1769,
-        "team_a_defense_strength": 0.8139,
-        "team_b_defense_strength": 0.761,
+        "team_a_attack_strength": 1.009,
+        "team_b_attack_strength": 1.1736,
+        "team_a_defense_strength": 0.8124,
+        "team_b_defense_strength": 0.7588,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.538,
+          "base_predicted_total_goals": 2.526,
           "base_1x2": "2"
         },
         "main_factors": [
@@ -4508,31 +4508,31 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_KC",
       "neutral": true,
-      "expected_goals_team_a": 1.844,
-      "expected_goals_team_b": 1.399,
-      "team_a_win_probability": 0.3791,
-      "draw_probability": 0.289,
-      "team_b_win_probability": 0.3319,
+      "expected_goals_team_a": 1.846,
+      "expected_goals_team_b": 1.397,
+      "team_a_win_probability": 0.3895,
+      "draw_probability": 0.2885,
+      "team_b_win_probability": 0.3219,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1283
+          "probability": 0.1281
         },
         {
           "scoreline": "2-1",
-          "probability": 0.0919
+          "probability": 0.0922
         },
         {
           "scoreline": "1-2",
-          "probability": 0.0742
+          "probability": 0.0736
         },
         {
           "scoreline": "1-0",
-          "probability": 0.0722
+          "probability": 0.0726
         },
         {
           "scoreline": "2-0",
-          "probability": 0.0703
+          "probability": 0.0711
         }
       ],
       "data_quality": {
@@ -4541,10 +4541,10 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 1.0493,
-        "team_b_attack_strength": 1.2202,
+        "team_a_attack_strength": 1.0498,
+        "team_b_attack_strength": 1.2188,
         "team_a_defense_strength": 0.6782,
-        "team_b_defense_strength": 1.04,
+        "team_b_defense_strength": 1.0404,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
@@ -4572,31 +4572,31 @@
       "team_b_label": "Team B / Listed second",
       "venue": "USA_DAL",
       "neutral": true,
-      "expected_goals_team_a": 1.003,
-      "expected_goals_team_b": 1.663,
-      "team_a_win_probability": 0.1047,
-      "draw_probability": 0.2219,
-      "team_b_win_probability": 0.6735,
+      "expected_goals_team_a": 1.002,
+      "expected_goals_team_b": 1.665,
+      "team_a_win_probability": 0.1028,
+      "draw_probability": 0.219,
+      "team_b_win_probability": 0.6782,
       "top_5_scorelines": [
         {
           "scoreline": "1-1",
-          "probability": 0.1272
+          "probability": 0.1267
         },
         {
           "scoreline": "0-1",
-          "probability": 0.1173
+          "probability": 0.117
         },
         {
           "scoreline": "0-2",
-          "probability": 0.1126
+          "probability": 0.1129
         },
         {
           "scoreline": "1-2",
-          "probability": 0.0961
+          "probability": 0.0963
         },
         {
           "scoreline": "0-0",
-          "probability": 0.0919
+          "probability": 0.0912
         }
       ],
       "data_quality": {
@@ -4605,17 +4605,17 @@
         "warnings": []
       },
       "explanation": {
-        "team_a_attack_strength": 0.8681,
+        "team_a_attack_strength": 0.8677,
         "team_b_attack_strength": 1.2916,
-        "team_a_defense_strength": 0.7617,
-        "team_b_defense_strength": 0.6836,
+        "team_a_defense_strength": 0.7629,
+        "team_b_defense_strength": 0.683,
         "model_version": "core_v2",
         "scoreline_engine": "ensemble",
         "outcome_engine": "hybrid_elo_poisson",
         "goal_volume_policy": "lambda_1.15",
         "legacy_base_comparison": {
           "base_top_prediction": "1-1",
-          "base_predicted_total_goals": 2.318,
+          "base_predicted_total_goals": 2.319,
           "base_1x2": "2"
         },
         "main_factors": [
